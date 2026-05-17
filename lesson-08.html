@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Book Sweep & Book Flip | Trading Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--teal:#00bcd4;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--green);font-size:14px;font-weight:600}
+.lesson-badge{background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.3);color:var(--green);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#061408,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--teal)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.key-point{background:var(--card);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.2)}
+.highlight-blue{background:rgba(68,138,255,0.07);border:1px solid rgba(68,138,255,0.2)}
+.highlight-yellow{background:rgba(255,215,64,0.07);border:1px solid rgba(255,215,64,0.2)}
+.highlight-red{background:rgba(255,23,68,0.07);border:1px solid rgba(255,23,68,0.2)}
+.highlight-teal{background:rgba(0,188,212,0.07);border:1px solid rgba(0,188,212,0.2)}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-red h4{color:var(--red)}
+.highlight-teal h4{color:var(--teal)}
+.pattern-card{background:var(--card);border-radius:12px;padding:28px;margin:28px 0;border:2px solid}
+.pattern-card.sweep{border-color:rgba(0,188,212,0.4)}
+.pattern-card.flip{border-color:rgba(68,138,255,0.4)}
+.pattern-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.pattern-badge{padding:6px 14px;border-radius:6px;font-weight:800;font-size:14px}
+.pattern-badge.sweep{background:rgba(0,188,212,0.1);border:2px solid var(--teal);color:var(--teal)}
+.pattern-badge.flip{background:rgba(68,138,255,0.1);border:2px solid var(--blue);color:var(--blue)}
+.pattern-header h3{font-size:1.2rem;font-weight:700;margin:0}
+.price-diagram{background:var(--card2);border-radius:10px;padding:20px;margin:20px 0;position:relative}
+.price-diagram h5{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px}
+.chart-area{position:relative;height:200px;border-left:1px solid var(--border);border-bottom:1px solid var(--border)}
+.price-label{position:absolute;left:-70px;font-size:11px;color:var(--dim);transform:translateY(50%)}
+.h-line{position:absolute;left:0;right:0;border-top:1px dashed}
+.price-path{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.sweep-path path{fill:none;stroke:var(--teal);stroke-width:2.5}
+.flip-path path{fill:none;stroke:var(--blue);stroke-width:2.5}
+.annotation{position:absolute;font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px}
+.ann-teal{background:rgba(0,188,212,0.15);border:1px solid rgba(0,188,212,0.4);color:var(--teal)}
+.ann-blue{background:rgba(68,138,255,0.15);border:1px solid rgba(68,138,255,0.4);color:var(--blue)}
+.ann-yellow{background:rgba(255,215,64,0.15);border:1px solid rgba(255,215,64,0.4);color:var(--yellow)}
+.ann-green{background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.4);color:var(--green)}
+.ann-red{background:rgba(255,23,68,0.15);border:1px solid rgba(255,23,68,0.4);color:var(--red)}
+.step-grid{display:grid;gap:12px;margin:16px 0}
+.step-item{display:flex;gap:14px;align-items:flex-start;padding:14px;background:var(--card2);border-radius:8px}
+.step-circle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0}
+.step-circle.teal{background:rgba(0,188,212,0.15);border:2px solid var(--teal);color:var(--teal)}
+.step-circle.blue{background:rgba(68,138,255,0.15);border:2px solid var(--blue);color:var(--blue)}
+.step-item h5{font-weight:700;font-size:14px;margin-bottom:3px}
+.step-item p{font-size:13px;color:var(--dim);margin:0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+.compare-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px}
+.compare-card h4{font-weight:700;margin-bottom:10px}
+.compare-card p{font-size:14px;color:var(--dim);margin:0}
+.compare-card.sweep h4{color:var(--teal)}
+.compare-card.flip h4{color:var(--blue)}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--teal)}
+.option.correct{background:rgba(0,230,118,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(255,23,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(0,188,212,0.05),rgba(68,138,255,0.05));border:1px solid rgba(0,188,212,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--teal);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--teal);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal)}
+.btn-primary{background:var(--green);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 8 of 12</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 3 · Lesson 8</div>
+  <h1>Book <span>Sweep</span> &amp;<br>Book Flip</h1>
+  <p>Two powerful order book patterns — one for catching fast moves at key levels, one for confirming trend continuation from within a trade.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 12 min</span>
+    <span class="tag">🟡 Intermediate</span>
+    <span class="tag">⚡ High Impact</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- BOOK SWEEP -->
+  <div class="pattern-card sweep">
+    <div class="pattern-header">
+      <div class="pattern-badge sweep">BOOK SWEEP</div>
+      <h3>The Fast Move at Key Levels</h3>
+    </div>
+
+    <p>A <strong>Book Sweep</strong> is a rapid, aggressive movement through multiple liquidity levels in quick succession. It's like watching price "sweep" through the order book — consuming multiple passive levels almost simultaneously.</p>
+    <p>Where does it appear? Most commonly at:</p>
+    <ul style="padding-left:24px;margin-bottom:16px">
+      <li style="margin-bottom:6px"><strong>All-time highs / all-time lows of the range</strong></li>
+      <li style="margin-bottom:6px"><strong>High/Low of the new year session</strong></li>
+      <li style="margin-bottom:6px"><strong>Opening range extremes</strong></li>
+      <li style="margin-bottom:6px"><strong>London session high/low</strong></li>
+    </ul>
+
+    <div class="key-point">
+      "The Book Sweep is when you have a fast movement — specifically you can find it really close to all-time highs/lows of the range, or if you are really close to the high of the new year session or the London session, the market approaches this level and you have a book sweeping." — Fabio
+    </div>
+
+    <h4 style="margin:20px 0 12px">Why It Appears at These Levels</h4>
+    <p>At major highs and lows, a large amount of stop-losses cluster together (retail traders place stops at obvious levels). When price approaches these areas, there is a "wall" of resting orders on the other side — a large pool of liquidity waiting.</p>
+    <p>When the market reaches that level with enough aggressive momentum, it rapidly sweeps through ALL the resting orders in rapid succession — a book sweep. This creates a fast, sharp candle.</p>
+
+    <div class="step-grid">
+      <div class="step-item">
+        <div class="step-circle teal">1</div>
+        <div><h5>Price Approaches Key Level</h5><p>Market moves toward session high/all-time high with building momentum. Large passive liquidity pool is resting just beyond the level.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle teal">2</div>
+        <div><h5>Book Sweep Triggers</h5><p>Aggressive orders hit the level and rapidly consume multiple passive levels in succession — creating a fast, sharp price move through the area.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle teal">3</div>
+        <div><h5>Your Opportunity</h5><p><strong>Asymmetrical risk/reward:</strong> Position yourself just inside the sweep zone. Risk only a few ticks (tight stop before the sweep), target the next major liquidity level. The sweep either confirms the breakout OR gives you an excellent fade entry.</p></div>
+      </div>
+    </div>
+
+    <div class="highlight-box highlight-teal">
+      <h4>Trading the Book Sweep</h4>
+      <p>Fabio's key insight: "If you are positioned, you can take an asymmetrical risk-to-reward. You can risk few ticks to get a really good risk-to-reward multiplier."<br><br>
+      Practical approach:<br>
+      • Watch for price approaching session/range extremes<br>
+      • When a sweep occurs, note where the next available liquidity is (your target)<br>
+      • Risk: just a few ticks (the sweep either holds or it doesn't quickly)<br>
+      • Reward: next major liquidity cluster (could be many multiples away)</p>
+    </div>
+  </div>
+
+  <!-- BOOK FLIP -->
+  <div class="pattern-card flip">
+    <div class="pattern-header">
+      <div class="pattern-badge flip">BOOK FLIP</div>
+      <h3>Confirming Continuation from Within a Trade</h3>
+    </div>
+
+    <p>The <strong>Book Flip</strong> is specifically useful when you're already in a trade. It answers the question: "Should I hold this position? Is the move continuing?"</p>
+    <p>A Book Flip occurs when price breaks through a significant passive liquidity level, and then you see the order book at that level <em>flip</em> — new passive orders appear on the other side, confirming the direction.</p>
+
+    <div class="key-point">
+      "The book flip is really convenient for scalpers because, let's say that you are on the short — you took a short. You see the breakthrough of this level of liquidity. So you have a continuation at least till here. And you see also the daily load — the level of liquidity. They are like going down, closing the door to go above and going down." — Fabio
+    </div>
+
+    <h4 style="margin:20px 0 12px">What "Closing the Door" Means</h4>
+    <p>When the book flips, it means that:</p>
+    <ul style="padding-left:24px;margin-bottom:16px">
+      <li style="margin-bottom:8px">Price breaks a key level (for short: breaks below support)</li>
+      <li style="margin-bottom:8px">Fresh sell orders now appear ABOVE the broken level (the book loaded on the sell side)</li>
+      <li style="margin-bottom:8px">This creates a "ceiling" — if price tries to return to that level, it will find new selling pressure</li>
+      <li style="margin-bottom:8px">The door is "closed" to going back above — the level flipped from support to resistance</li>
+    </ul>
+
+    <div class="step-grid">
+      <div class="step-item">
+        <div class="step-circle blue">1</div>
+        <div><h5>You're in a Short Trade</h5><p>Price is moving down. You're watching to see if the move continues or reverses.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle blue">2</div>
+        <div><h5>Price Breaks a Liquidity Level</h5><p>Price moves through a passive buy level below. The buyers at that level are consumed.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle blue">3</div>
+        <div><h5>Book Flip: New Sell Orders Load Above</h5><p>Fresh sell orders appear at the now-broken level. This is the "flip" — that level is now a sell zone, not a buy zone.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-circle blue">4</div>
+        <div><h5>Action: Trail Stop + Consider Adding</h5><p>You can trail your stop loss to just above the flip level (now resistance). You can also add more contracts because the book is confirming continuation downward.</p></div>
+      </div>
+    </div>
+
+    <div class="highlight-box highlight-blue">
+      <h4>The Book Flip Trading Rules</h4>
+      <p><strong>When in a short:</strong> See the break + book loads sell orders at the broken level → trail stop to just above the flip level → consider adding contracts<br><br>
+      <strong>When in a long:</strong> See the break + book loads buy orders at the broken level → trail stop to just below the flip level → potential to add contracts<br><br>
+      <strong>Why trail to the flip level?</strong> If price comes back to that level and the flip holds (new orders defend it), you're protected. If it fails (price breaks back through), the book flip signal was false and you exit quickly.</p>
+    </div>
+  </div>
+
+  <h2>Sweep vs Flip: Comparison</h2>
+  <div class="two-col">
+    <div class="compare-card sweep">
+      <h4>🌊 Book Sweep</h4>
+      <p><strong>When:</strong> At session/range extremes, all-time highs/lows<br><br>
+      <strong>Opportunity:</strong> Entry for new positions<br><br>
+      <strong>Best for:</strong> Catching fast asymmetric moves with tight stops<br><br>
+      <strong>Focus:</strong> Entry timing at key boundaries</p>
+    </div>
+    <div class="compare-card flip">
+      <h4>🔄 Book Flip</h4>
+      <p><strong>When:</strong> After a level breaks, while already in a trade<br><br>
+      <strong>Opportunity:</strong> Trade management (trail stop, add size)<br><br>
+      <strong>Best for:</strong> Confirming continuation after a breakout<br><br>
+      <strong>Focus:</strong> Holding and building existing positions</p>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 8</h3>
+    <ul>
+      <li>Book Sweep: rapid price movement consuming multiple passive levels quickly. Most common at session extremes and all-time highs/lows.</li>
+      <li>Book Sweep provides asymmetrical risk/reward — risk a few ticks, target the next major liquidity cluster.</li>
+      <li>Book Flip: after a level breaks, new orders load on the OPPOSITE side of that level, "closing the door."</li>
+      <li>Book Flip is a confirmation signal for EXISTING trades — it tells you the move is continuing.</li>
+      <li>After a Book Flip: trail your stop to just beyond the flip level. Consider adding contracts.</li>
+      <li>Sweep = entry tool. Flip = trade management tool. Both require prior direction bias from heat map + context tools.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Book Sweep and Book Flip</div>
+    <div class="question" id="q1">
+      <p>1. Where do Book Sweeps most commonly occur?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) In the middle of a trading range, during low volatility periods</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) Near all-time highs/lows, session highs/lows, and London session extremes — places with large concentrations of resting orders</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) Only on earnings announcement days</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) Always at exactly 9:30 AM market open</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Sweeps happen where large liquidity pools concentrate — session extremes, all-time highs/lows, London session markers. These areas have stop-loss clusters AND large resting orders just beyond them.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. You're in a short trade. Price breaks below a support level and you see fresh sell orders loading at that now-broken level. You should:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) Exit the trade immediately — if sellers are loading it means the market is about to reverse</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) This is a Book Flip — trail your stop to just above the flip level (now resistance) and consider adding contracts, as this confirms continuation lower</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) Do nothing and ignore the book flip</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) Take full profits immediately before the market reverses</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ A Book Flip confirming your short direction is a green light to hold and potentially add. Trail the stop to just above the new resistance (the flip level). The "door is closed" above — sellers are now defending that level.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. What is the main trading advantage of a Book Sweep near a session high?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Guaranteed profits because price always reverses after a sweep</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) Asymmetrical risk-to-reward: you risk only a few ticks (tight stop at the sweep level) while targeting a much larger move to the next liquidity cluster</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) It predicts the exact future price with 100% accuracy</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) It always signals a reversal — buy the sweep for a counter-trend trade</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ The Book Sweep gives asymmetric R:R — tight stop (few ticks), big target (next liquidity cluster). It either moves fast in your direction or fails quickly — perfect for risk management.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">3/3</div>
+      <p style="color:var(--dim);margin-top:8px">You understand Book Sweep and Book Flip!</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress</p></div>
+    <button class="btn btn-green" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-07.html">← Lesson 7</a>
+    <a class="btn btn-primary" href="lesson-09.html">Next: Buyers &amp; Sellers Reload →</a>
+  </div>
+
+</div>
+<script>
+let answers={},correct=0,total=3;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('lesson-8','done');
+  const btn=document.querySelector('.btn-green');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('lesson-8')==='done'){
+    const btn=document.querySelector('.btn-green');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

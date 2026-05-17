@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: The Grill, Stookie Grill & Cluster Wall | Trading Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--teal:#00bcd4;--orange:#ff6d00;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--yellow);font-size:14px;font-weight:600}
+.lesson-badge{background:rgba(255,215,64,0.1);border:1px solid rgba(255,215,64,0.3);color:var(--yellow);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#14100a,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--orange)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.key-point{background:var(--card);border-left:4px solid var(--orange);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.2)}
+.highlight-blue{background:rgba(68,138,255,0.07);border:1px solid rgba(68,138,255,0.2)}
+.highlight-yellow{background:rgba(255,215,64,0.07);border:1px solid rgba(255,215,64,0.2)}
+.highlight-red{background:rgba(255,23,68,0.07);border:1px solid rgba(255,23,68,0.2)}
+.highlight-orange{background:rgba(255,109,0,0.07);border:1px solid rgba(255,109,0,0.2)}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-red h4{color:var(--red)}
+.highlight-orange h4{color:var(--orange)}
+.pattern-card{background:var(--card);border-radius:12px;padding:28px;margin:28px 0;border:2px solid}
+.pattern-card.grill{border-color:rgba(255,109,0,0.4)}
+.pattern-card.stookie{border-color:rgba(255,215,64,0.4)}
+.pattern-card.cluster{border-color:rgba(68,138,255,0.4)}
+.pattern-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.pattern-badge{padding:6px 14px;border-radius:6px;font-weight:800;font-size:14px}
+.pattern-badge.grill{background:rgba(255,109,0,0.1);border:2px solid var(--orange);color:var(--orange)}
+.pattern-badge.stookie{background:rgba(255,215,64,0.1);border:2px solid var(--yellow);color:var(--yellow)}
+.pattern-badge.cluster{background:rgba(68,138,255,0.1);border:2px solid var(--blue);color:var(--blue)}
+.pattern-header h3{font-size:1.2rem;font-weight:700;margin:0}
+.grill-visual{background:#080e18;border-radius:10px;padding:20px;margin:20px 0}
+.grill-visual h5{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px;font-family:-apple-system,sans-serif}
+.grill-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.grill-price{width:56px;text-align:right;font-size:12px;font-weight:700;flex-shrink:0}
+.grill-track{flex:1;height:22px;background:#0d1a2a;border-radius:3px;overflow:hidden;position:relative}
+.grill-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:6px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.9)}
+.grill-fill.sell{background:rgba(255,23,68,0.6)}
+.grill-fill.sell-bright{background:#ff1744;box-shadow:0 0 8px rgba(255,23,68,0.4)}
+.grill-fill.sell-eaten{background:rgba(255,23,68,0.2);text-decoration:line-through}
+.grill-fill.buy{background:rgba(0,230,118,0.6)}
+.grill-fill.buy-bright{background:#00e676}
+.grill-fill.orange{background:#ff6d00;box-shadow:0 0 8px rgba(255,109,0,0.4)}
+.grill-label{font-size:11px;width:110px;flex-shrink:0}
+.grill-current{display:flex;align-items:center;gap:8px;margin:4px 0;padding:6px 0}
+.grill-current-price{font-size:12px;font-weight:700;color:var(--yellow);width:56px;text-align:right}
+.grill-current-line{flex:1;border-top:2px solid var(--yellow)}
+.grill-current-label{font-size:11px;color:var(--yellow);width:110px}
+.tp-markers{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.tp-marker{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.tp1{background:rgba(255,215,64,0.15);border:1px solid var(--yellow);color:var(--yellow)}
+.tp2{background:rgba(0,230,118,0.15);border:1px solid var(--green);color:var(--green)}
+.tp3{background:rgba(0,188,212,0.15);border:1px solid var(--teal);color:var(--teal)}
+.exhaustion{background:rgba(255,23,68,0.15);border:1px solid var(--red);color:var(--red)}
+.step-flow{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+.sf-row{display:flex;align-items:stretch;gap:0}
+.sf-line{width:2px;background:var(--border);margin:0 14px;flex-shrink:0}
+.sf-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.sf-dot.orange{background:var(--orange)}
+.sf-dot.yellow{background:var(--yellow)}
+.sf-dot.blue{background:var(--blue)}
+.sf-dot.red{background:var(--red)}
+.sf-content{padding-bottom:16px;flex:1}
+.sf-content h5{font-weight:700;font-size:14px;margin-bottom:3px}
+.sf-content p{font-size:13px;color:var(--dim);margin:0}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--orange)}
+.option.correct{background:rgba(0,230,118,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(255,23,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(255,109,0,0.05),rgba(255,215,64,0.05));border:1px solid rgba(255,109,0,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--orange);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--orange);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+.btn-primary{background:var(--yellow);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 10 of 12</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 4 · Lesson 10</div>
+  <h1>The <span>Grill</span>, Stookie Grill<br>&amp; Cluster Wall</h1>
+  <p>Three advanced heat map patterns for reading sustained moves, opening drives, and the strongest resistance zones in the market.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 18 min</span>
+    <span class="tag">🔴 Advanced</span>
+    <span class="tag">🔥 Pattern Recognition</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- THE GRILL -->
+  <div class="pattern-card grill">
+    <div class="pattern-header">
+      <div class="pattern-badge grill">🍖 THE GRILL</div>
+      <h3>Eating Through Stacked Liquidity Levels</h3>
+    </div>
+
+    <p>Credit to Enrico "Ricotoi" Stoki who named this pattern. The Grill — also called the Barbecue — is when price aggressively moves through <strong>multiple stacked liquidity levels</strong> one by one, consuming them like a grill eating through food.</p>
+
+    <div class="key-point">
+      "The Grill — the barbecue — when you have multiple liquidity areas and the price gets aggressive here to eat all this level of liquidity. You can see from the aggressive market order that it is pushing really hard to slice through them because this is a perfect example of a sustained move where you have aggression, aggression, aggression and the price is eating all the passive liquidity level really aggressively." — Fabio
+    </div>
+
+    <div class="grill-visual">
+      <h5>The Grill — Bullish Version (Price Eating Up Through Sell Levels)</h5>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--red)">+8</div>
+        <div class="grill-track"><div class="grill-fill sell-bright" style="width:100%">FINAL CLUSTER ← exhaustion reversal here</div></div>
+        <div class="grill-label" style="color:var(--red);font-weight:700">🛑 FINAL TARGET</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--dim)">+7</div>
+        <div class="grill-track"><div class="grill-fill sell-eaten" style="width:60%">eaten ✓</div></div>
+        <div class="grill-label" style="color:var(--yellow)">partial TP 4</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--dim)">+5</div>
+        <div class="grill-track"><div class="grill-fill sell-eaten" style="width:70%">eaten ✓</div></div>
+        <div class="grill-label" style="color:var(--yellow)">partial TP 3</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--dim)">+3</div>
+        <div class="grill-track"><div class="grill-fill sell-eaten" style="width:65%">eaten ✓</div></div>
+        <div class="grill-label" style="color:var(--yellow)">partial TP 2</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--dim)">+1</div>
+        <div class="grill-track"><div class="grill-fill sell-eaten" style="width:55%">eaten ✓</div></div>
+        <div class="grill-label" style="color:var(--yellow)">partial TP 1</div>
+      </div>
+      <div class="grill-current">
+        <div class="grill-current-price">ENTRY</div>
+        <div class="grill-current-line"></div>
+        <div class="grill-current-label" style="color:var(--orange)">⬆ aggressive move starts</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--green)">−2</div>
+        <div class="grill-track"><div class="grill-fill buy-bright" style="width:80%">BUY SUPPORT — stop below</div></div>
+        <div class="grill-label" style="color:var(--green);font-weight:700">🛡 STOP ZONE</div>
+      </div>
+    </div>
+
+    <div class="tp-markers">
+      <span class="tp1">TP1 → first level</span>
+      <span class="tp2">TP2 → second level</span>
+      <span class="tp3">TP3 → third level</span>
+      <span class="exhaustion">EXHAUSTION → final cluster (reversal)</span>
+    </div>
+
+    <h4 style="margin:20px 0 12px">How to Trade the Grill</h4>
+
+    <div class="step-flow">
+      <div class="sf-row">
+        <div class="sf-dot orange"></div>
+        <div class="sf-content"><h5>Identify Multiple Stacked Levels Above (for long) or Below (for short)</h5><p>Look for 3+ passive liquidity levels stacked relatively close together on the heat map. This is "fuel" for the grill pattern.</p></div>
+      </div>
+      <div class="sf-row">
+        <div class="sf-dot orange"></div>
+        <div class="sf-content"><h5>See the First Aggressive Push Through Level 1</h5><p>Price breaks through the first level with large aggressive bubbles. NOT a quiet drift — a forceful, large-candle move.</p></div>
+      </div>
+      <div class="sf-row">
+        <div class="sf-dot orange"></div>
+        <div class="sf-content"><h5>Confirm: Aggression Continues Through Level 2</h5><p>If price also breaks the second level with the same energy, this is confirmation of the Grill pattern. The sustained aggression is the signature.</p></div>
+      </div>
+      <div class="sf-row">
+        <div class="sf-dot orange"></div>
+        <div class="sf-content"><h5>Take Partial Profits at Each Level</h5><p>"These are all partial profits that you can take because the market usually reaches a point of exhaustion." Take some at each level while keeping the core position running.</p></div>
+      </div>
+      <div class="sf-row">
+        <div class="sf-dot red"></div>
+        <div class="sf-content"><h5>Exit at the Final Cluster (Exhaustion)</h5><p>When price reaches a dense cluster of multiple levels stacked together, this is where exhaustion and reversal happens. Close the full position here.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STOOKIE GRILL -->
+  <div class="pattern-card stookie">
+    <div class="pattern-header">
+      <div class="pattern-badge stookie">⚡ STOOKIE GRILL</div>
+      <h3>Opening Session Drive with Protective Reloads</h3>
+    </div>
+
+    <p>The Stookie Grill is named after Enrico Stoki. It's the Grill's cousin — most commonly seen at the opening of the New York session — with one key additional feature: protective fresh liquidity loads at each level as price pushes through.</p>
+
+    <div class="key-point">
+      "This is usually during the opening. You can see that they protect their movement. So they do the first push — put fresh liquidity to protect. Here they do the second push and they put fresh liquidity to fuel. This means they want to go up. They want to capitalize up." — Fabio
+    </div>
+
+    <div class="grill-visual">
+      <h5>Stookie Grill — Opening Push with Protective Reloads</h5>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--yellow)">+8</div>
+        <div class="grill-track"><div class="grill-fill sell-bright" style="width:90%">FINAL TAKE PROFIT CLUSTER</div></div>
+        <div class="grill-label" style="color:var(--yellow)">★ FINAL TP</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--green)">+6</div>
+        <div class="grill-track"><div class="grill-fill orange" style="width:70%">🔄 3rd push + FRESH buy reload here</div></div>
+        <div class="grill-label" style="color:var(--orange)">3rd push protect</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--dim)">+5</div>
+        <div class="grill-track"><div class="grill-fill sell-eaten" style="width:50%">level eaten ✓</div></div>
+        <div class="grill-label" style="color:var(--dim)">consumed</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--green)">+3</div>
+        <div class="grill-track"><div class="grill-fill orange" style="width:65%">🔄 2nd push + FRESH buy reload here</div></div>
+        <div class="grill-label" style="color:var(--orange)">2nd push protect</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--dim)">+2</div>
+        <div class="grill-track"><div class="grill-fill sell-eaten" style="width:45%">level eaten ✓</div></div>
+        <div class="grill-label" style="color:var(--dim)">consumed</div>
+      </div>
+      <div class="grill-current">
+        <div class="grill-current-price">OPEN</div>
+        <div class="grill-current-line"></div>
+        <div class="grill-current-label" style="color:var(--yellow)">Opening price</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--green)">−1</div>
+        <div class="grill-track"><div class="grill-fill orange" style="width:80%">🔄 1st push + FRESH buy reload here</div></div>
+        <div class="grill-label" style="color:var(--orange)">1st push protect</div>
+      </div>
+    </div>
+
+    <p><strong>Key distinction:</strong> Notice the fresh buy reloads appear at the <em>bottom of each push</em> — not at the level being broken above. This is "protective" liquidity — it's being placed BELOW the current price to prevent any retracement from gaining ground. The market is aggressively "protecting its gains" at each step.</p>
+
+    <div class="highlight-box highlight-yellow">
+      <h4>What "Empty Space Above" Means</h4>
+      <p>In the Stookie Grill, the fresh liquidity appears BELOW (protection), but there is often <strong>empty space above the broken levels</strong>. Fabio notes: "they are not putting liquidity here — this is empty. They are going to put protective fresh liquidity to fuel the aggression on the way up."<br><br>
+      Empty space above = no resistance remaining between current price and the final target cluster. Price will accelerate through empty zones.</p>
+    </div>
+  </div>
+
+  <!-- CLUSTER WALL -->
+  <div class="pattern-card cluster">
+    <div class="pattern-header">
+      <div class="pattern-badge cluster">🧱 CLUSTER WALL</div>
+      <h3>The Strongest Resistance Zone in the Market</h3>
+    </div>
+
+    <p>A <strong>Liquidity Cluster Wall</strong> is when multiple passive liquidity levels are stacked closely together on the same side, creating a combined resistance zone far stronger than any single level.</p>
+
+    <div class="key-point">
+      "When you see that there is a strong cluster of four levels stacked on each other — way higher than this aggressive liquidity of the sellers — all these levels on the NASDAQ... you can understand that the highest probability here is that they will get a full fill." — Fabio
+    </div>
+
+    <div class="grill-visual">
+      <h5>Cluster Wall — Four Stacked Levels (Strong Resistance)</h5>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--blue)">+10</div>
+        <div class="grill-track"><div class="grill-fill sell-bright" style="width:95%">Level 4 — 80 contracts</div></div>
+        <div class="grill-label" style="color:var(--blue);font-weight:700">CLUSTER</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--blue)">+9</div>
+        <div class="grill-track"><div class="grill-fill sell-bright" style="width:90%">Level 3 — 75 contracts</div></div>
+        <div class="grill-label" style="color:var(--blue);font-weight:700">CLUSTER</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--blue)">+8</div>
+        <div class="grill-track"><div class="grill-fill sell-bright" style="width:85%">Level 2 — 70 contracts</div></div>
+        <div class="grill-label" style="color:var(--blue);font-weight:700">CLUSTER</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--blue)">+7</div>
+        <div class="grill-track"><div class="grill-fill sell-bright" style="width:80%">Level 1 — 65 contracts</div></div>
+        <div class="grill-label" style="color:var(--blue);font-weight:700">CLUSTER</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--dim)">+3</div>
+        <div class="grill-track"><div class="grill-fill sell" style="width:30%">sell aggression — small</div></div>
+        <div class="grill-label" style="color:var(--dim)">minor sell</div>
+      </div>
+      <div class="grill-current">
+        <div class="grill-current-price">PRICE</div>
+        <div class="grill-current-line"></div>
+        <div class="grill-current-label" style="color:var(--blue)">⬆ highest probability</div>
+      </div>
+      <div class="grill-row">
+        <div class="grill-price" style="color:var(--green)">−2</div>
+        <div class="grill-track"><div class="grill-fill buy" style="width:35%">small buy support</div></div>
+        <div class="grill-label" style="color:var(--dim)">minor buy</div>
+      </div>
+    </div>
+
+    <p>In this example, there's a small sell pressure at +3 and a small buy support at −2. But there's a massive cluster of 4 levels stacked from +7 to +10. Fabio's insight:</p>
+
+    <div class="highlight-box highlight-blue">
+      <h4>The Counterintuitive Cluster Wall Insight</h4>
+      <p>When you see a cluster wall, your first instinct might be "lots of sell orders = go short." But Fabio says the opposite is often true in the right context:<br><br>
+      "You can see the absorption on this level to go to the next liquidity level on the way up."<br><br>
+      Why? Because the cluster wall represents a <strong>target</strong> for the aggressive buyers — they WANT to fill those levels. If buyers have enough momentum and the path between them and the cluster is clear (empty or thin), the highest probability is that price goes TO the cluster to fill all those orders.<br><br>
+      The cluster wall is a magnet, not just a barrier.</p>
+    </div>
+
+    <div class="highlight-box highlight-yellow">
+      <h4>When to Fade the Cluster Wall</h4>
+      <p>The cluster wall becomes a reversal zone when price <strong>reaches</strong> it and you see ABSORPTION — aggressive buyers push into the cluster and get absorbed. At this point:<br><br>
+      • First try: absorption (price bounces slightly)<br>
+      • Second try: price cannot surpass the first aggression point<br>
+      • "This is a strong confirmation that this is a failed auction and the price will reverse for the path of least resistance."<br><br>
+      After absorption at the cluster wall, it becomes the strongest resistance level in the market — and a premium short entry.</p>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 10</h3>
+    <ul>
+      <li>The Grill: price cuts through multiple stacked levels with sustained aggression. Take partials at each level, full exit at the final cluster (exhaustion).</li>
+      <li>The Stookie Grill: opening session version with protective fresh reloads below each push level. Empty space above = price accelerates.</li>
+      <li>Liquidity Cluster Wall: multiple levels stacked on one side. Can be both a TARGET (price attracted to fill them) and a REVERSAL ZONE (once absorbed, strongest resistance).</li>
+      <li>Cluster wall context matters: if price is moving TOWARD the cluster, it's a magnet. If price reaches it and gets absorbed, it becomes a reversal zone.</li>
+      <li>The Grill and Stookie Grill are sustained move patterns — you need strong directional bias before entering.</li>
+      <li>Always remember: the market is the path of least resistance. Clusters can be passed through, not just blocked by.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of The Grill, Stookie Grill, and Cluster Wall</div>
+    <div class="question" id="q1">
+      <p>1. In the Grill pattern, when do you exit the full position?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) After price breaks through the first level</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) At the final cluster of levels where exhaustion typically occurs — this is where the pattern ends and reversal risk is highest</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) Always hold until the next day</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) When CVD reverses by more than 10%</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ The Grill ends at the final liquidity cluster — this is where the sustained move typically exhausts. Take partials at each level along the way, but the final cluster is where you close the full position. Fabio says price "usually reaches a point of exhaustion here when there is a cluster of liquidity levels and then reverses."</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. What distinguishes the Stookie Grill from the regular Grill?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) The Stookie Grill goes in the opposite direction (always bearish)</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) In the Stookie Grill, protective fresh liquidity reloads BELOW each push level, "protecting the gains." This often occurs at the opening of the session.</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) The Stookie Grill has fewer levels (only 2 instead of 3+)</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) The Stookie Grill is only valid on crypto markets</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ The key difference: protective fresh reload below each push. This "closes the door" behind price as it moves up. Common at the opening session because strong institutional players establish positions aggressively right at the open.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. A cluster wall of 4 stacked sell levels is visible on the heat map above current price. This is most likely:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Always a reversal signal — sell immediately</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) Context-dependent: it's a magnetic target for buyers in a bullish context (Grill/Stookie), but once price reaches and absorbs it with failed auction, it becomes the strongest resistance for a short</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) Meaningless — clusters are just coincidence</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Always a buy signal — buyers will overwhelm it</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Context is everything. Approaching cluster = magnetic target, buy toward it. Reaching cluster + absorption + failed auction = best short entry with strongest resistance in market. Read the absorption (bubbles at the cluster) to know which scenario you're in.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">3/3</div>
+      <p style="color:var(--dim);margin-top:8px">You understand the Grill patterns!</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress</p></div>
+    <button class="btn btn-green" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-09.html">← Lesson 9</a>
+    <a class="btn btn-primary" href="lesson-11.html">Next: Auction Flip &amp; Absorption →</a>
+  </div>
+
+</div>
+<script>
+let answers={},correct=0,total=3;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('lesson-10','done');
+  const btn=document.querySelector('.btn-green');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('lesson-10')==='done'){
+    const btn=document.querySelector('.btn-green');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

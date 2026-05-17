@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: CVD, VWAP & Volume Profile | Trading Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--teal:#00bcd4;--purple:#d500f9;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--blue);font-size:14px;font-weight:600}
+.lesson-badge{background:rgba(68,138,255,0.1);border:1px solid rgba(68,138,255,0.3);color:var(--blue);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#071428,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--purple)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.key-point{background:var(--card);border-left:4px solid var(--purple);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.2)}
+.highlight-blue{background:rgba(68,138,255,0.07);border:1px solid rgba(68,138,255,0.2)}
+.highlight-yellow{background:rgba(255,215,64,0.07);border:1px solid rgba(255,215,64,0.2)}
+.highlight-red{background:rgba(255,23,68,0.07);border:1px solid rgba(255,23,68,0.2)}
+.highlight-purple{background:rgba(213,0,249,0.07);border:1px solid rgba(213,0,249,0.2)}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-red h4{color:var(--red)}
+.highlight-purple h4{color:var(--purple)}
+.tool-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:28px 0}
+.tool-section .tool-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.tool-badge{padding:8px 16px;border-radius:8px;font-weight:800;font-size:1rem;letter-spacing:.5px}
+.tool-badge.cvd{background:rgba(0,230,118,0.1);border:2px solid var(--green);color:var(--green)}
+.tool-badge.vwap{background:rgba(68,138,255,0.1);border:2px solid var(--blue);color:var(--blue)}
+.tool-badge.vol{background:rgba(255,215,64,0.1);border:2px solid var(--yellow);color:var(--yellow)}
+.tool-section h3{font-size:1.2rem;font-weight:700;margin:0}
+.cvd-demo{background:var(--card2);border-radius:10px;padding:20px;margin:20px 0}
+.cvd-demo h5{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.cvd-chart{position:relative;height:120px;margin-bottom:8px}
+.cvd-line{position:absolute;bottom:0;left:0;right:0}
+.cvd-zero{position:absolute;bottom:50%;left:0;right:0;border-top:1px dashed var(--border);display:flex;align-items:center;justify-content:flex-end;padding-right:4px}
+.cvd-zero span{font-size:10px;color:var(--dim)}
+svg.cvd-svg{width:100%;height:120px}
+.cvd-scenario{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media(max-width:600px){.cvd-scenario{grid-template-columns:1fr}}
+.cvd-card{background:var(--card);border-radius:8px;padding:12px;border-left:3px solid}
+.cvd-card.bull{border-color:var(--green)}
+.cvd-card.bear{border-color:var(--red)}
+.cvd-card.div-bull{border-color:var(--yellow)}
+.cvd-card.div-bear{border-color:var(--purple)}
+.cvd-card h6{font-weight:700;font-size:13px;margin-bottom:4px}
+.cvd-card.bull h6{color:var(--green)}
+.cvd-card.bear h6{color:var(--red)}
+.cvd-card.div-bull h6{color:var(--yellow)}
+.cvd-card.div-bear h6{color:var(--purple)}
+.cvd-card p{font-size:12px;color:var(--dim);margin:0}
+.vwap-demo{background:var(--card2);border-radius:10px;padding:20px;margin:20px 0}
+.vwap-demo h5{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.vwap-levels{display:flex;flex-direction:column;gap:8px}
+.vwap-level{display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:6px}
+.vwap-level .vlabel{width:100px;font-size:13px;font-weight:700;flex-shrink:0}
+.vwap-level .vdesc{font-size:13px;color:var(--dim)}
+.vwap-level.sd2-high{background:rgba(255,23,68,0.08);border-left:3px solid rgba(255,23,68,0.5)}
+.vwap-level.sd1-high{background:rgba(255,215,64,0.06);border-left:3px solid rgba(255,215,64,0.4)}
+.vwap-level.main{background:rgba(68,138,255,0.08);border-left:3px solid var(--blue)}
+.vwap-level.sd1-low{background:rgba(255,215,64,0.06);border-left:3px solid rgba(255,215,64,0.4)}
+.vwap-level.sd2-low{background:rgba(0,230,118,0.08);border-left:3px solid rgba(0,230,118,0.5)}
+.vwap-level.sd2-high .vlabel{color:var(--red)}
+.vwap-level.sd1-high .vlabel{color:var(--yellow)}
+.vwap-level.main .vlabel{color:var(--blue)}
+.vwap-level.sd1-low .vlabel{color:var(--yellow)}
+.vwap-level.sd2-low .vlabel{color:var(--green)}
+.three-tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:24px 0}
+.tool-combo-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center}
+.tool-combo-card .icon{font-size:28px;margin-bottom:8px}
+.tool-combo-card h4{font-size:1rem;font-weight:700;margin-bottom:6px}
+.tool-combo-card p{font-size:13px;color:var(--dim);margin:0}
+.rules-list{list-style:none;padding:0;margin:16px 0}
+.rules-list li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(30,48,80,0.4);font-size:14px}
+.rules-list li:last-child{border-bottom:none}
+.rules-list .r-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--purple)}
+.option.correct{background:rgba(0,230,118,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(255,23,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(213,0,249,0.05),rgba(68,138,255,0.05));border:1px solid rgba(213,0,249,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--purple);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--purple);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--purple);color:var(--purple)}
+.btn-primary{background:var(--green);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 6 of 12</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 2 · Lesson 6</div>
+  <h1>Context <span>Tools</span>:<br>CVD, VWAP &amp; Volume Profile</h1>
+  <p>The supporting indicators that give you directional bias and session context — how professionals pair these with the heat map for high-conviction trades.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 15 min</span>
+    <span class="tag">🟡 Intermediate</span>
+    <span class="tag">📊 Indicators</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>Why You Need Context Tools</h2>
+  <p>The liquidity heat map shows you WHERE the orders are. But it doesn't tell you the <em>broader context</em> — who is dominating the session, whether buyers or sellers have taken control, or where the "fair value" of price is for the day.</p>
+  <p>These three context tools fill that gap. Together with the heat map, they give you a complete picture before taking any trade.</p>
+
+  <!-- CVD -->
+  <div class="tool-section">
+    <div class="tool-header">
+      <div class="tool-badge cvd">CVD</div>
+      <div>
+        <h3>Cumulative Volume Delta</h3>
+        <p style="color:var(--dim);font-size:14px;margin:4px 0 0">Who is winning the battle — buyers or sellers?</p>
+      </div>
+    </div>
+
+    <p><strong>CVD (Cumulative Volume Delta)</strong> measures the net difference between aggressive buying volume and aggressive selling volume, accumulated over time.</p>
+    <p>Formula: <code style="background:var(--card2);padding:2px 8px;border-radius:4px;color:var(--green)">CVD = Σ(Buy aggression) − Σ(Sell aggression)</code></p>
+
+    <div class="cvd-demo">
+      <h5>CVD Reading Guide</h5>
+      <div class="cvd-scenario">
+        <div class="cvd-card bull">
+          <h6>↑ CVD Rising</h6>
+          <p>More aggressive buyers than sellers. Buyers dominating. Confirms bullish price movement.</p>
+        </div>
+        <div class="cvd-card bear">
+          <h6>↓ CVD Falling</h6>
+          <p>More aggressive sellers than buyers. Sellers dominating. Confirms bearish price movement.</p>
+        </div>
+        <div class="cvd-card div-bull">
+          <h6>⚠ Price Up, CVD Flat</h6>
+          <p>Bullish divergence signal: price rising but buyers NOT aggressive. Move is weak. Potential reversal warning.</p>
+        </div>
+        <div class="cvd-card div-bear">
+          <h6>⚠ CVD Flipping Lower</h6>
+          <p>Even if directional bias is long for the day — sellers are taking short-term control. Fabio says: "I will not try a reversal play while sellers dominate. It's a suicide."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box highlight-yellow" style="margin-top:16px">
+      <h4>Fabio's CVD Rule</h4>
+      <p>"What does it mean that I will not try a reversal play? I will not try to get long while the sellers are dominating the auction because it's a suicide. I will wait for the buyers to show me some kind of protection."<br><br>
+      In other words: never trade against the CVD direction in the short term. Wait for the CVD to align with your intended trade direction.</p>
+    </div>
+  </div>
+
+  <!-- VWAP -->
+  <div class="tool-section">
+    <div class="tool-header">
+      <div class="tool-badge vwap">VWAP</div>
+      <div>
+        <h3>Volume Weighted Average Price</h3>
+        <p style="color:var(--dim);font-size:14px;margin:4px 0 0">The "fair value" of price for today's session</p>
+      </div>
+    </div>
+
+    <p><strong>VWAP</strong> is the average price of all transactions during the day, weighted by volume. It represents the "fair value" of price — where most business has been transacted.</p>
+
+    <div class="vwap-demo">
+      <h5>VWAP Standard Deviation Levels</h5>
+      <div class="vwap-levels">
+        <div class="vwap-level sd2-high"><div class="vlabel">+2 Std Dev</div><div class="vdesc">Extremely extended. Buyers very stretched. Often reversal zone.</div></div>
+        <div class="vwap-level sd1-high"><div class="vlabel">+1 Std Dev</div><div class="vdesc">Price is above fair value. Buyers in control but getting stretched.</div></div>
+        <div class="vwap-level main"><div class="vlabel">VWAP</div><div class="vdesc">Fair value. Price magnetically attracted back here during balance.</div></div>
+        <div class="vwap-level sd1-low"><div class="vlabel">−1 Std Dev</div><div class="vdesc">Price is below fair value. Sellers in control but getting stretched.</div></div>
+        <div class="vwap-level sd2-low"><div class="vlabel">−2 Std Dev</div><div class="vdesc">Extremely extended. Sellers very stretched. Often bounce zone.</div></div>
+      </div>
+    </div>
+
+    <p>From the live session: <em>"We can see that we are above the first standard deviation of VWAP. So buyers are definitely in control. This is the fair value of the day."</em></p>
+
+    <div class="highlight-box highlight-blue">
+      <h4>How to Use VWAP in Practice</h4>
+      <p><strong>Above VWAP:</strong> Buyers in control. Bias is long. Look for long setups. Short setups have less probability.<br><br>
+      <strong>Below VWAP:</strong> Sellers in control. Bias is short. Look for short setups.<br><br>
+      <strong>At VWAP:</strong> Fair value. Market may rebalance. Wait for direction to develop.<br><br>
+      <strong>After heat map confirms:</strong> Once price hits your target heat map level, check if it aligns with a VWAP standard deviation level. When they coincide, the probability of reaction is significantly higher.</p>
+    </div>
+  </div>
+
+  <!-- Volume Profile -->
+  <div class="tool-section">
+    <div class="tool-header">
+      <div class="tool-badge vol">VP</div>
+      <div>
+        <h3>Volume Profile (Horizontal Volume)</h3>
+        <p style="color:var(--dim);font-size:14px;margin:4px 0 0">Where the most trading activity actually happened</p>
+      </div>
+    </div>
+
+    <p>The <strong>Volume Profile</strong> shows how much volume was traded at each price level — displayed as horizontal bars on the chart. Price levels with the most volume are called <strong>High Volume Nodes (HVN)</strong> — the market "accepted" price there. Low volume areas are called <strong>Low Volume Nodes (LVN)</strong> — price moved through quickly.</p>
+
+    <ul class="rules-list">
+      <li><span class="r-icon">🟢</span><div>High Volume Nodes (HVN) = strong support/resistance — these are price levels the market revisits repeatedly</div></li>
+      <li><span class="r-icon">⚡</span><div>Low Volume Nodes (LVN) = price accelerates through these — when price enters a thin zone, it moves fast</div></li>
+      <li><span class="r-icon">📍</span><div>Point of Control (POC) = the single price level with most volume — the anchor of the session's fair value range</div></li>
+      <li><span class="r-icon">🔍</span><div>Volume Spread Analysis (VSA): Look for aggressive bubbles at volume cluster edges — these mark major decision points where one side took clear control</div></li>
+    </ul>
+
+    <p>Fabio from the live session: <em>"For example, this aggression here got completely stopped by the relevant [volume level]. And also what you are seeing at the moment — a lot of sell aggression is trying to flip the auction."</em></p>
+  </div>
+
+  <h2>Combining All Three: The Full Context Framework</h2>
+  <p>These tools work best together. Here's how to use them as a unified context layer before reading the heat map:</p>
+
+  <div class="three-tools">
+    <div class="tool-combo-card">
+      <div class="icon">🌊</div>
+      <h4>Step 1: VWAP Position</h4>
+      <p>Is price above or below VWAP? This sets your primary bias for the session.</p>
+    </div>
+    <div class="tool-combo-card">
+      <div class="icon">📈</div>
+      <h4>Step 2: CVD Direction</h4>
+      <p>Is the CVD rising or falling? This confirms (or warns against) your VWAP bias in real time.</p>
+    </div>
+    <div class="tool-combo-card">
+      <div class="icon">📊</div>
+      <h4>Step 3: Volume Profile</h4>
+      <p>Where are the HVN and LVN zones? Do they align with heat map levels?</p>
+    </div>
+    <div class="tool-combo-card">
+      <div class="icon">🔥</div>
+      <h4>Step 4: Heat Map</h4>
+      <p>NOW read the heat map. All three above gave you context — now find the exact entry with the heat map patterns.</p>
+    </div>
+  </div>
+
+  <div class="key-point">
+    Fabio's live example: "Buyers are in complete control. You can see here buyers are dominating this auction from the beginning of the session. We can go on the VWAP that is giving you also the standard deviation of where we are. And if we zoom out, we can see that we are above the first standard deviation of VWAP. So buyers are definitely in control. This is the fair value of the day."
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 6</h3>
+    <ul>
+      <li>CVD measures net aggressive buying vs selling. Rising = buyers winning. Falling = sellers winning.</li>
+      <li>Never trade against the CVD direction in the short term — "it's a suicide."</li>
+      <li>VWAP is the session's "fair value." Above = buyers in control. Below = sellers in control.</li>
+      <li>VWAP standard deviations mark extended / stretched conditions where reversals are likely.</li>
+      <li>Volume Profile shows accepted price zones (HVN) and fast-move zones (LVN).</li>
+      <li>Use VWAP → CVD → Volume Profile → Heat Map in sequence to build conviction before entering.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of CVD, VWAP, and Volume Profile</div>
+    <div class="question" id="q1">
+      <p>1. CVD is falling while price is still moving upward. This is:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',true)">A) A bearish divergence — buyers are weak and the upward move is not supported by aggressive buying. A reversal may be near.</div>
+        <div class="option" onclick="answer(this,'q1',false)">B) A bullish signal — sellers are falling means there are fewer sellers</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) A normal market condition with no meaning</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) Confirmation that price will continue up</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ CVD falling while price rises = bearish divergence. Price is moving up but NOT supported by aggressive buying. This is a weak move — often followed by reversal. Fabio warns against going long in this condition.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. Price is above VWAP +1 standard deviation. What does this tell you?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) Price is at fair value and equilibrium</div>
+        <div class="option" onclick="answer(this,'q2',false)">B) This is a strong buy signal — keep going long</div>
+        <div class="option" onclick="answer(this,'q2',true)">C) Buyers are in control but price is extended above fair value — be cautious about new longs, potential retracement to VWAP is likely</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) Price will definitely reverse because it's above VWAP</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Above VWAP = buyers in control, but above +1 std dev = stretched. Price tends to revert toward VWAP. Take partial profits and be cautious about adding new long positions at this extension.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. In Fabio's framework, what is the correct order for building a trade bias?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Heat Map → CVD → VWAP → enter trade</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) VWAP position → CVD direction → Volume Profile context → Heat Map for precise entry</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) Look for a chart pattern, then check CVD, then enter immediately</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Check news events first, then look at VWAP</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ The correct flow is: VWAP gives daily bias → CVD confirms real-time aggression direction → Volume Profile gives structural context → Heat Map provides precise entry timing. Each layer narrows and confirms the trade.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">3/3</div>
+      <p style="color:var(--dim);margin-top:8px">Excellent! You understand the context tools.</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-green" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-05.html">← Lesson 5</a>
+    <a class="btn btn-primary" href="lesson-07.html">Next: Reload &amp; Iceberg →</a>
+  </div>
+
+</div>
+<script>
+let answers={},correct=0,total=3;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('lesson-6','done');
+  const btn=document.querySelector('.btn-green');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('lesson-6')==='done'){
+    const btn=document.querySelector('.btn-green');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Market Microstructure | Trading Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--teal:#00bcd4;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--teal);font-size:14px;font-weight:600}
+.lesson-badge{background:rgba(0,188,212,0.1);border:1px solid rgba(0,188,212,0.3);color:var(--teal);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#0a1a2e,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--teal);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--teal)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.key-point{background:var(--card);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.step-container{margin:30px 0}
+.step{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px;position:relative;overflow:hidden;display:none}
+.step.active{display:block}
+.step.show{display:block}
+.step-num{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.step-num-green{background:rgba(0,230,118,0.15);border:2px solid var(--green);color:var(--green)}
+.step-num-red{background:rgba(255,23,68,0.15);border:2px solid var(--red);color:var(--red)}
+.step-num-yellow{background:rgba(255,215,64,0.15);border:2px solid var(--yellow);color:var(--yellow)}
+.step-num-blue{background:rgba(68,138,255,0.15);border:2px solid var(--blue);color:var(--blue)}
+.step h4{font-size:1rem;font-weight:700;margin-bottom:10px;padding-right:48px}
+.ob-visual{font-family:'Courier New',monospace;font-size:13px;margin:16px 0}
+.ob-row{display:flex;justify-content:space-between;padding:5px 12px;border-radius:4px}
+.ob-ask-row{background:rgba(255,23,68,0.08)}
+.ob-bid-row{background:rgba(0,230,118,0.08)}
+.ob-mid{background:var(--card2);text-align:center;padding:6px;color:var(--yellow);font-weight:700;border-top:1px dashed var(--border);border-bottom:1px dashed var(--border)}
+.ob-col-price{color:var(--dim);min-width:50px}
+.ob-col-size{font-weight:700}
+.ob-col-size.sell{color:var(--red)}
+.ob-col-size.buy{color:var(--green)}
+.ob-col-size.changed{color:var(--yellow);text-decoration:underline}
+.ob-col-label{color:var(--dim);font-size:11px}
+.result-box{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:12px;font-size:14px}
+.result-box.up{border-left:3px solid var(--green)}
+.result-box.down{border-left:3px solid var(--red)}
+.result-box.neutral{border-left:3px solid var(--yellow)}
+.step-controls{display:flex;gap:12px;margin:24px 0;flex-wrap:wrap}
+.step-btn{padding:10px 20px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+.step-btn-next{background:var(--teal);color:#000}
+.step-btn-next:hover{opacity:.85}
+.step-btn-prev{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.step-btn-prev:hover{border-color:var(--teal);color:var(--teal)}
+.step-btn-reset{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.step-btn-reset:hover{border-color:var(--yellow);color:var(--yellow)}
+.step-counter{color:var(--dim);font-size:14px;display:flex;align-items:center}
+.progress-dots{display:flex;gap:6px;margin-bottom:20px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--border);transition:all .3s}
+.dot.active{background:var(--teal)}
+.dot.done{background:rgba(0,188,212,0.4)}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.2)}
+.highlight-blue{background:rgba(68,138,255,0.07);border:1px solid rgba(68,138,255,0.2)}
+.highlight-yellow{background:rgba(255,215,64,0.07);border:1px solid rgba(255,215,64,0.2)}
+.highlight-red{background:rgba(255,23,68,0.07);border:1px solid rgba(255,23,68,0.2)}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-red h4{color:var(--red)}
+.insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:600px){.insight-grid{grid-template-columns:1fr}}
+.insight-card{background:var(--card);border-radius:10px;padding:18px;border:1px solid var(--border)}
+.insight-card .ic-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.insight-card .ic-title{font-size:1rem;font-weight:700;margin-bottom:6px}
+.insight-card .ic-body{font-size:13px;color:var(--dim)}
+.insight-card.green .ic-label{color:var(--green)}
+.insight-card.blue .ic-label{color:var(--blue)}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--teal)}
+.option.correct{background:rgba(0,230,118,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(255,23,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(0,188,212,0.05),rgba(0,230,118,0.05));border:1px solid rgba(0,188,212,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--teal);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--teal);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal)}
+.btn-primary{background:var(--teal);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.btn-green:hover{opacity:.85}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 3 of 12</span>
+</div>
+
+<div class="hero">
+  <div class="lesson-num-big">Phase 1 · Lesson 3</div>
+  <h1>Market <span>Microstructure</span>:<br>The Order Book in Action</h1>
+  <p>Step-by-step: watch exactly how 75 aggressive contracts move price from 100 to 103. This is the mechanical truth behind every tick.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 15 min</span>
+    <span class="tag">🟡 Intermediate</span>
+    <span class="tag">🎯 Interactive</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>How Price Actually Moves — Step by Step</h2>
+  <p>This is one of the most important lessons in the entire course. Fabio walks through the exact mechanical process of how price moves — using a simple example that reveals the truth most traders never learn.</p>
+  <p>We start with a basic order book setup and watch what happens as aggressive orders try to get filled. Click through each step to see the market in motion.</p>
+
+  <div class="key-point">
+    "This is how the market really moves. The main takeaway: you buy and sell at the price you want, but you don't have a guarantee you'll get filled. This is the perspective of the passive order — price certainty but not time certainty and not execution certainty." — Fabio
+  </div>
+
+  <h2>The Interactive Order Book Simulation</h2>
+  <p>Starting state: Price is at 100. There are passive orders waiting on both sides.</p>
+
+  <div class="progress-dots" id="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="step-container">
+
+    <!-- STEP 1: Initial State -->
+    <div class="step show" id="step-1">
+      <div class="step-num step-num-blue">1</div>
+      <h4>Starting State — The Order Book at Rest</h4>
+      <p style="font-size:14px;color:var(--dim);margin-bottom:12px">Current price: 100. Here is the resting passive liquidity on both sides:</p>
+      <div class="ob-visual">
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">103</span><span class="ob-col-size sell">31 contracts</span><span class="ob-col-label">SELL (ask)</span></div>
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">102</span><span class="ob-col-size sell">42 contracts</span><span class="ob-col-label">SELL (ask)</span></div>
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">101</span><span class="ob-col-size sell">33 contracts</span><span class="ob-col-label">SELL (ask)</span></div>
+        <div class="ob-mid">── Current Price: 100 ──</div>
+        <div class="ob-row ob-bid-row"><span class="ob-col-price">99</span><span class="ob-col-size buy">48 contracts</span><span class="ob-col-label">BUY (bid)</span></div>
+      </div>
+      <div class="result-box neutral"><strong>Setup:</strong> Total passive sell liquidity above: 33 + 42 + 31 = 106 contracts. 48 contracts passive buy liquidity below at 99.</div>
+    </div>
+
+    <!-- STEP 2: 25 buyers hit 101 -->
+    <div class="step" id="step-2">
+      <div class="step-num step-num-green">2</div>
+      <h4>25 Aggressive Buyers Hit the 101 Level</h4>
+      <p style="font-size:14px;color:var(--dim);margin-bottom:12px">25 aggressive market buy orders arrive and immediately match with the 33 passive sell orders resting at 101.</p>
+      <div class="ob-visual">
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">103</span><span class="ob-col-size sell">31 contracts</span><span class="ob-col-label">SELL</span></div>
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">102</span><span class="ob-col-size sell">42 contracts</span><span class="ob-col-label">SELL</span></div>
+        <div class="ob-row ob-ask-row" style="background:rgba(255,215,64,0.1);border:1px solid rgba(255,215,64,0.3)"><span class="ob-col-price" style="color:var(--yellow)">101</span><span class="ob-col-size changed">33 → 8 left</span><span class="ob-col-label" style="color:var(--yellow)">← 25 buyers hit here</span></div>
+        <div class="ob-mid">── Price touches 101 ──</div>
+        <div class="ob-row ob-bid-row"><span class="ob-col-price">99</span><span class="ob-col-size buy">48 contracts</span><span class="ob-col-label">BUY</span></div>
+      </div>
+      <div class="result-box up"><strong>Result:</strong> 25 aggressive buyers vs 33 passive sellers at 101. Sellers had ENOUGH supply. 25 contracts matched. 8 passive sell contracts remaining at 101. Price holds at 101.</div>
+    </div>
+
+    <!-- STEP 3: 25 sellers hit 99 -->
+    <div class="step" id="step-3">
+      <div class="step-num step-num-red">3</div>
+      <h4>25 Aggressive Sellers Hit the 99 Level</h4>
+      <p style="font-size:14px;color:var(--dim);margin-bottom:12px">Simultaneously, 25 aggressive market sell orders arrive and match with the 48 passive buy orders at 99. Think of this as the bid side getting tested.</p>
+      <div class="ob-visual">
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">103</span><span class="ob-col-size sell">31</span><span class="ob-col-label">SELL</span></div>
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">102</span><span class="ob-col-size sell">42</span><span class="ob-col-label">SELL</span></div>
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">101</span><span class="ob-col-size sell">8</span><span class="ob-col-label">SELL (8 remaining)</span></div>
+        <div class="ob-mid">── Price range: 99-101 ──</div>
+        <div class="ob-row ob-bid-row" style="background:rgba(255,215,64,0.1);border:1px solid rgba(255,215,64,0.3)"><span class="ob-col-price" style="color:var(--yellow)">99</span><span class="ob-col-size changed">48 → 16 left</span><span class="ob-col-label" style="color:var(--yellow)">← 25 sellers hit here</span></div>
+      </div>
+      <div class="result-box down"><strong>Result:</strong> 25 aggressive sellers vs 48 passive buyers at 99. Buyers had enough supply. 25 matched. 16 passive buy contracts remaining at 99. Spread: 101 (8 left) / 99 (16 left).</div>
+    </div>
+
+    <!-- STEP 4: 75 buyers arrive -->
+    <div class="step" id="step-4">
+      <div class="step-num step-num-green">4</div>
+      <h4>75 Aggressive Buyers Arrive — Not Enough at 101!</h4>
+      <p style="font-size:14px;color:var(--dim);margin-bottom:12px">Now a much larger wave: 75 aggressive buy contracts hit the market. They first go to 101 — but only 8 contracts are left there!</p>
+      <div class="ob-visual">
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">103</span><span class="ob-col-size sell">31</span><span class="ob-col-label">SELL</span></div>
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">102</span><span class="ob-col-size sell">42</span><span class="ob-col-label">SELL</span></div>
+        <div class="ob-row ob-ask-row" style="background:rgba(255,23,68,0.15)"><span class="ob-col-price" style="color:var(--red)">101</span><span class="ob-col-size changed">8 → 0 ❌ EXHAUSTED</span><span class="ob-col-label" style="color:var(--red)">← hit first, exhausted</span></div>
+        <div class="ob-mid">── 67 contracts still need filling! ──</div>
+        <div class="ob-row ob-bid-row"><span class="ob-col-price">99</span><span class="ob-col-size buy">16</span><span class="ob-col-label">BUY</span></div>
+      </div>
+      <div class="result-box up"><strong>75 buyers - 8 at 101 = 67 contracts still unfilled.</strong> They MUST step to the next level (102) to complete their order. THIS is how price moves upward — demand exceeds available supply at one level.</div>
+    </div>
+
+    <!-- STEP 5: Step to 102 -->
+    <div class="step" id="step-5">
+      <div class="step-num step-num-green">5</div>
+      <h4>Price Steps Up to 102 — Still Not Enough!</h4>
+      <p style="font-size:14px;color:var(--dim);margin-bottom:12px">67 contracts move to 102 and match with the 42 contracts there. Still not enough! 25 contracts remain unfilled.</p>
+      <div class="ob-visual">
+        <div class="ob-row ob-ask-row"><span class="ob-col-price">103</span><span class="ob-col-size sell">31</span><span class="ob-col-label">SELL — next target</span></div>
+        <div class="ob-row ob-ask-row" style="background:rgba(255,23,68,0.15)"><span class="ob-col-price" style="color:var(--red)">102</span><span class="ob-col-size changed">42 → 0 ❌ EXHAUSTED</span><span class="ob-col-label" style="color:var(--red)">← hit second, exhausted</span></div>
+        <div class="ob-row ob-ask-row" style="opacity:.4"><span class="ob-col-price">101</span><span class="ob-col-size sell">0</span><span class="ob-col-label">empty</span></div>
+        <div class="ob-mid">── 25 contracts still unfilled — go to 103! ──</div>
+        <div class="ob-row ob-bid-row"><span class="ob-col-price">99</span><span class="ob-col-size buy">16</span><span class="ob-col-label">BUY</span></div>
+      </div>
+      <div class="result-box up"><strong>67 - 42 at 102 = 25 contracts STILL unfilled.</strong> Price must step to 103. The aggressive buyers are sweeping through liquidity levels like a chainsaw through wood.</div>
+    </div>
+
+    <!-- STEP 6: Final at 103 -->
+    <div class="step" id="step-6">
+      <div class="step-num step-num-yellow">6</div>
+      <h4>Final Fill at 103 — Price Has Moved!</h4>
+      <p style="font-size:14px;color:var(--dim);margin-bottom:12px">The remaining 25 contracts hit 103. There are 31 contracts there — enough to absorb all 25. Movement complete: price went from 100 to 103.</p>
+      <div class="ob-visual">
+        <div class="ob-row ob-ask-row" style="background:rgba(255,215,64,0.1);border:1px solid rgba(255,215,64,0.3)"><span class="ob-col-price" style="color:var(--yellow)">103</span><span class="ob-col-size changed">31 → 6 left ✅</span><span class="ob-col-label" style="color:var(--yellow)">← 25 filled here</span></div>
+        <div class="ob-mid">── NEW PRICE RANGE: 103 ──</div>
+        <div class="ob-row ob-bid-row"><span class="ob-col-price">99</span><span class="ob-col-size buy">16</span><span class="ob-col-label">BUY</span></div>
+      </div>
+      <div class="result-box up"><strong>🎯 75 aggressive buyers moved price from 100 → 103 (3 full levels)</strong> by exhausting all passive sell liquidity at 101 and 102 before getting fully filled at 103. 6 contracts remain at 103.</div>
+    </div>
+
+  </div>
+
+  <div class="step-controls">
+    <button class="step-btn step-btn-prev" onclick="prevStep()" id="prevBtn" disabled>← Previous</button>
+    <button class="step-btn step-btn-next" onclick="nextStep()" id="nextBtn">Next Step →</button>
+    <button class="step-btn step-btn-reset" onclick="resetSteps()">↺ Reset</button>
+    <span class="step-counter" id="stepCounter">Step 1 of 6</span>
+  </div>
+
+  <h2>The Core Principles This Reveals</h2>
+  <p>This simple example contains the entire truth of market movement. Let's extract the principles:</p>
+
+  <div class="insight-grid">
+    <div class="insight-card green">
+      <div class="ic-label">Principle 1</div>
+      <div class="ic-title">Price Moves When Demand Exceeds Supply at a Level</div>
+      <div class="ic-body">When aggressive orders exhaust all passive liquidity at one price, they must step to the next level. THIS is price movement — nothing more, nothing less.</div>
+    </div>
+    <div class="insight-card blue">
+      <div class="ic-label">Principle 2</div>
+      <div class="ic-title">Large Passive Levels Slow or Stop Price</div>
+      <div class="ic-body">If 103 had 500 contracts instead of 31, the 75 aggressive buyers couldn't have moved through it. Price would have stalled. More passive liquidity = stronger level.</div>
+    </div>
+    <div class="insight-card green">
+      <div class="ic-label">Principle 3</div>
+      <div class="ic-title">You Cannot Choose Where You Get Filled if You're Aggressive</div>
+      <div class="ic-body">Our 75 buyers got filled at 101, 102, AND 103 — not just where they wanted. They paid worse prices as they consumed more liquidity. This is called "slippage."</div>
+    </div>
+    <div class="insight-card blue">
+      <div class="ic-label">Principle 4</div>
+      <div class="ic-title">The Heat Map Shows You Where Price Will Struggle</div>
+      <div class="ic-body">If you could see that 103 had only 31 contracts but 104 had 500+, you'd know exactly where the next major resistance was. That's the power of the liquidity heat map.</div>
+    </div>
+  </div>
+
+  <h2>Price Certainty vs Execution Certainty</h2>
+  <p>This simulation perfectly illustrates Fabio's key teaching about the two types of certainty:</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0">
+    <div class="highlight-box highlight-blue" style="margin:0">
+      <h4>🔵 Passive Order (Limit)</h4>
+      <p><strong>Price certainty:</strong> You know EXACTLY what price you'll get.</p>
+      <p><strong>No execution certainty:</strong> Price might never reach your limit. You could wait forever and never get filled.</p>
+      <p><strong>No time certainty:</strong> You have zero control over when you get filled.</p>
+    </div>
+    <div class="highlight-box highlight-red" style="margin:0">
+      <h4>🔴 Aggressive Order (Market)</h4>
+      <p><strong>Execution certainty:</strong> You WILL be filled immediately.</p>
+      <p><strong>No price certainty:</strong> You get whatever prices are available — you might be filled across multiple levels.</p>
+      <p><strong>Time certainty:</strong> Filled right now, always.</p>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 3</h3>
+    <ul>
+      <li>Price moves when aggressive orders exhaust passive liquidity at one level and step to the next.</li>
+      <li>Large passive liquidity levels act as walls — strong resistance or support. More contracts = stronger wall.</li>
+      <li>75 buyers moving price from 100→103 is the exact mechanical process behind every candlestick you've ever seen.</li>
+      <li>Passive orders offer price certainty but no execution or time certainty.</li>
+      <li>Aggressive orders offer execution certainty but no price certainty — they pay whatever the book demands.</li>
+      <li>The liquidity heat map shows you WHERE these passive walls are BEFORE price reaches them. That's your edge.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of market microstructure</div>
+
+    <div class="question" id="q1">
+      <p>1. In our simulation, why did price move from 100 to 103 instead of staying at 101?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) A market maker decided to push price up</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) The 75 aggressive buyers exhausted all passive sell liquidity at 101 and 102, forcing price to step to 103 to complete fills</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) There was breaking news that drove the market up</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) A chart pattern triggered a breakout</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Exactly right! Price steps up because aggressive demand exceeds passive supply level by level. No conspiracy, no chart magic — just mechanics.</div>
+    </div>
+
+    <div class="question" id="q2">
+      <p>2. If 103 had 500 contracts instead of 31, what would have happened?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) Price would have moved even higher, past 103</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) Price would have stalled at 103 — the massive passive wall would absorb the 75 aggressive buyers completely</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) Nothing would change</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) Price would have reversed down immediately</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ A 500-contract wall at 103 would absorb all 75 buyers and price would stall there. This is the principle behind "liquidity cluster walls" — they stop or reverse price.</div>
+    </div>
+
+    <div class="question" id="q3">
+      <p>3. A trader places a limit sell order at 105. They have:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',true)">A) Price certainty (they'll sell at exactly 105 if filled) but no execution certainty (price may never reach 105)</div>
+        <div class="option" onclick="answer(this,'q3',false)">B) Execution certainty and price certainty</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) No certainty at all</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Execution certainty but no price certainty</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Limit orders give price certainty (you set the price) but no execution certainty. If price never reaches 105, your order sits waiting forever.</div>
+    </div>
+
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">3/3</div>
+      <p style="color:var(--dim);margin-top:8px">You've mastered market microstructure!</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-green" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-02.html">← Lesson 2</a>
+    <a class="btn btn-primary" href="lesson-04.html">Next: The Heat Map →</a>
+  </div>
+
+</div>
+
+<script>
+let currentStep=1;const totalSteps=6;
+function showStep(n){
+  for(let i=1;i<=totalSteps;i++){
+    const s=document.getElementById('step-'+i);
+    if(s)s.classList.remove('show');
+  }
+  const s=document.getElementById('step-'+n);
+  if(s)s.classList.add('show');
+  document.getElementById('stepCounter').textContent='Step '+n+' of '+totalSteps;
+  document.getElementById('prevBtn').disabled=(n===1);
+  document.getElementById('nextBtn').disabled=(n===totalSteps);
+  document.getElementById('nextBtn').textContent=n===totalSteps?'Completed ✓':'Next Step →';
+  const dots=document.querySelectorAll('.dot');
+  dots.forEach((d,i)=>{d.classList.remove('active','done');if(i===n-1)d.classList.add('active');else if(i<n-1)d.classList.add('done');});
+}
+function nextStep(){if(currentStep<totalSteps){currentStep++;showStep(currentStep);}}
+function prevStep(){if(currentStep>1){currentStep--;showStep(currentStep);}}
+function resetSteps(){currentStep=1;showStep(1);}
+showStep(1);
+let answers={},correct=0,total=3;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('lesson-3','done');
+  const btn=document.querySelector('.btn-green');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('lesson-3')==='done'){
+    const btn=document.querySelector('.btn-green');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

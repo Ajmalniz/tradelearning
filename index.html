@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading Masterclass: Liquidity & Order Flow</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--purple:#d500f9;--orange:#ff6d00;--teal:#00bcd4;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;min-height:100vh}
+a{color:inherit;text-decoration:none}
+.hero{background:linear-gradient(135deg,#060b14 0%,#0a1628 50%,#060b14 100%);border-bottom:1px solid var(--border);padding:60px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,230,118,0.08) 0%,transparent 60%)}
+.hero-badge{display:inline-block;background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.3);color:var(--green);padding:4px 14px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;background:linear-gradient(135deg,#fff 0%,var(--green) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px}
+.hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--dim);max-width:600px;margin:0 auto 30px}
+.hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:2rem;font-weight:800;color:var(--green)}
+.stat-label{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+.progress-bar-wrap{background:var(--card);border-bottom:1px solid var(--border);padding:16px 20px}
+.progress-bar-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:16px}
+.progress-label{font-size:13px;color:var(--dim);white-space:nowrap}
+.progress-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--teal));border-radius:4px;transition:width 0.5s ease}
+.progress-count{font-size:13px;color:var(--green);font-weight:700;white-space:nowrap}
+.container{max-width:960px;margin:0 auto;padding:40px 20px}
+.phase{margin-bottom:50px}
+.phase-header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.phase-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex-shrink:0}
+.phase-info h2{font-size:1.4rem;font-weight:700}
+.phase-info p{font-size:14px;color:var(--dim);margin-top:2px}
+.phase-1 .phase-num{background:rgba(0,188,212,0.15);border:2px solid var(--teal);color:var(--teal)}
+.phase-2 .phase-num{background:rgba(68,138,255,0.15);border:2px solid var(--blue);color:var(--blue)}
+.phase-3 .phase-num{background:rgba(0,230,118,0.15);border:2px solid var(--green);color:var(--green)}
+.phase-4 .phase-num{background:rgba(255,215,64,0.15);border:2px solid var(--yellow);color:var(--yellow)}
+.phase-5 .phase-num{background:rgba(255,109,0,0.15);border:2px solid var(--orange);color:var(--orange)}
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.lesson-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden}
+.lesson-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,0.4);border-color:var(--accent,var(--green))}
+.lesson-card.done{border-color:rgba(0,230,118,0.3)}
+.lesson-card.done::after{content:'✓';position:absolute;top:12px;right:14px;color:var(--green);font-weight:800;font-size:16px}
+.lesson-num{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.lesson-card h3{font-size:1rem;font-weight:700;margin-bottom:8px;line-height:1.3}
+.lesson-card p{font-size:13px;color:var(--dim);margin-bottom:14px;line-height:1.5}
+.lesson-meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--dim)}
+.lesson-meta span{background:var(--card2);padding:2px 8px;border-radius:10px}
+.lesson-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;margin-top:14px;padding:8px 16px;border-radius:8px;border:1px solid;transition:all 0.2s}
+.phase-1 .lesson-link{color:var(--teal);border-color:rgba(0,188,212,0.3);background:rgba(0,188,212,0.05)}
+.phase-1 .lesson-link:hover{background:rgba(0,188,212,0.12)}
+.phase-2 .lesson-link{color:var(--blue);border-color:rgba(68,138,255,0.3);background:rgba(68,138,255,0.05)}
+.phase-2 .lesson-link:hover{background:rgba(68,138,255,0.12)}
+.phase-3 .lesson-link{color:var(--green);border-color:rgba(0,230,118,0.3);background:rgba(0,230,118,0.05)}
+.phase-3 .lesson-link:hover{background:rgba(0,230,118,0.12)}
+.phase-4 .lesson-link{color:var(--yellow);border-color:rgba(255,215,64,0.3);background:rgba(255,215,64,0.05)}
+.phase-4 .lesson-link:hover{background:rgba(255,215,64,0.12)}
+.phase-5 .lesson-link{color:var(--orange);border-color:rgba(255,109,0,0.3);background:rgba(255,109,0,0.05)}
+.phase-5 .lesson-link:hover{background:rgba(255,109,0,0.12)}
+.phase-1 .lesson-num{color:var(--teal)}
+.phase-2 .lesson-num{color:var(--blue)}
+.phase-3 .lesson-num{color:var(--green)}
+.phase-4 .lesson-num{color:var(--yellow)}
+.phase-5 .lesson-num{color:var(--orange)}
+.quote-box{background:var(--card);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:24px 28px;margin-top:40px}
+.quote-box blockquote{font-size:1.05rem;color:var(--text);font-style:italic;margin-bottom:8px}
+.quote-box cite{font-size:12px;color:var(--dim);font-style:normal}
+.tip-bar{background:rgba(0,230,118,0.05);border:1px solid rgba(0,230,118,0.15);border-radius:10px;padding:16px 20px;margin-bottom:30px;display:flex;gap:12px;align-items:flex-start}
+.tip-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.tip-bar p{font-size:14px;color:var(--dim)}
+.tip-bar strong{color:var(--text)}
+footer{border-top:1px solid var(--border);padding:30px 20px;text-align:center;color:var(--dim);font-size:13px;margin-top:20px}
+@media(max-width:600px){.hero-stats{gap:24px}.stat-num{font-size:1.5rem}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">Zero to Expert</div>
+  <h1>Liquidity &amp; Order Flow<br>Trading Masterclass</h1>
+  <p>Learn the real mechanics behind market movement — the same liquidity concepts used by professional NASDAQ scalpers and World Trading Cup competitors.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">12</div><div class="stat-label">Lessons</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Phases</div></div>
+    <div class="stat"><div class="stat-num">95%</div><div class="stat-label">Ignored by Retail</div></div>
+    <div class="stat"><div class="stat-num">0→Pro</div><div class="stat-label">Your Journey</div></div>
+  </div>
+</div>
+
+<div class="progress-bar-wrap">
+  <div class="progress-bar-inner">
+    <span class="progress-label">Your Progress</span>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <span class="progress-count" id="progressCount">0 / 12 done</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="tip-bar">
+    <span class="tip-icon">💡</span>
+    <p><strong>How to use this course:</strong> Follow the phases in order — each lesson builds on the previous one. Complete lessons are tracked automatically in your browser. Click any lesson card to start learning.</p>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase phase-1">
+    <div class="phase-header">
+      <div class="phase-num">1</div>
+      <div class="phase-info">
+        <h2>Foundation — How Markets Really Work</h2>
+        <p>Understand liquidity, market participants, and the order book from the ground up</p>
+      </div>
+    </div>
+    <div class="lesson-grid">
+
+      <div class="lesson-card" id="card-1">
+        <div class="lesson-num">Lesson 1 · Phase 1</div>
+        <h3>What is Liquidity &amp; Why It's Everything</h3>
+        <p>Discover why liquidity is the single most important concept in trading. Learn how 95% of retail traders miss this completely.</p>
+        <div class="lesson-meta"><span>⏱ 10 min</span><span>🟢 Beginner</span></div>
+        <a class="lesson-link" href="lesson-01.html">Start Lesson →</a>
+      </div>
+
+      <div class="lesson-card" id="card-2">
+        <div class="lesson-num">Lesson 2 · Phase 1</div>
+        <h3>Market Participants: Who Moves the Price?</h3>
+        <p>Meet the two key players — Market Makers who offer liquidity, and Market Takers who consume it. Understand how each affects price.</p>
+        <div class="lesson-meta"><span>⏱ 12 min</span><span>🟢 Beginner</span></div>
+        <a class="lesson-link" href="lesson-02.html">Start Lesson →</a>
+      </div>
+
+      <div class="lesson-card" id="card-3">
+        <div class="lesson-num">Lesson 3 · Phase 1</div>
+        <h3>Market Microstructure: The Order Book in Action</h3>
+        <p>Step-by-step: see exactly how 75 aggressive contracts move price from 100 to 103. This is the mechanical truth of price movement.</p>
+        <div class="lesson-meta"><span>⏱ 15 min</span><span>🟡 Intermediate</span></div>
+        <a class="lesson-link" href="lesson-03.html">Start Lesson →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase phase-2">
+    <div class="phase-header">
+      <div class="phase-num">2</div>
+      <div class="phase-info">
+        <h2>Reading the Market — Your Information Edge</h2>
+        <p>Learn the tools that show you where liquidity is and where price wants to go</p>
+      </div>
+    </div>
+    <div class="lesson-grid">
+
+      <div class="lesson-card" id="card-4">
+        <div class="lesson-num">Lesson 4 · Phase 2</div>
+        <h3>The Liquidity Heat Map: See the Invisible</h3>
+        <p>Understand the technology that lets you see resting orders in real time — why it's a massive leap beyond the standard order book.</p>
+        <div class="lesson-meta"><span>⏱ 14 min</span><span>🟡 Intermediate</span></div>
+        <a class="lesson-link" href="lesson-04.html">Start Lesson →</a>
+      </div>
+
+      <div class="lesson-card" id="card-5">
+        <div class="lesson-num">Lesson 5 · Phase 2</div>
+        <h3>Path of Least Resistance: Where Price Goes Next</h3>
+        <p>Learn the book slope calculation — how comparing passive liquidity above vs below tells you the direction of least resistance.</p>
+        <div class="lesson-meta"><span>⏱ 12 min</span><span>🟡 Intermediate</span></div>
+        <a class="lesson-link" href="lesson-05.html">Start Lesson →</a>
+      </div>
+
+      <div class="lesson-card" id="card-6">
+        <div class="lesson-num">Lesson 6 · Phase 2</div>
+        <h3>Context Tools: CVD, VWAP &amp; Volume Profile</h3>
+        <p>Master the supporting tools that give you the day's directional bias — CVD divergence, VWAP standard deviation, and volume spread analysis.</p>
+        <div class="lesson-meta"><span>⏱ 15 min</span><span>🟡 Intermediate</span></div>
+        <a class="lesson-link" href="lesson-06.html">Start Lesson →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase phase-3">
+    <div class="phase-header">
+      <div class="phase-num">3</div>
+      <div class="phase-info">
+        <h2>Core Patterns — The Order Book Signals</h2>
+        <p>Identify the four foundational patterns directly from the order book</p>
+      </div>
+    </div>
+    <div class="lesson-grid">
+
+      <div class="lesson-card" id="card-7">
+        <div class="lesson-num">Lesson 7 · Phase 3</div>
+        <h3>Reload Orders &amp; Iceberg Hidden Liquidity</h3>
+        <p>Discover how institutions hide massive orders in plain sight using iceberg reloads, and why spoofing is the fake version of this pattern.</p>
+        <div class="lesson-meta"><span>⏱ 14 min</span><span>🟡 Intermediate</span></div>
+        <a class="lesson-link" href="lesson-07.html">Start Lesson →</a>
+      </div>
+
+      <div class="lesson-card" id="card-8">
+        <div class="lesson-num">Lesson 8 · Phase 3</div>
+        <h3>Book Sweep &amp; Book Flip</h3>
+        <p>Learn two powerful signals: a Book Sweep near highs/lows for asymmetrical trades, and the Book Flip that confirms trend continuation.</p>
+        <div class="lesson-meta"><span>⏱ 12 min</span><span>🟡 Intermediate</span></div>
+        <a class="lesson-link" href="lesson-08.html">Start Lesson →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase phase-4">
+    <div class="phase-header">
+      <div class="phase-num">4</div>
+      <div class="phase-info">
+        <h2>Heat Map Patterns — Advanced Setups</h2>
+        <p>The high-probability patterns professional traders use on the liquidity heat map</p>
+      </div>
+    </div>
+    <div class="lesson-grid">
+
+      <div class="lesson-card" id="card-9">
+        <div class="lesson-num">Lesson 9 · Phase 4</div>
+        <h3>Buyers &amp; Sellers Reload Patterns</h3>
+        <p>The core heat map setup: when passive liquidity reloads AND aggression appears simultaneously. Learn both the long and short versions.</p>
+        <div class="lesson-meta"><span>⏱ 16 min</span><span>🔴 Advanced</span></div>
+        <a class="lesson-link" href="lesson-09.html">Start Lesson →</a>
+      </div>
+
+      <div class="lesson-card" id="card-10">
+        <div class="lesson-num">Lesson 10 · Phase 4</div>
+        <h3>The Grill, Stookie Grill &amp; Cluster Wall</h3>
+        <p>Three advanced patterns: the Grill (eating through stacked levels), the Stookie Grill (opening session variation), and the Cluster Wall (strongest resistance zone).</p>
+        <div class="lesson-meta"><span>⏱ 18 min</span><span>🔴 Advanced</span></div>
+        <a class="lesson-link" href="lesson-10.html">Start Lesson →</a>
+      </div>
+
+      <div class="lesson-card" id="card-11">
+        <div class="lesson-num">Lesson 11 · Phase 4</div>
+        <h3>Auction Flip, Break &amp; Protect, Absorption</h3>
+        <p>Understand how the market flips direction: the Flip of the Auction, the Break &amp; Protect confirmation signal, and reading absorption in real time.</p>
+        <div class="lesson-meta"><span>⏱ 16 min</span><span>🔴 Advanced</span></div>
+        <a class="lesson-link" href="lesson-11.html">Start Lesson →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase phase-5">
+    <div class="phase-header">
+      <div class="phase-num">5</div>
+      <div class="phase-info">
+        <h2>Trading Application — The Full System</h2>
+        <p>Put everything together into a complete, repeatable trading framework</p>
+      </div>
+    </div>
+    <div class="lesson-grid">
+
+      <div class="lesson-card" id="card-12">
+        <div class="lesson-num">Lesson 12 · Phase 5</div>
+        <h3>Full System: Bias → Entry → Exit</h3>
+        <p>The complete 6-step trading workflow. Includes a real NASDAQ trade walkthrough at levels 27,875–27,940 from the live session in the masterclass.</p>
+        <div class="lesson-meta"><span>⏱ 20 min</span><span>🔴 Expert</span></div>
+        <a class="lesson-link" href="lesson-12.html">Start Lesson →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="quote-box">
+    <blockquote>"Financial markets — stock, crypto, everything, every financial asset class that comes to your mind — it's moved by a flow of orders matching liquidity. It's crucial that you understand how these forces are related to understand why and how the market moves."</blockquote>
+    <cite>— Fabio, NASDAQ Scalper &amp; World Trading Cup Podium Finisher</cite>
+  </div>
+
+</div>
+
+<footer>
+  <p>Trading Masterclass based on Fabio's Liquidity &amp; Order Flow methodology · Study offline, trade smarter</p>
+</footer>
+
+<script>
+const total = 12;
+function updateProgress(){
+  let done = 0;
+  for(let i=1;i<=total;i++){
+    if(localStorage.getItem('lesson-'+i)==='done'){
+      done++;
+      const c=document.getElementById('card-'+i);
+      if(c) c.classList.add('done');
+    }
+  }
+  const pct = Math.round((done/total)*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressCount').textContent = done+' / '+total+' done';
+}
+updateProgress();
+</script>
+</body>
+</html>

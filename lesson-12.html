@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Full Trading System | Trading Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--teal:#00bcd4;--orange:#ff6d00;--purple:#d500f9;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--orange);font-size:14px;font-weight:600}
+.lesson-badge{background:rgba(255,109,0,0.1);border:1px solid rgba(255,109,0,0.3);color:var(--orange);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#140a06,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,109,0,0.08) 0%,transparent 60%)}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--orange)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:860px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.key-point{background:var(--card);border-left:4px solid var(--orange);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.2)}
+.highlight-blue{background:rgba(68,138,255,0.07);border:1px solid rgba(68,138,255,0.2)}
+.highlight-yellow{background:rgba(255,215,64,0.07);border:1px solid rgba(255,215,64,0.2)}
+.highlight-red{background:rgba(255,23,68,0.07);border:1px solid rgba(255,23,68,0.2)}
+.highlight-orange{background:rgba(255,109,0,0.07);border:1px solid rgba(255,109,0,0.2)}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-red h4{color:var(--red)}
+.highlight-orange h4{color:var(--orange)}
+.step-card{background:var(--card);border-radius:12px;padding:24px;margin:16px 0;border-left:4px solid;display:flex;gap:20px}
+.step-card.step1{border-color:var(--teal)}
+.step-card.step2{border-color:var(--blue)}
+.step-card.step3{border-color:var(--green)}
+.step-card.step4{border-color:var(--yellow)}
+.step-card.step5{border-color:var(--orange)}
+.step-card.step6{border-color:var(--purple)}
+.step-num{font-size:2rem;font-weight:800;width:48px;flex-shrink:0;text-align:center;line-height:1}
+.step-card.step1 .step-num{color:var(--teal)}
+.step-card.step2 .step-num{color:var(--blue)}
+.step-card.step3 .step-num{color:var(--green)}
+.step-card.step4 .step-num{color:var(--yellow)}
+.step-card.step5 .step-num{color:var(--orange)}
+.step-card.step6 .step-num{color:var(--purple)}
+.step-content h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.step-content p{font-size:14px;color:var(--dim);margin-bottom:8px}
+.step-content ul{padding-left:20px;margin:0}
+.step-content li{font-size:14px;color:var(--dim);margin-bottom:4px}
+.live-trade{background:#080e18;border:1px solid var(--orange);border-radius:12px;padding:28px;margin:32px 0}
+.live-trade h2{font-size:1.3rem;color:var(--orange);margin-top:0}
+.live-trade p{font-size:14px}
+.trade-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.trade-badge{background:rgba(255,109,0,0.15);border:2px solid var(--orange);color:var(--orange);padding:6px 16px;border-radius:8px;font-weight:800;font-size:14px}
+.price-action{font-family:'Courier New',monospace;background:#0a1220;border-radius:10px;padding:20px;margin:20px 0;font-size:13px}
+.pa-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.pa-p{width:70px;font-weight:700;flex-shrink:0}
+.pa-bar-wrap{flex:1;height:22px;background:#0d1a2a;border-radius:3px;overflow:hidden}
+.pa-bar{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:6px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.85)}
+.sell-res{background:rgba(255,23,68,0.6)}
+.sell-key{background:#ff1744;box-shadow:0 0 8px rgba(255,23,68,0.4)}
+.buy-sup{background:rgba(0,230,118,0.6)}
+.buy-key{background:#00e676;box-shadow:0 0 8px rgba(0,230,118,0.4)}
+.reload-active{background:#ff6d00;box-shadow:0 0 12px rgba(255,109,0,0.5);animation:glow 1.5s infinite}
+@keyframes glow{0%,100%{opacity:1}50%{opacity:.7}}
+.pa-label{font-size:11px;font-family:-apple-system,sans-serif;width:160px;flex-shrink:0}
+.pa-current{display:flex;align-items:center;gap:8px;margin:4px 0;padding:6px 0}
+.pa-cp{font-size:12px;font-weight:700;color:var(--yellow);width:70px}
+.pa-cl{flex:1;border-top:2px solid var(--yellow)}
+.pa-clabel{font-size:11px;font-family:-apple-system,sans-serif;color:var(--yellow);width:160px}
+.trade-events{margin:16px 0}
+.te-item{display:flex;gap:12px;padding:12px;border-radius:8px;margin-bottom:8px;font-size:13px}
+.te-item.long-signal{background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.2)}
+.te-item.short-signal{background:rgba(255,23,68,0.08);border:1px solid rgba(255,23,68,0.2)}
+.te-item.context{background:rgba(68,138,255,0.08);border:1px solid rgba(68,138,255,0.2)}
+.te-item.warning{background:rgba(255,215,64,0.08);border:1px solid rgba(255,215,64,0.2)}
+.te-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.te-body h5{font-weight:700;margin-bottom:2px}
+.te-body p{color:var(--dim);margin:0}
+.checklist-final{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0}
+.checklist-final h3{font-weight:700;margin-bottom:16px;font-size:1.1rem;color:var(--orange)}
+.check-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(30,48,80,0.4);cursor:pointer}
+.check-row:last-child{border-bottom:none}
+.check-box{width:22px;height:22px;border-radius:4px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;transition:all .2s;background:var(--card2)}
+.check-box.checked{background:var(--green);border-color:var(--green);color:#000}
+.check-row:hover .check-box{border-color:var(--orange)}
+.check-text{font-size:14px}
+.check-text.checked{color:var(--dim);text-decoration:line-through}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0}
+.rule-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px}
+.rule-card .rule-icon{font-size:24px;margin-bottom:8px}
+.rule-card h4{font-weight:700;margin-bottom:6px;font-size:1rem}
+.rule-card p{font-size:13px;color:var(--dim);margin:0}
+.rule-card.green{border-top:3px solid var(--green)}
+.rule-card.red{border-top:3px solid var(--red)}
+.rule-card.yellow{border-top:3px solid var(--yellow)}
+.rule-card.blue{border-top:3px solid var(--blue)}
+.rule-card.green h4{color:var(--green)}
+.rule-card.red h4{color:var(--red)}
+.rule-card.yellow h4{color:var(--yellow)}
+.rule-card.blue h4{color:var(--blue)}
+.completion-banner{background:linear-gradient(135deg,rgba(0,230,118,0.1),rgba(68,138,255,0.1));border:2px solid var(--green);border-radius:16px;padding:32px;text-align:center;margin:40px 0}
+.completion-banner .cb-icon{font-size:48px;margin-bottom:16px}
+.completion-banner h2{font-size:1.8rem;font-weight:800;color:var(--green);margin-bottom:8px}
+.completion-banner p{color:var(--dim);max-width:500px;margin:0 auto}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--orange)}
+.option.correct{background:rgba(0,230,118,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(255,23,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(255,109,0,0.05),rgba(255,215,64,0.05));border:1px solid rgba(255,109,0,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--orange);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--orange);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+.btn-primary{background:var(--green);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 12 of 12 — FINAL</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 5 · Lesson 12</div>
+  <h1>Full <span>System</span>:<br>Bias → Entry → Exit</h1>
+  <p>The complete 6-step trading framework — plus a live NASDAQ walkthrough at 27,875–27,940 exactly as it unfolded in Fabio's live masterclass.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 20 min</span>
+    <span class="tag">🔴 Expert</span>
+    <span class="tag">🎯 Live Trade Example</span>
+    <span class="tag">🏆 Course Finale</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>The Complete 6-Step Framework</h2>
+  <p>Everything you've learned in this course flows into this framework. Follow these six steps in order on every single trade. Never skip a step.</p>
+
+  <div class="step-card step1">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h3>Build Your Directional Bias</h3>
+      <p>Before touching the heat map, answer: which direction does the market favor right now?</p>
+      <ul>
+        <li>VWAP position: above = bullish bias, below = bearish bias</li>
+        <li>CVD direction: rising = buyers in control, falling = sellers</li>
+        <li>Statistical projections, IVB, or pivot levels for the session</li>
+        <li>Higher timeframe structure (are we in a bull or bear trend?)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step-card step2">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h3>Map the Heat Map Landscape</h3>
+      <p>Open the liquidity heat map and identify the key levels:</p>
+      <ul>
+        <li>Major liquidity walls in both directions</li>
+        <li>Fresh vs resting liquidity — which is stronger?</li>
+        <li>Where is the path of least resistance? (Compare liquidity above vs below)</li>
+        <li>Mark your "hot zones" — the levels price is most likely to visit</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step-card step3">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h3>Wait for the Pattern Signal</h3>
+      <p>With bias set and key levels marked, wait for a heat map pattern to confirm:</p>
+      <ul>
+        <li>Buyers/Sellers Reload: passive reload + aggression in your direction</li>
+        <li>Break &amp; Protect: breakout + fresh reload on protection side</li>
+        <li>Absorption at a key level: failed auction confirmed with 2-3 tests</li>
+        <li>Book Sweep at session/range extreme for asymmetric trades</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step-card step4">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <h3>Time Your Entry with Order Flow</h3>
+      <p>Don't enter on anticipation — enter on confirmation:</p>
+      <ul>
+        <li>Wait for aggressive bubbles to appear in your direction (conviction)</li>
+        <li>Enter on the break (for breakout trades) or after the absorption (for reversal)</li>
+        <li>For scalpers: "first see the market getting aggressive on your direction" — Fabio</li>
+        <li>Accept some additional costs for confirmation vs guessing early</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step-card step5">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <h3>Place Your Stop Loss</h3>
+      <p>Always an AREA — not a single tick level:</p>
+      <ul>
+        <li>Below the reload level / protection wall for longs</li>
+        <li>Above the reload level / resistance wall for shorts</li>
+        <li>Below the nearest passive liquidity cluster (never between levels)</li>
+        <li>Remember: "it's not a level — it's always an area. There are orders around it."</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step-card step6">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <h3>Manage the Trade &amp; Take Profits</h3>
+      <p>Active management using the heat map throughout the trade:</p>
+      <ul>
+        <li>TP1: first major liquidity level in your direction</li>
+        <li>TP2: second liquidity cluster or the session's major target</li>
+        <li>Trail stop to reload levels as price confirms continuation (Book Flip)</li>
+        <li>Watch CVD: if it flips against you, reduce size or exit</li>
+        <li>Watch for absorption at levels ahead — those are your partials points</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LIVE TRADE WALKTHROUGH -->
+  <div class="live-trade">
+    <div class="trade-header">
+      <div class="trade-badge">📊 LIVE TRADE</div>
+      <h2>NASDAQ — May 4, 2026 Session</h2>
+    </div>
+    <p>This is the actual session Fabio analyzed in the masterclass. Let's walk through it using the 6-step framework. Price action unfolded around levels 27,875 to 27,940.</p>
+
+    <div class="price-action">
+      <div class="pa-row">
+        <div class="pa-p" style="color:var(--red)">27,940</div>
+        <div class="pa-bar-wrap"><div class="pa-bar sell-key" style="width:100%">★ MAJOR sell-side liquidity wall</div></div>
+        <div class="pa-label" style="color:var(--red);font-weight:700">KEY TARGET</div>
+      </div>
+      <div class="pa-row">
+        <div class="pa-p" style="color:var(--red)">27,930</div>
+        <div class="pa-bar-wrap"><div class="pa-bar sell-res" style="width:55%">sell liquidity</div></div>
+        <div class="pa-label" style="color:var(--dim)">moderate resistance</div>
+      </div>
+      <div class="pa-row">
+        <div class="pa-p" style="color:var(--red)">27,925</div>
+        <div class="pa-bar-wrap"><div class="pa-bar sell-key" style="width:80%">★ key sell level — battle here</div></div>
+        <div class="pa-label" style="color:var(--yellow)">⚔ battle level</div>
+      </div>
+      <div class="pa-row">
+        <div class="pa-p" style="color:var(--red)">27,915</div>
+        <div class="pa-bar-wrap"><div class="pa-bar sell-res" style="width:60%">moderate sell</div></div>
+        <div class="pa-label" style="color:var(--dim)">intermediate target</div>
+      </div>
+      <div class="pa-row">
+        <div class="pa-p" style="color:var(--orange)">27,912</div>
+        <div class="pa-bar-wrap"><div class="pa-bar reload-active" style="width:85%">🔄 BUYERS RELOAD — confirmed here</div></div>
+        <div class="pa-label" style="color:var(--orange);font-weight:700">★ ENTRY ZONE</div>
+      </div>
+      <div class="pa-current">
+        <div class="pa-cp">PRICE</div>
+        <div class="pa-cl"></div>
+        <div class="pa-clabel">≈ 27,910 session range</div>
+      </div>
+      <div class="pa-row">
+        <div class="pa-p" style="color:var(--green)">27,900</div>
+        <div class="pa-bar-wrap"><div class="pa-bar buy-sup" style="width:50%">horizontal absorption here</div></div>
+        <div class="pa-label" style="color:var(--dim)">accumulation base</div>
+      </div>
+      <div class="pa-row">
+        <div class="pa-p" style="color:var(--green)">27,895</div>
+        <div class="pa-bar-wrap"><div class="pa-bar buy-sup" style="width:40%">buy support</div></div>
+        <div class="pa-label" style="color:var(--dim)">intermediate support</div>
+      </div>
+      <div class="pa-row">
+        <div class="pa-p" style="color:var(--green)">27,875</div>
+        <div class="pa-bar-wrap"><div class="pa-bar buy-key" style="width:95%">★ MAJOR buy-side liquidity wall</div></div>
+        <div class="pa-label" style="color:var(--green);font-weight:700">🛡 KEY SUPPORT</div>
+      </div>
+      <div class="pa-row">
+        <div class="pa-p" style="color:var(--green)">27,850</div>
+        <div class="pa-bar-wrap"><div class="pa-bar buy-sup" style="width:45%">secondary support</div></div>
+        <div class="pa-label" style="color:var(--dim)">lower support</div>
+      </div>
+    </div>
+
+    <h4 style="margin:20px 0 12px;color:var(--orange)">Step-by-Step Trade Analysis</h4>
+
+    <div class="trade-events">
+      <div class="te-item context">
+        <div class="te-icon">📊</div>
+        <div class="te-body"><h5>Step 1: Directional Bias — LONG</h5><p>VWAP check: buyers dominating the auction from the beginning of the session. CVD: buyers in complete control. Price above the first standard deviation of VWAP. Long bias confirmed before any heat map reading.</p></div>
+      </div>
+      <div class="te-item context">
+        <div class="te-icon">🗺️</div>
+        <div class="te-body"><h5>Step 2: Heat Map Landscape</h5><p>Major buy wall at 27,875 (very bright). Major sell target at 27,940. Battle zone at 27,925. Multiple intermediate levels between. Path of least resistance: UP (less passive resistance above 27,912 vs strong buy wall below at 27,875).</p></div>
+      </div>
+      <div class="te-item long-signal">
+        <div class="te-icon">🔄</div>
+        <div class="te-body"><h5>Step 3: Pattern Signal — Buyers Reload</h5><p>At level 27,910-27,912: Buyers reloaded passive buy liquidity AND showed aggressive buying bubbles simultaneously. This is the Buyers Reload pattern. "Absorption of the sellers here — aggression of the buyers — and they put resting liquidity. This is the pattern of reload." — Fabio</p></div>
+      </div>
+      <div class="te-item long-signal">
+        <div class="te-icon">⚡</div>
+        <div class="te-body"><h5>Step 4: Entry Timing</h5><p>Enter long after confirming the reload + aggression. This is the confluence: NASDAQ Effort indicator also fired at this level. "Seeing exactly the level that they rejected here, seeing horizontally the 27,910-27,912 and knowing that this pattern here on this absorption of the buyers and this reload... it's exactly where the NASDAQ Effort printed — giving me the confidence to go to the next level of liquidity."</p></div>
+      </div>
+      <div class="te-item warning">
+        <div class="te-icon">🛡</div>
+        <div class="te-body"><h5>Step 5: Stop Loss</h5><p>Stop placed below the reload level at 27,907-27,905 area. Not a single tick — an area below the protection wall. If buyers are truly defending here, price should NOT return below this zone.</p></div>
+      </div>
+      <div class="te-item long-signal">
+        <div class="te-icon">🎯</div>
+        <div class="te-body"><h5>Step 6: Trade Management &amp; TPs</h5><p><strong>TP1:</strong> 27,925 (first sell-side cluster) — take 50% off here<br><strong>TP2:</strong> 27,940 (major sell wall — the session's target level) — close remainder<br>Fabio: "Which level do we have here below? We have the 27,790 that is super far — and we have this cluster. So we have TP1 and TP2 here."<br><br>Trail stop to reload levels as price confirms at each level. Watch for absorption at 27,925 to decide whether to hold for 27,940.</p></div>
+      </div>
+    </div>
+
+    <div class="highlight-box highlight-orange" style="margin:0;border-radius:10px">
+      <h4>What Actually Happened: NASDAQ Collapses</h4>
+      <p>Here's what makes this session remarkable: <strong>after the initial bullish setup played out, the NASDAQ then had a sharp reversal.</strong><br><br>
+      A news event (missile alert in UAE) triggered aggressive selling. Sellers loaded reload after reload. The auction flipped. Fabio identified the sell reload signals:<br><br>
+      "Reload of the sellers number one. Reload of the sellers number two. What does it mean? They want to get more order filled. This could be for the reason that they want to get this horizontal level filled. So they could now complete distribution to go back to the main level."<br><br>
+      CVD flipped lower. The short bias was now confirmed. The system adapted in real time — from long bias to short bias — using the same framework in reverse.</p>
+    </div>
+  </div>
+
+  <h2>The Golden Rules of This System</h2>
+  <div class="rules">
+    <div class="rule-card green">
+      <div class="rule-icon">✅</div>
+      <h4>Always Start with Bias</h4>
+      <p>Never trade from the heat map alone. VWAP and CVD determine direction FIRST. The heat map only provides precision entry timing.</p>
+    </div>
+    <div class="rule-card red">
+      <div class="rule-icon">❌</div>
+      <h4>Never Fight the CVD</h4>
+      <p>"I will not try to get long while the sellers are dominating the auction because it's a suicide." Wait for CVD to align with your intended direction.</p>
+    </div>
+    <div class="rule-card yellow">
+      <div class="rule-icon">📐</div>
+      <h4>It's Always an Area</h4>
+      <p>"Remember, it's not a level — it's always an area. It's important to understand this." Stops and entries are areas of liquidity, not single ticks.</p>
+    </div>
+    <div class="rule-card blue">
+      <div class="rule-icon">⚖️</div>
+      <h4>Check R:R Before Every Trade</h4>
+      <p>Even a perfect pattern with poor risk-to-reward is a skip. TP1 must be at least 2× your stop distance. No exceptions.</p>
+    </div>
+    <div class="rule-card green">
+      <div class="rule-icon">🔄</div>
+      <h4>Fresh Reload = Fuel</h4>
+      <p>When fresh liquidity loads in your direction after a breakout, it's fuel for the move. When it appears against you, it's a warning. Track fresh vs resting constantly.</p>
+    </div>
+    <div class="rule-card red">
+      <div class="rule-icon">🚨</div>
+      <h4>Respect the Higher Timeframe</h4>
+      <p>"Remember that this is market micro mechanics. You always need a confirmation from the higher timeframe on what's happening here." Micro mechanics confirm the macro, not the other way around.</p>
+    </div>
+  </div>
+
+  <!-- FINAL TRADE CHECKLIST -->
+  <div class="checklist-final">
+    <h3>Pre-Trade Checklist (Click to Check Off)</h3>
+    <div class="check-row" onclick="toggleCheck(this)">
+      <div class="check-box">○</div>
+      <div class="check-text">VWAP position determined — I know if buyers or sellers control the day</div>
+    </div>
+    <div class="check-row" onclick="toggleCheck(this)">
+      <div class="check-box">○</div>
+      <div class="check-text">CVD direction confirmed — it aligns with my intended trade direction</div>
+    </div>
+    <div class="check-row" onclick="toggleCheck(this)">
+      <div class="check-box">○</div>
+      <div class="check-text">Key heat map levels identified — I know where major walls are</div>
+    </div>
+    <div class="check-row" onclick="toggleCheck(this)">
+      <div class="check-box">○</div>
+      <div class="check-text">Pattern signal confirmed — reload, break &amp; protect, or absorption triggered</div>
+    </div>
+    <div class="check-row" onclick="toggleCheck(this)">
+      <div class="check-box">○</div>
+      <div class="check-text">Aggressive bubbles visible in my direction — conviction confirmed</div>
+    </div>
+    <div class="check-row" onclick="toggleCheck(this)">
+      <div class="check-box">○</div>
+      <div class="check-text">Stop loss area identified — it's BELOW (or above) a liquidity cluster</div>
+    </div>
+    <div class="check-row" onclick="toggleCheck(this)">
+      <div class="check-box">○</div>
+      <div class="check-text">TP1 identified — first liquidity target at least 2× stop distance</div>
+    </div>
+    <div class="check-row" onclick="toggleCheck(this)">
+      <div class="check-box">○</div>
+      <div class="check-text">TP2 identified — major liquidity cluster as final target</div>
+    </div>
+    <div class="check-row" onclick="toggleCheck(this)">
+      <div class="check-box">○</div>
+      <div class="check-text">R:R ratio is at least 1:2 — trade is worth taking</div>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 12 (and the Entire Course)</h3>
+    <ul>
+      <li>The full framework is sequential: Bias → Map → Pattern → Entry → Stop → Manage. Never jump steps.</li>
+      <li>The live NASDAQ session showed the system working in BOTH directions — long bias then short bias as conditions changed.</li>
+      <li>Stops are areas, not ticks. Entries are confirmed by aggression, not anticipated.</li>
+      <li>CVD is the most important real-time filter — it tells you who actually controls the auction right now.</li>
+      <li>Fresh liquidity after a breakout is the single strongest confirming signal (Break &amp; Protect).</li>
+      <li>Exchange data on the heat map is objective and real — no conspiracy, no prediction, just mechanics.</li>
+    </ul>
+  </div>
+
+  <div class="completion-banner">
+    <div class="cb-icon">🏆</div>
+    <h2>Course Complete!</h2>
+    <p>You've gone from zero to understanding the real mechanics behind every market move. You now know what 95% of retail traders never learn. The journey from here is practice — watch the heat map daily, identify the patterns, and apply the framework one step at a time.</p>
+  </div>
+
+  <div class="quiz">
+    <h3>Final Knowledge Check</h3>
+    <div class="subtitle">The ultimate test — can you apply the full system?</div>
+    <div class="question" id="q1">
+      <p>1. You're watching the NASDAQ. VWAP shows price below it. CVD is falling. On the heat map you see sellers reloading fresh liquidity and getting aggressive. What is the correct action?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) Look for long setups — the sellers reload will exhaust soon</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) Set up a short trade: the Sellers Reload pattern aligns with your bearish bias (below VWAP, CVD falling). Wait for aggression confirmation + identify TP1 and TP2 below.</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) Do not trade — never trade when CVD is falling</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) Enter long immediately because sellers always get squeezed</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ All signals align for a short: bearish VWAP position + falling CVD + Sellers Reload pattern. This is the highest probability setup in the system. Enter short with stop above the reload level, target the next passive buy clusters below.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. You're in a long trade. Price breaks above a resistance level. You see fresh buy orders immediately load below the broken level. AND CVD starts rising sharply. What does this tell you?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) Exit immediately — too many good signals means a trap</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) Break &amp; Protect confirmed with CVD backing — trail your stop to just below the fresh buy reload and consider adding contracts. The auction is continuing up.</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) Take all profits now before the move reverses</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) Do nothing — wait for a pullback first</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Break &amp; Protect + rising CVD = confirmation of continuation. Trail stop to just below the fresh reload (the protection wall). The three signals together (break + protect + CVD) give maximum conviction to hold and potentially add.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. What is the most important principle that underlies EVERYTHING you've learned in this course?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Chart patterns predict future price with mathematical precision</div>
+        <div class="option" onclick="answer(this,'q3',false)">B) Market makers always manipulate retail traders</div>
+        <div class="option" onclick="answer(this,'q3',true)">C) All market movement is orders matching liquidity. Price moves when aggressive orders exhaust passive liquidity at one level and step to the next. This mechanism — readable directly from exchange data — is the foundation of all professional trading.</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Technical indicators are the key to profitable trading</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ The entire course comes back to this fundamental truth. Every pattern, every tool, every concept — they're all different ways of reading the same underlying reality: orders matching liquidity, creating price movement. You now understand this at a level 95% of traders never reach.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">3/3</div>
+      <p style="color:var(--dim);margin-top:8px;font-size:1.1rem">🎓 You are ready to trade with this system!</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this final lesson as complete</strong><p>Complete all 12 lessons to finish the course</p></div>
+    <button class="btn btn-green" onclick="markDone()">✓ Mark Complete &amp; Finish Course</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-11.html">← Lesson 11</a>
+    <a class="btn btn-primary" href="index.html">🏆 Back to Roadmap</a>
+  </div>
+
+</div>
+<script>
+function toggleCheck(row){
+  const box=row.querySelector('.check-box');
+  const text=row.querySelector('.check-text');
+  if(box.classList.contains('checked')){
+    box.classList.remove('checked');
+    box.textContent='○';
+    text.classList.remove('checked');
+  } else {
+    box.classList.add('checked');
+    box.textContent='✓';
+    text.classList.add('checked');
+  }
+}
+let answers={},correct=0,total=3;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('lesson-12','done');
+  const btn=document.querySelector('.btn-green');
+  btn.textContent='✓ Course Complete!';
+  btn.style.background='rgba(0,230,118,0.2)';
+  btn.style.color='var(--green)';
+  btn.style.border='1px solid var(--green)';
+  btn.disabled=true;
+  // Check if all 12 done
+  let allDone=true;
+  for(let i=1;i<=12;i++){if(localStorage.getItem('lesson-'+i)!=='done'){allDone=false;break;}}
+  if(allDone){
+    const banner=document.querySelector('.completion-banner h2');
+    if(banner)banner.textContent='🎓 All 12 Lessons Complete!';
+  }
+}
+window.onload=function(){
+  if(localStorage.getItem('lesson-12')==='done'){
+    const btn=document.querySelector('.btn-green');
+    if(btn){btn.textContent='✓ Course Complete!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

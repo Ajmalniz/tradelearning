@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: The Liquidity Heat Map | Trading Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--teal:#00bcd4;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--blue);font-size:14px;font-weight:600}
+.lesson-badge{background:rgba(68,138,255,0.1);border:1px solid rgba(68,138,255,0.3);color:var(--blue);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#071428,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--blue)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.key-point{background:var(--card);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.2)}
+.highlight-blue{background:rgba(68,138,255,0.07);border:1px solid rgba(68,138,255,0.2)}
+.highlight-yellow{background:rgba(255,215,64,0.07);border:1px solid rgba(255,215,64,0.2)}
+.highlight-red{background:rgba(255,23,68,0.07);border:1px solid rgba(255,23,68,0.2)}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-red h4{color:var(--red)}
+.heatmap-demo{background:#080e18;border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0;font-family:'Courier New',monospace;overflow-x:auto}
+.heatmap-demo h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;font-family:-apple-system,sans-serif}
+.hm-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;height:28px}
+.hm-price{width:60px;text-align:right;font-size:13px;font-weight:700;color:var(--dim);flex-shrink:0}
+.hm-bar-wrap{flex:1;height:20px;background:#0d1a2a;border-radius:3px;overflow:hidden;position:relative}
+.hm-bar{height:100%;border-radius:3px;position:absolute;left:0;top:0;display:flex;align-items:center;padding-left:8px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.8);white-space:nowrap}
+.hm-contracts{width:80px;text-align:right;font-size:12px;flex-shrink:0}
+.hm-label{width:120px;font-size:11px;flex-shrink:0}
+.hm-sell .hm-bar{background:rgba(255,23,68,0.6)}
+.hm-sell-bright .hm-bar{background:rgba(255,23,68,0.9);box-shadow:0 0 8px rgba(255,23,68,0.4)}
+.hm-sell-very-bright .hm-bar{background:#ff1744;box-shadow:0 0 16px rgba(255,23,68,0.6)}
+.hm-buy .hm-bar{background:rgba(0,230,118,0.6)}
+.hm-buy-bright .hm-bar{background:rgba(0,230,118,0.9);box-shadow:0 0 8px rgba(0,230,118,0.4)}
+.hm-buy-very-bright .hm-bar{background:#00e676;box-shadow:0 0 16px rgba(0,230,118,0.6)}
+.hm-mid{display:flex;align-items:center;gap:8px;margin:4px 0;padding:6px 0}
+.hm-mid .hm-price{color:var(--yellow);font-weight:800}
+.hm-mid-line{flex:1;border-top:2px dashed var(--yellow);opacity:.5}
+.hm-contracts.bright-sell{color:var(--red);font-weight:700}
+.hm-contracts.bright-buy{color:var(--green);font-weight:700}
+.hm-contracts.very-bright-sell{color:var(--red);font-weight:800;font-size:13px}
+.hm-contracts.very-bright-buy{color:var(--green);font-weight:800;font-size:13px}
+.color-legend{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:13px}
+.legend-swatch{width:28px;height:14px;border-radius:3px}
+.color-scale{display:flex;gap:0;margin:20px 0;border-radius:8px;overflow:hidden}
+.cs-block{flex:1;padding:16px 4px;text-align:center;font-size:11px;font-weight:700}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+.feature-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+.feature-card h4{font-weight:700;margin-bottom:10px;font-size:1rem}
+.feature-card p{font-size:14px;color:var(--dim);margin:0}
+.step-list{list-style:none;padding:0;margin:20px 0}
+.step-list li{display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(30,48,80,0.5)}
+.step-list li:last-child{border-bottom:none}
+.step-num-circle{width:32px;height:32px;border-radius:50%;background:rgba(68,138,255,0.1);border:2px solid var(--blue);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0}
+.step-list-content h5{font-weight:700;margin-bottom:4px}
+.step-list-content p{font-size:14px;color:var(--dim);margin:0}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--blue)}
+.option.correct{background:rgba(0,230,118,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(255,23,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(68,138,255,0.05),rgba(0,188,212,0.05));border:1px solid rgba(68,138,255,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--blue);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--blue);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.btn-green:hover{opacity:.85}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 4 of 12</span>
+</div>
+
+<div class="hero">
+  <div class="lesson-num-big">Phase 2 · Lesson 4</div>
+  <h1>The <span>Liquidity Heat Map</span>:<br>See the Invisible</h1>
+  <p>The technology that lets professionals watch resting orders in real time — a quantum leap beyond the standard order book.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 14 min</span>
+    <span class="tag">🟡 Intermediate</span>
+    <span class="tag">🔥 Game Changer</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>What Makes the Heat Map Different?</h2>
+  <p>You've learned from Lesson 3 that price moves by exhausting passive liquidity at each level. But to trade with this knowledge, you need to <em>see</em> where that passive liquidity is — in real time, across all price levels, with historical context.</p>
+  <p>The standard order book gives you a list of numbers. The Liquidity Heat Map gives you a living, visual picture of the entire order landscape. Fabio describes it:</p>
+
+  <div class="key-point">
+    "It's a technology step from the usual order book because it shows you also the historical movement of the liquidity and it's really visually appealing and easy to understand — you have the darker level or the level that is more powerful from a visual perspective... if the level is important, the color is more bright." — Fabio
+  </div>
+
+  <h2>How the Heat Map Visualizes Orders</h2>
+  <p>The core principle: the more contracts resting at a price level, the <strong>brighter</strong> (more intense) the color at that level. Low liquidity levels are dim or invisible. Massive levels glow.</p>
+
+  <div class="heatmap-demo">
+    <h4>Example Liquidity Heat Map (Simplified Visual)</h4>
+
+    <div class="hm-row hm-sell">
+      <div class="hm-price" style="color:var(--red)">103.50</div>
+      <div class="hm-bar-wrap"><div class="hm-bar" style="width:20%">12 cts</div></div>
+      <div class="hm-contracts" style="color:var(--dim)">12</div>
+      <div class="hm-label" style="color:var(--dim);font-size:11px">low — barely visible</div>
+    </div>
+    <div class="hm-row hm-sell-bright">
+      <div class="hm-price" style="color:var(--red)">103.00</div>
+      <div class="hm-bar-wrap"><div class="hm-bar" style="width:55%">40 cts</div></div>
+      <div class="hm-contracts bright-sell">40</div>
+      <div class="hm-label" style="color:var(--yellow);font-size:11px">medium — notable</div>
+    </div>
+    <div class="hm-row hm-sell-very-bright">
+      <div class="hm-price" style="color:var(--red)">102.50</div>
+      <div class="hm-bar-wrap"><div class="hm-bar" style="width:100%">78 cts ← SUPER BRIGHT</div></div>
+      <div class="hm-contracts very-bright-sell">78</div>
+      <div class="hm-label" style="color:var(--red);font-size:11px;font-weight:700">★ KEY LEVEL — very bright</div>
+    </div>
+    <div class="hm-row hm-sell">
+      <div class="hm-price" style="color:var(--red)">102.00</div>
+      <div class="hm-bar-wrap"><div class="hm-bar" style="width:10%">7 cts</div></div>
+      <div class="hm-contracts" style="color:var(--dim)">7</div>
+      <div class="hm-label" style="color:var(--dim);font-size:11px">low — barely visible</div>
+    </div>
+
+    <div class="hm-mid">
+      <div class="hm-price">PRICE</div>
+      <div class="hm-mid-line"></div>
+      <div style="color:var(--yellow);font-size:13px;white-space:nowrap">→ Current: 101.50</div>
+    </div>
+
+    <div class="hm-row hm-buy">
+      <div class="hm-price" style="color:var(--green)">101.00</div>
+      <div class="hm-bar-wrap"><div class="hm-bar" style="width:22%">15 cts</div></div>
+      <div class="hm-contracts" style="color:var(--dim)">15</div>
+      <div class="hm-label" style="color:var(--dim);font-size:11px">low</div>
+    </div>
+    <div class="hm-row hm-buy-bright">
+      <div class="hm-price" style="color:var(--green)">100.50</div>
+      <div class="hm-bar-wrap"><div class="hm-bar" style="width:50%">33 cts</div></div>
+      <div class="hm-contracts bright-buy">33</div>
+      <div class="hm-label" style="color:var(--yellow);font-size:11px">notable</div>
+    </div>
+    <div class="hm-row hm-buy-very-bright">
+      <div class="hm-price" style="color:var(--green)">100.00</div>
+      <div class="hm-bar-wrap"><div class="hm-bar" style="width:90%">78 cts ← SUPER BRIGHT</div></div>
+      <div class="hm-contracts very-bright-buy">78</div>
+      <div class="hm-label" style="color:var(--green);font-size:11px;font-weight:700">★ KEY LEVEL — very bright</div>
+    </div>
+    <div class="hm-row hm-buy">
+      <div class="hm-price" style="color:var(--green)">99.50</div>
+      <div class="hm-bar-wrap"><div class="hm-bar" style="width:14%">9 cts</div></div>
+      <div class="hm-contracts" style="color:var(--dim)">9</div>
+      <div class="hm-label" style="color:var(--dim);font-size:11px">low</div>
+    </div>
+
+    <div style="margin-top:16px;display:flex;gap:16px;flex-wrap:wrap">
+      <div class="legend-item"><div class="legend-swatch" style="background:rgba(255,23,68,0.3)"></div><span style="font-size:12px;color:var(--dim)">Dim = few contracts</span></div>
+      <div class="legend-item"><div class="legend-swatch" style="background:rgba(255,23,68,0.7)"></div><span style="font-size:12px;color:var(--dim)">Medium = moderate</span></div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#ff1744;box-shadow:0 0 6px rgba(255,23,68,0.5)"></div><span style="font-size:12px;color:var(--dim)">Bright = KEY LEVEL</span></div>
+    </div>
+  </div>
+
+  <p>In the example above, the 102.50 sell level and 100.00 buy level are <strong>super bright</strong> — they have 78 contracts each. Price is very likely to react strongly when it reaches either of these levels. The dim levels (7-15 contracts) will barely slow price down.</p>
+
+  <h2>The Historical Dome: Seeing the Past</h2>
+  <p>Unlike a regular order book that only shows the present moment, the heat map shows you a <strong>historical dome</strong> — where liquidity has been over time. This is incredibly powerful because:</p>
+
+  <div class="highlight-box highlight-blue">
+    <h4>💡 What the Historical Dome Tells You</h4>
+    <p>If you see liquidity rising on the heat map over time (appearing at progressively higher prices), it means large players are <strong>lifting their bids</strong> — they're willing to pay more. This signals bullish intent.<br><br>
+    If liquidity appears stacked and hasn't been consumed despite price touching it multiple times, those levels are <strong>resting liquidity</strong> with strong defending interest behind them.</p>
+  </div>
+
+  <h2>The Two Types of Liquidity on the Heat Map</h2>
+  <div class="two-col">
+    <div class="feature-card">
+      <h4 style="color:var(--blue)">🔵 Resting Liquidity</h4>
+      <p>Passive orders that have been sitting at a level for some time. They've been there, seen price approach, and survived. This is "old" liquidity — it signals a strong, deliberate position that someone is defending.</p>
+    </div>
+    <div class="feature-card">
+      <h4 style="color:var(--green)">🟢 Fresh Liquidity</h4>
+      <p>New passive orders that just appeared. When fresh liquidity appears right after a breakout — especially in the direction of the move — it means someone is actively adding protection to fuel a sustained move. This is the most powerful signal.</p>
+    </div>
+  </div>
+
+  <div class="key-point">
+    Fresh liquidity added immediately after a breakout = high probability of a sustained, continued move in that direction. This is what professionals look for before committing to a trade.
+  </div>
+
+  <h2>The Two Interactive Forces on the Heat Map</h2>
+  <p>At every moment on the heat map, you see the interaction of:</p>
+  <ul style="padding-left:24px;margin-bottom:16px">
+    <li style="margin-bottom:8px"><strong>Bubbles</strong> (aggressive market orders) — visible as large circular indicators showing where aggressive buying/selling occurred</li>
+    <li style="margin-bottom:8px"><strong>Passive liquidity levels</strong> — the colored bars at each price showing resting orders</li>
+  </ul>
+  <p>When bubbles approach a liquidity level, one of two things happens: <strong>absorption</strong> (the level holds and absorbs the aggression) or <strong>breakthrough</strong> (the aggressive orders exhaust the passive orders and price moves through).</p>
+
+  <h2>Platform Settings: How to Read the Heat Map Optimally</h2>
+  <p>Fabio uses the DeepDome platform. Here's how he configures it for maximum clarity:</p>
+
+  <ul class="step-list">
+    <li>
+      <div class="step-num-circle">1</div>
+      <div class="step-list-content">
+        <h5>Contrast Setting: Higher = Cleaner</h5>
+        <p>Set contrast high (e.g., 80%) so only the most important levels glow. Weak levels fade to invisible. This prevents information overload — you only see levels that actually matter.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num-circle">2</div>
+      <div class="step-list-content">
+        <h5>Bubble Size: Medium for Long Sessions</h5>
+        <p>Medium bubble size is easiest on the eyes for multi-hour scalping sessions. Large bubbles can feel overwhelming; small can be hard to spot quickly.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num-circle">3</div>
+      <div class="step-list-content">
+        <h5>Bubble Grouping: 70-75% for Absorption Trading</h5>
+        <p>Setting bubble grouping to 70-75% makes it easy to spot where buyers or sellers get absorbed at a level — large horizontal bubbles become immediately visible.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num-circle">4</div>
+      <div class="step-list-content">
+        <h5>Mark the Most Important Levels</h5>
+        <p>Use the drawing tools to mark key levels: where sellers last took control, where buyers last took control, and major intermediate liquidity levels. This keeps your focus on the battle zones.</p>
+      </div>
+    </li>
+  </ul>
+
+  <h2>Why This Gives You an Edge Over 95% of Traders</h2>
+  <div class="highlight-box highlight-yellow">
+    <h4>The Information Asymmetry</h4>
+    <p>While retail traders are drawing support/resistance lines and hoping price stops there, you will KNOW:</p>
+    <p>• Exactly how many contracts are at each price level<br>
+    • Whether those levels are fresh or old<br>
+    • Whether liquidity is growing or shrinking as price approaches<br>
+    • Which direction has more passive resistance (path of least resistance)<br>
+    • Whether large players are adding protective liquidity to a move</p>
+    <p>This is not predicting. This is reading directly from the exchange's own data.</p>
+  </div>
+
+  <div class="key-point">
+    "These data are provided directly from the exchange. So you have one certainty — you know for a fact that these data are real and these are actual levels waiting to get filled, paired with actual execution on the bubble." — Fabio
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 4</h3>
+    <ul>
+      <li>The heat map visualizes resting orders by brightness — brighter color = more contracts = stronger level.</li>
+      <li>The historical dome shows movement over time, not just the current snapshot.</li>
+      <li>Resting liquidity = old, survived levels. Fresh liquidity = new, just-added levels.</li>
+      <li>Fresh liquidity appearing after a breakout = high probability of sustained continuation.</li>
+      <li>Data comes directly from the exchange — it's real, not interpreted or assumed.</li>
+      <li>You see TWO things: passive levels (bars) and aggressive orders (bubbles). Their interaction tells the story.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of the Liquidity Heat Map</div>
+
+    <div class="question" id="q1">
+      <p>1. On the heat map, a very bright (glowing) price level means:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',true)">A) A very large number of passive orders are resting at that price — it's a key level</div>
+        <div class="option" onclick="answer(this,'q1',false)">B) Price is moving very fast through that level</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) The level has been recently traded and is now empty</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) It's a warning that the market will crash</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Brightness = contract size. The more contracts resting, the brighter. A very bright level has massive passive liquidity and will likely cause a strong price reaction.</div>
+    </div>
+
+    <div class="question" id="q2">
+      <p>2. What is the "historical dome" of the heat map?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) A dome-shaped price pattern on the chart</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) The trail of where liquidity has been over time, showing how orders have moved — unlike the standard order book which only shows the present</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) The ceiling price for the day's trading session</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) Historical price data going back years</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ The historical dome shows the trail of liquidity movement over time. If liquidity is rising (appearing at higher prices), large players are lifting their bids — bullish intent.</div>
+    </div>
+
+    <div class="question" id="q3">
+      <p>3. Fresh liquidity appearing immediately after a breakout is a signal of:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) A potential reversal — someone is betting against the move</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) High probability of continued movement in the same direction — someone is adding protection to fuel the move</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) Market manipulation that should be ignored</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) End of the trading session approaching</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Fresh liquidity after a breakout = protection + fuel for continuation. Someone wants to be filled at the new level and is defending it. This is a high-probability signal for a sustained move.</div>
+    </div>
+
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">3/3</div>
+      <p style="color:var(--dim);margin-top:8px">You can read the heat map!</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-green" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-03.html">← Lesson 3</a>
+    <a class="btn btn-primary" href="lesson-05.html">Next: Path of Least Resistance →</a>
+  </div>
+
+</div>
+<script>
+let answers={},correct=0,total=3;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('lesson-4','done');
+  const btn=document.querySelector('.btn-green');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('lesson-4')==='done'){
+    const btn=document.querySelector('.btn-green');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

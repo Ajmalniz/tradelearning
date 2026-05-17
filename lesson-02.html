@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Market Participants | Trading Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--teal:#00bcd4;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--teal);font-size:14px;font-weight:600}
+.lesson-badge{background:rgba(0,188,212,0.1);border:1px solid rgba(0,188,212,0.3);color:var(--teal);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#0a1a2e,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--teal);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--teal)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;margin-top:24px}
+p{margin-bottom:14px}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.2)}
+.highlight-blue{background:rgba(68,138,255,0.07);border:1px solid rgba(68,138,255,0.2)}
+.highlight-yellow{background:rgba(255,215,64,0.07);border:1px solid rgba(255,215,64,0.2)}
+.highlight-red{background:rgba(255,23,68,0.07);border:1px solid rgba(255,23,68,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-red h4{color:var(--red)}
+.key-point{background:var(--card);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:24px 0}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+.participant-card{background:var(--card);border-radius:12px;padding:24px;border:2px solid}
+.participant-card.maker{border-color:rgba(68,138,255,0.4)}
+.participant-card.taker{border-color:rgba(255,23,68,0.4)}
+.participant-card .title{font-size:18px;font-weight:800;margin-bottom:4px}
+.participant-card.maker .title{color:var(--blue)}
+.participant-card.taker .title{color:var(--red)}
+.participant-card .subtitle{font-size:12px;color:var(--dim);margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px}
+.trait{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;font-size:14px}
+.trait::before{content:'•';margin-top:2px;flex-shrink:0}
+.participant-card.maker .trait::before{color:var(--blue)}
+.participant-card.taker .trait::before{color:var(--red)}
+.diagram{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0}
+.diagram h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.orderbook-demo{font-family:'Courier New',monospace;font-size:14px}
+.ob-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(30,48,80,0.4)}
+.ob-row:last-child{border-bottom:none}
+.ob-sell{color:var(--red)}
+.ob-buy{color:var(--green)}
+.ob-spread{color:var(--yellow);text-align:center;font-weight:700;padding:12px 0;border-top:1px dashed var(--border);border-bottom:1px dashed var(--border)}
+.ob-label{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.size-bar-wrap{width:80px;height:8px;background:var(--card2);border-radius:4px;overflow:hidden;margin-left:8px}
+.size-bar{height:100%;border-radius:4px}
+.size-bar-sell{background:var(--red)}
+.size-bar-buy{background:var(--green)}
+.comparison{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:24px 0}
+.comparison-header{display:grid;grid-template-columns:1fr 1fr 1fr;background:var(--card2);border-bottom:1px solid var(--border)}
+.comparison-header div{padding:12px 16px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--dim)}
+.comparison-header div:nth-child(2){color:var(--blue);text-align:center}
+.comparison-header div:nth-child(3){color:var(--red);text-align:center}
+.comparison-row{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid rgba(30,48,80,0.4)}
+.comparison-row:last-child{border-bottom:none}
+.comparison-row div{padding:10px 16px;font-size:14px}
+.comparison-row div:nth-child(1){color:var(--dim)}
+.comparison-row div:nth-child(2){color:var(--blue);text-align:center;background:rgba(68,138,255,0.03)}
+.comparison-row div:nth-child(3){color:var(--red);text-align:center;background:rgba(255,23,68,0.03)}
+.spread-demo{display:flex;flex-direction:column;align-items:center;gap:2px;margin:20px 0;font-family:'Courier New',monospace}
+.price-level{display:flex;align-items:center;gap:16px;padding:6px 16px;border-radius:6px;width:100%;max-width:400px}
+.price-level.ask{background:rgba(255,23,68,0.08);justify-content:space-between}
+.price-level.bid{background:rgba(0,230,118,0.08);justify-content:space-between}
+.price-level.current{background:var(--card2);justify-content:center;font-weight:700;border:1px solid var(--border)}
+.p-num{font-weight:700}
+.p-ask{color:var(--red)}
+.p-bid{color:var(--green)}
+.p-size{color:var(--dim);font-size:13px}
+.spread-label{background:rgba(255,215,64,0.1);border:1px solid rgba(255,215,64,0.3);color:var(--yellow);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin:4px 0}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--teal)}
+.option.correct{background:rgba(0,230,118,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(255,23,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(0,188,212,0.05),rgba(0,230,118,0.05));border:1px solid rgba(0,188,212,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--teal);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--teal);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal)}
+.btn-primary{background:var(--teal);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.btn-green:hover{opacity:.85}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 2 of 12</span>
+</div>
+
+<div class="hero">
+  <div class="lesson-num-big">Phase 1 · Lesson 2</div>
+  <h1><span>Market Participants</span>:<br>Who Moves the Price?</h1>
+  <p>Meet the two forces behind every trade — and understand the bid/ask spread that sits between them.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 12 min</span>
+    <span class="tag">🟢 Beginner</span>
+    <span class="tag">📖 Foundation</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>The Two Types of Market Participants</h2>
+  <p>Every transaction in a financial market involves exactly two sides. Understanding these two roles is crucial — because they have completely different characteristics, goals, and behavior:</p>
+
+  <div class="two-col">
+    <div class="participant-card maker">
+      <div class="title">Market Makers</div>
+      <div class="subtitle">The Passive Side · They Offer</div>
+      <div class="trait">Place <strong>limit orders</strong> at specific prices</div>
+      <div class="trait">Wait for price to come to them</div>
+      <div class="trait">Provide the liquidity that others consume</div>
+      <div class="trait">Have <strong>price certainty</strong> — they know the price they'll get</div>
+      <div class="trait">No <strong>execution certainty</strong> — they may never get filled</div>
+      <div class="trait">Collect the spread as compensation</div>
+    </div>
+    <div class="participant-card taker">
+      <div class="title">Market Takers</div>
+      <div class="subtitle">The Aggressive Side · They Eat</div>
+      <div class="trait">Place <strong>market orders</strong> — execute immediately</div>
+      <div class="trait">Demand to be filled RIGHT NOW</div>
+      <div class="trait">Consume (remove) passive liquidity</div>
+      <div class="trait"><strong>Execution certainty</strong> — they will be filled</div>
+      <div class="trait">No <strong>price certainty</strong> — they pay whatever price is available</div>
+      <div class="trait">Pay the spread as the cost of urgency</div>
+    </div>
+  </div>
+
+  <div class="key-point">
+    "Market takers — they EAT. These are the bubbles that eat liquidity levels. Market makers — they OFFER." — Fabio
+  </div>
+
+  <h2>The Bid, the Ask, and the Spread</h2>
+  <p>At any moment, the market has two prices: the <strong>best bid</strong> (highest price a buyer will pay) and the <strong>best ask</strong> (lowest price a seller will accept). The gap between them is the <strong>spread</strong>.</p>
+
+  <div class="diagram">
+    <h4>Live Order Book — Example</h4>
+    <div class="spread-demo">
+      <div class="ob-label" style="align-self:flex-start">SELL SIDE (ASKS) — passive sellers waiting</div>
+      <div class="price-level ask">
+        <span class="p-num p-ask">103</span>
+        <span class="p-size">31 contracts resting</span>
+        <div class="size-bar-wrap"><div class="size-bar size-bar-sell" style="width:62%"></div></div>
+      </div>
+      <div class="price-level ask">
+        <span class="p-num p-ask">102</span>
+        <span class="p-size">42 contracts resting</span>
+        <div class="size-bar-wrap"><div class="size-bar size-bar-sell" style="width:84%"></div></div>
+      </div>
+      <div class="price-level ask">
+        <span class="p-num p-ask">101</span>
+        <span class="p-size">33 contracts resting</span>
+        <div class="size-bar-wrap"><div class="size-bar size-bar-sell" style="width:66%"></div></div>
+      </div>
+      <div class="spread-label">↕ SPREAD = 2 ticks (101 ask - 99 bid)</div>
+      <div class="price-level current">
+        <span style="color:var(--yellow);font-size:1.1rem">CURRENT PRICE: 100</span>
+      </div>
+      <div class="price-level bid">
+        <span class="p-num p-bid">99</span>
+        <span class="p-size">48 contracts resting</span>
+        <div class="size-bar-wrap"><div class="size-bar size-bar-buy" style="width:96%"></div></div>
+      </div>
+      <div class="price-level bid">
+        <span class="p-num p-bid">98</span>
+        <span class="p-size">22 contracts resting</span>
+        <div class="size-bar-wrap"><div class="size-bar size-bar-buy" style="width:44%"></div></div>
+      </div>
+      <div class="price-level bid">
+        <span class="p-num p-bid">97</span>
+        <span class="p-size">15 contracts resting</span>
+        <div class="size-bar-wrap"><div class="size-bar size-bar-buy" style="width:30%"></div></div>
+      </div>
+      <div class="ob-label" style="align-self:flex-start;margin-top:8px">BUY SIDE (BIDS) — passive buyers waiting</div>
+    </div>
+  </div>
+
+  <p>In this example, if you want to buy <em>right now</em> as a market taker, you pay <strong>101</strong> (the ask). If you want to sell right now, you receive <strong>99</strong> (the bid). The spread is the cost of immediacy — and the profit of providing liquidity.</p>
+
+  <h2>Comparing the Two Roles Side by Side</h2>
+
+  <div class="comparison">
+    <div class="comparison-header">
+      <div>Property</div>
+      <div>Market Maker (Passive)</div>
+      <div>Market Taker (Aggressive)</div>
+    </div>
+    <div class="comparison-row">
+      <div>Order Type</div><div>Limit order</div><div>Market order</div>
+    </div>
+    <div class="comparison-row">
+      <div>Price Certainty</div><div>✅ Yes — fixed price</div><div>❌ No — pays whatever exists</div>
+    </div>
+    <div class="comparison-row">
+      <div>Execution Certainty</div><div>❌ No — may never fill</div><div>✅ Yes — always fills</div>
+    </div>
+    <div class="comparison-row">
+      <div>Time Certainty</div><div>❌ No — waits as long as needed</div><div>✅ Yes — fills immediately</div>
+    </div>
+    <div class="comparison-row">
+      <div>Spread</div><div>✅ Earns the spread</div><div>❌ Pays the spread</div>
+    </div>
+    <div class="comparison-row">
+      <div>Role in price movement</div><div>Creates resistance / support</div><div>Drives price through levels</div>
+    </div>
+    <div class="comparison-row">
+      <div>Visualized as</div><div>Resting liquidity on heat map</div><div>Bubbles (aggressive orders)</div>
+    </div>
+  </div>
+
+  <h2>The Crucial Insight About the Spread</h2>
+  <p>Fabio explains this clearly: as a passive order, you buy and sell at the price you want — but you don't have a guarantee you'll get filled. That's the perspective of the passive order: <em>price certainty but not time certainty and not execution certainty.</em></p>
+  <p>Aggressive market participants say "fill me NOW." They buy and sell when they want, but they pay a worse price — they pay for the spread because they have the necessity to be filled.</p>
+
+  <div class="highlight-box highlight-yellow">
+    <div class="icon">💡</div>
+    <h4>Why This Matters for Trading</h4>
+    <p>When you see aggressive orders (bubbles) on the heat map, you know someone was willing to pay the spread — they wanted to be filled <em>so badly</em> they didn't wait. Large aggressive orders are a signal of strong conviction and intention. They're far more meaningful than a small limit order sitting quietly on the book.</p>
+  </div>
+
+  <h2>Institutional Players vs Retail Traders</h2>
+  <p>Institutional players (banks, hedge funds, prop firms) have a unique challenge: they have to fill <strong>massive</strong> order sizes. You can't just dump 10,000 contracts at once — you'd move the market against yourself and get terrible fills.</p>
+  <p>So they use sophisticated methods:</p>
+
+  <div class="highlight-box highlight-blue">
+    <div class="icon">🏦</div>
+    <h4>How Institutions Fill Large Orders</h4>
+    <p><strong>Iceberg orders:</strong> Only show 8 contracts at a time, but reload the level hundreds of times to fill 500+ contracts total.<br><br>
+    <strong>Algorithmic execution:</strong> Split huge orders into many small ones spread across time and price levels.<br><br>
+    <strong>Passive accumulation:</strong> Reload passive liquidity levels to get filled without alerting the market.<br><br>
+    <strong>Distribution:</strong> Sell into buying pressure, reload, sell again — without ever moving price against themselves.</p>
+  </div>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">🎯</div>
+    <h4>What This Means for You</h4>
+    <p>When you see a liquidity level on the heat map being repeatedly reloaded — even as price absorbs it again and again — that is institutional activity. They are building a position. This is one of the most powerful signals you can use to align yourself with the "smart money."</p>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 2</h3>
+    <ul>
+      <li>Market Makers are passive — they offer limit orders and wait. They have price certainty, not execution certainty.</li>
+      <li>Market Takers are aggressive — they use market orders and demand fills immediately. They pay the spread.</li>
+      <li>The bid-ask spread is the cost of getting filled immediately vs. waiting for your price.</li>
+      <li>Aggressive orders (bubbles) are the force that physically moves price through levels.</li>
+      <li>Passive orders (resting liquidity) either stop price or support it through a level.</li>
+      <li>Institutions disguise large order flows using iceberg orders, algos, and passive reloading.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 2</div>
+
+    <div class="question" id="q1">
+      <p>1. A Market Maker is best described as:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) Someone who uses market orders to get filled immediately</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) Someone who places limit orders that wait to be filled, providing passive liquidity</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) A hedge fund that always trades against retail traders</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) An algorithmic trading bot</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Market Makers provide passive liquidity with limit orders. They offer price certainty but have no guarantee of execution.</div>
+    </div>
+
+    <div class="question" id="q2">
+      <p>2. If the best bid is 99 and the best ask is 101, what is the spread?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) 1 tick</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) 2 ticks</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) 100 ticks</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) 0 — they are the same price</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Spread = ask - bid = 101 - 99 = 2 ticks. As a market taker buying, you'd pay 101. Selling, you'd receive 99.</div>
+    </div>
+
+    <div class="question" id="q3">
+      <p>3. Why do market takers pay the spread?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) They are unintelligent traders who don't understand the market</div>
+        <div class="option" onclick="answer(this,'q3',false)">B) The exchange charges them an extra fee</div>
+        <div class="option" onclick="answer(this,'q3',true)">C) They demand immediate execution and must take whatever price is available, crossing the spread</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) They always trade large sizes</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Market takers pay the spread because they prioritize execution speed over price. The cost of certainty is crossing the bid-ask spread.</div>
+    </div>
+
+    <div class="question" id="q4">
+      <p>4. Why do institutions use iceberg orders and algorithmic execution?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) Because it's required by law</div>
+        <div class="option" onclick="answer(this,'q4',true)">B) Because placing a massive single order would move the market against them, causing terrible fill prices</div>
+        <div class="option" onclick="answer(this,'q4',false)">C) To manipulate markets illegally</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) Because they can't afford the spread on large orders</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Institutions split large orders to avoid market impact. A single 10,000-contract order would drive price dramatically, giving them terrible average fill prices.</div>
+    </div>
+
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">4/4</div>
+      <p style="color:var(--dim);margin-top:8px">Excellent! You understand market participants.</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div>
+      <strong>Mark this lesson as complete</strong>
+      <p>Track your progress through the course</p>
+    </div>
+    <button class="btn btn-green" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-01.html">← Lesson 1</a>
+    <a class="btn btn-primary" href="lesson-03.html">Next: The Order Book →</a>
+  </div>
+
+</div>
+
+<script>
+let answers={},correct=0,total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');
+    r.style.display='block';
+    const s=document.getElementById('quiz-score');
+    s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('lesson-2','done');
+  const btn=document.querySelector('.btn-green');
+  btn.textContent='✓ Completed!';
+  btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('lesson-2')==='done'){
+    const btn=document.querySelector('.btn-green');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Path of Least Resistance | Trading Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--teal:#00bcd4;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--blue);font-size:14px;font-weight:600}
+.lesson-badge{background:rgba(68,138,255,0.1);border:1px solid rgba(68,138,255,0.3);color:var(--blue);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#071428,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--yellow)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.key-point{background:var(--card);border-left:4px solid var(--yellow);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.2)}
+.highlight-blue{background:rgba(68,138,255,0.07);border:1px solid rgba(68,138,255,0.2)}
+.highlight-yellow{background:rgba(255,215,64,0.07);border:1px solid rgba(255,215,64,0.2)}
+.highlight-red{background:rgba(255,23,68,0.07);border:1px solid rgba(255,23,68,0.2)}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-red h4{color:var(--red)}
+.polr-demo{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0}
+.polr-demo h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.polr-chart{display:flex;flex-direction:column;align-items:center;gap:3px;max-width:480px;margin:0 auto}
+.polr-level{display:flex;align-items:center;gap:12px;width:100%}
+.polr-price{width:56px;text-align:right;font-size:13px;font-weight:700;flex-shrink:0}
+.polr-bar-track{flex:1;height:22px;background:var(--card2);border-radius:4px;overflow:hidden;position:relative}
+.polr-bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:11px;font-weight:700;color:rgba(255,255,255,0.9)}
+.polr-count{width:42px;text-align:left;font-size:12px;font-weight:700;flex-shrink:0}
+.polr-current{display:flex;align-items:center;gap:12px;width:100%;margin:6px 0}
+.polr-current-line{flex:1;border-top:2px solid var(--yellow)}
+.polr-current-label{font-size:12px;font-weight:700;color:var(--yellow);white-space:nowrap;flex-shrink:0}
+.polr-totals{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.polr-total-card{border-radius:8px;padding:16px;text-align:center;border:2px solid}
+.polr-total-card.sell{border-color:rgba(255,23,68,0.4);background:rgba(255,23,68,0.05)}
+.polr-total-card.buy{border-color:rgba(0,230,118,0.4);background:rgba(0,230,118,0.05)}
+.polr-total-card .num{font-size:2rem;font-weight:800}
+.polr-total-card.sell .num{color:var(--red)}
+.polr-total-card.buy .num{color:var(--green)}
+.polr-total-card .lbl{font-size:12px;color:var(--dim);margin-top:4px}
+.polr-verdict{background:var(--card2);border-radius:8px;padding:16px;margin-top:16px;text-align:center;border:2px solid var(--green)}
+.polr-verdict .v-title{font-size:1.1rem;font-weight:800;color:var(--green);margin-bottom:6px}
+.polr-verdict p{font-size:14px;color:var(--dim);margin:0}
+.calc-demo{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0}
+.calc-demo h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.calc-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(30,48,80,0.4);font-size:14px}
+.calc-row:last-child{border-bottom:none}
+.calc-label{color:var(--dim);width:160px;flex-shrink:0}
+.calc-val{font-weight:700;font-family:'Courier New',monospace}
+.calc-val.red{color:var(--red)}
+.calc-val.green{color:var(--green)}
+.calc-val.yellow{color:var(--yellow)}
+.book-slope-demo{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0;overflow-x:auto}
+.book-slope-demo h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.slope-visual{display:flex;gap:30px;justify-content:center;flex-wrap:wrap}
+.slope-col{text-align:center;min-width:160px}
+.slope-col h5{font-size:12px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.slope-col.bear h5{color:var(--red)}
+.slope-col.bull h5{color:var(--green)}
+.slope-bar-group{display:flex;flex-direction:column;align-items:center;gap:4px}
+.slope-bar{height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:rgba(255,255,255,0.9)}
+.slope-bar.sell{background:rgba(255,23,68,0.7)}
+.slope-bar.buy{background:rgba(0,230,118,0.7)}
+.slope-price{font-size:11px;color:var(--dim);margin-top:4px}
+.slope-arrow{font-size:28px;display:flex;align-items:center;padding-top:30px}
+.slope-arrow.down{color:var(--red)}
+.slope-arrow.up{color:var(--green)}
+.interactive-calc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0}
+.interactive-calc h4{font-weight:700;margin-bottom:16px}
+.calc-input-row{display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.calc-input-row label{font-size:13px;color:var(--dim);width:200px}
+.calc-slider{flex:1;min-width:120px;accent-color:var(--blue)}
+.calc-slider-val{font-weight:700;color:var(--yellow);min-width:50px;font-size:14px}
+.calc-result{background:var(--card2);border-radius:8px;padding:16px;margin-top:16px;text-align:center}
+.calc-result .res-text{font-size:1.2rem;font-weight:800;margin-bottom:4px}
+.calc-result .res-sub{font-size:13px;color:var(--dim)}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--yellow)}
+.option.correct{background:rgba(0,230,118,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(255,23,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(255,215,64,0.05),rgba(68,138,255,0.05));border:1px solid rgba(255,215,64,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--yellow);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--yellow);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--yellow);color:var(--yellow)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.btn-green:hover{opacity:.85}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 5 of 12</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 2 · Lesson 5</div>
+  <h1>Path of <span>Least Resistance</span>:<br>Where Price Goes Next</h1>
+  <p>Learn to calculate which direction offers the least obstacle for price — the book slope method that professionals use for every trading decision.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 12 min</span>
+    <span class="tag">🟡 Intermediate</span>
+    <span class="tag">📐 Quantitative</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>The Core Concept</h2>
+  <p>If you fix a constant amount of "effort" (aggressive force), price will move further in the direction where there is <em>less passive liquidity</em>. More resistance above = price moves down more easily. More resistance below = price moves up more easily.</p>
+  <p>This is the concept of the <strong>Path of Least Resistance</strong> — the direction where a given force causes the most price movement.</p>
+
+  <div class="key-point">
+    "The path of least resistance is down. Why? Because to go above, you need to fulfill 273 passive orders. The total limit above the price is 273. Below the price is 122. So fixing the effort, it's easier to move price down." — Fabio
+  </div>
+
+  <h2>Fabio's Exact Example: 273 vs 122</h2>
+  <p>Imagine fixing the "effort" at 50 contracts — the same amount of aggressive force going either up or down. Look at what 50 contracts runs into in each direction across 5 price levels:</p>
+
+  <div class="polr-demo">
+    <h4>Path of Least Resistance Calculation</h4>
+    <div class="polr-chart">
+      <!-- SELL SIDE above -->
+      <div class="polr-level">
+        <div class="polr-price" style="color:var(--red)">+5</div>
+        <div class="polr-bar-track"><div class="polr-bar-fill" style="width:42%;background:rgba(255,23,68,0.6)">42</div></div>
+        <div class="polr-count" style="color:var(--red)">42</div>
+      </div>
+      <div class="polr-level">
+        <div class="polr-price" style="color:var(--red)">+4</div>
+        <div class="polr-bar-track"><div class="polr-bar-fill" style="width:55%;background:rgba(255,23,68,0.6)">55</div></div>
+        <div class="polr-count" style="color:var(--red)">55</div>
+      </div>
+      <div class="polr-level">
+        <div class="polr-price" style="color:var(--red)">+3</div>
+        <div class="polr-bar-track"><div class="polr-bar-fill" style="width:68%;background:rgba(255,23,68,0.7)">68</div></div>
+        <div class="polr-count" style="color:var(--red)">68</div>
+      </div>
+      <div class="polr-level">
+        <div class="polr-price" style="color:var(--red)">+2</div>
+        <div class="polr-bar-track"><div class="polr-bar-fill" style="width:58%;background:rgba(255,23,68,0.6)">58</div></div>
+        <div class="polr-count" style="color:var(--red)">58</div>
+      </div>
+      <div class="polr-level">
+        <div class="polr-price" style="color:var(--red)">+1</div>
+        <div class="polr-bar-track"><div class="polr-bar-fill" style="width:50%;background:rgba(255,23,68,0.6)">50</div></div>
+        <div class="polr-count" style="color:var(--red)">50</div>
+      </div>
+      <div class="polr-current">
+        <div class="polr-current-label">↔ PRICE</div>
+        <div class="polr-current-line"></div>
+        <div class="polr-current-label">Fixed effort: 50 contracts</div>
+      </div>
+      <div class="polr-level">
+        <div class="polr-price" style="color:var(--green)">−1</div>
+        <div class="polr-bar-track"><div class="polr-bar-fill" style="width:22%;background:rgba(0,230,118,0.6)">22</div></div>
+        <div class="polr-count" style="color:var(--green)">22</div>
+      </div>
+      <div class="polr-level">
+        <div class="polr-price" style="color:var(--green)">−2</div>
+        <div class="polr-bar-track"><div class="polr-bar-fill" style="width:18%;background:rgba(0,230,118,0.6)">18</div></div>
+        <div class="polr-count" style="color:var(--green)">18</div>
+      </div>
+      <div class="polr-level">
+        <div class="polr-price" style="color:var(--green)">−3</div>
+        <div class="polr-bar-track"><div class="polr-bar-fill" style="width:30%;background:rgba(0,230,118,0.6)">30</div></div>
+        <div class="polr-count" style="color:var(--green)">30</div>
+      </div>
+      <div class="polr-level">
+        <div class="polr-price" style="color:var(--green)">−4</div>
+        <div class="polr-bar-track"><div class="polr-bar-fill" style="width:26%;background:rgba(0,230,118,0.6)">26</div></div>
+        <div class="polr-count" style="color:var(--green)">26</div>
+      </div>
+      <div class="polr-level">
+        <div class="polr-price" style="color:var(--green)">−5</div>
+        <div class="polr-bar-track"><div class="polr-bar-fill" style="width:26%;background:rgba(0,230,118,0.6)">26</div></div>
+        <div class="polr-count" style="color:var(--green)">26</div>
+      </div>
+    </div>
+
+    <div class="polr-totals">
+      <div class="polr-total-card sell">
+        <div class="num">273</div>
+        <div class="lbl">Total passive sell orders above<br>(5 levels up)</div>
+      </div>
+      <div class="polr-total-card buy">
+        <div class="num">122</div>
+        <div class="lbl">Total passive buy orders below<br>(5 levels down)</div>
+      </div>
+    </div>
+    <div class="polr-verdict">
+      <div class="v-title">⬇ Path of Least Resistance: DOWNWARD</div>
+      <p>With only 122 passive buy contracts below vs 273 sell contracts above, the same 50-contract effort will move price much further DOWN than UP. The book slope points downward.</p>
+    </div>
+  </div>
+
+  <h2>The Book Slope: Visual Intuition</h2>
+  <p>Think of passive liquidity as a hill. The steeper the hill on one side, the harder it is to push price in that direction. The flatter/smaller the hill on the other side, the easier price rolls.</p>
+
+  <div class="book-slope-demo">
+    <h4>Book Slope — Bearish vs Bullish</h4>
+    <div class="slope-visual">
+      <div class="slope-col bear">
+        <h5>Bearish Slope<br>(Path of Least Resistance: DOWN)</h5>
+        <div class="slope-bar-group">
+          <div class="slope-bar sell" style="width:200px">273 above (5 levels)</div>
+          <div style="font-size:12px;color:var(--yellow);margin:4px 0">── PRICE ──</div>
+          <div class="slope-bar buy" style="width:90px">122 below</div>
+        </div>
+        <div class="slope-arrow down">⬇</div>
+      </div>
+      <div class="slope-col bull">
+        <h5>Bullish Slope<br>(Path of Least Resistance: UP)</h5>
+        <div class="slope-bar-group">
+          <div class="slope-bar sell" style="width:90px">80 above</div>
+          <div style="font-size:12px;color:var(--yellow);margin:4px 0">── PRICE ──</div>
+          <div class="slope-bar buy" style="width:200px">290 below (5 levels)</div>
+        </div>
+        <div class="slope-arrow up">⬆</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Try It: Interactive Calculator</h2>
+  <p>Adjust the passive liquidity above and below to see how the path of least resistance changes:</p>
+
+  <div class="interactive-calc">
+    <h4>Path of Least Resistance Calculator</h4>
+    <div class="calc-input-row">
+      <label>Passive SELL liquidity above (5 levels):</label>
+      <input type="range" class="calc-slider" id="sellSlider" min="20" max="400" value="273" oninput="calcPOLR()">
+      <span class="calc-slider-val" id="sellVal">273</span>
+    </div>
+    <div class="calc-input-row">
+      <label>Passive BUY liquidity below (5 levels):</label>
+      <input type="range" class="calc-slider" id="buySlider" min="20" max="400" value="122" oninput="calcPOLR()">
+      <span class="calc-slider-val" id="buyVal">122</span>
+    </div>
+    <div class="calc-result" id="calcResult">
+      <div class="res-text" id="resText" style="color:var(--red)">⬇ Path of Least Resistance: DOWNWARD</div>
+      <div class="res-sub" id="resSub">273 above vs 122 below — 55% more resistance going up. Price will move down more easily.</div>
+    </div>
+  </div>
+
+  <h2>How to Use Path of Least Resistance in Trading</h2>
+  <p>This concept has direct, practical applications at every timeframe:</p>
+
+  <div class="highlight-box highlight-yellow">
+    <h4>Short-Term Scalping Decisions</h4>
+    <p>When you're deciding whether to enter a long or a short, quickly scan the heat map. If there are 3× more passive sell orders above than buy orders below in the next 5 levels — the probability strongly favors downward movement. Don't fight the slope.</p>
+  </div>
+
+  <div class="highlight-box highlight-green">
+    <h4>Breakout Confirmation</h4>
+    <p>Before entering a breakout trade, check: has the passive resistance been consumed? If price just broke through a massive sell wall (273 contracts) and now the levels above are thin (only 40 contracts), the path of least resistance has just shifted upward. Now is the time to join.</p>
+  </div>
+
+  <div class="highlight-box highlight-blue">
+    <h4>Stop Loss Placement</h4>
+    <p>Place your stop loss BELOW a major passive buy cluster (for long trades) or ABOVE a major passive sell cluster (for short trades). The cluster acts as your "protection wall" — if price can't break through it, your trade is safe.</p>
+  </div>
+
+  <div class="key-point">
+    Remember: price always finds the path of least resistance. Institutional players and algorithmic systems use this principle constantly. When you can read the book slope, you're reading the same data they are.
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 5</h3>
+    <ul>
+      <li>Path of least resistance = the direction where the same "effort" (aggressive contracts) moves price the furthest.</li>
+      <li>Calculate it: sum passive liquidity above (5 levels) and below (5 levels). Smaller total = direction of least resistance.</li>
+      <li>273 above vs 122 below → price is 2.2× more likely to move down.</li>
+      <li>The book slope visualizes this: like a hill — price rolls down the gentler slope.</li>
+      <li>Use it for: entry direction, breakout confirmation, and stop loss placement.</li>
+      <li>Always check the slope BEFORE entering a trade — you want to be aligned with least resistance, not fighting it.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of path of least resistance</div>
+    <div class="question" id="q1">
+      <p>1. Passive sell orders above: 180 contracts. Passive buy orders below: 60 contracts. What is the path of least resistance?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) Upward — there are more sellers, so they push price up</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) Downward — only 60 contracts of resistance below vs 180 above, so the same effort moves price much further down</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) Neutral — the market is balanced</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) Upward — more sellers means more demand to buy from them</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ 180 above vs 60 below = 3× more resistance going up. The same 50-contract effort would move price 3× further downward. Path of least resistance: DOWN.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. What does "fixing the effort" mean in the path of least resistance calculation?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) Setting a fixed stop loss distance</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) Assuming the same number of aggressive contracts attacks in each direction, so you can compare passive resistance on each side fairly</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) Fixing a price target</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) Setting a maximum position size</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ By "fixing" the effort (e.g., 50 contracts), you create a fair comparison — same aggressive force in each direction. Then you compare resistance to see which direction yields more movement.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. Price is near a level with 400 passive buy contracts below and only 80 passive sell contracts above. For a scalper, this suggests:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Go short — those 400 contracts are likely sell orders</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) The path of least resistance is UP — only 80 sell contracts blocking the way, much less than the 400 buy contracts below that would absorb selling pressure</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) Don't trade — too much liquidity makes it unpredictable</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Wait for a news event to confirm direction</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ 80 contracts above vs 400 below = path of least resistance is strongly UP. Price will face minimal resistance going up, and massive support preventing downward movement.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">3/3</div>
+      <p style="color:var(--dim);margin-top:8px">You can calculate the path of least resistance!</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-green" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-04.html">← Lesson 4</a>
+    <a class="btn btn-primary" href="lesson-06.html">Next: CVD &amp; VWAP →</a>
+  </div>
+
+</div>
+<script>
+function calcPOLR(){
+  const sell=parseInt(document.getElementById('sellSlider').value);
+  const buy=parseInt(document.getElementById('buySlider').value);
+  document.getElementById('sellVal').textContent=sell;
+  document.getElementById('buyVal').textContent=buy;
+  const resText=document.getElementById('resText');
+  const resSub=document.getElementById('resSub');
+  if(sell>buy){
+    const ratio=((sell-buy)/buy*100).toFixed(0);
+    resText.style.color='var(--red)';
+    resText.textContent='⬇ Path of Least Resistance: DOWNWARD';
+    resSub.textContent=sell+' above vs '+buy+' below — '+ratio+'% more resistance going up. Price will move down more easily.';
+  } else if(buy>sell){
+    const ratio=((buy-sell)/sell*100).toFixed(0);
+    resText.style.color='var(--green)';
+    resText.textContent='⬆ Path of Least Resistance: UPWARD';
+    resSub.textContent=buy+' below vs '+sell+' above — '+ratio+'% more resistance going down. Price will move up more easily.';
+  } else {
+    resText.style.color='var(--yellow)';
+    resText.textContent='⬌ Balanced — No Clear Path';
+    resSub.textContent='Equal resistance in both directions. Choppy, unpredictable movement. Wait for imbalance.';
+  }
+}
+let answers={},correct=0,total=3;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('lesson-5','done');
+  const btn=document.querySelector('.btn-green');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('lesson-5')==='done'){
+    const btn=document.querySelector('.btn-green');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

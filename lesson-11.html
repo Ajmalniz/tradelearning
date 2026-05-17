@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Auction Flip, Break & Protect, Absorption | Trading Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--teal:#00bcd4;--orange:#ff6d00;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--yellow);font-size:14px;font-weight:600}
+.lesson-badge{background:rgba(255,215,64,0.1);border:1px solid rgba(255,215,64,0.3);color:var(--yellow);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#14100a,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--red)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.key-point{background:var(--card);border-left:4px solid var(--red);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.2)}
+.highlight-blue{background:rgba(68,138,255,0.07);border:1px solid rgba(68,138,255,0.2)}
+.highlight-yellow{background:rgba(255,215,64,0.07);border:1px solid rgba(255,215,64,0.2)}
+.highlight-red{background:rgba(255,23,68,0.07);border:1px solid rgba(255,23,68,0.2)}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-red h4{color:var(--red)}
+.pattern-card{background:var(--card);border-radius:12px;padding:28px;margin:28px 0;border:2px solid}
+.pattern-card.flip{border-color:rgba(255,23,68,0.4)}
+.pattern-card.protect{border-color:rgba(0,230,118,0.4)}
+.pattern-card.absorb{border-color:rgba(255,215,64,0.4)}
+.pattern-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.pattern-badge{padding:6px 14px;border-radius:6px;font-weight:800;font-size:14px}
+.pattern-badge.flip{background:rgba(255,23,68,0.1);border:2px solid var(--red);color:var(--red)}
+.pattern-badge.protect{background:rgba(0,230,118,0.1);border:2px solid var(--green);color:var(--green)}
+.pattern-badge.absorb{background:rgba(255,215,64,0.1);border:2px solid var(--yellow);color:var(--yellow)}
+.pattern-header h3{font-size:1.2rem;font-weight:700;margin:0}
+.visual-block{background:#080e18;border-radius:10px;padding:20px;margin:20px 0}
+.visual-block h5{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px;font-family:-apple-system,sans-serif}
+.hm-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.hm-p{width:56px;text-align:right;font-size:12px;font-weight:700;flex-shrink:0}
+.hm-t{flex:1;height:20px;background:#0d1a2a;border-radius:3px;overflow:hidden}
+.hm-f{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:6px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.85)}
+.sell-wall{background:#ff1744}
+.sell-mid{background:rgba(255,23,68,0.6)}
+.sell-fresh{background:#ff1744;box-shadow:0 0 10px rgba(255,23,68,0.5)}
+.buy-wall{background:#00e676}
+.buy-mid{background:rgba(0,230,118,0.6)}
+.buy-fresh{background:#00e676;box-shadow:0 0 10px rgba(0,230,118,0.5)}
+.neutral{background:rgba(255,215,64,0.5)}
+.hm-label{font-size:11px;width:130px;flex-shrink:0}
+.hm-current{display:flex;align-items:center;gap:8px;margin:4px 0;padding:6px 0}
+.hm-cp{font-size:12px;font-weight:700;width:56px;text-align:right}
+.hm-cl{flex:1;border-top:2px solid var(--yellow)}
+.hm-clabel{font-size:11px;width:130px}
+.event-sequence{margin:20px 0}
+.event{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(30,48,80,0.4)}
+.event:last-child{border-bottom:none}
+.event-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0;margin-top:1px}
+.event-num.red{background:rgba(255,23,68,0.15);border:2px solid var(--red);color:var(--red)}
+.event-num.green{background:rgba(0,230,118,0.15);border:2px solid var(--green);color:var(--green)}
+.event-num.yellow{background:rgba(255,215,64,0.15);border:2px solid var(--yellow);color:var(--yellow)}
+.event-body h5{font-weight:700;font-size:14px;margin-bottom:3px}
+.event-body p{font-size:13px;color:var(--dim);margin:0}
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+@media(max-width:600px){.comparison{grid-template-columns:1fr}}
+.cmp-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+.cmp-card h4{font-weight:700;margin-bottom:8px;font-size:14px}
+.cmp-card p{font-size:13px;color:var(--dim);margin:0}
+.cmp-card.failed h4{color:var(--red)}
+.cmp-card.sustained h4{color:var(--green)}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--red)}
+.option.correct{background:rgba(0,230,118,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(255,23,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(255,23,68,0.05),rgba(255,215,64,0.05));border:1px solid rgba(255,23,68,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--red);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--red);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--red);color:var(--red)}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 11 of 12</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 4 · Lesson 11</div>
+  <h1>Auction <span>Flip</span>, Break &amp;<br>Protect, Absorption</h1>
+  <p>The final advanced patterns — understanding when the market changes direction, confirms a breakout, and how to read absorption in real time.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 16 min</span>
+    <span class="tag">🔴 Advanced</span>
+    <span class="tag">🎯 Direction Changes</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- FLIP OF THE AUCTION -->
+  <div class="pattern-card flip">
+    <div class="pattern-header">
+      <div class="pattern-badge flip">🔀 FLIP OF THE AUCTION</div>
+      <h3>When the Market Changes Direction</h3>
+    </div>
+
+    <p>The <strong>Flip of the Auction</strong> is when the dominant direction of the market reverses. It's not just a price bounce — it's a fundamental shift in who controls the auction, confirmed by specific order flow signals.</p>
+
+    <div class="key-point">
+      "The Flip of the Auction — an amazing example of the battle. You see buyers getting aggressive, buyers getting aggressive, sellers getting aggressive here — but they are protected by this liquidity wall. When the sellers take the final decision to breach through — this is important — because at the same time you see the protection of the aggressive market order sustained by the liquidity wall." — Fabio
+    </div>
+
+    <div class="visual-block">
+      <h5>Flip of Auction — Bullish to Bearish</h5>
+      <div class="hm-row">
+        <div class="hm-p" style="color:var(--green)">+5</div>
+        <div class="hm-t"><div class="hm-f buy-mid" style="width:50%">previous upside target</div></div>
+        <div class="hm-label" style="color:var(--dim)">old target (irrelevant)</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-p" style="color:var(--yellow)">+2</div>
+        <div class="hm-t"><div class="hm-f sell-fresh" style="width:90%">🔄 SELL RELOAD after flip</div></div>
+        <div class="hm-label" style="color:var(--red);font-weight:700">← NEW RESISTANCE</div>
+      </div>
+      <div class="hm-current">
+        <div class="hm-cp" style="color:var(--red)">BREAK</div>
+        <div class="hm-cl"></div>
+        <div class="hm-clabel" style="color:var(--red)">⬇ sellers breached here</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-p" style="color:var(--red)">−2</div>
+        <div class="hm-t"><div class="hm-f sell-fresh" style="width:75%">🔄 protective sell reload</div></div>
+        <div class="hm-label" style="color:var(--red)">sellers protecting move</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-p" style="color:var(--yellow)">−5</div>
+        <div class="hm-t"><div class="hm-f buy-mid" style="width:55%">TP1</div></div>
+        <div class="hm-label" style="color:var(--yellow)">→ first target</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-p" style="color:var(--yellow)">−8</div>
+        <div class="hm-t"><div class="hm-f buy-wall" style="width:80%">TP2</div></div>
+        <div class="hm-label" style="color:var(--yellow)">→ second target</div>
+      </div>
+    </div>
+
+    <div class="event-sequence">
+      <div class="event">
+        <div class="event-num green">1</div>
+        <div class="event-body"><h5>Battle Phase</h5><p>Buyers and sellers are both aggressive. Neither side is dominating. Price oscillates. This is accumulation of short positions by sellers.</p></div>
+      </div>
+      <div class="event">
+        <div class="event-num red">2</div>
+        <div class="event-body"><h5>Sellers Breach the Key Level</h5><p>Sellers finally take decisive action — a sustained break below an important passive buy level. This is the "flip point."</p></div>
+      </div>
+      <div class="event">
+        <div class="event-num red">3</div>
+        <div class="event-body"><h5>Fresh Sell Liquidity Loads Above the Break</h5><p>Immediately after the break, fresh sell orders appear ABOVE the broken level. "The door is closed." Anyone who tries to buy back above is now fighting sellers who just loaded there.</p></div>
+      </div>
+      <div class="event">
+        <div class="event-num yellow">4</div>
+        <div class="event-body"><h5>Break and Protect Confirmed</h5><p>The combination of break + fresh sell reload = sustained move is highly probable. New auction direction: DOWN.</p></div>
+      </div>
+      <div class="event">
+        <div class="event-num red">5</div>
+        <div class="event-body"><h5>Price Moves to TP1 and TP2</h5><p>The path of least resistance is now downward. Price moves to the next passive buy clusters below.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREAK AND PROTECT -->
+  <div class="pattern-card protect">
+    <div class="pattern-header">
+      <div class="pattern-badge protect">🛡 BREAK &amp; PROTECT</div>
+      <h3>Sustained Breakout Confirmation Signal</h3>
+    </div>
+
+    <p>The <strong>Break and Protect</strong> is the specific event WITHIN the Auction Flip that tells you the move is real — not a fake breakout. It's the single most important entry confirmation in Fabio's entire system.</p>
+
+    <p>The pattern: price breaks a level AND fresh liquidity immediately loads on the other side of that level (protecting the breakout).</p>
+
+    <div class="visual-block">
+      <h5>Break &amp; Protect — Bullish Breakout Version</h5>
+      <div class="hm-row">
+        <div class="hm-p" style="color:var(--yellow)">+5</div>
+        <div class="hm-t"><div class="hm-f sell-mid" style="width:60%">TP target</div></div>
+        <div class="hm-label" style="color:var(--yellow)">→ Take Profit</div>
+      </div>
+      <div class="hm-current">
+        <div class="hm-cp" style="color:var(--green)">BREAK</div>
+        <div class="hm-cl"></div>
+        <div class="hm-clabel" style="color:var(--green)">⬆ buyers breached here</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-p" style="color:var(--green)">−1</div>
+        <div class="hm-t"><div class="hm-f buy-fresh" style="width:85%">🔄 FRESH BUY RELOAD ← this is the "protect"</div></div>
+        <div class="hm-label" style="color:var(--green);font-weight:700">★ BREAK & PROTECT</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-p" style="color:var(--green)">−3</div>
+        <div class="hm-t"><div class="hm-f buy-wall" style="width:70%">stop below here</div></div>
+        <div class="hm-label" style="color:var(--green)">🛡 stop zone</div>
+      </div>
+    </div>
+
+    <div class="highlight-box highlight-green">
+      <h4>Why Break &amp; Protect is So Powerful</h4>
+      <p>Most breakouts fail — price breaks a level, then reverses. The Break &amp; Protect filters out the fakes:<br><br>
+      ✅ <strong>Real breakout:</strong> Price breaks above → fresh buy orders immediately appear BELOW the broken level (sellers can't get back in)<br><br>
+      ❌ <strong>Fake breakout:</strong> Price breaks above → no fresh buy orders appear below → buyers don't want to be filled here → price drifts back<br><br>
+      The fresh reload is essentially large buyers saying: "We want to get filled even MORE at this level — the breakout is real and we're protecting it."</p>
+    </div>
+
+    <p>Fabio from the live session: <em>"So they want to get more contracts filled to go long. This is important because this one here is protecting the intention to go higher. And in this case, if you see this one raising — oh perfect — if you see this one raising, it means that they are willing to get filled at higher levels to be in the movement."</em></p>
+  </div>
+
+  <!-- ABSORPTION -->
+  <div class="pattern-card absorb">
+    <div class="pattern-header">
+      <div class="pattern-badge absorb">🧲 ABSORPTION</div>
+      <h3>When the Passive Wall Stops the Aggressive Wave</h3>
+    </div>
+
+    <p><strong>Absorption</strong> occurs when aggressive orders repeatedly hit a passive level and get "absorbed" — the passive orders match and neutralize the aggression without being overcome. Price stops, rejects, or reverses.</p>
+
+    <div class="comparison">
+      <div class="cmp-card failed">
+        <h4>❌ Failed Absorption (Breakout)</h4>
+        <p>Aggressive buyers hit sell wall → partial absorption → buyers regroup → hit it again with more force → passive orders exhausted → price breaks through. The wall failed to hold.</p>
+      </div>
+      <div class="cmp-card sustained">
+        <h4>✅ Sustained Absorption (Reversal)</h4>
+        <p>Aggressive buyers hit sell wall → absorbed → try again → absorbed → try third time → absorbed + cannot surpass the first aggression point. Wall holds. Strong reversal signal.</p>
+      </div>
+    </div>
+
+    <div class="key-point">
+      "You can see here that the price tried to break through but you see the first line absorption, and the second time they try to come again here, they cannot surpass the first aggression. This is a strong confirmation that this is a failed auction and the price will reverse for the path of least resistance." — Fabio
+    </div>
+
+    <h4 style="margin:20px 0 12px">Reading Absorption from Bubbles</h4>
+    <p>On the heat map, absorption appears as large circular bubbles at a single price level. Multiple large bubbles at the same level = multiple absorption attempts. This is visualized as a "horizontal absorption" — you see many large bubbles stacked at one horizontal price, showing the battle is concentrated there.</p>
+
+    <div class="highlight-box highlight-yellow">
+      <h4>How to Use Absorption in Your Trades</h4>
+      <p><strong>As entry signal:</strong> After 2-3 absorptions at a level with your directional bias, the absorption confirms the level is holding. Enter after the third absorption in the direction of your bias.<br><br>
+      <strong>As take profit signal:</strong> When you're in a trade and you see absorption happening at a level ahead of you (bubbles clustering at a horizontal), consider closing part or all of your position — that level is acting as resistance to your move.<br><br>
+      <strong>As stop signal:</strong> If you're long and see heavy absorption of BUYERS (your side getting absorbed), that's a warning. The passive resistance above is stronger than your bull move. Consider reducing or exiting.</p>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 11</h3>
+    <ul>
+      <li>Flip of the Auction: when the dominant side (buyers/sellers) changes. Confirmed by: breach of key level + fresh reload on the other side + sustained aggression.</li>
+      <li>Break &amp; Protect: the specific confirmation signal. Breakout + fresh liquidity immediately loading below (for bull) or above (for bear) the broken level = real breakout.</li>
+      <li>No fresh reload after a break = fake breakout. Wait for the reload to appear before committing.</li>
+      <li>Absorption: aggressive orders repeatedly hit passive orders but get neutralized. Price stops or reverses here.</li>
+      <li>Failed absorption = breakout incoming. Sustained absorption (can't surpass first attempt) = reversal confirmation.</li>
+      <li>All three patterns require context from VWAP and CVD to determine which direction to trade them.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Auction Flip, Break &amp; Protect, and Absorption</div>
+    <div class="question" id="q1">
+      <p>1. Price breaks above a resistance level but NO fresh buy orders appear below. This suggests:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) A strong bullish breakout — enter long immediately</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) A potential fake breakout — without the "protect" (fresh liquidity), there's no confirmation that buyers want to defend this level. Price may drift back below.</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) The market is closed</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) The Break &amp; Protect pattern completed successfully</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Break without protection = fake breakout warning. The Break &amp; Protect requires BOTH the break AND fresh liquidity loading on the protection side. Without the reload, buyers aren't committed to defending the new level.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. Aggressive buyers try to break a sell wall 3 times, but cannot surpass the first aggression attempt on the third try. This is:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) A breakout signal — three attempts usually means the fourth will succeed</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) A failed auction — sustained absorption confirmed. Strong reversal signal. The path of least resistance has shifted downward.</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) Normal market noise — no trading signal</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) An iceberg order that should be ignored</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ When price cannot surpass the first aggression point on subsequent tries, that's the definition of a failed auction. The passive wall is stronger than the aggressive buyers. Price will now move in the direction of least resistance — away from the wall.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. How do you tell if a Flip of the Auction is real vs a temporary move?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Wait 5 minutes and see if price comes back</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) Look for: sustained aggression + fresh liquidity reload in the flip direction + the broken level becomes resistance (sellers/buyers loading on the other side). All three together confirm the flip is real.</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) A real flip always happens at 9:30 AM</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Only real if price moves more than 100 points</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Real auction flip requires: sustained aggressive orders + fresh reload in the flip direction + the broken level acts as new resistance/support. One alone isn't enough — you need all three to confirm the auction has truly changed direction.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">3/3</div>
+      <p style="color:var(--dim);margin-top:8px">You understand the advanced auction patterns!</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress</p></div>
+    <button class="btn btn-green" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-10.html">← Lesson 10</a>
+    <a class="btn btn-primary" href="lesson-12.html">Next: Full System →</a>
+  </div>
+
+</div>
+<script>
+let answers={},correct=0,total=3;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('lesson-11','done');
+  const btn=document.querySelector('.btn-green');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('lesson-11')==='done'){
+    const btn=document.querySelector('.btn-green');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

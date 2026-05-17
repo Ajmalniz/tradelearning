@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Buyers & Sellers Reload Patterns | Trading Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--red:#ff1744;--yellow:#ffd740;--blue:#448aff;--teal:#00bcd4;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--yellow);font-size:14px;font-weight:600}
+.lesson-badge{background:rgba(255,215,64,0.1);border:1px solid rgba(255,215,64,0.3);color:var(--yellow);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#14100a,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--yellow)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.key-point{background:var(--card);border-left:4px solid var(--yellow);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.2)}
+.highlight-blue{background:rgba(68,138,255,0.07);border:1px solid rgba(68,138,255,0.2)}
+.highlight-yellow{background:rgba(255,215,64,0.07);border:1px solid rgba(255,215,64,0.2)}
+.highlight-red{background:rgba(255,23,68,0.07);border:1px solid rgba(255,23,68,0.2)}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-red h4{color:var(--red)}
+.pattern-section{background:var(--card);border-radius:12px;padding:28px;margin:28px 0;border:2px solid}
+.pattern-section.bull{border-color:rgba(0,230,118,0.4)}
+.pattern-section.bear{border-color:rgba(255,23,68,0.4)}
+.pattern-header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.pattern-badge{padding:6px 14px;border-radius:6px;font-weight:800;font-size:14px}
+.pattern-badge.bull{background:rgba(0,230,118,0.1);border:2px solid var(--green);color:var(--green)}
+.pattern-badge.bear{background:rgba(255,23,68,0.1);border:2px solid var(--red);color:var(--red)}
+.pattern-header h3{font-size:1.2rem;font-weight:700;margin:0}
+.heat-map-visual{background:#080e18;border-radius:10px;padding:20px;margin:20px 0;font-family:'Courier New',monospace;position:relative}
+.heat-map-visual h5{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px;font-family:-apple-system,sans-serif}
+.hm-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.hm-price{width:56px;text-align:right;font-size:12px;color:var(--dim)}
+.hm-track{flex:1;height:20px;background:#0d1a2a;border-radius:3px;overflow:hidden;position:relative}
+.hm-fill{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:6px;font-size:10px;font-weight:700;color:rgba(255,255,255,0.8)}
+.hm-fill.sell-dim{background:rgba(255,23,68,0.3)}
+.hm-fill.sell-mid{background:rgba(255,23,68,0.6)}
+.hm-fill.sell-bright{background:#ff1744;box-shadow:0 0 8px rgba(255,23,68,0.4)}
+.hm-fill.buy-dim{background:rgba(0,230,118,0.3)}
+.hm-fill.buy-mid{background:rgba(0,230,118,0.6)}
+.hm-fill.buy-bright{background:#00e676;box-shadow:0 0 8px rgba(0,230,118,0.4)}
+.hm-fill.buy-fresh{background:#00e676;box-shadow:0 0 16px rgba(0,230,118,0.6);animation:freshpulse 1.5s infinite}
+.hm-fill.sell-fresh{background:#ff1744;box-shadow:0 0 16px rgba(255,23,68,0.6);animation:freshpulse-red 1.5s infinite}
+@keyframes freshpulse{0%,100%{opacity:1}50%{opacity:0.7}}
+@keyframes freshpulse-red{0%,100%{opacity:1}50%{opacity:0.7}}
+.hm-label{font-size:11px;color:var(--dim);width:110px;flex-shrink:0}
+.hm-current{display:flex;align-items:center;gap:8px;margin:4px 0;padding:6px 0}
+.hm-current-price{font-size:12px;font-weight:700;color:var(--yellow);width:56px;text-align:right}
+.hm-current-line{flex:1;border-top:2px solid var(--yellow)}
+.hm-current-label{font-size:11px;color:var(--yellow);width:110px}
+.bubble{display:inline-block;width:20px;height:20px;border-radius:50%;vertical-align:middle;margin-right:4px}
+.bubble.buy{background:rgba(0,230,118,0.6);border:1px solid var(--green)}
+.bubble.sell{background:rgba(255,23,68,0.6);border:1px solid var(--red)}
+.sequence-list{list-style:none;padding:0;margin:20px 0}
+.seq-item{display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid rgba(30,48,80,0.4)}
+.seq-item:last-child{border-bottom:none}
+.seq-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0}
+.seq-num.bull{background:rgba(0,230,118,0.15);border:2px solid var(--green);color:var(--green)}
+.seq-num.bear{background:rgba(255,23,68,0.15);border:2px solid var(--red);color:var(--red)}
+.seq-content h5{font-weight:700;font-size:14px;margin-bottom:3px}
+.seq-content p{font-size:13px;color:var(--dim);margin:0}
+.checklist{background:var(--card2);border-radius:10px;padding:18px;margin:16px 0}
+.checklist h5{font-weight:700;margin-bottom:12px;font-size:14px}
+.check-item{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:14px;border-bottom:1px solid rgba(30,48,80,0.3)}
+.check-item:last-child{border-bottom:none}
+.check-icon{font-size:16px;flex-shrink:0}
+.checklist.bull .check-item{color:var(--text)}
+.checklist.bear .check-item{color:var(--text)}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--yellow)}
+.option.correct{background:rgba(0,230,118,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(255,23,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(255,215,64,0.05),rgba(0,230,118,0.05));border:1px solid rgba(255,215,64,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--yellow);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--yellow);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--yellow);color:var(--yellow)}
+.btn-primary{background:var(--yellow);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 9 of 12</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 4 · Lesson 9</div>
+  <h1>Buyers &amp; Sellers<br><span>Reload Patterns</span></h1>
+  <p>The core heat map setups — when passive liquidity reloads AND aggression appears simultaneously. The highest-probability entry signal in Fabio's system.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 16 min</span>
+    <span class="tag">🔴 Advanced</span>
+    <span class="tag">🎯 High Probability</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>The Core Principle: Reload + Aggression = Signal</h2>
+  <p>The reload patterns are the foundation of Fabio's actual trading setups. These occur on the heat map when you see TWO things happening at the same time at a level:</p>
+  <ol style="padding-left:24px;margin-bottom:16px">
+    <li style="margin-bottom:8px"><strong>Passive liquidity reloads</strong> at the level (resting orders added — fresh or refreshed)</li>
+    <li style="margin-bottom:8px"><strong>Aggressive orders appear</strong> in the same direction as your bias (bubbles showing conviction)</li>
+  </ol>
+  <p>One alone is interesting. Both together is a high-probability trade signal.</p>
+
+  <!-- BUYERS RELOAD -->
+  <div class="pattern-section bull">
+    <div class="pattern-header">
+      <div class="pattern-badge bull">BUYERS RELOAD</div>
+      <h3>Long Bias + Protection Wall Pattern</h3>
+    </div>
+
+    <p>The Buyers Reload occurs when you have a long bias for the day and you see the following on the heat map:</p>
+    <ul style="padding-left:24px;margin-bottom:16px">
+      <li style="margin-bottom:6px">A large <strong>resting buy liquidity wall</strong> below price (protection wall)</li>
+      <li style="margin-bottom:6px">Price approaches the wall and gets <strong>absorbed</strong> (buyers there absorb the sellers)</li>
+      <li style="margin-bottom:6px">Buyers then reload passive liquidity AND show aggressive buying bubbles</li>
+    </ul>
+
+    <div class="heat-map-visual">
+      <h5>Buyers Reload — Heat Map Visualization</h5>
+      <div class="hm-row">
+        <div class="hm-price" style="color:var(--red)">+4</div>
+        <div class="hm-track"><div class="hm-fill sell-dim" style="width:25%">20 cts</div></div>
+        <div class="hm-label" style="color:var(--dim)">light sell</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-price" style="color:var(--red)">+2</div>
+        <div class="hm-track"><div class="hm-fill sell-mid" style="width:45%">target TP1</div></div>
+        <div class="hm-label" style="color:var(--yellow)">→ Take Profit 1</div>
+      </div>
+      <div class="hm-current">
+        <div class="hm-current-price">PRICE</div>
+        <div class="hm-current-line"></div>
+        <div class="hm-current-label" style="color:var(--green)">⬆ enter long here</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-price" style="color:var(--green)">−1</div>
+        <div class="hm-track"><div class="hm-fill buy-fresh" style="width:85%">🔄 FRESH RELOAD ← agression here</div></div>
+        <div class="hm-label" style="color:var(--green);font-weight:700">★ BUY RELOAD</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-price" style="color:var(--green)">−3</div>
+        <div class="hm-track"><div class="hm-fill buy-bright" style="width:100%">PROTECTION WALL (resting)</div></div>
+        <div class="hm-label" style="color:var(--green);font-weight:700">🛡 WALL — stop below</div>
+      </div>
+    </div>
+
+    <h4 style="margin:20px 0 12px">How the Buyers Reload Plays Out</h4>
+
+    <ul class="sequence-list">
+      <li class="seq-item">
+        <div class="seq-num bull">1</div>
+        <div class="seq-content"><h5>You Have a Long Bias</h5><p>VWAP says buyers in control. CVD rising. You want to buy, but need a precise entry with low risk.</p></div>
+      </li>
+      <li class="seq-item">
+        <div class="seq-num bull">2</div>
+        <div class="seq-content"><h5>Price Approaches the Protection Wall</h5><p>Price dips toward the resting buy liquidity wall. This wall has been there a while — it's resting, not fresh. It's defended.</p></div>
+      </li>
+      <li class="seq-item">
+        <div class="seq-num bull">3</div>
+        <div class="seq-content"><h5>First Absorption</h5><p>Sellers hit the wall. The wall absorbs them — price doesn't break. Wall holds. First confirmation.</p></div>
+      </li>
+      <li class="seq-item">
+        <div class="seq-num bull">4</div>
+        <div class="seq-content"><h5>Second and Third Absorption</h5><p>"The market approaches here and gets absorbed the first time, strikes again this area, absorbed the second time, strikes this area, absorbed the third time." — Each rejection confirms the wall's strength.</p></div>
+      </li>
+      <li class="seq-item">
+        <div class="seq-num bull">5</div>
+        <div class="seq-content"><h5>Buyers Reload Fresh + Get Aggressive</h5><p>Fresh buy liquidity appears ABOVE the wall. Aggressive buy bubbles appear. This is the double confirmation — passive protection AND active conviction. ENTER LONG.</p></div>
+      </li>
+      <li class="seq-item">
+        <div class="seq-num bull">6</div>
+        <div class="seq-content"><h5>Price Extends Higher</h5><p>Price moves toward the next liquidity levels above — your take profit targets. Stop loss is below the protection wall.</p></div>
+      </li>
+    </ul>
+
+    <div class="checklist bull">
+      <h5>✅ Buyers Reload Checklist</h5>
+      <div class="check-item"><span class="check-icon">☑️</span>Long bias confirmed by VWAP (above) and CVD (rising)</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Resting buy liquidity wall visible on heat map</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Price tested the wall (1-3 absorptions)</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Fresh buy liquidity appears (reload)</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Aggressive buy bubbles confirm direction</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Next liquidity targets identified (TP1, TP2)</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Stop loss set below the protection wall</div>
+    </div>
+
+    <div class="highlight-box highlight-green">
+      <h4>Fabio's Words on the Buyers Reload</h4>
+      <p>"You need to start with an idea. But for scalpers, where you want to first see the market getting aggressive on your direction — so you want to see maybe big trades confirming that there is an aggression there and that there is intention to go higher."<br><br>
+      Two sub-patterns exist:<br>
+      • <strong>Mean Revert to the Wall:</strong> Price comes back to the protection wall and bounces. Enter in direction of main trend.<br>
+      • <strong>Breakout Reload:</strong> Close to a level with buyers reloading AND getting aggressive — enter the breakout protected below the reload level.</p>
+    </div>
+  </div>
+
+  <!-- SELLERS RELOAD -->
+  <div class="pattern-section bear">
+    <div class="pattern-header">
+      <div class="pattern-badge bear">SELLERS RELOAD</div>
+      <h3>Short Bias + Distribution Pattern</h3>
+    </div>
+
+    <p>The mirror image of the Buyers Reload. Sellers are trying to break through a level, reloading their short positions, and fueling a downward move.</p>
+
+    <div class="heat-map-visual">
+      <h5>Sellers Reload — Heat Map Visualization</h5>
+      <div class="hm-row">
+        <div class="hm-price" style="color:var(--red)">+3</div>
+        <div class="hm-track"><div class="hm-fill sell-bright" style="width:100%">RESISTANCE WALL (fresh buyers area)</div></div>
+        <div class="hm-label" style="color:var(--red);font-weight:700">★ CEILING — rejection zone</div>
+      </div>
+      <div class="hm-current">
+        <div class="hm-current-price">PRICE</div>
+        <div class="hm-current-line"></div>
+        <div class="hm-current-label" style="color:var(--red)">⬇ sellers aggressive here</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-price" style="color:var(--red)">−1</div>
+        <div class="hm-track"><div class="hm-fill sell-fresh" style="width:90%">🔄 SELLERS RELOAD fresh</div></div>
+        <div class="hm-label" style="color:var(--red);font-weight:700">★ SELL RELOAD</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-price" style="color:var(--green)">−3</div>
+        <div class="hm-track"><div class="hm-fill buy-mid" style="width:50%">TP1 target</div></div>
+        <div class="hm-label" style="color:var(--yellow)">→ Take Profit 1</div>
+      </div>
+      <div class="hm-row">
+        <div class="hm-price" style="color:var(--green)">−6</div>
+        <div class="hm-track"><div class="hm-fill buy-bright" style="width:80%">TP2 target</div></div>
+        <div class="hm-label" style="color:var(--yellow)">→ Take Profit 2</div>
+      </div>
+    </div>
+
+    <h4 style="margin:20px 0 12px">The Sellers Reload in Detail</h4>
+    <p>Fabio's description: <em>"We have a market that is closed inside a resting liquidity fresh area of the buyers and is protected on the aggression from the sellers. So who is pushing the market? The sellers are getting aggressive here. They are trying to break through this level."</em></p>
+
+    <ul class="sequence-list">
+      <li class="seq-item">
+        <div class="seq-num bear">1</div>
+        <div class="seq-content"><h5>Sellers Are Getting Aggressive</h5><p>Aggressive sell bubbles appear. Sellers are pushing price down from a fresh buyers zone (resistance ceiling above).</p></div>
+      </li>
+      <li class="seq-item">
+        <div class="seq-num bear">2</div>
+        <div class="seq-content"><h5>Sellers Reload Fresh Liquidity</h5><p>"At the same time they reload fresh liquidity. This is an information that they want to fuel the movement to the next liquidity levels."</p></div>
+      </li>
+      <li class="seq-item">
+        <div class="seq-num bear">3</div>
+        <div class="seq-content"><h5>Price Reaches Target, Comes Back, Reloads Again</h5><p>"They come back to the level. They reload again and they get aggressive again protected with aggressive orders." The pattern repeats multiple times.</p></div>
+      </li>
+      <li class="seq-item">
+        <div class="seq-num bear">4</div>
+        <div class="seq-content"><h5>Full Breakdown</h5><p>After confirming 2-4 times, the sellers finally have enough fuel. Price makes a sustained move to TP1 and TP2 liquidity levels.</p></div>
+      </li>
+    </ul>
+
+    <div class="highlight-box highlight-red">
+      <h4>Important Caution for the Sellers Reload</h4>
+      <p>"You always need to be careful because the price usually goes to the next liquidity cluster. And the next liquidity cluster in this case was really close. So the risk-to-reward is not the best."<br><br>
+      Always check: where is TP1 relative to your entry? If the next liquidity cluster is only 5 ticks away but your stop is 10 ticks, skip the trade. The pattern must offer at least 1:1 R:R — ideally 1:2 or better.</p>
+    </div>
+
+    <div class="checklist bear">
+      <h5>✅ Sellers Reload Checklist</h5>
+      <div class="check-item"><span class="check-icon">☑️</span>Short bias confirmed by VWAP (below) and CVD (falling)</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Price inside or near a fresh buyers area (resistance above)</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Sellers getting aggressive (sell bubbles visible)</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Fresh sell liquidity reloads at the level</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Pattern confirmed 1-2 times</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Next liquidity target (TP1) is far enough for good R:R</div>
+      <div class="check-item"><span class="check-icon">☑️</span>Stop above the reload level / above resistance wall</div>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 9</h3>
+    <ul>
+      <li>The reload pattern requires TWO simultaneous signals: passive liquidity reload + aggressive orders in same direction.</li>
+      <li>Buyers Reload: resting wall absorbs sellers 1-3 times → buyers reload fresh + show aggression → enter long above the wall.</li>
+      <li>Sellers Reload: sellers get aggressive + reload fresh liquidity → enter short → price moves to next liquidity targets.</li>
+      <li>Always start with directional bias (VWAP + CVD) BEFORE looking for the reload pattern.</li>
+      <li>Check R:R before every trade — the next liquidity target must be far enough to justify the stop.</li>
+      <li>The pattern can confirm 2-4 times before the final move — each confirmation increases probability.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Buyers and Sellers Reload Patterns</div>
+    <div class="question" id="q1">
+      <p>1. You see a big resting buy wall below price. Sellers try to break it 3 times but get absorbed each time. Then fresh buy liquidity appears AND aggressive buy bubbles show up. This is:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) A sell signal — all that selling pressure means the market is going down</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) A Buyers Reload pattern — high probability long entry with stop below the protection wall, targeting the next liquidity levels above</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) An iceberg pattern — ignore it</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) A spoofing attempt — the reload will disappear</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ This is the textbook Buyers Reload: wall absorbs sellers (3 tests = strong confirmation), then fresh buy reload + aggression = double confirmation. Enter long, stop below the wall, target next liquidity levels.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. In the Sellers Reload, what does it mean when sellers "reload fresh liquidity"?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) Sellers are buying back their short positions</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) New passive sell orders appear at the level, signaling that sellers want MORE contracts filled and intend to fuel a continued downward move</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) The sell orders were cancelled and fresh ones placed far away</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) The market is about to gap up</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Fresh sell reload = sellers want more short exposure filled. They're adding passive sell orders to get filled at the current level, which tells you they intend to drive price much lower. This is fuel, not a warning.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. You're evaluating a Sellers Reload setup. Your entry is at 27,925 and your stop is 10 ticks above. The next liquidity target (TP1) is 27,915 — only 10 ticks below. Should you take this trade?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Yes — any sellers reload is automatically worth taking</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) No — the R:R is only 1:1 and the target is too close. Look for a setup where TP1 is at least 2× the stop distance away (1:2 R:R or better)</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) Yes — sellers reload always results in a 100-tick move</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Only take it if CVD shows sellers are dominating</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ 1:1 R:R with targets that close is poor. Fabio warns: "the next liquidity cluster was really close, so the risk-to-reward is not the best." Skip setups with poor R:R even when the pattern looks perfect.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">3/3</div>
+      <p style="color:var(--dim);margin-top:8px">You understand the Reload Patterns!</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress</p></div>
+    <button class="btn btn-green" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-08.html">← Lesson 8</a>
+    <a class="btn btn-primary" href="lesson-10.html">Next: The Grill &amp; Cluster Wall →</a>
+  </div>
+
+</div>
+<script>
+let answers={},correct=0,total=3;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('lesson-9','done');
+  const btn=document.querySelector('.btn-green');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('lesson-9')==='done'){
+    const btn=document.querySelector('.btn-green');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(0,230,118,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>
