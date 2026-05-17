@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Top Down Analysis | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--purple:#9333ea;--pink:#ec4899;--green:#10b981;--red:#ef4444;--yellow:#fbbf24;--orange:#f97316;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--purple);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
+.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(147,51,234,0.1);border:1px solid rgba(147,51,234,0.3);color:var(--purple);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#0d0a1e,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--purple);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--purple)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;margin-top:24px}
+p{margin-bottom:14px;color:var(--text)}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-purple{background:rgba(147,51,234,0.07);border:1px solid rgba(147,51,234,0.2)}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-red{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2)}
+.highlight-yellow{background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-purple h4{color:var(--purple)}
+.highlight-green h4{color:var(--green)}
+.highlight-red h4{color:var(--red)}
+.highlight-yellow h4{color:var(--yellow)}
+.key-point{background:var(--card);border-left:4px solid var(--purple);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.tf-flow{display:flex;flex-wrap:wrap;gap:0;margin:24px 0;justify-content:center}
+.tf-box{background:var(--card2);border:1px solid var(--border);padding:12px 16px;text-align:center;min-width:90px;position:relative}
+.tf-box:not(:last-child)::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:16px;z-index:1}
+.tf-box .tf-name{font-weight:700;font-size:14px;color:var(--purple)}
+.tf-box .tf-label{font-size:10px;color:var(--dim);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
+.tf-box.active{border-color:rgba(147,51,234,0.5);background:rgba(147,51,234,0.08)}
+.step-list{counter-reset:steps;list-style:none;padding:0;margin:24px 0}
+.step-list li{counter-increment:steps;display:flex;gap:16px;margin-bottom:20px}
+.step-num{width:36px;height:36px;border-radius:50%;background:rgba(147,51,234,0.15);border:2px solid var(--purple);color:var(--purple);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.step-content h4{font-weight:700;margin-bottom:4px}
+.step-content p{font-size:14px;color:var(--dim);margin:0}
+.connect-rule{background:var(--card);border:2px dashed rgba(147,51,234,0.4);border-radius:12px;padding:22px 24px;margin:24px 0;text-align:center}
+.connect-rule h4{color:var(--purple);font-size:1.1rem;font-weight:800;margin-bottom:8px}
+.connect-rule p{color:var(--dim);font-size:14px;margin:0}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--purple);background:rgba(147,51,234,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(147,51,234,0.05),rgba(236,72,153,0.05));border:1px solid rgba(147,51,234,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--purple);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--purple);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--purple);color:var(--purple)}
+.btn-primary{background:var(--purple);color:#fff}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.btn-complete:hover{opacity:.85}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+@media(max-width:600px){.tf-flow{gap:4px}.tf-box:not(:last-child)::after{display:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 2 of 11</span>
+</div>
+
+<div class="hero">
+  <div class="lesson-num-big">Phase 1 · Lesson 2</div>
+  <h1><span>Top Down Analysis</span> —<br>Bird's Eye to Ground Level</h1>
+  <p>How to structure your chart analysis starting at the monthly view and working down — and why every line must connect to the last.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 14 min</span>
+    <span class="tag">🟢 Beginner</span>
+    <span class="tag">🔍 Analysis</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>What Is Top Down Analysis?</h2>
+  <p>Top down analysis means starting from the <strong>highest time frame</strong> and working your way down to lower and lower time frames. It's exactly what it sounds like — you start at the top (big picture) and move down (zooming in closer and closer).</p>
+
+  <div class="key-point">
+    "Top down analysis means we are starting from the highest time frame and working our way down. A bird's eye view first — what has this instrument done overall? Then slowly coming in closer and closer."
+  </div>
+
+  <p>Think of it like using Google Maps. You start by viewing the entire country, then the state, then the city, then the street. Each zoom level gives you more detail — but you always need that higher-level context first.</p>
+
+  <h2>The Time Frame Sequence</h2>
+  <p>Always follow this exact sequence when doing your top down analysis. Start at the top and move to the right:</p>
+
+  <div class="tf-flow">
+    <div class="tf-box active"><div class="tf-name">Monthly</div><div class="tf-label">Step 1</div></div>
+    <div class="tf-box"><div class="tf-name">Weekly</div><div class="tf-label">Step 2</div></div>
+    <div class="tf-box"><div class="tf-name">Daily</div><div class="tf-label">Step 3</div></div>
+    <div class="tf-box"><div class="tf-name">4 Hour</div><div class="tf-label">Step 4</div></div>
+    <div class="tf-box"><div class="tf-name">1 Hour</div><div class="tf-label">Step 5</div></div>
+    <div class="tf-box"><div class="tf-name">30 Min</div><div class="tf-label">Step 6</div></div>
+    <div class="tf-box active"><div class="tf-name">5 Min</div><div class="tf-label">Final</div></div>
+  </div>
+
+  <p>You stop at whatever time frame you've decided to <strong>trade on</strong>. If you're a daily trader, stop at daily. If you're a 5-minute scalper, go all the way down to 5 minutes.</p>
+
+  <div class="highlight-box highlight-purple">
+    <div class="icon">🦕</div>
+    <h4>The Dinosaur Icon</h4>
+    <p>When you select the monthly time frame in TradingView, you'll see a dinosaur icon on the chart. This means you're viewing the <strong>very beginning</strong> of the instrument's price history — the true bird's eye view of everything it has done from day one to today.</p>
+  </div>
+
+  <h2>How to Draw on Each Time Frame</h2>
+  <p>The process is the same on every single time frame — just rinse and repeat:</p>
+
+  <ol class="step-list">
+    <li>
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Find the highest point you see on screen</h4>
+        <p>This becomes your starting reference for drawing a downward trend line (Point A).</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Draw your downward trend line (red)</h4>
+        <p>From the highest point, capture as many touch points as possible. Price cannot intersect. Angle must be downward.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Draw your upward trend line (green)</h4>
+        <p>From the lowest point you see, hold the price up. Capture touch points. No intersection. Angle must be upward.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Move to the next lower time frame</h4>
+        <p>Adjust your existing lines slightly if needed (zooming in reveals more precision), then draw additional steeper lines.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Repeat until you reach your trading time frame</h4>
+        <p>Each time frame adds more lines, more structure, more precision. Keep going until you reach your designated chart.</p>
+      </div>
+    </li>
+  </ol>
+
+  <h2>The Connection Rule — The Most Important Part</h2>
+
+  <div class="connect-rule">
+    <h4>Every Line Must Connect to the Previous One</h4>
+    <p>The most recent touch point (Point B) of any trend line becomes the starting point (Point A) of the next trend line drawn at a lower time frame. All lines must touch each other. Every single one.</p>
+  </div>
+
+  <p>This isn't optional — it's the structure that makes the top-down analysis systematic and repeatable. When you zoom in from monthly to weekly, the last touch point of your monthly trend line is exactly where your weekly trend line begins.</p>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">🔗</div>
+    <h4>For Beginners: "All Lines Must Touch Each Other"</h4>
+    <p>Think of it like a chain. Each link connects to the next. Every trend line you draw connects to the previous one through the shared touch point. If a line doesn't connect — something is wrong with your analysis.</p>
+  </div>
+
+  <h2>Adjusting Lines as You Zoom In</h2>
+  <p>When you move from the monthly to the weekly chart, your existing lines may look slightly off. This is completely normal — you're getting more precise. Make small adjustments to keep the lines accurate, but don't completely redraw them. The direction and key touch points should remain roughly the same.</p>
+
+  <div class="highlight-box highlight-yellow">
+    <div class="icon">⚠️</div>
+    <h4>Slight Adjustments vs Full Redraws</h4>
+    <p>On higher time frames, small imprecisions are acceptable. As you zoom into lower time frames, you refine your lines to be more exact. The goal is precision — but not to the point of losing your original structure.</p>
+  </div>
+
+  <h2>Why Top Down Analysis Works</h2>
+  <p>Price at every time frame is influenced by the higher time frames above it. A major downward trend line on the monthly chart affects how price behaves on the daily. By analyzing from the top down, you're ensuring your trades are <strong>aligned with the bigger picture</strong>.</p>
+
+  <p>When you arrive at your trading time frame with all your lines drawn, you have a complete map of price structure. You know where price came from, how it has behaved at every level, and exactly where you're waiting for it to break.</p>
+
+  <div class="highlight-box highlight-purple">
+    <div class="icon">🗺️</div>
+    <h4>A Complete Map Before You Trade</h4>
+    <p>Most traders jump straight to their trading time frame and draw lines without context. Top-down analysis gives you the full picture first. By the time you arrive at the 5-minute chart, you have weeks, months, or even years of price structure to guide you.</p>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 2</h3>
+    <ul>
+      <li>Top down analysis = start at monthly, work down to your trading time frame (5 min is the lowest).</li>
+      <li>Each time frame: draw downward trend line (red) + upward trend line (green).</li>
+      <li>The Connection Rule: previous Point B becomes the new Point A. All lines connect.</li>
+      <li>Adjust lines slightly as you zoom in — you're getting more precise, not starting over.</li>
+      <li>The dinosaur icon in TradingView = you're at the very beginning of price history.</li>
+      <li>Stop at whatever time frame you plan to trade on.</li>
+      <li>Top-down context makes sure your trade is aligned with the bigger picture.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 2</div>
+
+    <div class="question" id="q1">
+      <p>1. Where does top down analysis always start?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) The 1-hour time frame</div>
+        <div class="option" onclick="answer(this,'q1',false)">B) The daily time frame</div>
+        <div class="option" onclick="answer(this,'q1',true)">C) The monthly time frame — the highest / bird's eye view</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) The 5-minute time frame</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! Always start at the monthly — the biggest picture. Then work your way down to lower and lower time frames.</div>
+    </div>
+
+    <div class="question" id="q2">
+      <p>2. What is the Connection Rule in top down analysis?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) All lines must be drawn in the same color</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) The Point B of the previous line becomes the Point A of the next line — all lines must connect</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) Only downward trend lines need to connect</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) Lines only connect on the same time frame</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! Every trend line's most recent touch point (Point B) becomes the starting point (Point A) of the next line. Everything connects like a chain.</div>
+    </div>
+
+    <div class="question" id="q3">
+      <p>3. Why do your lines look slightly off when you zoom into a lower time frame?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) You drew the lines incorrectly on the higher time frame</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) You're getting more precise — small adjustments are normal and expected</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) You need to delete all lines and start over</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) The trend line rules change at lower time frames</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! Zooming in reveals more detail. Small adjustments are normal — you're refining precision, not starting from scratch.</div>
+    </div>
+
+    <div class="question" id="q4">
+      <p>4. When should you stop the top down analysis sequence?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) Always stop at the daily time frame</div>
+        <div class="option" onclick="answer(this,'q4',false)">B) Always go all the way to the 1-minute chart</div>
+        <div class="option" onclick="answer(this,'q4',true)">C) Stop when you reach your designated trading time frame</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) Stop after drawing 3 lines total</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! Stop at whatever time frame you plan to trade on. If you trade on the 5-minute chart, go all the way down to 5 minutes.</div>
+    </div>
+
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">4/4</div>
+      <p style="color:var(--dim);margin-top:8px">Great work! You understand top down analysis.</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div>
+      <strong>Mark this lesson as complete</strong>
+      <p>Track your progress through the course</p>
+    </div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-01.html">← Prev: Trend Lines</a>
+    <a class="btn btn-primary" href="lesson-03.html">Next: The Holy Grail →</a>
+  </div>
+
+</div>
+
+<script>
+let answers={},correct=0;
+const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('tori-lesson-2','done');
+  const btn=document.querySelector('.btn-complete');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';
+  btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('tori-lesson-2')==='done'){
+    const btn=document.querySelector('.btn-complete');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

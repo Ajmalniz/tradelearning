@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: The 1-2% Rule | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--yellow:#fbbf24;--green:#10b981;--red:#ef4444;--orange:#f97316;--purple:#9333ea;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--yellow);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);color:var(--yellow);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#0f0e00,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--yellow)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-yellow{background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.2)}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-red{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-green h4{color:var(--green)}
+.highlight-red h4{color:var(--red)}
+.key-point{background:var(--card);border-left:4px solid var(--yellow);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.fee-table{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin:24px 0}
+.fee-table table{width:100%;border-collapse:collapse;margin:0}
+.fee-table th{background:rgba(251,191,36,0.08);padding:12px 16px;text-align:left;font-size:13px;font-weight:700;color:var(--yellow);border-bottom:1px solid var(--border)}
+.fee-table td{padding:12px 16px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px}
+.fee-table tr:last-child td{border-bottom:none}
+.fee-table td:last-child{color:var(--yellow);font-weight:700}
+.formula-box{background:linear-gradient(135deg,rgba(251,191,36,0.06),rgba(249,115,22,0.06));border:2px solid rgba(251,191,36,0.3);border-radius:12px;padding:28px;margin:28px 0;text-align:center}
+.formula{font-size:1.4rem;font-weight:800;color:var(--yellow);margin-bottom:8px;letter-spacing:.5px}
+.formula-desc{font-size:13px;color:var(--dim)}
+.sl-diagram{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0}
+.sl-diagram h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.sl-rows{display:flex;flex-direction:column;gap:2px;align-items:center}
+.sl-row{display:flex;align-items:center;gap:12px;width:100%;max-width:400px}
+.sl-label{width:120px;font-size:12px;text-align:right;color:var(--dim)}
+.sl-bar{flex:1;height:28px;border-radius:6px;display:flex;align-items:center;padding:0 12px;font-size:12px;font-weight:700}
+.sl-price{background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);color:var(--yellow)}
+.sl-action{background:rgba(249,115,22,0.15);border:1px solid rgba(249,115,22,0.4);color:var(--orange)}
+.sl-safety{background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);color:var(--green)}
+.sl-stop{background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);color:var(--red)}
+.sl-zone{width:2px;height:20px;background:var(--dim);margin:0 4px}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--yellow);background:rgba(251,191,36,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(251,191,36,0.05),rgba(16,185,129,0.05));border:1px solid rgba(251,191,36,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--yellow);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--yellow);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--yellow);color:var(--yellow)}
+.btn-primary{background:var(--yellow);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 6 of 11</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 3 · Lesson 6</div>
+  <h1>The <span>1-2% Rule</span> —<br>Stop-Loss Placement &amp; Position Sizing</h1>
+  <p>Your fee, your fire extinguisher, and why the stop-loss must always go on the OTHER side of the safety line.</p>
+  <div class="hero-tags"><span class="tag">⏱ 12 min</span><span class="tag">🟡 Intermediate</span><span class="tag">💰 Risk Management</span></div>
+</div>
+<div class="container">
+
+  <h2>What Is Your "Fee"?</h2>
+  <p>In Tori's system, your maximum acceptable loss per trade is called your <strong>fee</strong>. Think of it like a cost of doing business — the price you're willing to pay if this particular trade doesn't work out.</p>
+  <div class="key-point">"Fee equals loss. Your fee should be 1 to 2% of your capital."</div>
+  <p>This is the industry-wide rule of thumb. It's not arbitrary — it's built on probability theory. If you risk only 2% per trade, you would need to lose 50 consecutive trades to wipe out your account. The realistic chance of that is extremely slim.</p>
+
+  <h2>The Formula</h2>
+  <div class="formula-box">
+    <div class="formula">Fee = 1% to 2% of Capital</div>
+    <div class="formula-desc">Your maximum loss per trade should never exceed 2% of your total trading capital</div>
+  </div>
+
+  <h2>Real Dollar Examples</h2>
+  <p>Here's what the 1-2% rule looks like with different account sizes. These are the <em>maximum</em> amounts you should risk on any single trade:</p>
+
+  <div class="fee-table">
+    <table>
+      <tr><th>Capital Size</th><th>1% Fee (Conservative)</th><th>2% Fee (Standard)</th></tr>
+      <tr><td>$1,000</td><td>$10</td><td>$20</td></tr>
+      <tr><td>$3,000</td><td>$30</td><td>$60</td></tr>
+      <tr><td>$5,000</td><td>$50</td><td>$100</td></tr>
+      <tr><td>$10,000</td><td>$100</td><td>$200</td></tr>
+      <tr><td>$25,000</td><td>$250</td><td>$500</td></tr>
+      <tr><td>$100,000</td><td>$1,000</td><td>$2,000</td></tr>
+    </table>
+  </div>
+
+  <div class="highlight-box highlight-yellow">
+    <div class="icon">📊</div>
+    <h4>All Relative to Capital Size</h4>
+    <p>A $60 loss on a $3,000 account is exactly the same risk level as a $2,000 loss on a $100,000 account. The number looks very different — but the percentage is identical. Always think in percentages, not dollar amounts.</p>
+  </div>
+
+  <h2>The Stop-Loss — Your Fire Extinguisher</h2>
+  <p>The stop-loss is a technical order you place that automatically closes your trade if price reaches a certain level. It's your fail-safe.</p>
+
+  <div class="highlight-box highlight-red">
+    <div class="icon">🧯</div>
+    <h4>Stop-Loss = Fire Extinguisher</h4>
+    <p>When you're making dinner and something goes wrong, what do you have handy? A fire extinguisher. The stop-loss is exactly that. It closes your trade automatically if you get distracted, if you decide not to follow your rules, or if something unexpected happens. Without it, a small mistake can become a catastrophic loss.</p>
+  </div>
+
+  <h2>WHERE to Place the Stop-Loss</h2>
+  <p>This is critical — and it's one of the most commonly misunderstood parts of risk management. The stop-loss placement rule is simple but non-negotiable:</p>
+
+  <div class="key-point">
+    The stop-loss must always be placed on the OTHER SIDE of the safety line — NOT on the safety line itself.
+  </div>
+
+  <p>Why? Because you anticipate that price will <em>respect</em> the safety line and continue moving in your favor. If you put the stop-loss on the safety line, any normal touch of the line would knock you out of your trade prematurely.</p>
+
+  <div class="sl-diagram">
+    <h4>Stop-Loss Placement — Where Things Should Go</h4>
+    <div class="sl-rows">
+      <div class="sl-row"><div class="sl-label">Action Line</div><div class="sl-bar sl-action">↘ BROKEN (your entry)</div></div>
+      <div class="sl-row"><div class="sl-label">Current Price</div><div class="sl-bar sl-price">→ Your position is here</div></div>
+      <div class="sl-row" style="gap:0"><div style="width:120px;margin-right:12px"></div><div style="flex:1;display:flex;flex-direction:column;gap:2px"><div class="sl-bar sl-safety" style="margin-bottom:2px">🛡️ Safety Line — price should respect this</div><div class="sl-bar sl-stop">🚫 Stop-Loss goes HERE — on the other side</div></div></div>
+    </div>
+  </div>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">✅</div>
+    <h4>Give the Safety Line Breathing Room</h4>
+    <p>Price often tests (touches) the safety line before continuing in your trade direction. If your stop-loss is right ON the safety line, you'll get stopped out by a normal price movement. Give the line breathing room — place the stop-loss just beyond it, on the other side.</p>
+  </div>
+
+  <h2>Building on Experience</h2>
+  <p>Tori has traded for 10 years and now sometimes risks 4-7% on a trade based on years of experience, intuition, and the weight of a specific setup. But she is clear: <em>beginners should stick to 1-2%</em>. The discipline of keeping risk small is what allows you to survive long enough to develop that experience in the first place.</p>
+
+  <div class="highlight-box highlight-yellow">
+    <div class="icon">⚡</div>
+    <h4>Why This Rule Works</h4>
+    <p>Working with probabilities means keeping individual risk so small that a losing streak can't wipe you out. At 2% per trade, you'd need 50 consecutive losses to blow your account — and the likelihood of 50 correct-analysis trades all going wrong is extremely low if you're following the system.</p>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 6</h3>
+    <ul>
+      <li>Fee = your maximum acceptable loss per trade = 1-2% of capital.</li>
+      <li>$3,000 account → max $60 fee. $5,000 → max $100. Always calculate before trading.</li>
+      <li>Stop-loss = fire extinguisher — closes your trade automatically if the market goes wrong.</li>
+      <li>Stop-loss placement: ALWAYS on the other side of the safety line, NOT on it.</li>
+      <li>Never put the stop-loss on the safety line itself — price needs room to breathe.</li>
+      <li>Think in percentages, not dollars. Risk is always relative to account size.</li>
+      <li>Beginners: stick to 1-2%. Experience lets you adjust later.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 6</div>
+    <div class="question" id="q1">
+      <p>1. What is a "fee" in Tori's system?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) The commission you pay the broker</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) Your maximum acceptable loss per trade — 1-2% of capital</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) The spread on your instrument</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) Your profit target for the trade</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! Fee = maximum loss per trade = 1-2% of capital. It's the price you're willing to pay if the trade doesn't work out.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. If you have a $5,000 trading account, what is your maximum fee using the 2% rule?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) $25</div>
+        <div class="option" onclick="answer(this,'q2',false)">B) $50</div>
+        <div class="option" onclick="answer(this,'q2',true)">C) $100</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) $500</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! $5,000 × 2% = $100. That's the maximum you should risk on any single trade with a $5,000 account.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. Why is the stop-loss compared to a fire extinguisher?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Because it's red and visible on the chart</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) It's a fail-safe that closes your trade automatically if things go wrong — preventing a small mistake from becoming catastrophic</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) Because you only need it in emergencies</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Because it's required by the exchange</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! Just like a fire extinguisher prevents a kitchen fire from burning the house down, a stop-loss prevents a losing trade from wiping out your account.</div>
+    </div>
+    <div class="question" id="q4">
+      <p>4. Where exactly should the stop-loss be placed?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) Exactly on the safety line</div>
+        <div class="option" onclick="answer(this,'q4',true)">B) On the OTHER side of the safety line — beyond it, so price can breathe</div>
+        <div class="option" onclick="answer(this,'q4',false)">C) On the action line that was broken</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) Halfway between the action and safety line</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! The stop-loss goes BEYOND the safety line — on the other side. This gives price room to touch (respect) the safety line without immediately stopping you out of the trade.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result"><div class="score" id="quiz-score">4/4</div><p style="color:var(--dim);margin-top:8px">Excellent! Your risk management knowledge is solid.</p></div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-05.html">← Prev: High vs Low Risk</a>
+    <a class="btn btn-primary" href="lesson-07.html">Next: Trend Line Break Setups →</a>
+  </div>
+</div>
+<script>
+let answers={},correct=0;const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){const r=document.getElementById('quiz-result');r.style.display='block';const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';}
+}
+function markDone(){localStorage.setItem('tori-lesson-6','done');const btn=document.querySelector('.btn-complete');btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+window.onload=function(){if(localStorage.getItem('tori-lesson-6')==='done'){const btn=document.querySelector('.btn-complete');if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}}}
+</script>
+</body>
+</html>

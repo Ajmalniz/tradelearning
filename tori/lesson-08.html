@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Break & Retest + The Bounce | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--blue:#3b82f6;--green:#10b981;--red:#ef4444;--yellow:#fbbf24;--orange:#f97316;--purple:#9333ea;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--blue);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);color:var(--blue);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#060a14,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--blue)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;margin-top:24px}
+p{margin-bottom:14px}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-blue{background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.2)}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-orange{background:rgba(249,115,22,0.07);border:1px solid rgba(249,115,22,0.2)}
+.highlight-yellow{background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-blue h4{color:var(--blue)}
+.highlight-green h4{color:var(--green)}
+.highlight-orange h4{color:var(--orange)}
+.highlight-yellow h4{color:var(--yellow)}
+.key-point{background:var(--card);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.setup-compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0}
+@media(max-width:560px){.setup-compare{grid-template-columns:1fr}}
+.setup-box{background:var(--card);border-radius:12px;padding:24px}
+.setup-box h3{margin-top:0;margin-bottom:14px;font-size:1rem}
+.retest-box{border:1px solid rgba(59,130,246,0.3)}
+.retest-box h3{color:var(--blue)}
+.bounce-box{border:1px solid rgba(16,185,129,0.3)}
+.bounce-box h3{color:var(--green)}
+.setup-box ol{padding-left:20px}
+.setup-box ol li{margin-bottom:8px;font-size:14px;color:var(--dim)}
+.setup-box ol li strong{color:var(--text)}
+.all-setups{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+.all-setups h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+.setup-list{display:flex;flex-direction:column;gap:8px}
+.setup-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--card);border-radius:8px;border:1px solid var(--border)}
+.setup-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.badge-meat{background:rgba(249,115,22,0.15);color:var(--orange);border:1px solid rgba(249,115,22,0.3)}
+.badge-variation{background:rgba(59,130,246,0.15);color:var(--blue);border:1px solid rgba(59,130,246,0.3)}
+.badge-early{background:rgba(16,185,129,0.15);color:var(--green);border:1px solid rgba(16,185,129,0.3)}
+.setup-item-name{font-size:14px;font-weight:600}
+.setup-item-desc{font-size:12px;color:var(--dim)}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--blue);background:rgba(59,130,246,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(59,130,246,0.05),rgba(16,185,129,0.05));border:1px solid rgba(59,130,246,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--blue);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--blue);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 8 of 11</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 4 · Lesson 8</div>
+  <h1><span>Break &amp; Retest</span> +<br>The Bounce Playbook</h1>
+  <p>Two more setup types that build on the core strategy — each one a different way price interacts with your trend lines.</p>
+  <div class="hero-tags"><span class="tag">⏱ 14 min</span><span class="tag">🟡 Intermediate</span><span class="tag">📋 Playbooks</span></div>
+</div>
+<div class="container">
+
+  <h2>All Setups, Same Strategy</h2>
+  <p>Every setup you'll learn is built on the same foundation: trend lines, top-down analysis, action lines, safety lines. What changes is <em>when and how</em> price interacts with your lines. Learning these variations helps you recognize and categorize different market behaviors — and eventually track which ones work best for you.</p>
+  <div class="key-point">"These are just different types of setups. All the same strategy — just different ways to look at it."</div>
+
+  <h2>Setup 1: Break &amp; Retest</h2>
+  <p>The break and retest is a specific sequence of price behavior after breaking a trend line:</p>
+  <ol style="padding-left:24px;margin-bottom:16px">
+    <li style="margin-bottom:8px">Price <strong>breaks</strong> the action line</li>
+    <li style="margin-bottom:8px">Price then <strong>comes back</strong> and touches the broken line from the <em>other side</em></li>
+    <li style="margin-bottom:8px">After the retest, price continues in the breakout direction</li>
+  </ol>
+
+  <div class="highlight-box highlight-blue">
+    <div class="icon">🔄</div>
+    <h4>What the Retest Looks Like</h4>
+    <p>Imagine a downward trend line holding price down. Price finally breaks above it — that's the break. Then price <em>pulls back down</em> and touches that same line from above before going higher. That pullback and touch from the other side is the <strong>retest</strong>. The old resistance becomes new support.</p>
+  </div>
+
+  <div class="setup-compare">
+    <div class="setup-box retest-box">
+      <h3>🔵 Break &amp; Retest</h3>
+      <ol>
+        <li>Draw trend lines with top-down analysis</li>
+        <li>Wait for price to break your action line</li>
+        <li>Watch for price to pull back and <strong>touch the broken line from the other side</strong></li>
+        <li>That retest touch is your entry signal</li>
+        <li>Safety line is the opposing trend line</li>
+        <li>Exit when safety line breaks</li>
+      </ol>
+    </div>
+    <div class="setup-box bounce-box">
+      <h3>🟢 Bounce Setup</h3>
+      <ol>
+        <li>Draw trend lines with top-down analysis</li>
+        <li>Wait for price to <strong>touch your trend line</strong> (don't wait for a break)</li>
+        <li>Enter when price touches the line, anticipating it will bounce</li>
+        <li>The touched line IS your action AND safety line</li>
+        <li>Stay in as long as price bounces</li>
+        <li>Exit when price finally breaks through the line</li>
+      </ol>
+    </div>
+  </div>
+
+  <h2>Setup 2: The Bounce Playbook</h2>
+  <p>The bounce is a fundamentally different approach compared to the trend line break. Instead of <em>waiting for price to break</em> the line, you're <em>anticipating that price will bounce off</em> the line.</p>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">⬆️</div>
+    <h4>Entering at the Touch, Not the Break</h4>
+    <p>In a bounce setup, when you see price approaching your trend line, you don't wait for it to cross. Instead, you enter as price <strong>touches</strong> the line, expecting it to bounce away. This is an earlier entry — but it comes with a different risk profile.</p>
+  </div>
+
+  <h3>The Special Rule for Bounce Setups</h3>
+  <p>In a bounce setup, the action line and the safety line are <strong>the same line</strong>. Here's why:</p>
+  <ul style="padding-left:24px;margin-bottom:16px">
+    <li style="margin-bottom:8px">You enter because price <em>touched</em> your trend line (expecting it to bounce)</li>
+    <li style="margin-bottom:8px">You stay in as long as price keeps bouncing off that same line</li>
+    <li style="margin-bottom:8px">You exit when price <em>finally breaks through</em> that same line — that's when your "safety" fails</li>
+  </ul>
+  <div class="highlight-box highlight-orange">
+    <div class="icon">⚠️</div>
+    <h4>Early Entry, Higher Uncertainty</h4>
+    <p>The bounce setup was something Tori implemented in her early trading years. It's more aggressive — you're entering before the break, which means you're betting on the line holding. The trend line break setups (2-touch, 3-touch, break &amp; retest) all enter AFTER confirmation. The bounce enters before. Both are valid — just different risk profiles.</p>
+  </div>
+
+  <h2>The Complete Playbook So Far</h2>
+  <div class="all-setups">
+    <h4>All Setup Types in This System</h4>
+    <div class="setup-list">
+      <div class="setup-item">
+        <div class="setup-badge badge-meat">CORE</div>
+        <div>
+          <div class="setup-item-name">Trend Line Break</div>
+          <div class="setup-item-desc">Price breaks through a trend line → enter. The foundational setup.</div>
+        </div>
+      </div>
+      <div class="setup-item">
+        <div class="setup-badge badge-variation">VARIATION</div>
+        <div>
+          <div class="setup-item-name">2-Touch Point Break</div>
+          <div class="setup-item-desc">Same break setup, but price had exactly 2 touches before breaking.</div>
+        </div>
+      </div>
+      <div class="setup-item">
+        <div class="setup-badge badge-variation">VARIATION</div>
+        <div>
+          <div class="setup-item-name">3-Touch Point Break</div>
+          <div class="setup-item-desc">Same break setup, but price had exactly 3 touches before breaking.</div>
+        </div>
+      </div>
+      <div class="setup-item">
+        <div class="setup-badge badge-variation">VARIATION</div>
+        <div>
+          <div class="setup-item-name">Break &amp; Retest</div>
+          <div class="setup-item-desc">Price breaks the line, then comes back to touch it from the other side → enter.</div>
+        </div>
+      </div>
+      <div class="setup-item">
+        <div class="setup-badge badge-early">EARLY ENTRY</div>
+        <div>
+          <div class="setup-item-name">Bounce Setup</div>
+          <div class="setup-item-desc">Enter when price TOUCHES the line (before it breaks), anticipating a bounce.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>How to Choose Your Setup</h2>
+  <p>Don't try to trade all of them at once. Start with the core trend line break. Get comfortable with 2-touch and 3-touch variations. Then experiment with the break &amp; retest and bounce when you're ready. Track each separately in your journal and let the data tell you which setups suit your instrument and trading style.</p>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 8</h3>
+    <ul>
+      <li>Break &amp; Retest: price breaks the line, then pulls back to touch it from the other side → enter.</li>
+      <li>Bounce: enter when price TOUCHES a trend line (before it breaks), expecting a bounce.</li>
+      <li>In bounce setups, action line and safety line are the SAME line.</li>
+      <li>Bounce entry is earlier = higher uncertainty, different risk profile.</li>
+      <li>All setups: same system, different entry timing and triggers.</li>
+      <li>The core trend line break is still the "meat" — other setups are variations.</li>
+      <li>Track each setup type separately to find what works best for you.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 8</div>
+    <div class="question" id="q1">
+      <p>1. What is a "retest" in the Break &amp; Retest setup?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) When price breaks the line for the second time</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) When price comes back AFTER the break and touches the broken line from the other side</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) When you re-draw your trend line after a break</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) When price touches the safety line and bounces</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! The retest is when price, after breaking the action line, pulls back and touches that same line from the new side (old resistance becomes new support, or vice versa).</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. In a Bounce setup, when do you enter the trade?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) After price breaks through the trend line</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) When price TOUCHES the trend line, before it breaks — anticipating a bounce</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) After price retests the line from the other side</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) When 3 touch points have been confirmed</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! The bounce is an early entry — you enter when price touches the line, anticipating it will respect the line and bounce away. You're entering BEFORE the break, not after.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. In a Bounce setup, the action line and safety line are:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Two different lines on opposite sides of price</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) The SAME line — you enter when price touches it, and you exit when it finally breaks</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) The action is below and the safety is above</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) There is no safety line in a bounce setup</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! In the bounce setup, the line you enter at IS your safety — you stay in as long as price keeps bouncing, and exit when price finally breaks through that same line.</div>
+    </div>
+    <div class="question" id="q4">
+      <p>4. How many total setup types has Tori introduced in the course so far?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) 2 — just the break and the bounce</div>
+        <div class="option" onclick="answer(this,'q4',false)">B) 3 — break, 2-touch, 3-touch</div>
+        <div class="option" onclick="answer(this,'q4',true)">C) 5 — trend line break, 2-touch, 3-touch, break &amp; retest, bounce</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) 1 — just the basic trend line break</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! Five setups total: (1) trend line break, (2) 2-touch break, (3) 3-touch break, (4) break &amp; retest, (5) bounce. All built on the same core system.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result"><div class="score" id="quiz-score">4/4</div><p style="color:var(--dim);margin-top:8px">Great work! You know the full playbook.</p></div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-07.html">← Prev: Trend Line Break Setups</a>
+    <a class="btn btn-primary" href="lesson-09.html">Next: Sim Trading →</a>
+  </div>
+</div>
+<script>
+let answers={},correct=0;const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){const r=document.getElementById('quiz-result');r.style.display='block';const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';}
+}
+function markDone(){localStorage.setItem('tori-lesson-8','done');const btn=document.querySelector('.btn-complete');btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+window.onload=function(){if(localStorage.getItem('tori-lesson-8')==='done'){const btn=document.querySelector('.btn-complete');if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}}}
+</script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: High Risk vs Low Risk Setups | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--purple:#9333ea;--yellow:#fbbf24;--green:#10b981;--red:#ef4444;--orange:#f97316;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--yellow);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3);color:var(--yellow);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#0f0e00,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--yellow);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--yellow)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-yellow{background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.2)}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-red{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-green h4{color:var(--green)}
+.highlight-red h4{color:var(--red)}
+.key-point{background:var(--card);border-left:4px solid var(--yellow);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.risk-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+@media(max-width:560px){.risk-compare{grid-template-columns:1fr}}
+.risk-card{border-radius:12px;padding:24px}
+.low-risk{background:rgba(16,185,129,0.06);border:2px solid rgba(16,185,129,0.3)}
+.high-risk{background:rgba(239,68,68,0.06);border:2px solid rgba(239,68,68,0.3)}
+.risk-card h3{font-size:1.1rem;font-weight:800;margin-bottom:12px;margin-top:0}
+.low-risk h3{color:var(--green)}
+.high-risk h3{color:var(--red)}
+.risk-card ul{list-style:none;padding:0}
+.risk-card ul li{padding:5px 0 5px 20px;position:relative;font-size:13px;color:var(--dim);border-bottom:1px solid rgba(30,48,80,0.4)}
+.risk-card ul li:last-child{border-bottom:none}
+.low-risk ul li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.high-risk ul li::before{content:'✗';position:absolute;left:0;color:var(--red);font-weight:700}
+.visual-diagram{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:28px 0}
+.visual-diagram h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.trade-viz{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.viz-item{flex:1;min-width:160px;max-width:220px;text-align:center}
+.viz-item .label{font-size:12px;color:var(--dim);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.bar-wrap{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:120px}
+.bar{border-radius:4px 4px 0 0;width:40px;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;padding-top:6px;font-size:10px;font-weight:700}
+.bar-loss-small{height:20px;background:rgba(239,68,68,0.4);border:1px solid var(--red);color:var(--red)}
+.bar-gain-big{height:100px;background:rgba(16,185,129,0.4);border:1px solid var(--green);color:var(--green)}
+.bar-loss-big{height:80px;background:rgba(239,68,68,0.4);border:1px solid var(--red);color:var(--red)}
+.bar-gain-small{height:40px;background:rgba(16,185,129,0.4);border:1px solid var(--green);color:var(--green)}
+.viz-caption{font-size:12px;margin-top:8px;font-weight:600}
+.low-caption{color:var(--green)}
+.high-caption{color:var(--red)}
+.why-not{background:linear-gradient(135deg,rgba(251,191,36,0.06),rgba(16,185,129,0.06));border:2px solid rgba(251,191,36,0.3);border-radius:12px;padding:24px;margin:28px 0;text-align:center}
+.why-not h3{color:var(--yellow);font-size:1.2rem;margin-bottom:10px;margin-top:0}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--yellow);background:rgba(251,191,36,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(251,191,36,0.05),rgba(16,185,129,0.05));border:1px solid rgba(251,191,36,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--yellow);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--yellow);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--yellow);color:var(--yellow)}
+.btn-primary{background:var(--yellow);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 5 of 11</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 3 · Lesson 5</div>
+  <h1><span>High Risk</span> vs <span>Low Risk</span> Setups<br>— Visual Identification</h1>
+  <p>Learn to see at a glance whether a setup is worth taking — and why the "why not?" trade is the best trade.</p>
+  <div class="hero-tags"><span class="tag">⏱ 10 min</span><span class="tag">🟡 Intermediate</span><span class="tag">🎯 Risk</span></div>
+</div>
+<div class="container">
+
+  <h2>What Makes a Setup Low Risk or High Risk?</h2>
+  <p>Before you place any trade, you need to assess one critical factor: <strong>how far is the current price from the safety line?</strong> This single visual measurement tells you whether the setup is low risk or high risk.</p>
+
+  <div class="key-point">
+    "A low-risk setup is a trade opportunity where the potential loss is small and clearly defined while the potential gain could be significantly larger. Think of it like a 'why not?' trade — if you're just going to put cents on this and you could potentially make dollars, it's a low-risk trade."
+  </div>
+
+  <h2>The Visual Measurement</h2>
+  <p>You don't need a calculator for this. You need your eyes. After price breaks the action line, look at the chart and ask: <em>how far is the current price from the safety line?</em></p>
+  <ul style="padding-left:24px;margin-bottom:16px">
+    <li style="margin-bottom:8px"><strong style="color:var(--green)">Small distance</strong> to safety line = Low risk setup ✓</li>
+    <li style="margin-bottom:8px"><strong style="color:var(--red)">Large distance</strong> to safety line = High risk setup ✗</li>
+  </ul>
+  <p>The distance matters because it represents how much money you'd lose if the trade goes wrong and hits your stop-loss.</p>
+
+  <div class="risk-compare">
+    <div class="risk-card low-risk">
+      <h3>✅ Low Risk Setup</h3>
+      <ul>
+        <li>Price is CLOSE to the safety line</li>
+        <li>Potential loss is small if wrong</li>
+        <li>Potential gain could be much larger</li>
+        <li>Favorable risk/reward ratio</li>
+        <li>The "why not?" trade</li>
+        <li>This is what you're looking for</li>
+      </ul>
+    </div>
+    <div class="risk-card high-risk">
+      <h3>⚠️ High Risk Setup</h3>
+      <ul>
+        <li>Price is FAR from the safety line</li>
+        <li>Potential loss is large if wrong</li>
+        <li>Risk/reward is unfavorable</li>
+        <li>This setup is NOT worth taking</li>
+        <li>Even if the direction is right, skip it</li>
+        <li>Wait for a better entry</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Visualizing Risk vs Reward</h2>
+  <div class="visual-diagram">
+    <h4>Risk vs Reward — Low Risk vs High Risk Comparison</h4>
+    <div class="trade-viz">
+      <div class="viz-item">
+        <div class="label">Low Risk Setup</div>
+        <div class="bar-wrap">
+          <div class="bar bar-loss-small">Loss</div>
+          <div class="bar bar-gain-big">Gain</div>
+        </div>
+        <div class="viz-caption low-caption">Small loss / Big potential gain</div>
+      </div>
+      <div class="viz-item">
+        <div class="label">High Risk Setup</div>
+        <div class="bar-wrap">
+          <div class="bar bar-loss-big">Loss</div>
+          <div class="bar bar-gain-small">Gain</div>
+        </div>
+        <div class="viz-caption high-caption">Big loss / Small potential gain</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>The "Why Not?" Trade</h2>
+  <div class="why-not">
+    <h3>💡 The "Why Not?" Mindset</h3>
+    <p style="color:var(--dim);font-size:14px;margin-bottom:0">When you find a low-risk setup, ask yourself: "If my loss is just a few dollars and my potential gain is much larger — why NOT take this trade?" This mindset keeps you focused on finding setups where the math works overwhelmingly in your favor. You're not gambling; you're engineering a situation where winning costs nothing and losing costs almost nothing too.</p>
+  </div>
+
+  <h2>When Will You Learn the Numbers?</h2>
+  <p>Right now, we're identifying risk <strong>visually</strong>. In the next lesson, we'll add exact numbers — percentages, dollar amounts, specific stop-loss placement. But the visual identification comes first because you need to be able to look at a setup and instantly know whether it's worth taking without doing math every time.</p>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">👁️</div>
+    <h4>Train Your Eyes First</h4>
+    <p>Experienced traders can glance at a chart and immediately know if a setup is low or high risk. That visual skill starts here. Eventually, the numbers and percentages confirm what your eyes already saw.</p>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 5</h3>
+    <ul>
+      <li>Low risk = price is CLOSE to the safety line when the action line breaks.</li>
+      <li>High risk = price is FAR from the safety line when the action line breaks.</li>
+      <li>The safety line distance = your maximum potential loss if wrong.</li>
+      <li>Always visually assess risk before entering any trade.</li>
+      <li>The "why not?" trade: small potential loss, large potential gain.</li>
+      <li>A high-risk setup is worth skipping even if you're confident in the direction.</li>
+      <li>Numbers come in Lesson 6 — visual identification is the foundation.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 5</div>
+    <div class="question" id="q1">
+      <p>1. What determines if a setup is high risk or low risk?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) The size of your trading account</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) The visual distance between current price and the safety line</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) How many touch points the trend line has</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) Whether the market is bullish or bearish overall</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! The distance from current price to the safety line is what determines risk. Close = low risk. Far = high risk. It's a visual assessment you can make instantly.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. What does "low risk" mean in Tori's system?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) The trade is guaranteed to win</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) The potential loss is small and clearly defined, while the potential gain could be significantly larger</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) You're risking less than 0.1% of your account</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) The trend line has more than 5 touch points</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! Low risk = small, defined loss potential with a much larger gain potential. The risk/reward ratio is in your favor — that's why these are the setups to look for.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. Should you skip a setup if the distance to the safety line is very large?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',true)">A) Yes — high risk setups should be avoided even if you're confident in the direction</div>
+        <div class="option" onclick="answer(this,'q3',false)">B) No — if you're confident in the direction, the risk doesn't matter</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) Only skip if you don't have enough capital</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Never skip — all trend line breaks are worth trading</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! High risk setups should be skipped. Confidence in direction doesn't change the risk math. Wait for price to move closer to the safety line before entering.</div>
+    </div>
+    <div class="question" id="q4">
+      <p>4. What is the "why not?" trade?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) Any trade taken without a clear reason</div>
+        <div class="option" onclick="answer(this,'q4',true)">B) A low-risk trade where your potential loss is so small that the question is "why NOT take it?"</div>
+        <div class="option" onclick="answer(this,'q4',false)">C) A trade taken on a whim without analysis</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) A trade where you double your position size</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! The "why not?" trade has such a favorable risk/reward ratio that the potential loss is almost negligible. You're risking cents to potentially make dollars.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result"><div class="score" id="quiz-score">4/4</div><p style="color:var(--dim);margin-top:8px">Great work! You can identify risk setups visually.</p></div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-04.html">← Prev: Action &amp; Safety Lines</a>
+    <a class="btn btn-primary" href="lesson-06.html">Next: The 1-2% Rule →</a>
+  </div>
+</div>
+<script>
+let answers={},correct=0;const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){const r=document.getElementById('quiz-result');r.style.display='block';const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';}
+}
+function markDone(){localStorage.setItem('tori-lesson-5','done');const btn=document.querySelector('.btn-complete');btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+window.onload=function(){if(localStorage.getItem('tori-lesson-5')==='done'){const btn=document.querySelector('.btn-complete');if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}}}
+</script>
+</body>
+</html>

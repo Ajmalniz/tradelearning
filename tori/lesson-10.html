@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Journaling & Tracking | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#10b981;--red:#ef4444;--yellow:#fbbf24;--blue:#3b82f6;--orange:#f97316;--purple:#9333ea;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--green);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);color:var(--green);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#04100a,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--green)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-yellow{background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.2)}
+.highlight-blue{background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.2)}
+.highlight-red{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-red h4{color:var(--red)}
+.key-point{background:var(--card);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.why-journal{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:24px 0}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
+.why-card .wi{font-size:1.5rem;margin-bottom:8px}
+.why-card h4{font-weight:700;margin-bottom:6px;font-size:14px;color:var(--green)}
+.why-card p{font-size:12px;color:var(--dim);margin:0;line-height:1.5}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:24px 0}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
+.tool-card h4{font-weight:700;margin-bottom:6px;font-size:14px}
+.tool-card p{font-size:12px;color:var(--dim);margin-bottom:6px;line-height:1.4}
+.tool-card .tool-pros{font-size:11px;color:var(--green)}
+.tool-card .tool-cons{font-size:11px;color:var(--dim)}
+.what-to-track{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:20px;margin:24px 0}
+.what-to-track h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
+.track-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:460px){.track-grid{grid-template-columns:1fr}}
+.track-item{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:8px}
+.track-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.mantra{background:linear-gradient(135deg,rgba(16,185,129,0.06),rgba(59,130,246,0.06));border:2px solid rgba(16,185,129,0.25);border-radius:12px;padding:24px;margin:24px 0;text-align:center}
+.mantra h4{color:var(--green);font-size:1.1rem;margin-bottom:10px}
+.mantra p{color:var(--dim);font-size:14px;margin:0;font-style:italic}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--green);background:rgba(16,185,129,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(16,185,129,0.05),rgba(59,130,246,0.05));border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--green);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--green);color:var(--green)}
+.btn-primary{background:var(--green);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 10 of 11</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 5 · Lesson 10</div>
+  <h1><span>Journaling</span> &amp; Tracking —<br>Building Your Trading Record</h1>
+  <p>Track every trade. See what's working. Stop guessing. Let the data tell you the truth — and build the record that will justify scaling up.</p>
+  <div class="hero-tags"><span class="tag">⏱ 12 min</span><span class="tag">🟡 Intermediate</span><span class="tag">📓 Data</span></div>
+</div>
+<div class="container">
+
+  <h2>Why Journaling Is Non-Negotiable</h2>
+  <p>You've learned the system. You're practicing on sim charts. Now comes the most boring-sounding — and most important — habit in all of trading: <strong>journaling every single trade</strong>.</p>
+
+  <div class="key-point">"Journaling helps you see reoccurring mistakes or reoccurring setups that are working or not. This is where you get a bird's eye view. We need to track this — to see what's working and what's not."</div>
+
+  <div class="why-journal">
+    <div class="why-card"><div class="wi">🔍</div><h4>Spots Patterns</h4><p>See which setup types are making you money and which aren't. Data doesn't lie.</p></div>
+    <div class="why-card"><div class="wi">🚫</div><h4>Stops Impulse Trades</h4><p>When every trade is recorded, you think twice before taking a random one.</p></div>
+    <div class="why-card"><div class="wi">🧯</div><h4>Prevents Revenge Trading</h4><p>A bad trade on record makes you think before blindly trying to "get it back."</p></div>
+    <div class="why-card"><div class="wi">📈</div><h4>Shows Progress</h4><p>Looking back at your first trade vs. your hundredth is profoundly motivating.</p></div>
+    <div class="why-card"><div class="wi">⬆️</div><h4>Justifies Scaling Up</h4><p>Data showing consistent profitability is the ONLY reason to increase position size.</p></div>
+    <div class="why-card"><div class="wi">🔬</div><h4>Powers the Experiment</h4><p>Without tracking, you can't run the science experiment. You're just guessing.</p></div>
+  </div>
+
+  <h2>What to Track on Every Trade</h2>
+  <div class="what-to-track">
+    <h4>Minimum Information Per Trade</h4>
+    <div class="track-grid">
+      <div class="track-item"><div class="track-dot"></div>Date &amp; time of entry</div>
+      <div class="track-item"><div class="track-dot"></div>Instrument (e.g., Crude Oil)</div>
+      <div class="track-item"><div class="track-dot"></div>Setup type (2-touch, retest, bounce)</div>
+      <div class="track-item"><div class="track-dot"></div>Entry price</div>
+      <div class="track-item"><div class="track-dot"></div>Stop-loss level</div>
+      <div class="track-item"><div class="track-dot"></div>Exit price</div>
+      <div class="track-item"><div class="track-dot"></div>P&amp;L (profit or loss amount)</div>
+      <div class="track-item"><div class="track-dot"></div>Win or loss</div>
+      <div class="track-item"><div class="track-dot"></div>Notes / reasoning</div>
+      <div class="track-item"><div class="track-dot"></div>Emotional state / mistakes</div>
+    </div>
+  </div>
+
+  <h2>Journaling Tools — Your Options</h2>
+  <div class="tools-grid">
+    <div class="tool-card">
+      <h4>📓 Notebook (Manual)</h4>
+      <p>Write down every trade by hand. The original method — still works.</p>
+      <div class="tool-pros">✓ No tech required, full control</div>
+      <div class="tool-cons">△ Hard to analyze data in aggregate</div>
+    </div>
+    <div class="tool-card">
+      <h4>📊 Spreadsheet (Excel/Google)</h4>
+      <p>Type your trades into a spreadsheet. Enables formulas and charts.</p>
+      <div class="tool-pros">✓ Easy to total and filter data</div>
+      <div class="tool-cons">△ Still manual entry, can be tedious</div>
+    </div>
+    <div class="tool-card">
+      <h4>🖼️ Screenshots</h4>
+      <p>Screenshot the chart at entry and exit. Capture the visual setup.</p>
+      <div class="tool-pros">✓ Visual record of every trade</div>
+      <div class="tool-cons">△ Hard to analyze data across trades</div>
+    </div>
+    <div class="tool-card">
+      <h4>🎥 Voice/Video Logs</h4>
+      <p>Record yourself talking through the trade reasoning and outcome.</p>
+      <div class="tool-pros">✓ Captures your emotional state</div>
+      <div class="tool-cons">△ Time-consuming to review</div>
+    </div>
+    <div class="tool-card">
+      <h4>⚡ Tradezella</h4>
+      <p>A dedicated trading journal platform that syncs with your brokerage automatically.</p>
+      <div class="tool-pros">✓ Auto-imports trades, tags setup types, shows analytics</div>
+      <div class="tool-cons">△ Subscription required</div>
+    </div>
+    <div class="tool-card">
+      <h4>📱 Platform Journal</h4>
+      <p>Some brokers/platforms have built-in journaling tools.</p>
+      <div class="tool-pros">✓ Integrated with your trades</div>
+      <div class="tool-cons">△ Varies widely by platform quality</div>
+    </div>
+  </div>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">⚡</div>
+    <h4>Tradezella — Tori's Choice</h4>
+    <p>Tori uses Tradezella because it automatically syncs with her brokerage and imports every trade. She only needs to add notes — the date, time, price, and P&amp;L are all populated automatically. Then she adds tags (setup type, time frame, instrument) and notes (mindset, mistakes, observations). The result is a rich data set she can analyze over years of trading.</p>
+  </div>
+
+  <h2>The Mantras of Journaling</h2>
+
+  <div class="mantra">
+    <h4>Track → Journal → Trade → Repeat</h4>
+    <p>"Track, journal, trade. Track, journal, trade. Every single trade: the setup, the reasoning you took the trade, the outcome. This becomes part of your experiment."</p>
+  </div>
+
+  <h2>When to Increase Position Size</h2>
+  <p>This is the payoff of journaling. After weeks and months of tracking, your data will either confirm that you're profitable — or it won't. <strong>You should never increase your position size based on a feeling</strong>. Increase only when your data shows:</p>
+  <ul style="padding-left:24px;margin-bottom:16px">
+    <li style="margin-bottom:8px">Consistent profitability over enough trades to be statistically meaningful</li>
+    <li style="margin-bottom:8px">Your winners outweigh your losers</li>
+    <li style="margin-bottom:8px">A specific setup type you're confident in</li>
+    <li style="margin-bottom:8px">Emotional discipline (low impulsive trades in your journal)</li>
+  </ul>
+  <div class="highlight-box highlight-yellow">
+    <div class="icon">📊</div>
+    <h4>Data Justifies Confidence</h4>
+    <p>Moving from 1 micro contract to 2, or from $3,000 risk to $6,000, should never be based on "I feel ready." It should be based on: your journal shows X weeks of profitability, your win rate is Y%, your average winner is Z times your average loser. That's a justified decision. Everything else is gambling.</p>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 10</h3>
+    <ul>
+      <li>Journal every single trade — no exceptions. Even on sim.</li>
+      <li>Track: date, instrument, setup type, entry, stop-loss, exit, P&amp;L, notes.</li>
+      <li>Journaling stops impulse trades, prevents revenge trading, and shows progress.</li>
+      <li>Tools: notebook, spreadsheet, screenshots, voice logs, Tradezella, platform journal.</li>
+      <li>Tradezella syncs automatically with your brokerage — saves time on data entry.</li>
+      <li>The mantra: Track → Journal → Trade. Repeat every single trade.</li>
+      <li>Never increase position size based on feelings. Only increase when DATA shows you're consistently profitable.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 10</div>
+    <div class="question" id="q1">
+      <p>1. When is it appropriate to increase your position size?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) When you feel confident after a winning streak</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) When your journal data consistently shows profitability over enough trades to be meaningful</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) When a friend tells you a trade is a sure thing</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) After you've been trading for 90 days regardless of results</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! Position size increases should always be justified by data — not feelings. Your journal is the only evidence that matters.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. What does Tori mean by journaling stopping "revenge trading"?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) It stops you from trading against competitors</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) Having a record makes you think before impulsively placing a trade to "get back" losses from a previous bad trade</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) It prevents you from making money too quickly</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) It stops you from placing more than one trade per day</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! Revenge trading = placing impulsive trades to recover from a loss. Having a journal makes you more intentional — because every trade goes on the record.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. What makes Tradezella particularly useful for journaling?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) It predicts which trades will be profitable</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) It automatically syncs with your brokerage and imports trades — you only need to add notes</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) It draws trend lines on your chart automatically</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) It's completely free with no subscription required</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! Tradezella auto-imports trade data from your brokerage, saving time on manual entry. You add notes, tags, and observations — the raw data populates itself.</div>
+    </div>
+    <div class="question" id="q4">
+      <p>4. What is the journaling mantra Tori teaches?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) Analyze → Trade → Profit</div>
+        <div class="option" onclick="answer(this,'q4',false)">B) Draw → Wait → Act</div>
+        <div class="option" onclick="answer(this,'q4',true)">C) Track → Journal → Trade</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) Risk → Reward → Repeat</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! Track → Journal → Trade. Every single trade, every single time. This rhythm turns individual trades into a data-driven science experiment.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result"><div class="score" id="quiz-score">4/4</div><p style="color:var(--dim);margin-top:8px">Excellent! Start your journal today.</p></div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-09.html">← Prev: Sim Trading</a>
+    <a class="btn btn-primary" href="lesson-11.html">Next: Live Trade Walkthrough →</a>
+  </div>
+</div>
+<script>
+let answers={},correct=0;const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){const r=document.getElementById('quiz-result');r.style.display='block';const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';}
+}
+function markDone(){localStorage.setItem('tori-lesson-10','done');const btn=document.querySelector('.btn-complete');btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+window.onload=function(){if(localStorage.getItem('tori-lesson-10')==='done'){const btn=document.querySelector('.btn-complete');if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}}}
+</script>
+</body>
+</html>

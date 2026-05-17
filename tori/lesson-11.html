@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Live Trade Walkthrough — Crude Oil | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#10b981;--red:#ef4444;--yellow:#fbbf24;--blue:#3b82f6;--orange:#f97316;--purple:#9333ea;--pink:#ec4899;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--green);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);color:var(--green);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#04100a,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--green)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-orange{background:rgba(249,115,22,0.07);border:1px solid rgba(249,115,22,0.2)}
+.highlight-yellow{background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.2)}
+.highlight-blue{background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-orange h4{color:var(--orange)}
+.highlight-yellow h4{color:var(--yellow)}
+.highlight-blue h4{color:var(--blue)}
+.key-point{background:var(--card);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.tf-steps{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 24px}
+.tf-step{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--dim);display:flex;align-items:center;gap:6px}
+.tf-step.done{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.3);color:var(--green)}
+.tf-step.current{background:rgba(249,115,22,0.08);border-color:rgba(249,115,22,0.3);color:var(--orange)}
+.walkthrough{display:flex;flex-direction:column;gap:0;margin:28px 0}
+.wt-step{display:flex;gap:0;position:relative}
+.wt-step:not(:last-child)::after{content:'';position:absolute;left:19px;top:44px;width:2px;height:calc(100% - 20px);background:var(--border)}
+.wt-num{width:40px;height:40px;border-radius:50%;background:rgba(16,185,129,0.15);border:2px solid var(--green);color:var(--green);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;margin-right:16px;z-index:1}
+.wt-content{flex:1;padding-bottom:28px}
+.wt-content h4{font-weight:700;margin-bottom:6px;font-size:15px}
+.wt-content p{font-size:14px;color:var(--dim);margin:0;line-height:1.6}
+.trade-summary{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:28px 0}
+.trade-summary h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.ts-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:460px){.ts-grid{grid-template-columns:1fr}}
+.ts-item{background:var(--card2);border-radius:8px;padding:14px}
+.ts-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--dim);margin-bottom:4px}
+.ts-value{font-size:15px;font-weight:700}
+.ts-value.green{color:var(--green)}
+.ts-value.red{color:var(--red)}
+.ts-value.orange{color:var(--orange)}
+.ts-value.blue{color:var(--blue)}
+.completion-banner{background:linear-gradient(135deg,rgba(147,51,234,0.08),rgba(16,185,129,0.08));border:2px solid rgba(147,51,234,0.25);border-radius:16px;padding:36px 28px;margin:40px 0;text-align:center}
+.completion-banner h2{font-size:1.8rem;background:linear-gradient(135deg,#fff,#a78bfa,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:0;margin-bottom:12px}
+.completion-banner p{color:var(--dim);font-size:1rem;margin-bottom:20px}
+.completion-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.completion-link{padding:11px 22px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s}
+.cl-home{background:rgba(147,51,234,0.12);border:1px solid rgba(147,51,234,0.35);color:var(--purple)}
+.cl-home:hover{background:rgba(147,51,234,0.22)}
+.cl-roadmap{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.35);color:var(--green)}
+.cl-roadmap:hover{background:rgba(16,185,129,0.22)}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--green);background:rgba(16,185,129,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(16,185,129,0.05),rgba(59,130,246,0.05));border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--green);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--green);color:var(--green)}
+.btn-primary{background:var(--green);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 11 of 11</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 5 · Lesson 11</div>
+  <h1>Live Trade Walkthrough —<br><span>Crude Oil</span> from Entry to Exit</h1>
+  <p>A complete trade, step by step: top-down analysis, line drawing, the break, stop-loss placement, the ride, and the exit.</p>
+  <div class="hero-tags"><span class="tag">⏱ 18 min</span><span class="tag">🔴 Advanced</span><span class="tag">🛢️ Crude Oil</span></div>
+</div>
+<div class="container">
+
+  <h2>Everything Comes Together Here</h2>
+  <p>This is it. The final lesson walks through a complete live trade on crude oil — from opening a blank chart to closing the position. Every concept from every previous lesson appears in this walkthrough. This is the strategy in action.</p>
+
+  <div class="key-point">"We're placing our first trade together. We're going to start with an instrument called crude oil. We are going to actually put this into play."</div>
+
+  <h2>Step 1 — Start at the Monthly (The Dinosaur View)</h2>
+  <p>Open crude oil on TradingView. Navigate to the monthly time frame. You should see the dinosaur icon, meaning you're looking at the entire history of this instrument.</p>
+
+  <div class="tf-steps">
+    <div class="tf-step current">🦕 Monthly — Start Here</div>
+    <div class="tf-step">Weekly</div>
+    <div class="tf-step">Daily</div>
+    <div class="tf-step">4 Hour</div>
+    <div class="tf-step">1 Hour</div>
+    <div class="tf-step">30 Min</div>
+    <div class="tf-step">5 Min — Trade Here</div>
+  </div>
+
+  <div class="highlight-box highlight-orange">
+    <div class="icon">📍</div>
+    <h4>Monthly — Point A and Point B</h4>
+    <p>Find the highest point on the monthly chart. That's Point A of your first downward trend line. Drag Point B to the most recent touch point, capturing as many touches as possible without price intersecting. Change the color to red. Then draw your upward trend line (green) from the lowest point visible, same rules. You now have your first two lines.</p>
+  </div>
+
+  <h2>The Full Walkthrough — Step by Step</h2>
+
+  <div class="walkthrough">
+    <div class="wt-step">
+      <div class="wt-num">1</div>
+      <div class="wt-content">
+        <h4>Monthly → Weekly: Connect and Adjust</h4>
+        <p>Move from monthly to weekly. Your existing lines may look slightly off — make slight adjustments. The most recent Point B of your monthly lines becomes the starting Point A for any new weekly lines. When you zoom in, you may find you don't need many new lines if the existing ones still hold.</p>
+      </div>
+    </div>
+    <div class="wt-step">
+      <div class="wt-num">2</div>
+      <div class="wt-content">
+        <h4>Weekly → Daily: Add Structure</h4>
+        <p>Move to the daily time frame. Now you can draw additional trend lines with steeper angles as price action becomes more visible. Every new line's Point A connects to the previous line's Point B. By the daily chart, your analysis is getting more precise and you're seeing more price structure.</p>
+      </div>
+    </div>
+    <div class="wt-step">
+      <div class="wt-num">3</div>
+      <div class="wt-content">
+        <h4>Daily → 4 Hour → 1 Hour</h4>
+        <p>Continue working down. Each time frame requires slight adjustments to existing lines and drawing new, steeper lines. At the 4-hour and 1-hour charts, use TradingView's zoom button to see price more clearly. Your lines are getting more precise with each step down.</p>
+      </div>
+    </div>
+    <div class="wt-step">
+      <div class="wt-num">4</div>
+      <div class="wt-content">
+        <h4>1 Hour → 30 Min → 5 Min</h4>
+        <p>Final descent. Move to the 5-minute chart. This is where the most information lives — and the most "noise." Make your final adjustments. Draw the steepest trend lines yet, capturing the most recent price action at this granular level. Always drag Point B to the most recent touch.</p>
+      </div>
+    </div>
+    <div class="wt-step">
+      <div class="wt-num">5</div>
+      <div class="wt-content">
+        <h4>Arrive at the 5-Minute: All Lines Connect</h4>
+        <p>You now have a complete top-down analysis. Every line connects to every other line. Price has not intersected any of them. You have a clear picture of the market structure from the bird's eye monthly view all the way down to the 5-minute ground level.</p>
+      </div>
+    </div>
+    <div class="wt-step">
+      <div class="wt-num">6</div>
+      <div class="wt-content">
+        <h4>Wait for Price to Approach a Line</h4>
+        <p>Watch the 5-minute chart. If price is not near any of your lines — that's your cue to draw steeper, shorter-term trend lines to bring the action closer. Continue adding lines until price is approaching one. Then watch and wait. The moment you've been training for is coming.</p>
+      </div>
+    </div>
+    <div class="wt-step">
+      <div class="wt-num">7</div>
+      <div class="wt-content">
+        <h4>The Break — Price Breaks the Downward Trend Line</h4>
+        <p>Price breaks upward through the downward trend line. <strong>This is the action signal.</strong> The downward trend line is now the action line. The upward trend line on the other side is now the safety line. This is a LONG trade — price just told us it wants to go up.</p>
+      </div>
+    </div>
+    <div class="wt-step">
+      <div class="wt-num">8</div>
+      <div class="wt-content">
+        <h4>Assess: Is This Low Risk or High Risk?</h4>
+        <p>Before entering, look at the distance from the current price to the safety line (the upward trend line). Is it small or large? For the paper account, we're working with $100,000, so our fee at 2% would be $2,000 — but even $100 (0.1%) is a valid fee to practice with.</p>
+      </div>
+    </div>
+    <div class="wt-step">
+      <div class="wt-num">9</div>
+      <div class="wt-content">
+        <h4>Open the Trading Panel and Enter Long</h4>
+        <p>Open the paper trading panel at the bottom of TradingView. Place a long (buy) position. The TP (take profit) is optional — skip it. The SL (stop-loss) is mandatory. Drag the stop-loss to the OTHER side of the safety line — just beyond it. The panel will show you your dollar risk. Confirm it matches your fee.</p>
+      </div>
+    </div>
+    <div class="wt-step">
+      <div class="wt-num">10</div>
+      <div class="wt-content">
+        <h4>The Ride — Watch the Safety Line</h4>
+        <p>You're in the trade. Price is moving (hopefully upward). Watch the safety line. As long as price respects it — bouncing off or staying above — you stay in. If the price goes to $90 above your entry, you're up $90. $120 above — up $120. The safety line is the only thing you're watching.</p>
+      </div>
+    </div>
+    <div class="wt-step">
+      <div class="wt-num">11</div>
+      <div class="wt-content">
+        <h4>The Exit — Safety Line Breaks</h4>
+        <p>When price breaks the safety line, the trade is done. Close your position immediately. Calculate your P&amp;L. Log it in your journal with the setup type, your reasoning, and the outcome. This is a complete round trip trade: entry → management → exit.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Trade Summary — What Just Happened</h2>
+  <div class="trade-summary">
+    <h4>Complete Trade Blueprint</h4>
+    <div class="ts-grid">
+      <div class="ts-item"><div class="ts-label">Instrument</div><div class="ts-value orange">Crude Oil (CL)</div></div>
+      <div class="ts-item"><div class="ts-label">Analysis</div><div class="ts-value blue">Monthly → Weekly → Daily → 4H → 1H → 30M → 5M</div></div>
+      <div class="ts-item"><div class="ts-label">Entry Signal</div><div class="ts-value green">Downward trend line break → Long</div></div>
+      <div class="ts-item"><div class="ts-label">Action Line</div><div class="ts-value orange">The broken downward trend line</div></div>
+      <div class="ts-item"><div class="ts-label">Safety Line</div><div class="ts-value green">The surviving upward trend line</div></div>
+      <div class="ts-item"><div class="ts-label">Stop-Loss</div><div class="ts-value red">Other side of safety line (gives it breathing room)</div></div>
+      <div class="ts-item"><div class="ts-label">Exit Signal</div><div class="ts-value red">Safety line breaks → close position</div></div>
+      <div class="ts-item"><div class="ts-label">Journal Entry</div><div class="ts-value green">Setup type + reasoning + outcome</div></div>
+    </div>
+  </div>
+
+  <h2>And Tomorrow?</h2>
+  <p>Come back tomorrow. Open the chart. Do your top-down analysis again — because markets have moved, lines need updating, and new structure has formed. Rinse and repeat. This is the daily practice of a trend line trader.</p>
+
+  <div class="highlight-box highlight-yellow">
+    <div class="icon">🔄</div>
+    <h4>The Cycle Never Stops</h4>
+    <p>Mark up → wait → act → manage → exit → journal → repeat. Every session. The more reps you get, the faster and more confident you become. There's no shortcut — the reps ARE the shortcut.</p>
+  </div>
+
+  <div class="completion-banner">
+    <h2>You've Completed the Course! 🎉</h2>
+    <p>You've gone from zero to a complete, functioning trend line trading system. You know how to draw lines, analyze top-down, identify setups, manage risk, and execute trades. Now it's time to get your reps in.</p>
+    <div class="completion-links">
+      <a class="completion-link cl-roadmap" href="index.html">← Back to Tori's Roadmap</a>
+      <a class="completion-link cl-home" href="../index.html">⚡ Explore Fabio's Course</a>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 11</h3>
+    <ul>
+      <li>Start every trade with full top-down analysis — monthly all the way to 5-minute.</li>
+      <li>Every line connects to the previous; all rules apply at every time frame.</li>
+      <li>Wait for the break on the 5-minute chart. Don't force it.</li>
+      <li>Downward line breaks → long trade. Upward line breaks → short trade.</li>
+      <li>Stop-loss: drag to the OTHER side of the safety line. Never on the safety line.</li>
+      <li>Stay in while safety line holds. Exit the moment it breaks.</li>
+      <li>Log every trade. Come back tomorrow. Repeat the top-down analysis. Get your reps.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Final Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of the complete system</div>
+    <div class="question" id="q1">
+      <p>1. What time frame do you START your top-down analysis on?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) 1-hour — that's the most common trading time frame</div>
+        <div class="option" onclick="answer(this,'q1',false)">B) Daily — where most swing traders operate</div>
+        <div class="option" onclick="answer(this,'q1',true)">C) Monthly — the highest bird's eye view of the instrument's history</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) 5-minute — where you'll be placing trades</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! Always start at the monthly. Top DOWN means you begin at the top (highest time frame) and work your way down to your trading time frame.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. In the crude oil trade walkthrough, price broke the DOWNWARD trend line. What position was entered?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',true)">A) LONG (buy) — price breaking upward above the downward line signals bullish momentum</div>
+        <div class="option" onclick="answer(this,'q2',false)">B) SHORT (sell) — price breaking the downward line confirms the downtrend</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) No position — wait for the upward line to break too</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) LONG and SHORT simultaneously as a hedge</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! When price breaks upward through the downward trend line, it's a bullish signal → enter a LONG (buy) position. The action line direction tells you the trade direction.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. Where exactly was the stop-loss placed in the walkthrough?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) On the safety line (the upward trend line)</div>
+        <div class="option" onclick="answer(this,'q3',false)">B) On the action line (the broken downward trend line)</div>
+        <div class="option" onclick="answer(this,'q3',true)">C) On the OTHER SIDE of the safety line — beyond it, giving price breathing room</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) At a fixed distance of 50 pips below entry</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! Stop-loss goes on the other side of the safety line, not ON it. This gives price room to test the safety line without immediately stopping you out.</div>
+    </div>
+    <div class="question" id="q4">
+      <p>4. You're in the crude oil trade. Price has moved up nicely and is respecting your safety line. What do you do?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) Close the trade now to lock in the profit</div>
+        <div class="option" onclick="answer(this,'q4',false)">B) Move your stop-loss to break even immediately</div>
+        <div class="option" onclick="answer(this,'q4',true)">C) Stay in the trade — as long as price respects the safety line, you hold</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) Add to your position since it's going well</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! You stay in as long as price respects the safety line. The safety line — not your emotions, not a target, not a timer — tells you when to exit. Stay until it breaks.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result"><div class="score" id="quiz-score">4/4</div><p style="color:var(--dim);margin-top:8px">Outstanding! You've completed the entire course.</p></div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>You've finished the entire Tori Masterclass!</p></div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-10.html">← Prev: Journaling &amp; Tracking</a>
+    <a class="btn btn-primary" href="index.html">Back to Roadmap ✓</a>
+  </div>
+</div>
+<script>
+let answers={},correct=0;const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){const r=document.getElementById('quiz-result');r.style.display='block';const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';}
+}
+function markDone(){localStorage.setItem('tori-lesson-11','done');const btn=document.querySelector('.btn-complete');btn.textContent='✓ Course Complete!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+window.onload=function(){if(localStorage.getItem('tori-lesson-11')==='done'){const btn=document.querySelector('.btn-complete');if(btn){btn.textContent='✓ Course Complete!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}}}
+</script>
+</body>
+</html>

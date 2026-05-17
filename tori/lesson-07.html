@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Trend Line Break Setups | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--blue:#3b82f6;--green:#10b981;--red:#ef4444;--yellow:#fbbf24;--orange:#f97316;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--blue);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);color:var(--blue);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#060a14,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--blue)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;margin-top:24px}
+p{margin-bottom:14px}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-blue{background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.2)}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-yellow{background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-blue h4{color:var(--blue)}
+.highlight-green h4{color:var(--green)}
+.highlight-yellow h4{color:var(--yellow)}
+.key-point{background:var(--card);border-left:4px solid var(--blue);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.setup-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:28px 0}
+.setup-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;text-align:center}
+.setup-card .setup-icon{font-size:2rem;margin-bottom:12px}
+.setup-card h4{font-weight:700;margin-bottom:8px;color:var(--blue)}
+.setup-card p{font-size:13px;color:var(--dim);margin:0;line-height:1.5}
+.touch-demo{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0}
+.touch-demo h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.touch-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.touch-row{grid-template-columns:1fr}}
+.touch-card{background:var(--card2);border-radius:10px;padding:16px;text-align:center}
+.touch-card .tc-title{font-size:12px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin-bottom:10px;color:var(--dim)}
+.touch-dot-row{display:flex;gap:8px;justify-content:center;align-items:center;margin-bottom:10px}
+.touch-dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--blue);background:rgba(59,130,246,0.2)}
+.touch-arrow{font-size:18px;color:var(--orange)}
+.touch-break{width:16px;height:16px;border-radius:50%;background:var(--orange);border:2px solid var(--orange)}
+.tc-desc{font-size:12px;color:var(--dim)}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:560px){.pros-cons{grid-template-columns:1fr}}
+.pro-card{background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:20px}
+.con-card{background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:12px;padding:20px}
+.pro-card h4{color:var(--green);margin-bottom:10px}
+.con-card h4{color:var(--yellow);margin-bottom:10px}
+.pro-card li,.con-card li{list-style:none;padding:5px 0 5px 20px;position:relative;font-size:13px;color:var(--dim)}
+.pro-card li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.con-card li::before{content:'△';position:absolute;left:0;color:var(--yellow);font-weight:700}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--blue);background:rgba(59,130,246,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(59,130,246,0.05),rgba(16,185,129,0.05));border:1px solid rgba(59,130,246,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--blue);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--blue);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 7 of 11</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 4 · Lesson 7</div>
+  <h1>The <span>Trend Line Break</span> —<br>2-Touch &amp; 3-Touch Point Setups</h1>
+  <p>The meat of the strategy. Learn the science experiment approach: how many times did price respect the line before breaking?</p>
+  <div class="hero-tags"><span class="tag">⏱ 12 min</span><span class="tag">🟡 Intermediate</span><span class="tag">🔬 Setups</span></div>
+</div>
+<div class="container">
+
+  <h2>Getting More Scientific</h2>
+  <p>You now understand the core strategy: draw lines, wait for the break, enter, exit when the safety line breaks. That's the foundation. Now we get more <em>scientific</em> about it. We start asking a specific question about every setup we encounter:</p>
+  <div class="key-point">"When price breaks and I get an action, how many touch points, how many times has the price respected these lines? This is called a trend line break — but how many touches did it have?"</div>
+  <p>This is where you shift from understanding the system to <em>experimenting</em> with it. You treat each trade as data — and different types of setups have different characteristics you can track and optimize over time.</p>
+
+  <h2>The Basic Trend Line Break</h2>
+  <p>The simplest version of the setup is the <strong>trend line break</strong>: price breaks one of your trend lines, you enter, the other becomes your safety line. This is the foundational setup — every other variation builds on it.</p>
+
+  <div class="highlight-box highlight-blue">
+    <div class="icon">📊</div>
+    <h4>No Indicators Required</h4>
+    <p>This setup uses zero indicators. No RSI, no MACD, no moving averages. Pure price action and trend lines. If you can draw a line and watch price, you can trade this setup. The clarity is the advantage.</p>
+  </div>
+
+  <h2>2-Touch Point Trend Line Break</h2>
+  <p>A <strong>2-touch point trend line break</strong> occurs when price has touched your trend line exactly <em>twice</em> before breaking through it on the third interaction.</p>
+
+  <div class="touch-demo">
+    <h4>Visual Representation of Touch Points</h4>
+    <div class="touch-row">
+      <div class="touch-card">
+        <div class="tc-title">2-Touch Point Break</div>
+        <div class="touch-dot-row">
+          <div class="touch-dot"></div>
+          <div class="touch-dot"></div>
+          <div class="touch-arrow">→</div>
+          <div class="touch-break"></div>
+        </div>
+        <div class="tc-desc">Two respects of the line, then it breaks. Simpler setup, still valid entry.</div>
+      </div>
+      <div class="touch-card">
+        <div class="tc-title">3-Touch Point Break</div>
+        <div class="touch-dot-row">
+          <div class="touch-dot"></div>
+          <div class="touch-dot"></div>
+          <div class="touch-dot"></div>
+          <div class="touch-arrow">→</div>
+          <div class="touch-break"></div>
+        </div>
+        <div class="tc-desc">Three respects of the line, then it breaks. More data, stronger confirmation.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Why Does the Touch Count Matter?</h3>
+  <p>Each time price respects a trend line, it confirms that the line is "real" and that the market participants are aware of it. More touch points = more market participants have acknowledged and reacted to this level. When the line finally breaks, more participants will react to the break signal.</p>
+
+  <h2>3-Touch Point Trend Line Break</h2>
+  <p>A <strong>3-touch point trend line break</strong> is exactly the same setup — same rules, same action and safety lines, same entry trigger — but price has respected the trend line <em>three times</em> before finally breaking.</p>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">💪</div>
+    <h4>More Touches = Stronger Data</h4>
+    <p>Think of it like a scientific experiment. The more times you run the experiment and get the same result, the more confident you are in your hypothesis. Three price respects of a trend line is stronger evidence than two. Both are valid — but 3-touch setups give you more data to work with.</p>
+  </div>
+
+  <h2>Setup Comparison Table</h2>
+  <table style="width:100%;border-collapse:collapse;margin:20px 0">
+    <tr style="background:var(--card2)">
+      <th style="padding:10px 14px;text-align:left;font-size:13px;color:var(--dim);border-bottom:1px solid var(--border)">Feature</th>
+      <th style="padding:10px 14px;text-align:left;font-size:13px;color:var(--blue);border-bottom:1px solid var(--border)">2-Touch Break</th>
+      <th style="padding:10px 14px;text-align:left;font-size:13px;color:var(--green);border-bottom:1px solid var(--border)">3-Touch Break</th>
+    </tr>
+    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px">Touch points before break</td><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px;color:var(--blue)">2</td><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px;color:var(--green)">3</td></tr>
+    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px">Entry trigger</td><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px">Same — price breaks the line</td><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px">Same — price breaks the line</td></tr>
+    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px">Exit trigger</td><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px">Safety line breaks</td><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px">Safety line breaks</td></tr>
+    <tr><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px">Data confidence</td><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px;color:var(--blue)">Good — 2 data points</td><td style="padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px;color:var(--green)">Stronger — 3 data points</td></tr>
+    <tr><td style="padding:10px 14px;font-size:14px">Use for tracking</td><td style="padding:10px 14px;font-size:14px">Yes — track separately</td><td style="padding:10px 14px;font-size:14px;color:var(--green)">Yes — may show different results</td></tr>
+  </table>
+
+  <h2>The Pros of This System</h2>
+  <div class="pros-cons">
+    <div class="pro-card">
+      <h4>✅ Advantages</h4>
+      <ul>
+        <li>Zero indicators needed</li>
+        <li>Works on any instrument</li>
+        <li>Crystal clear rule-based system</li>
+        <li>Builds patience &amp; discipline</li>
+        <li>Well-defined entry and exit</li>
+        <li>Can be tracked scientifically</li>
+      </ul>
+    </div>
+    <div class="con-card">
+      <h4>⚠️ Things to Note</h4>
+      <ul>
+        <li>Requires waiting for the break</li>
+        <li>Not every break will be profitable</li>
+        <li>Some instruments are harder to analyze</li>
+        <li>You need to track which setups work best for you</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>This Is the Science Experiment</h2>
+  <p>By labeling your setups as "2-touch" or "3-touch," you can track which setup type performs best for your specific instrument, time frame, and market. Over time, your journal will reveal patterns: maybe 3-touch setups on crude oil outperform 2-touch setups. That's data. That's your edge becoming measurable.</p>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 7</h3>
+    <ul>
+      <li>The trend line break is the core setup — the "meat of the strategy."</li>
+      <li>No indicators used — purely price action and trend lines.</li>
+      <li>2-touch break: price respects the line twice, then breaks it.</li>
+      <li>3-touch break: price respects the line three times, then breaks it.</li>
+      <li>More touch points = more market confirmation of the level.</li>
+      <li>Both setups use the same rules: action line, safety line, stop-loss beyond safety.</li>
+      <li>Track each setup type separately to find what works best for your market.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 7</div>
+    <div class="question" id="q1">
+      <p>1. What does Tori mean by treating trading as a "science experiment"?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) Using complex mathematical formulas to predict price</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) Tracking different setup types (2-touch, 3-touch) to find which ones work best for you through data</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) Using laboratory-grade indicators and backtesting</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) Only trading when scientific reports are released</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! Treating trading scientifically means tracking your setups, labeling them by type, and using the data to discover patterns — not just trading blindly and hoping for the best.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. In a 3-touch point trend line break, when do you enter the trade?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) After the first touch of the trend line</div>
+        <div class="option" onclick="answer(this,'q2',false)">B) After the third touch of the trend line</div>
+        <div class="option" onclick="answer(this,'q2',true)">C) After price BREAKS the trend line — same as any other trend line break</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) After all three touches have been confirmed by an indicator</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! The entry trigger is always the BREAK — not the third touch. You wait for the line to break, then enter. The touch count is just additional context for tracking purposes.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. Does a 3-touch break use different rules than a 2-touch break?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Yes — 3-touch breaks require different stop-loss placement</div>
+        <div class="option" onclick="answer(this,'q3',false)">B) Yes — you need to wait longer before entering on a 3-touch break</div>
+        <div class="option" onclick="answer(this,'q3',true)">C) No — same strategy, same rules, same criteria — just more touch points before the break</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Yes — 3-touch breaks require taking a larger position</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! Same system, same setup, same criteria. The number of touch points is additional information — not a different rule set. Action line, safety line, stop-loss beyond safety — always the same.</div>
+    </div>
+    <div class="question" id="q4">
+      <p>4. Why are more touch points on a trend line generally a positive sign?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) More touch points means the line will never break</div>
+        <div class="option" onclick="answer(this,'q4',true)">B) Each touch confirms more market participants recognize and react to that price level, giving you more confidence</div>
+        <div class="option" onclick="answer(this,'q4',false)">C) More touch points means a smaller stop-loss is needed</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) More touch points guarantee a larger price move after the break</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! Each touch of a trend line shows that market participants are aware of that level and reacting to it. More touches = more market recognition = stronger, more significant line.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result"><div class="score" id="quiz-score">4/4</div><p style="color:var(--dim);margin-top:8px">Excellent! You understand trend line break setups.</p></div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-06.html">← Prev: The 1-2% Rule</a>
+    <a class="btn btn-primary" href="lesson-08.html">Next: Break &amp; Retest + Bounce →</a>
+  </div>
+</div>
+<script>
+let answers={},correct=0;const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){const r=document.getElementById('quiz-result');r.style.display='block';const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';}
+}
+function markDone(){localStorage.setItem('tori-lesson-7','done');const btn=document.querySelector('.btn-complete');btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+window.onload=function(){if(localStorage.getItem('tori-lesson-7')==='done'){const btn=document.querySelector('.btn-complete');if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}}}
+</script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: The Holy Grail Strategy | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--purple:#9333ea;--orange:#f97316;--green:#10b981;--red:#ef4444;--yellow:#fbbf24;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--orange);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
+.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);color:var(--orange);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#100a0a,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--orange)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;margin-top:24px}
+p{margin-bottom:14px;color:var(--text)}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-orange{background:rgba(249,115,22,0.07);border:1px solid rgba(249,115,22,0.2)}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-red{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2)}
+.highlight-yellow{background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-orange h4{color:var(--orange)}
+.highlight-green h4{color:var(--green)}
+.highlight-red h4{color:var(--red)}
+.highlight-yellow h4{color:var(--yellow)}
+.key-point{background:var(--card);border-left:4px solid var(--orange);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.four-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;margin:28px 0;position:relative}
+.step-card{padding:20px;text-align:center;border:1px solid var(--border);background:var(--card);position:relative}
+.step-card:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--orange);font-size:18px;font-weight:700;z-index:2;background:var(--bg);padding:2px 4px}
+.step-card:first-child{border-radius:12px 0 0 12px}
+.step-card:last-child{border-radius:0 12px 12px 0}
+.step-n{font-size:2rem;font-weight:800;color:var(--orange);margin-bottom:8px}
+.step-card h4{font-weight:700;font-size:14px;margin-bottom:6px}
+.step-card p{font-size:12px;color:var(--dim);margin:0;line-height:1.4}
+.any-market{background:linear-gradient(135deg,rgba(249,115,22,0.05),rgba(147,51,234,0.05));border:1px solid rgba(249,115,22,0.2);border-radius:12px;padding:28px;margin:28px 0;text-align:center}
+.any-market h3{color:var(--orange);font-size:1.2rem;margin-bottom:12px;margin-top:0}
+.market-tags{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:14px}
+.market-tag{background:var(--card2);border:1px solid var(--border);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--orange);background:rgba(249,115,22,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(249,115,22,0.05),rgba(251,191,36,0.05));border:1px solid rgba(249,115,22,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--orange);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--orange);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.btn-complete:hover{opacity:.85}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+@media(max-width:600px){.four-steps{grid-template-columns:1fr 1fr}.step-card:not(:last-child)::after{display:none}.step-card{border-radius:0}.step-card:first-child{border-radius:12px 12px 0 0}.step-card:last-child{border-radius:0 0 12px 12px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 3 of 11</span>
+</div>
+
+<div class="hero">
+  <div class="lesson-num-big">Phase 2 · Lesson 3</div>
+  <h1>The <span>Holy Grail</span> —<br>4 Steps from Mark-Up to Exit</h1>
+  <p>The complete strategy in a single overview — mark up your charts, wait for the break, act, and stay until the safety line breaks.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 12 min</span>
+    <span class="tag">🟢 Beginner</span>
+    <span class="tag">🎯 Strategy</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>This Is the Entire System</h2>
+  <p>After understanding how to draw trend lines and how to do top-down analysis, everything comes together in the strategy. And the strategy is beautifully simple. It has four steps — and only four steps. Every trade you ever take in this system will follow these exact steps.</p>
+
+  <div class="key-point">
+    "This right here, essentially, is the strategy in an absolute literal nutshell in one singular illustration. Drawing lines and watching price either respect or break them."
+  </div>
+
+  <h2>The Four-Step Strategy</h2>
+
+  <div class="four-steps">
+    <div class="step-card">
+      <div class="step-n">1</div>
+      <h4>Mark Up the Charts</h4>
+      <p>Do your full top-down analysis. Draw all trend lines. Make sure nothing is intersecting.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-n">2</div>
+      <h4>Wait for the Break</h4>
+      <p>Sit on your hands. Watch price. Wait for it to break ONE of your trend lines. Don't predict — just wait.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-n">3</div>
+      <h4>Take Action</h4>
+      <p>When price breaks a line, enter the trade. The broken line becomes your action line. The other becomes your safety line.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-n">4</div>
+      <h4>Stay Until Safety Breaks</h4>
+      <p>Stay in the trade as long as price respects the safety line. Exit when price breaks it. Simple.</p>
+    </div>
+  </div>
+
+  <h2>Step 1 — Mark Up Your Charts</h2>
+  <p>This is where you spend most of your time. Before any trade, before even thinking about an entry, you must complete your top-down analysis. Draw all your upward and downward trend lines from the monthly time frame down to your trading time frame.</p>
+
+  <p>At this stage, your lines are just lines. They don't have names yet. You don't know which one price will break. That's fine — and that's intentional. You're preparing, not predicting.</p>
+
+  <h2>Step 2 — Wait. Just Wait.</h2>
+  <p>This is where most traders fail — not because they don't understand the strategy, but because they can't sit still. The strategy requires patience. After you've done your analysis, you <strong>do nothing</strong> until price breaks one of your lines.</p>
+
+  <div class="highlight-box highlight-orange">
+    <div class="icon">⏳</div>
+    <h4>Patience Is the Edge</h4>
+    <p>We never know which line price will break first. Will it break the downward trend line (bullish)? Or the upward trend line (bearish)? We don't guess. We don't predict. We literally sit and wait for price to tell us. The market will always show you the answer — you just have to be patient enough to receive it.</p>
+  </div>
+
+  <h2>Step 3 — Take Action (The Entry)</h2>
+  <p>When price breaks through one of your trend lines, that is your trigger. You now have permission to enter a trade. The line that was broken becomes your <strong>action line</strong> — it triggered your decision. The opposing trend line becomes your <strong>safety line</strong> — it protects you.</p>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">✅</div>
+    <h4>The Break IS the Signal</h4>
+    <p>You are not entering based on a gut feeling, a news event, or a pattern you think you see. You are entering because price did something objective and measurable: it crossed your trend line. There is no ambiguity. Price broke the line → you enter the trade.</p>
+  </div>
+
+  <h2>Step 4 — Stay Until the Safety Line Breaks (The Exit)</h2>
+  <p>Once you're in a trade, one question matters: <em>has price broken the safety line?</em> As long as the answer is no, you stay in the trade. The moment the safety line breaks, you exit. No exceptions.</p>
+
+  <p>This removes all emotion from the exit decision. You don't try to "feel" when the trade is ending. You don't exit early because you're nervous. You don't hold too long hoping for more. The safety line tells you. Period.</p>
+
+  <div class="highlight-box highlight-yellow">
+    <div class="icon">🛡️</div>
+    <h4>The Safety Line Is Everything</h4>
+    <p>The safety line tells you how long to stay in the trade. It equals your stop-loss, your risk management, and your exit signal — all in one. As long as price is respecting it, you stay. The second it breaks, you're out.</p>
+  </div>
+
+  <h2>It Works on ANY Market</h2>
+
+  <div class="any-market">
+    <h3>Any Instrument. Any Time Frame. Any Market.</h3>
+    <p style="color:var(--dim);font-size:14px;margin-bottom:0">Because the strategy is purely price action — drawing lines on a chart — it doesn't matter what you're trading. If you showed a chart to a veteran trader without labeling it, they couldn't tell you the instrument, the time frame, or the market. But they could instantly see where the lines should go and where the entries are. That's the power of this system.</p>
+    <div class="market-tags">
+      <span class="market-tag">📊 Stocks</span>
+      <span class="market-tag">🪙 Crypto</span>
+      <span class="market-tag">⚡ Futures</span>
+      <span class="market-tag">💱 Forex</span>
+      <span class="market-tag">🛢️ Commodities</span>
+      <span class="market-tag">📈 Any Chart</span>
+    </div>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 3</h3>
+    <ul>
+      <li>Step 1: Mark up charts with your complete top-down analysis.</li>
+      <li>Step 2: Wait — do nothing until price breaks one of your lines. Don't predict.</li>
+      <li>Step 3: Price breaks a line → enter the trade. The break IS the signal.</li>
+      <li>Step 4: Stay in until the safety line breaks → that's your exit.</li>
+      <li>The strategy works on any instrument, any time frame, any market.</li>
+      <li>Everything is objective and rule-based — no guessing, no gut feelings.</li>
+      <li>Patience is not optional — it IS the strategy.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 3</div>
+
+    <div class="question" id="q1">
+      <p>1. What triggers the entry in Tori's strategy?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) A gut feeling that price is about to move</div>
+        <div class="option" onclick="answer(this,'q1',false)">B) A news event or economic report</div>
+        <div class="option" onclick="answer(this,'q1',true)">C) Price breaking one of your trend lines</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) A moving average crossover</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! The ONLY trigger for an entry is price breaking one of your drawn trend lines. No indicators, no predictions — just the break.</div>
+    </div>
+
+    <div class="question" id="q2">
+      <p>2. When do you exit a trade in this strategy?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) When you've made a certain dollar amount</div>
+        <div class="option" onclick="answer(this,'q2',false)">B) After a set amount of time passes</div>
+        <div class="option" onclick="answer(this,'q2',true)">C) When price breaks the safety line</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) When you feel nervous about the trade</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! You stay in the trade AS LONG AS price respects the safety line. The moment it breaks — you're out. The safety line makes the exit decision for you.</div>
+    </div>
+
+    <div class="question" id="q3">
+      <p>3. What does Tori say you should do while waiting for price to break a trend line?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) Watch multiple indicators for confirmation</div>
+        <div class="option" onclick="answer(this,'q3',false)">B) Guess which line will break and prepare early</div>
+        <div class="option" onclick="answer(this,'q3',true)">C) Sit on your hands and wait — do nothing until price breaks</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Draw more lines to stay busy</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! After marking up your charts, you literally sit on your hands and wait. Patience is not optional — it IS the strategy. You never know which line will break first.</div>
+    </div>
+
+    <div class="question" id="q4">
+      <p>4. This strategy works on:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) Only NASDAQ stocks</div>
+        <div class="option" onclick="answer(this,'q4',false)">B) Only cryptocurrency markets</div>
+        <div class="option" onclick="answer(this,'q4',false)">C) Only futures contracts</div>
+        <div class="option" onclick="answer(this,'q4',true)">D) Any instrument, any time frame, any market</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! Because it's purely price action, the strategy works on any chart, any time frame, any market. A chart is a chart — and all charts respond to trend lines.</div>
+    </div>
+
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">4/4</div>
+      <p style="color:var(--dim);margin-top:8px">Perfect! You understand the core strategy.</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div>
+      <strong>Mark this lesson as complete</strong>
+      <p>Track your progress through the course</p>
+    </div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-02.html">← Prev: Top Down Analysis</a>
+    <a class="btn btn-primary" href="lesson-04.html">Next: Action &amp; Safety Lines →</a>
+  </div>
+
+</div>
+
+<script>
+let answers={},correct=0;
+const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('tori-lesson-3','done');
+  const btn=document.querySelector('.btn-complete');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';
+  btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('tori-lesson-3')==='done'){
+    const btn=document.querySelector('.btn-complete');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: What Is a Trend Line? | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--purple:#9333ea;--pink:#ec4899;--green:#10b981;--red:#ef4444;--yellow:#fbbf24;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050;--accent:var(--purple)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--purple);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}
+.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(147,51,234,0.1);border:1px solid rgba(147,51,234,0.3);color:var(--purple);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#0d0a1e,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--purple);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--purple)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px;color:var(--text)}
+h2:first-child{margin-top:0}
+h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;margin-top:24px}
+p{margin-bottom:14px;color:var(--text)}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-purple{background:rgba(147,51,234,0.07);border:1px solid rgba(147,51,234,0.2)}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-red{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2)}
+.highlight-yellow{background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-purple h4{color:var(--purple)}
+.highlight-green h4{color:var(--green)}
+.highlight-red h4{color:var(--red)}
+.highlight-yellow h4{color:var(--yellow)}
+.key-point{background:var(--card);border-left:4px solid var(--purple);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}
+.rule-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+.rule-num{font-size:2rem;font-weight:800;color:var(--purple);margin-bottom:8px}
+.rule-card h4{font-weight:700;margin-bottom:6px}
+.rule-card p{font-size:13px;color:var(--dim);margin:0}
+.diagram{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin:24px 0}
+.diagram h4{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.tl-visual{font-family:monospace;font-size:13px;color:var(--dim);white-space:pre;line-height:1.6;overflow-x:auto}
+.tl-visual .good{color:var(--green)}
+.tl-visual .bad{color:var(--red)}
+.tl-visual .label{color:var(--purple);font-weight:700}
+table{width:100%;border-collapse:collapse;margin:20px 0}
+th{background:var(--card2);padding:10px 14px;text-align:left;font-size:13px;font-weight:700;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border)}
+td{padding:10px 14px;border-bottom:1px solid rgba(30,48,80,0.5);font-size:14px}
+tr:last-child td{border-bottom:none}
+.good-text{color:var(--green)}
+.bad-text{color:var(--red)}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--purple);background:rgba(147,51,234,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(147,51,234,0.05),rgba(236,72,153,0.05));border:1px solid rgba(147,51,234,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--purple);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--purple);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--purple);color:var(--purple)}
+.btn-primary{background:var(--purple);color:#fff}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.btn-complete:hover{opacity:.85}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 1 of 11</span>
+</div>
+
+<div class="hero">
+  <div class="lesson-num-big">Phase 1 · Lesson 1</div>
+  <h1>What Is a <span>Trend Line</span> &amp;<br>How to Draw It Correctly</h1>
+  <p>The single tool that powers the entire strategy — and the three rules you must never break when drawing one.</p>
+  <div class="hero-tags">
+    <span class="tag">⏱ 10 min</span>
+    <span class="tag">🟢 Beginner</span>
+    <span class="tag">📈 Foundation</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <h2>The Holy Grail Is a Line</h2>
+  <p>When traders think about complex systems, they imagine indicators, algorithms, and multi-screen setups. Tori's strategy strips all of that away. The entire system — every entry, every exit, every risk decision — comes down to one tool:</p>
+
+  <div class="key-point">
+    "This right here is the holy grail. This is the system. This is everything. It is the trend line."
+  </div>
+
+  <p>A <strong>trend line</strong> is a simple tool that helps you see the direction of price visually. It's not magic. It's a line on a chart. But when drawn correctly and used with discipline, it tells you when to get in, when to stay, and when to get out.</p>
+
+  <h2>The Ray Tool in TradingView</h2>
+  <p>The tool used to draw trend lines in TradingView is officially called the <strong>Ray Tool</strong>. You'll find it in the drawing toolbar on the left side of the screen. Despite the technical name, we call it simply a trend line.</p>
+
+  <div class="highlight-box highlight-purple">
+    <div class="icon">💡</div>
+    <h4>Two Clicks, One Line</h4>
+    <p>Click once to set <strong>Point A</strong> (your first touch point — the pivot). Click again to set <strong>Point B</strong> (your second touch point — this determines the angle). Once Point B is placed, the line is locked in on the chart.</p>
+  </div>
+
+  <h2>The Three Unbreakable Rules</h2>
+  <p>Every trend line you draw must follow all three of these rules simultaneously. If any one is violated, the line is wrong — delete it and redraw.</p>
+
+  <div class="rule-grid">
+    <div class="rule-card">
+      <div class="rule-num">1</div>
+      <h4>Correct Angle</h4>
+      <p>Downward trend lines must angle DOWN. Upward trend lines must angle UP. No horizontal lines count as trend lines.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">2</div>
+      <h4>Maximum Touch Points</h4>
+      <p>Try to capture as many touch points as possible. More touches = stronger line. Every touch confirms the trend line is "real."</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-num">3</div>
+      <h4>No Intersection</h4>
+      <p>Price CANNOT cross through, poke through, or intersect the line. This is the most critical rule. If price cuts through — the line is invalid.</p>
+    </div>
+  </div>
+
+  <h2>Downward vs Upward Trend Lines</h2>
+  <p>There are exactly two types of trend lines in this system:</p>
+
+  <table>
+    <tr><th>Feature</th><th>Downward Trend Line</th><th>Upward Trend Line</th></tr>
+    <tr><td>Direction</td><td>Angles downward</td><td>Angles upward</td></tr>
+    <tr><td>Position</td><td>Above price — holds it DOWN</td><td>Below price — holds it UP</td></tr>
+    <tr><td>Typical color</td><td class="bad-text">Red</td><td class="good-text">Green</td></tr>
+    <tr><td>Interpretation</td><td>Price is being pushed down</td><td>Price is being supported up</td></tr>
+    <tr><td>Rule #3 meaning</td><td>No candle closes above it</td><td>No candle closes below it</td></tr>
+  </table>
+
+  <h2>Point A and Point B — The Building Blocks</h2>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">📍</div>
+    <h4>Point A — The Pivot</h4>
+    <p><strong>Point A</strong> is your first click — the starting touch point. It stays fixed. Think of it as the anchor. This is usually the most significant high or low you can see on the screen.</p>
+  </div>
+
+  <div class="highlight-box highlight-purple">
+    <div class="icon">📐</div>
+    <h4>Point B — The Angle Setter</h4>
+    <p><strong>Point B</strong> is your second click — this determines the angle of the entire line. Drag it to the most recent touch point to capture as many touches as possible without price intersecting.</p>
+  </div>
+
+  <div class="key-point">
+    Pro tip: Always drag Point B to the MOST RECENT touch point. This keeps the touch point visible on screen so you don't lose your reference when zooming in to lower time frames.
+  </div>
+
+  <h2>The Most Common Mistake</h2>
+  <p>The single most common mistake when drawing trend lines is allowing price to cross through the line. This feels tempting because you want to "capture" a touch point, but it invalidates the entire line.</p>
+
+  <div class="highlight-box highlight-red">
+    <div class="icon">❌</div>
+    <h4>Wrong: Price Cuts Through</h4>
+    <p>If any candle (including its wick) crosses to the other side of your trend line, the line is incorrect. Take a screenshot of what this looks like and label it "wrong, wrong, wrong" — never draw a line that allows intersection.</p>
+  </div>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">✅</div>
+    <h4>Right: Price Respects the Line</h4>
+    <p>A correct trend line has price touching it (ideally multiple times) but never crossing to the other side. The line truly "holds" the price in place — either holding it up (upward) or pushing it down (downward).</p>
+  </div>
+
+  <h2>Wicks vs Bodies — Tori's Approach</h2>
+  <p>In Tori's system, <strong>wicks are included</strong> when drawing trend lines during top-down analysis. This is a personal rule that makes the system more precise and repeatable. When you see a wick touching or approaching your trend line, that counts as a touch point.</p>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 1</h3>
+    <ul>
+      <li>A trend line is the entire strategy — everything flows from this single tool.</li>
+      <li>The TradingView tool is called the "Ray Tool" — we call it a trend line.</li>
+      <li>Rule 1: Correct angle (down = downward, up = upward).</li>
+      <li>Rule 2: Capture as many touch points as possible.</li>
+      <li>Rule 3: Price CANNOT intersect or cross through — this is the most critical rule.</li>
+      <li>Point A = first touch (pivot, stays fixed). Point B = second touch (sets the angle).</li>
+      <li>Downward = red, holds price DOWN. Upward = green, holds price UP.</li>
+      <li>Always include wicks when drawing lines in this system.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 1</div>
+
+    <div class="question" id="q1">
+      <p>1. What is the most critical rule when drawing a trend line?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) The line must be perfectly horizontal</div>
+        <div class="option" onclick="answer(this,'q1',false)">B) You need at least 5 touch points</div>
+        <div class="option" onclick="answer(this,'q1',true)">C) Price cannot intersect or cross through the line</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) The line must be drawn in red</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! Rule #3 is the most important: price absolutely cannot cross through your trend line. If it does, the line is invalid and must be redrawn.</div>
+    </div>
+
+    <div class="question" id="q2">
+      <p>2. What is Point A in Tori's trend line system?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',true)">A) The first touch point — the fixed pivot/anchor of the line</div>
+        <div class="option" onclick="answer(this,'q2',false)">B) The most recent touch point that sets the angle</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) The point where price will break the line</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) The entry point for a trade</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! Point A is the first click — the pivot point that stays fixed. Point B is the second click that determines the angle of the line.</div>
+    </div>
+
+    <div class="question" id="q3">
+      <p>3. What is the official name of the trend line tool in TradingView?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) The Trend Tool</div>
+        <div class="option" onclick="answer(this,'q3',false)">B) The Line Tool</div>
+        <div class="option" onclick="answer(this,'q3',true)">C) The Ray Tool</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) The Vector Tool</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! TradingView officially calls it the "Ray Tool" even though we refer to it as a trend line in this strategy.</div>
+    </div>
+
+    <div class="question" id="q4">
+      <p>4. An upward trend line is positioned:</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) Above price, pushing it down</div>
+        <div class="option" onclick="answer(this,'q4',true)">B) Below price, holding it up — angling upward</div>
+        <div class="option" onclick="answer(this,'q4',false)">C) Horizontally across recent highs</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) At a downward angle below price</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! Upward trend lines go on the BOTTOM of price, holding it UP and angling upward. Typically drawn in green.</div>
+    </div>
+
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="quiz-score">4/4</div>
+      <p style="color:var(--dim);margin-top:8px">Excellent! You know your trend line fundamentals.</p>
+    </div>
+  </div>
+
+  <div class="complete-bar">
+    <div>
+      <strong>Mark this lesson as complete</strong>
+      <p>Track your progress through the course</p>
+    </div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="index.html">← Back to Roadmap</a>
+    <a class="btn btn-primary" href="lesson-02.html">Next: Top Down Analysis →</a>
+  </div>
+
+</div>
+
+<script>
+let answers={},correct=0;
+const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}
+  else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){
+    const r=document.getElementById('quiz-result');r.style.display='block';
+    const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;
+    s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';
+  }
+}
+function markDone(){
+  localStorage.setItem('tori-lesson-1','done');
+  const btn=document.querySelector('.btn-complete');
+  btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';
+  btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;
+}
+window.onload=function(){
+  if(localStorage.getItem('tori-lesson-1')==='done'){
+    const btn=document.querySelector('.btn-complete');
+    if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+  }
+}
+</script>
+</body>
+</html>

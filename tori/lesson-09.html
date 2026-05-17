@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Sim Trading | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#10b981;--red:#ef4444;--yellow:#fbbf24;--blue:#3b82f6;--orange:#f97316;--purple:#9333ea;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--green);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);color:var(--green);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#04100a,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--green);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--green)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-blue{background:rgba(59,130,246,0.07);border:1px solid rgba(59,130,246,0.2)}
+.highlight-yellow{background:rgba(251,191,36,0.07);border:1px solid rgba(251,191,36,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-green h4{color:var(--green)}
+.highlight-blue h4{color:var(--blue)}
+.highlight-yellow h4{color:var(--yellow)}
+.key-point{background:var(--card);border-left:4px solid var(--green);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.three-t{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:28px 0;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+@media(max-width:560px){.three-t{grid-template-columns:1fr}}
+.t-box{padding:22px;text-align:center;background:var(--card)}
+.t-box:not(:last-child){border-right:1px solid var(--border)}
+.t-icon{font-size:2rem;margin-bottom:10px}
+.t-box h4{font-weight:700;margin-bottom:8px}
+.t-box p{font-size:13px;color:var(--dim);margin:0;line-height:1.5}
+.t-box.active-t{background:rgba(16,185,129,0.06)}
+.t-box.active-t h4{color:var(--green)}
+.step-list{list-style:none;padding:0;margin:24px 0}
+.step-list li{display:flex;gap:14px;margin-bottom:18px}
+.step-n{width:32px;height:32px;border-radius:50%;background:rgba(16,185,129,0.15);border:2px solid var(--green);color:var(--green);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+.step-c h4{font-weight:700;margin-bottom:4px;font-size:14px}
+.step-c p{font-size:13px;color:var(--dim);margin:0}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--green);background:rgba(16,185,129,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(16,185,129,0.05),rgba(59,130,246,0.05));border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--green);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--green);color:var(--green)}
+.btn-primary{background:var(--green);color:#000}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 9 of 11</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 5 · Lesson 9</div>
+  <h1><span>Testing</span> — Sim Trading<br>&amp; Building Muscle Memory</h1>
+  <p>Training is done. Now it's time to put the system into practice — with fake money, real charts, and real muscle memory.</p>
+  <div class="hero-tags"><span class="tag">⏱ 14 min</span><span class="tag">🟡 Intermediate</span><span class="tag">🎮 Practice</span></div>
+</div>
+<div class="container">
+
+  <h2>Training → Testing → Tracking</h2>
+  <p>Tori's system follows three phases after you learn it. You've now completed the training phase — understanding the rules, the setups, and the risk management. Now comes testing.</p>
+
+  <div class="three-t">
+    <div class="t-box"><div class="t-icon">📚</div><h4>Training</h4><p>Learning the system. Rules, setups, risk management. You're here — almost done.</p></div>
+    <div class="t-box active-t"><div class="t-icon">🎮</div><h4 style="color:var(--green)">Testing</h4><p>Practicing on sim charts. Getting your reps in without risking real money.</p></div>
+    <div class="t-box"><div class="t-icon">📓</div><h4>Tracking</h4><p>Building a record. Seeing what works and what doesn't. Data over time.</p></div>
+  </div>
+
+  <h2>What Is Sim Trading?</h2>
+  <p><strong>Sim trading</strong> (also called paper trading) means practicing the strategy with <em>fake money</em> on real charts with real market data. You see real price movement. You draw real trend lines. You wait for real breaks. You place real orders — but with simulated account funds.</p>
+
+  <div class="key-point">"The testing aspect — remember, we've got our upward trend line, we've got our downward trend line. We understand that when price breaks the trend line, it's our action. Now we get the reps in on the charts so we can see that it works and build that muscle memory."</div>
+
+  <div class="highlight-box highlight-green">
+    <div class="icon">🧠</div>
+    <h4>Why Muscle Memory Matters</h4>
+    <p>Reading about how to draw a trend line is different from doing it 50 times on live charts. Sim trading builds the automatic, instinctive knowledge that comes from repetition. After enough reps, you stop thinking about the rules — you just see them on the chart.</p>
+  </div>
+
+  <h2>TradingView Sim Mode</h2>
+  <p>TradingView has a built-in paper trading mode that lets you simulate trades directly on charts:</p>
+  <ul style="padding-left:24px;margin-bottom:16px">
+    <li style="margin-bottom:8px">Go to the bottom of your TradingView chart screen</li>
+    <li style="margin-bottom:8px">Look for the <strong>Trading Panel</strong> option</li>
+    <li style="margin-bottom:8px">Select paper trading — it uses fake money (you'll see an account balance, typically $100,000 by default)</li>
+    <li style="margin-bottom:8px">Place orders exactly as you would with real money — buy, sell, set stop-losses</li>
+    <li style="margin-bottom:8px">Watch the trade play out on the live chart</li>
+  </ul>
+
+  <div class="highlight-box highlight-yellow">
+    <div class="icon">💡</div>
+    <h4>Use the Most Realistic Number</h4>
+    <p>When starting sim trading, set your paper account balance to match what you'll actually be trading with in real life. If you plan to trade with $5,000, set the sim account to $5,000. This keeps your fee calculations and position sizing realistic — so the habits you build match your real trading situation.</p>
+  </div>
+
+  <h2>Your Sim Trading Session — Step by Step</h2>
+  <ol class="step-list">
+    <li><div class="step-n">1</div><div class="step-c"><h4>Open a chart and select a time frame to trade on</h4><p>Start with crude oil or any instrument you're interested in. Go to the 5-minute chart for your final trading time frame.</p></div></li>
+    <li><div class="step-n">2</div><div class="step-c"><h4>Do your full top-down analysis</h4><p>Start at monthly → work down. Draw all your trend lines at every time frame. Connect them all. Arrive at your 5-minute chart with a complete picture.</p></div></li>
+    <li><div class="step-n">3</div><div class="step-c"><h4>Come in with steeper lines on the 5-minute</h4><p>At the 5-minute chart, draw additional trend lines that capture the most recent price action. These should be steeper and more precise than your higher time frame lines.</p></div></li>
+    <li><div class="step-n">4</div><div class="step-c"><h4>Wait for price to approach a line</h4><p>Watch. Be patient. Don't force a trade. Price will move toward one of your lines. Your job is simply to wait.</p></div></li>
+    <li><div class="step-n">5</div><div class="step-c"><h4>Identify the break and assess risk</h4><p>When price breaks a line, note which one is action and which is safety. Is this a low-risk or high-risk setup? How far is price from the safety line?</p></div></li>
+    <li><div class="step-n">6</div><div class="step-c"><h4>Open the trading panel and place your order</h4><p>Open a long or short position based on which line broke. Drag the stop-loss to the other side of the safety line. The panel will show you how much money you'd lose if the stop-loss gets hit.</p></div></li>
+    <li><div class="step-n">7</div><div class="step-c"><h4>Watch and wait</h4><p>Stay in the trade. Watch the safety line. If price respects it, stay in. The moment it breaks — close your position.</p></div></li>
+  </ol>
+
+  <h2>Getting Your Reps In</h2>
+  <p>The goal of sim trading isn't to make money — it's to get comfortable with the process. Do this session repeatedly until it becomes automatic: draw lines → wait → act → manage → exit. Each rep builds the neural pathways that make you faster, calmer, and more decisive when real money is on the line.</p>
+
+  <div class="highlight-box highlight-blue">
+    <div class="icon">🔁</div>
+    <h4>Repetition Is the Teacher</h4>
+    <p>Do the top-down analysis every session. Even if you did it yesterday — do it again. Markets move. Lines need updating. The process of doing it daily is what makes you fluent. After 30 sim sessions, you'll draw trend lines without thinking about the rules.</p>
+  </div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 9</h3>
+    <ul>
+      <li>Testing = practicing on sim charts with fake money. Training is done — now you get reps.</li>
+      <li>Sim trading in TradingView: use the Trading Panel at the bottom of the chart.</li>
+      <li>Set your paper account to match your real account size for realistic habits.</li>
+      <li>Every session: do full top-down analysis → wait for break → assess risk → enter → manage → exit.</li>
+      <li>The goal is muscle memory — automatic pattern recognition through repetition.</li>
+      <li>Don't skip the top-down analysis even if you did it yesterday. Markets change.</li>
+      <li>After testing, you move to tracking — building a data record of everything.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 9</div>
+    <div class="question" id="q1">
+      <p>1. What is the primary goal of sim trading?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) To make as much money as possible on the paper account</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) To build muscle memory and get comfortable with the process using real charts but fake money</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) To test a new indicator before using it live</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) To see how many trades you can place in one session</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! Sim trading builds the automatic, instinctive process through repetition. You're not trying to make money — you're building habits and muscle memory.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. Why should you set your paper account to match your real account size?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) Because TradingView requires it</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) So your fee calculations and position sizing habits match your real trading situation</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) To feel more pressure and simulate real emotions</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) So you can compare your sim results to other traders</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! Using your real account size keeps the risk math realistic. If you practice with $100,000 but plan to trade with $3,000, you'll develop habits that don't apply to your actual situation.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. Even if you did your top-down analysis yesterday, should you do it again today?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',false)">A) No — yesterday's analysis is still valid if nothing changed</div>
+        <div class="option" onclick="answer(this,'q3',true)">B) Yes — markets move, lines need updating, and daily repetition builds fluency</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) Only if price broke one of your lines overnight</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Only on Monday mornings to start the week fresh</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! Do the top-down analysis every session. Markets move overnight. Lines may need adjusting. And the repetition of doing it daily is exactly what builds the habit and skill.</div>
+    </div>
+    <div class="question" id="q4">
+      <p>4. What is the correct order of Tori's three phases?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) Testing → Training → Tracking</div>
+        <div class="option" onclick="answer(this,'q4',true)">B) Training → Testing → Tracking</div>
+        <div class="option" onclick="answer(this,'q4',false)">C) Tracking → Training → Testing</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) Training → Tracking → Testing</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! Training (learning the system) → Testing (sim trading for reps) → Tracking (journaling and building data). Each phase builds on the previous one.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result"><div class="score" id="quiz-score">4/4</div><p style="color:var(--dim);margin-top:8px">Perfect! You're ready to start sim trading.</p></div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-08.html">← Prev: Break &amp; Retest + Bounce</a>
+    <a class="btn btn-primary" href="lesson-10.html">Next: Journaling &amp; Tracking →</a>
+  </div>
+</div>
+<script>
+let answers={},correct=0;const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){const r=document.getElementById('quiz-result');r.style.display='block';const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';}
+}
+function markDone(){localStorage.setItem('tori-lesson-9','done');const btn=document.querySelector('.btn-complete');btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+window.onload=function(){if(localStorage.getItem('tori-lesson-9')==='done'){const btn=document.querySelector('.btn-complete');if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}}}
+</script>
+</body>
+</html>

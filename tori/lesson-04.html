@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Action Lines & Safety Lines | Tori's Masterclass</title>
+<style>
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--purple:#9333ea;--orange:#f97316;--green:#10b981;--red:#ef4444;--yellow:#fbbf24;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.back-link{color:var(--orange);font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px}.back-link:hover{opacity:.8}
+.lesson-badge{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);color:var(--orange);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#060b14,#100a0a,#060b14);border-bottom:1px solid var(--border);padding:50px 20px 40px;text-align:center}
+.lesson-num-big{font-size:13px;font-weight:700;color:var(--orange);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.hero h1 span{color:var(--orange)}
+.hero p{color:var(--dim);font-size:1.05rem;max-width:600px;margin:0 auto 24px}
+.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.tag{background:var(--card2);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:12px;color:var(--dim)}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+h2{font-size:1.4rem;font-weight:700;margin-bottom:14px;margin-top:40px}
+h2:first-child{margin-top:0}
+p{margin-bottom:14px}
+.highlight-box{border-radius:12px;padding:22px 24px;margin:24px 0}
+.highlight-orange{background:rgba(249,115,22,0.07);border:1px solid rgba(249,115,22,0.2)}
+.highlight-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2)}
+.highlight-red{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2)}
+.highlight-purple{background:rgba(147,51,234,0.07);border:1px solid rgba(147,51,234,0.2)}
+.highlight-box .icon{font-size:24px;margin-bottom:10px}
+.highlight-box h4{font-weight:700;margin-bottom:8px}
+.highlight-orange h4{color:var(--orange)}
+.highlight-green h4{color:var(--green)}
+.highlight-red h4{color:var(--red)}
+.highlight-purple h4{color:var(--purple)}
+.key-point{background:var(--card);border-left:4px solid var(--orange);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.95rem}
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:560px){.before-after{grid-template-columns:1fr}}
+.ba-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.ba-title{font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:12px;color:var(--dim)}
+.ba-lines{display:flex;flex-direction:column;gap:8px}
+.line-item{padding:8px 12px;border-radius:8px;font-size:14px;font-weight:600}
+.line-plain{background:var(--card2);border:1px solid var(--border);color:var(--dim)}
+.line-action{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.3);color:var(--orange)}
+.line-safety{background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);color:var(--green)}
+.arrow-down{text-align:center;font-size:24px;color:var(--dim);padding:8px 0}
+.summary-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+@media(max-width:560px){.summary-row{grid-template-columns:1fr}}
+.sum-card{background:var(--card);border-radius:12px;padding:22px}
+.sum-card h4{font-size:1rem;font-weight:700;margin-bottom:10px}
+.sum-card ul{list-style:none;padding:0}
+.sum-card ul li{padding:5px 0 5px 20px;position:relative;font-size:13px;color:var(--dim);border-bottom:1px solid rgba(30,48,80,0.4)}
+.sum-card ul li:last-child{border-bottom:none}
+.action-card{border:1px solid rgba(249,115,22,0.3)}
+.action-card h4{color:var(--orange)}
+.action-card ul li::before{content:'⚡';position:absolute;left:0}
+.safety-card{border:1px solid rgba(16,185,129,0.3)}
+.safety-card h4{color:var(--green)}
+.safety-card ul li::before{content:'🛡️';position:absolute;left:0;font-size:11px;top:7px}
+.quiz{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin:40px 0}
+.quiz h3{font-size:1.2rem;font-weight:700;margin-bottom:4px;margin-top:0}
+.quiz .subtitle{color:var(--dim);font-size:14px;margin-bottom:24px}
+.question{margin-bottom:28px}
+.question p{font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.option{background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-size:14px;transition:all .2s}
+.option:hover{border-color:var(--orange);background:rgba(249,115,22,0.05)}
+.option.correct{background:rgba(16,185,129,0.1);border-color:var(--green);color:var(--green)}
+.option.wrong{background:rgba(239,68,68,0.1);border-color:var(--red);color:var(--red)}
+.explanation{background:var(--card2);border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:var(--dim);display:none}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result .score{font-size:3rem;font-weight:800}
+.takeaways{background:linear-gradient(135deg,rgba(249,115,22,0.05),rgba(16,185,129,0.05));border:1px solid rgba(249,115,22,0.2);border-radius:12px;padding:24px;margin:32px 0}
+.takeaways h3{color:var(--orange);margin-bottom:14px;margin-top:0}
+.takeaways ul{padding-left:0;list-style:none}
+.takeaways li{padding:6px 0 6px 24px;position:relative;font-size:0.95rem;border-bottom:1px solid rgba(30,48,80,0.5)}
+.takeaways li:last-child{border-bottom:none}
+.takeaways li::before{content:'→';position:absolute;left:0;color:var(--orange);font-weight:700}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:30px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-primary:hover{opacity:.85}
+.btn-complete{background:var(--green);color:#000}
+.complete-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:30px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.complete-bar p{font-size:14px;color:var(--dim)}
+.complete-bar strong{color:var(--text)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back-link" href="index.html">← Roadmap</a>
+  <span class="lesson-badge">Lesson 4 of 11</span>
+</div>
+<div class="hero">
+  <div class="lesson-num-big">Phase 2 · Lesson 4</div>
+  <h1><span>Action Lines</span> &amp; <span>Safety Lines</span><br>— When Lines Get Names</h1>
+  <p>Before price breaks, you have two unnamed lines. After price breaks, both lines get names — and everything changes.</p>
+  <div class="hero-tags"><span class="tag">⏱ 10 min</span><span class="tag">🟢 Beginner</span><span class="tag">🏷️ Naming</span></div>
+</div>
+<div class="container">
+
+  <h2>Lines Without Names</h2>
+  <p>After completing your top-down analysis, your chart has two trend lines on it — one downward, one upward. At this stage, they're just lines. They don't have names. You're simply waiting for price to act.</p>
+  <div class="key-point">"At first it was just simply an upward line and a downward line. We don't have an action and a safety until price breaks."</div>
+  <p>This is intentional. You don't label the lines ahead of time because you genuinely don't know which one price will break. Labeling them prematurely would mean guessing — and this strategy doesn't guess.</p>
+
+  <h2>The Moment Everything Changes</h2>
+  <p>When price finally breaks one of your trend lines, two things happen simultaneously:</p>
+  <ol style="padding-left:24px;margin-bottom:16px">
+    <li style="margin-bottom:8px">The broken line earns the name <strong style="color:var(--orange)">Action Line</strong></li>
+    <li style="margin-bottom:8px">The other line earns the name <strong style="color:var(--green)">Safety Line</strong></li>
+  </ol>
+  <p>Before the break: just an upward and a downward trend line. After the break: an action line and a safety line. The same two lines — completely transformed by what price just did.</p>
+
+  <div class="before-after">
+    <div class="ba-card">
+      <div class="ba-title">Before the Break</div>
+      <div class="ba-lines">
+        <div class="line-item line-plain">↘ Downward Trend Line</div>
+        <div class="line-item line-plain">↗ Upward Trend Line</div>
+      </div>
+    </div>
+    <div class="ba-card">
+      <div class="ba-title">After Price Breaks a Line</div>
+      <div class="ba-lines">
+        <div class="line-item line-action">⚡ Action Line (broken)</div>
+        <div class="line-item line-safety">🛡️ Safety Line (opposite)</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>The Action Line — Your Entry Trigger</h2>
+  <div class="highlight-box highlight-orange">
+    <div class="icon">⚡</div>
+    <h4>Action Line</h4>
+    <p>The <strong>action line</strong> is the trend line that price broke. Breaking this line is the trigger — the moment you enter the trade. The word "action" is perfect: it means this line prompted you to take action. Once it's broken, your trade begins.</p>
+  </div>
+  <p>Remember: the action line only gets named <em>after</em> it's been broken. While it's intact, it's just a trend line. It becomes an action line the moment price passes through it.</p>
+
+  <h2>The Safety Line — Your Everything</h2>
+  <div class="highlight-box highlight-green">
+    <div class="icon">🛡️</div>
+    <h4>Safety Line</h4>
+    <p>The <strong>safety line</strong> is the trend line that was NOT broken — the one on the opposite side. This line now serves as your guide for how long to stay in the trade, where to place your stop-loss, and when to exit. It keeps you safe. It is everything.</p>
+  </div>
+
+  <div class="summary-row">
+    <div class="sum-card action-card">
+      <h4>⚡ Action Line</h4>
+      <ul>
+        <li>The line that was broken</li>
+        <li>Triggers your entry</li>
+        <li>Named AFTER the break</li>
+        <li>Direction tells you the trade direction</li>
+      </ul>
+    </div>
+    <div class="sum-card safety-card">
+      <h4>🛡️ Safety Line</h4>
+      <ul>
+        <li>The line that was NOT broken</li>
+        <li>Guides your stay-in decision</li>
+        <li>Equals your stop-loss zone</li>
+        <li>Breaking it = time to exit</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>What Direction Is Your Trade?</h2>
+  <p>The action line tells you which direction to trade:</p>
+  <div class="highlight-box highlight-orange">
+    <div class="icon">📊</div>
+    <h4>Reading the Direction</h4>
+    <p><strong>Downward trend line breaks (bullish):</strong> Price broke above the downward trend line → enter a LONG (buy) trade.<br><br><strong>Upward trend line breaks (bearish):</strong> Price broke below the upward trend line → enter a SHORT (sell) trade.</p>
+  </div>
+  <p>You never decide the direction yourself. Price decides. When it breaks a line, it's telling you exactly which way it wants to go — and you follow.</p>
+
+  <h2>The Safety Line Is Inviolable</h2>
+  <p>While you're in a trade, the safety line must be respected at all times. As long as price continues to respect (bounce off) the safety line, you stay in the trade — even if the trade is temporarily moving against you.</p>
+  <div class="key-point">Safety line equals risk management. Safety line equals stop-loss. Safety line equals risk. Whatever term you prefer — it is the safety line that tells you everything.</div>
+
+  <div class="takeaways">
+    <h3>⚡ Key Takeaways from Lesson 4</h3>
+    <ul>
+      <li>Before price breaks: just upward and downward lines. No names yet.</li>
+      <li>After price breaks ONE line: both lines get named simultaneously.</li>
+      <li>Action line = the broken line → triggered your entry.</li>
+      <li>Safety line = the opposite line → tells you how long to stay in.</li>
+      <li>Safety line = your stop-loss zone = your risk management.</li>
+      <li>Direction: downward breaks → long; upward breaks → short.</li>
+      <li>You exit when price breaks the safety line. Not before, not after.</li>
+    </ul>
+  </div>
+
+  <div class="quiz">
+    <h3>Quick Knowledge Check</h3>
+    <div class="subtitle">Test your understanding of Lesson 4</div>
+    <div class="question" id="q1">
+      <p>1. When does a trend line officially become an "action line"?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q1',false)">A) When you draw it on the chart</div>
+        <div class="option" onclick="answer(this,'q1',true)">B) When price breaks through it — that's the moment it gets named</div>
+        <div class="option" onclick="answer(this,'q1',false)">C) Before the break, so you're ready to act</div>
+        <div class="option" onclick="answer(this,'q1',false)">D) When you decide it's your entry trigger</div>
+      </div>
+      <div class="explanation" id="exp-q1">✅ Correct! The action line is named AFTER the break. Before the break, it's just an upward or downward trend line — no labels.</div>
+    </div>
+    <div class="question" id="q2">
+      <p>2. What is the safety line equal to in risk management terms?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q2',false)">A) Your take-profit target</div>
+        <div class="option" onclick="answer(this,'q2',true)">B) Your stop-loss — the line that tells you when to exit and limits your loss</div>
+        <div class="option" onclick="answer(this,'q2',false)">C) Your entry trigger</div>
+        <div class="option" onclick="answer(this,'q2',false)">D) A support zone to add to your position</div>
+      </div>
+      <div class="explanation" id="exp-q2">✅ Correct! Safety line = stop-loss = risk management. It defines how long you stay in and where your loss is capped if the trade goes wrong.</div>
+    </div>
+    <div class="question" id="q3">
+      <p>3. If price breaks your DOWNWARD trend line, what trade do you enter?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q3',true)">A) A LONG (buy) trade — price broke above the downward line showing upward momentum</div>
+        <div class="option" onclick="answer(this,'q3',false)">B) A SHORT (sell) trade — price broke the downward line confirming the downtrend</div>
+        <div class="option" onclick="answer(this,'q3',false)">C) No trade — wait for the upward line to break instead</div>
+        <div class="option" onclick="answer(this,'q3',false)">D) Either direction — the line doesn't matter</div>
+      </div>
+      <div class="explanation" id="exp-q3">✅ Correct! When price breaks ABOVE the downward trend line, it's showing bullish strength → you enter a LONG trade. The action line direction tells you the trade direction.</div>
+    </div>
+    <div class="question" id="q4">
+      <p>4. How many lines get named when price breaks ONE trend line?</p>
+      <div class="options">
+        <div class="option" onclick="answer(this,'q4',false)">A) Just the one that was broken</div>
+        <div class="option" onclick="answer(this,'q4',true)">B) Both lines — the broken one becomes action, the other becomes safety</div>
+        <div class="option" onclick="answer(this,'q4',false)">C) None — you redraw the lines after a break</div>
+        <div class="option" onclick="answer(this,'q4',false)">D) Three lines — you draw a new line when price breaks</div>
+      </div>
+      <div class="explanation" id="exp-q4">✅ Correct! When ONE line breaks, BOTH get named simultaneously. The broken one = action. The surviving one = safety. Both earn their names at the same moment.</div>
+    </div>
+    <div class="quiz-result" id="quiz-result"><div class="score" id="quiz-score">4/4</div><p style="color:var(--dim);margin-top:8px">Excellent! You understand action and safety lines.</p></div>
+  </div>
+
+  <div class="complete-bar">
+    <div><strong>Mark this lesson as complete</strong><p>Track your progress through the course</p></div>
+    <button class="btn btn-complete" onclick="markDone()">✓ Mark Complete</button>
+  </div>
+  <div class="nav-btns">
+    <a class="btn btn-outline" href="lesson-03.html">← Prev: The Holy Grail</a>
+    <a class="btn btn-primary" href="lesson-05.html">Next: High vs Low Risk →</a>
+  </div>
+</div>
+<script>
+let answers={},correct=0;const total=4;
+function answer(el,qid,isCorrect){
+  if(answers[qid]!==undefined)return;answers[qid]=isCorrect;
+  const opts=el.parentElement.querySelectorAll('.option');opts.forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){el.classList.add('correct');correct++;}else{el.classList.add('wrong');opts.forEach(o=>{if(o!==el)o.classList.add('correct');});}
+  document.getElementById('exp-'+qid).style.display='block';
+  if(Object.keys(answers).length===total){const r=document.getElementById('quiz-result');r.style.display='block';const s=document.getElementById('quiz-score');s.textContent=correct+'/'+total;s.style.color=correct===total?'var(--green)':correct>=total/2?'var(--yellow)':'var(--red)';}
+}
+function markDone(){localStorage.setItem('tori-lesson-4','done');const btn=document.querySelector('.btn-complete');btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}
+window.onload=function(){if(localStorage.getItem('tori-lesson-4')==='done'){const btn=document.querySelector('.btn-complete');if(btn){btn.textContent='✓ Completed!';btn.style.background='rgba(16,185,129,0.2)';btn.style.color='var(--green)';btn.style.border='1px solid var(--green)';btn.disabled=true;}}}
+</script>
+</body>
+</html>
