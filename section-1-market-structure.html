@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 1 · Market Structure — Trading Mastery 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e1a;--bg-2:#10162a;--card:#11182c;
+  --border:rgba(255,255,255,.08);
+  --teal:#00d4aa;--gold:#f0a500;--red:#ff4757;
+  --blue:#3b9eff;--purple:#a36bff;
+  --text:#e7ecf3;--muted:#8a96ab;
+}
+html,body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;line-height:1.7;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 10% 0%,rgba(0,212,170,.08),transparent 60%),radial-gradient(800px 600px at 90% 80%,rgba(240,165,0,.06),transparent 60%)}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.01em;line-height:1.2}
+a{color:inherit;text-decoration:none}
+p{color:#cdd5e2}
+
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,14,26,.78);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1480px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--gold));display:grid;place-items:center;font-weight:800;color:#0a0e1a;font-size:13px}
+.brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:16px}
+.brand-sub{font-size:11px;color:var(--muted)}
+.back-link{color:var(--muted);font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;transition:.2s}
+.back-link:hover{color:var(--teal);border-color:var(--teal)}
+.progress-wrap{flex:1;max-width:300px}
+.progress-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.progress-bar{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px;transition:width .5s ease;width:0%}
+.hamb{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+
+/* Layout */
+.layout{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 70px)}
+
+/* Sidebar */
+.sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;padding:28px 24px;border-right:1px solid var(--border)}
+.sidebar h4{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);margin-bottom:14px;font-weight:600}
+.sec-meta-block{padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);margin-bottom:24px}
+.sec-meta-block .num{font-family:'Syne',sans-serif;font-size:12px;letter-spacing:.18em;color:var(--teal);font-weight:700}
+.sec-meta-block .title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-top:4px}
+.sidebar ul{list-style:none}
+.sidebar li{margin:4px 0}
+.sidebar a.subnav{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;color:var(--muted);transition:.2s;cursor:pointer;border:1px solid transparent}
+.sidebar a.subnav:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.sidebar a.subnav.active{color:var(--teal);background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2)}
+.sidebar a.subnav .dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.15);flex-shrink:0}
+.sidebar a.subnav.done .dot{background:var(--teal)}
+.sidebar a.subnav.done::after{content:'✓';margin-left:auto;color:var(--teal);font-size:12px}
+.section-jump{margin-top:30px;padding-top:24px;border-top:1px solid var(--border)}
+.section-jump a{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:10px 0}
+.section-jump a:hover{color:var(--teal)}
+
+/* Main */
+.main{padding:50px 60px 80px;max-width:920px}
+.section-intro{margin-bottom:60px}
+.section-intro .eyebrow{display:inline-block;color:var(--teal);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(0,212,170,.3);border-radius:99px;margin-bottom:18px}
+.section-intro h1{font-size:clamp(34px,4.5vw,52px);font-weight:800;margin-bottom:16px}
+.section-intro h1 span{background:linear-gradient(135deg,var(--teal),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-intro .lede{color:var(--muted);font-size:17px;max-width:680px}
+
+/* Divider candle art */
+.divider{display:flex;align-items:center;gap:14px;margin:50px 0 36px}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent)}
+.divider svg{flex-shrink:0;opacity:.5}
+
+/* Subtopic */
+.subtopic{padding:36px 0;border-top:1px solid var(--border);scroll-margin-top:90px}
+.subtopic:first-of-type{border-top:none;padding-top:0}
+.sub-badge{font-family:'Syne',sans-serif;font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.sub-title{font-size:clamp(26px,3vw,38px);font-weight:800;margin-bottom:20px}
+
+/* Difficulty tabs */
+.lvl-tabs{display:inline-flex;gap:6px;padding:6px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;margin-bottom:28px;flex-wrap:wrap}
+.lvl-tab{padding:9px 18px;font-size:13px;font-weight:600;font-family:inherit;color:var(--muted);background:none;border:none;border-radius:8px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.lvl-tab .dot{width:8px;height:8px;border-radius:99px;background:currentColor}
+.lvl-tab[data-lvl="beg"].active{background:rgba(0,212,170,.14);color:var(--teal)}
+.lvl-tab[data-lvl="int"].active{background:rgba(59,158,255,.14);color:var(--blue)}
+.lvl-tab[data-lvl="exp"].active{background:rgba(163,107,255,.14);color:var(--purple)}
+.lvl-tab:hover{color:var(--text)}
+
+/* Content panel */
+.lvl-panel{display:none;animation:fade .4s ease}
+.lvl-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.level-indicator{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.level-indicator.beg{background:rgba(0,212,170,.12);color:var(--teal);border:1px solid rgba(0,212,170,.2)}
+.level-indicator.int{background:rgba(59,158,255,.12);color:var(--blue);border:1px solid rgba(59,158,255,.2)}
+.level-indicator.exp{background:rgba(163,107,255,.12);color:var(--purple);border:1px solid rgba(163,107,255,.2)}
+
+.lvl-panel p{margin-bottom:16px}
+.lvl-panel h4{font-size:18px;margin:24px 0 12px;color:var(--text)}
+
+/* Callout boxes */
+.box{padding:20px 22px;border-radius:12px;margin:22px 0;border:1px solid var(--border)}
+.box .box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.box .icon{font-size:18px}
+
+.box.keyterms{background:rgba(59,158,255,.04);border-color:rgba(59,158,255,.18)}
+.box.keyterms .box-title{color:var(--blue)}
+.box.keyterms dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14px}
+.box.keyterms dt{font-weight:700;color:var(--text)}
+.box.keyterms dd{color:var(--muted)}
+
+.box.example{background:rgba(0,212,170,.04);border-color:rgba(0,212,170,.18)}
+.box.example .box-title{color:var(--teal)}
+.box.example p{font-size:14px;color:#dde5f0}
+
+.box.protip{background:rgba(163,107,255,.05);border-color:rgba(163,107,255,.22)}
+.box.protip .box-title{color:var(--purple)}
+.box.protip p{font-size:14px}
+
+.box.warning{background:rgba(255,71,87,.05);border-color:rgba(255,71,87,.22)}
+.box.warning .box-title{color:var(--red)}
+.box.warning p{font-size:14px}
+
+.box.takeaway{background:linear-gradient(180deg,rgba(240,165,0,.06),rgba(240,165,0,.02));border:1px solid rgba(240,165,0,.35);margin-top:30px}
+.box.takeaway .box-title{color:var(--gold);font-size:13px}
+.box.takeaway p{font-size:15px;color:#f0e7d2}
+
+/* Subtopic footer */
+.sub-footer{display:flex;justify-content:space-between;align-items:center;margin-top:30px;flex-wrap:wrap;gap:14px}
+.mark-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);background:none;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.mark-btn:hover{background:rgba(0,212,170,.1)}
+.mark-btn.done{background:var(--teal);color:#0a0e1a}
+.mark-btn.done::before{content:'✓ '}
+.next-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--gold));color:#0a0e1a;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.next-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,212,170,.25)}
+
+/* Section nav at bottom */
+.section-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:80px;padding-top:40px;border-top:1px solid var(--border)}
+.section-nav a{padding:22px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);transition:.25s}
+.section-nav a:hover{border-color:var(--teal);transform:translateY(-2px)}
+.section-nav .label{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.section-nav .name{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
+.section-nav .next{text-align:right}
+
+/* Scroll to top */
+.totop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:99px;background:var(--teal);color:#0a0e1a;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,212,170,.3);z-index:40}
+.totop.show{display:flex}
+
+@media (max-width:960px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:fixed;top:0;left:0;height:100vh;width:280px;z-index:60;background:var(--bg-2);transform:translateX(-100%);transition:transform .3s ease;padding-top:80px}
+  .sidebar.open{transform:translateX(0)}
+  .hamb{display:inline-flex}
+  .main{padding:30px 22px 60px}
+  .brand-sub{display:none}
+  .progress-wrap{max-width:140px}
+  .topbar-inner{padding:12px 18px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="hamb" id="hamb">☰</button>
+    <div class="brand">
+      <div class="brand-logo">TM</div>
+      <div>
+        <div class="brand-name">Trading Mastery 2026</div>
+        <div class="brand-sub">Section 1 of 8</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-row"><span>Section progress</span><span id="progressText">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <a class="back-link" href="trading-course.html">← Course Home</a>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sec-meta-block">
+      <div class="num">SECTION 01</div>
+      <div class="title">Market Structure</div>
+    </div>
+    <h4>Lessons in this section</h4>
+    <ul>
+      <li><a class="subnav" data-id="sub1" href="#sub1"><span class="dot"></span> 1.1 Understanding Market Structure</a></li>
+      <li><a class="subnav" data-id="sub2" href="#sub2"><span class="dot"></span> 1.2 Market Trends</a></li>
+      <li><a class="subnav" data-id="sub3" href="#sub3"><span class="dot"></span> 1.3 Support and Resistance</a></li>
+    </ul>
+    <div class="section-jump">
+      <h4>Jump to section</h4>
+      <a href="trading-course.html">← Course home</a>
+      <a href="section-2-supply-demand.html">Section 2 — Supply &amp; Demand →</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="section-intro">
+      <div class="eyebrow">Section 01 · Foundation</div>
+      <h1>Market <span>Structure</span></h1>
+      <p class="lede">Every chart you'll ever look at has a skeleton beneath it — a rhythm of higher highs, higher lows, swing points, and key zones where price decides. Read this skeleton correctly, and every other strategy you learn falls into place. Read it wrong, and nothing else will save you.</p>
+    </div>
+
+    <!-- ============ SUBTOPIC 1.1 ============ -->
+    <article class="subtopic" id="sub1">
+      <div class="sub-badge">Lesson 1.1</div>
+      <h2 class="sub-title">Understanding Market Structure</h2>
+
+      <div class="lvl-tabs" data-target="sub1">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>Imagine you're watching ants march in a line across the floor. They wiggle a bit, but overall they move in one direction. <strong>Market structure</strong> is just that — the overall direction price is moving, plus the little wiggles it makes along the way.</p>
+        <p>Picture a staircase. If price is climbing the stairs — each step higher than the last — that's an <strong>uptrend</strong>. If it's tumbling down the stairs — each step lower than the last — that's a <strong>downtrend</strong>. When price is walking sideways on a flat hallway, that's called <strong>consolidation</strong> or a <strong>range</strong>.</p>
+        <p>Why does this matter? Because if you can recognize the staircase you're on, you already know which way to bet. Traders who buy in an uptrend and sell in a downtrend are simply walking with the staircase — they're not fighting it. Fighting market structure is like trying to swim up a waterfall.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Uptrend</dt><dd>Price keeps making higher peaks and higher dips.</dd>
+            <dt>Downtrend</dt><dd>Price keeps making lower peaks and lower dips.</dd>
+            <dt>Range</dt><dd>Price bounces between a floor and a ceiling without going anywhere.</dd>
+            <dt>Swing</dt><dd>The natural up-down wiggle inside any trend.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Think about Bitcoin in 2021. From January to April, every dip was higher than the last, and every peak was higher too — that's a textbook uptrend on the daily chart. A beginner looking at it could see the staircase climbing without knowing a single indicator. That's all market structure is — reading the shape.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Before you do anything else on a chart — before indicators, before patterns — ask one question: <em>"Is price climbing the staircase, falling down it, or walking sideways?"</em> The honest answer to that question is the foundation of every trade you'll ever take.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Market structure formally describes the sequence of <strong>swing highs (SH)</strong> and <strong>swing lows (SL)</strong> that price prints over time. An uptrend is defined by a consistent pattern of <em>higher highs (HH) and higher lows (HL)</em>. A downtrend is defined by <em>lower highs (LH) and lower lows (LL)</em>. A range is what you see when neither sequence holds — price oscillates between a defined support and resistance.</p>
+        <p>The single most important transition to recognize is the <strong>Break of Structure (BOS)</strong> versus a <strong>Change of Character (CHoCH)</strong>. A BOS happens when price breaks the previous swing high or low <em>in the direction of the trend</em> — it confirms the trend is intact. A CHoCH is the first sign of trouble: price breaks a swing point <em>against</em> the prevailing direction, suggesting the trend may be reversing.</p>
+        <p>You should always begin chart analysis on a higher timeframe (HTF) — typically the daily or 4-hour — and only then drop down to a lower timeframe for entries. The HTF gives you the dominant direction; the lower timeframe gives you the entry. Skipping the HTF is the most common rookie mistake: you trade a "trend" on the 5-minute that is actually a pullback on the daily.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Swing High (SH)</dt><dd>A candle whose high is higher than the candles on either side of it.</dd>
+            <dt>Swing Low (SL)</dt><dd>A candle whose low is lower than the candles on either side of it.</dd>
+            <dt>BOS</dt><dd>Break of Structure — price breaks a prior swing point in the direction of trend.</dd>
+            <dt>CHoCH</dt><dd>Change of Character — price breaks a swing point against the trend; early reversal signal.</dd>
+            <dt>HTF / LTF</dt><dd>Higher / Lower Time Frame. Always start on HTF and zoom down for entries.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>EUR/USD on the 4H is making clean HH-HL — an uptrend. You drop to the 15-minute and see a pullback printing two LLs in a row. A beginner panics and shorts. The intermediate trader recognizes this LTF "downtrend" is just a HL forming on the 4H — and instead waits for the LTF CHoCH back up to enter a long with the HTF.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Mark only <em>major</em> swing points on your chart, not every tiny wiggle. A swing point matters if its break would shift the structure of the timeframe you're analyzing. If you have to squint to see it, it's noise.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Structure is read top-down: HTF dictates bias, LTF dictates timing. The first CHoCH after a clean trend is your highest-probability signal that the regime is changing — but only confirm the shift once a BOS prints in the new direction.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>At the institutional level, market structure is a probabilistic framework, not a binary truth. Algorithmic systems use structure to identify <strong>liquidity pools</strong> — equal highs, equal lows, trendline touches — and price typically moves to take that liquidity before reversing. So a CHoCH that occurs <em>after</em> a sweep of liquidity beyond a major swing is materially different from a CHoCH that prints inside range — the former has institutional intent behind it; the latter is often retail noise.</p>
+        <p>The most powerful application is <strong>multi-timeframe structural alignment</strong>: monthly + weekly + daily must agree on direction, the 4H gives the swing trade entry zone, the 1H gives the precision entry, and the 5M times the trigger. When all five timeframes align, your edge compounds. When they conflict, you're guessing — and you should pass.</p>
+        <p>Be ruthless about <strong>internal vs. external liquidity</strong>. Internal structure (the swings within a leg) breaks all the time and means little. External structure (the swings that define the leg itself) is what institutions watch — and only an external BOS or external CHoCH should shift your bias. Beginners trade every wiggle; experts trade only when external structure changes.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>External Structure</dt><dd>The swing points that define the trend leg itself (the "skeleton" of the move).</dd>
+            <dt>Internal Structure</dt><dd>The smaller swings within a leg — noise to institutions.</dd>
+            <dt>Liquidity Sweep</dt><dd>A move that pushes past a known swing point to trigger stops, often followed by a violent reversal.</dd>
+            <dt>MTF Alignment</dt><dd>Multi-timeframe agreement on direction; a confluence multiplier.</dd>
+            <dt>Smart Money Concepts (SMC)</dt><dd>The discretionary framework wrapping BOS/CHoCH/liquidity into a tradable model.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>SPY is in a daily uptrend. It rallies into a previous all-time high, prints a 3-bar liquidity sweep above the high (taking out breakout-buy stops), then prints a 4H CHoCH down. The expert reads this as: monthly trend intact, but daily distribution likely — they short the 4H pullback into the swept high (now a fresh supply zone) targeting the prior daily HL. The retail trader chased the breakout and got dumped on. Same chart, opposite outcomes.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>The very first BOS after a CHoCH is statistically the highest-quality entry signal in the trader's toolkit, because it confirms the regime change with structure. Treat that as your "A+ setup" filter — pass on everything weaker.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Structure is meaningless in low-liquidity hours (e.g. crypto on Sunday night, forex during the Asian session lull). Swings printed in thin tape get nullified the moment real volume returns — don't anchor your bias to structure formed in a vacuum.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>External structure + multi-timeframe alignment + liquidity context = institutional-grade analysis. Anyone can draw a higher high. Pros only act when the higher high prints in the right place, on the right timeframe, against the right liquidity backdrop.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub1">Mark Complete</button>
+        <a class="next-btn" href="#sub2">Next: Market Trends →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 1.2 ============ -->
+    <article class="subtopic" id="sub2">
+      <div class="sub-badge">Lesson 1.2</div>
+      <h2 class="sub-title">Market Trends — Bullish &amp; Bearish</h2>
+
+      <div class="lvl-tabs" data-target="sub2">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>A <strong>trend</strong> is the general direction the market is heading. Think of a river — it can flow downstream (bearish), upstream against you (bullish if you're swimming with the current), or sit in a still pond (sideways). Trading <em>with</em> the river is easy. Trading against it is exhausting and usually fatal.</p>
+        <p>A <strong>bullish trend</strong> (or uptrend) is when price keeps climbing. Imagine a bull charging upward — that's how the name stuck. Buyers are stronger than sellers, so the price gets bid up over time. A <strong>bearish trend</strong> (downtrend) is the opposite — price falls. Picture a bear swiping its paw downward.</p>
+        <p>Your number-one job as a beginner is to never trade against the dominant trend. It sounds boring, but "the trend is your friend" is the most repeated phrase in trading because it's the most repeatedly profitable.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Bull market</dt><dd>Prices generally rising over time.</dd>
+            <dt>Bear market</dt><dd>Prices generally falling over time.</dd>
+            <dt>Sideways</dt><dd>No clear direction — price chops up and down.</dd>
+            <dt>Trend-following</dt><dd>A strategy that buys uptrends and sells downtrends.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Tesla in 2020 went from $80 to over $700 in roughly nine months. That's a textbook bullish trend. Anyone who simply bought and held — or bought every dip — made money. Anyone who tried to "short the top" because it "looked too high" was steamrolled. The trend was the entire story.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Pick a direction, then only take trades in that direction. If you can't tell which way the trend is going, the trend is <em>sideways</em> — and the right move is often to wait, not to force a trade.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>A trend is more than direction — it's a sequence with measurable characteristics: <strong>angle of attack</strong> (how steep), <strong>impulse-to-correction ratio</strong> (strong moves followed by shallow pullbacks suggest a healthy trend), and <strong>momentum</strong> (each leg should be at least as forceful as the last). When pullbacks start getting deeper and impulses smaller, the trend is weakening even before structure officially shifts.</p>
+        <p>Use the <strong>50 EMA on the 4H</strong> as a quick objective trend filter: price above and the EMA sloping up is bullish; below and sloping down is bearish; flat and choppy is range. This isn't an entry signal — it's a "which way am I allowed to trade today" filter. Pair it with the <strong>200 EMA on the daily</strong> for higher-timeframe bias. When both align, you're trading with the wind at your back.</p>
+        <p>Three trend phases matter: <strong>Accumulation</strong> (smart money quietly buying at the bottom while retail panics), <strong>Markup</strong> (the obvious uptrend everyone sees), <strong>Distribution</strong> (smart money selling into retail excitement at the top), and <strong>Markdown</strong> (the obvious downtrend). Recognizing which phase you're in helps you choose your tactic: accumulation rewards patient zone-buyers; markup rewards trend-following pullback entries; distribution rewards taking profits not chasing.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Impulse leg</dt><dd>The strong, fast move in the trend direction.</dd>
+            <dt>Corrective leg</dt><dd>The shallow pullback against the trend.</dd>
+            <dt>EMA</dt><dd>Exponential Moving Average — weights recent prices more heavily.</dd>
+            <dt>Wyckoff Phases</dt><dd>Accumulation → Markup → Distribution → Markdown.</dd>
+            <dt>Confluence</dt><dd>Multiple independent signals lining up to suggest the same outcome.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>GBP/JPY 4H is making HH-HLs with price above an up-sloping 50 EMA. Impulse legs are averaging 120 pips, pullbacks 40 pips — a 3:1 impulse-to-correction ratio. That's a strong, tradable trend. When you start seeing 80-pip impulses and 60-pip pullbacks, the trend is exhausting — time to tighten stops or step aside.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Trends usually end <em>not</em> with a reversal but with a transition into a range. If you wait for a clean opposite trend before flipping sides, you'll always be late. The earliest reliable reversal signal is: trend break → range → new trend in opposite direction.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Identify the trend objectively (structure + EMA + momentum), recognize the Wyckoff phase, and match your tactic to it. Trading the right idea in the wrong phase is how good setups still lose money.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>Professional traders don't ask "is this trending?" — they ask <em>"on which timeframe and against which liquidity backdrop?"</em> A daily uptrend can coexist with a 1H downtrend (a pullback) and a 5M uptrend (a micro-impulse inside the pullback). The expert assigns weight to each: monthly &gt; weekly &gt; daily &gt; 4H &gt; 1H &gt; 15M &gt; 5M. Trades taken against a higher-weighted trend require materially more confluence to justify.</p>
+        <p>The most lucrative trends are <strong>trend continuations after liquidity raids</strong>. In a healthy uptrend, price will periodically dip below a recent swing low (sweeping retail stops placed there), reclaim the level, and resume up with vigor. These are the highest-RR re-entries available — better than buying the breakout, better than buying support — because they happen exactly when retail has been flushed out and float is reset.</p>
+        <p>Watch <strong>order flow</strong> alongside structure: a trend with declining cumulative volume delta (CVD), or with absorption candles at every push, is a trend on borrowed time. Conversely, a trend where every retracement is met by an aggressive bid absorption (large volume at the wick), is a trend with institutional support — extend your targets and trust the move.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Liquidity Raid</dt><dd>A deliberate sweep of stops beyond a known swing point.</dd>
+            <dt>CVD</dt><dd>Cumulative Volume Delta — net market vs. limit aggression.</dd>
+            <dt>Absorption</dt><dd>Large limit orders consuming aggression without price moving — strong support/resistance.</dd>
+            <dt>Trend Strength Index</dt><dd>Composite of impulse size, retracement depth, and momentum vs. EMA slope.</dd>
+            <dt>Regime Change</dt><dd>A measurable shift in volatility, correlation, or order flow that ends a trend before structure breaks.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>BTC is in a weekly uptrend. On the daily, price grinds to a fresh high, prints a strong rejection wick, and CVD diverges — heavy aggressive sell volume but price refuses to drop. This is institutional distribution disguised as continuation. The expert flattens longs, waits for the 4H CHoCH down, and shorts the first failed retest of the prior high. Retail keeps buying "the dip." Same chart, two timelines.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>The single highest-probability long-only signal in your career: HTF uptrend + LTF liquidity sweep below recent swing low + LTF CHoCH up + entry on the retest of the sweep low (now demand). Memorize this stack. It works across all liquid markets.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>News-driven trends (FOMC, CPI, earnings) often violate technical structure entirely on release, then revert to it within 24-48 hours. Don't anchor bias to the spike — wait for the market to digest the news and reprint structure before re-engaging.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Trend isn't a label — it's a multidimensional probability stack: timeframe weight × order flow × liquidity context × momentum quality. Trade only the trends where the entire stack agrees, and pass the rest. Patience here is alpha.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub2">Mark Complete</button>
+        <a class="next-btn" href="#sub3">Next: Support &amp; Resistance →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 1.3 ============ -->
+    <article class="subtopic" id="sub3">
+      <div class="sub-badge">Lesson 1.3</div>
+      <h2 class="sub-title">Support and Resistance</h2>
+
+      <div class="lvl-tabs" data-target="sub3">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>Imagine a ball bouncing inside a room. The <strong>floor</strong> stops it from falling further — that's <strong>support</strong>. The <strong>ceiling</strong> stops it from rising further — that's <strong>resistance</strong>. Markets do the exact same thing. Price drops to a level where lots of people are willing to buy → it bounces up. Price rises to a level where lots of people are willing to sell → it bounces down.</p>
+        <p>Why do these floors and ceilings exist? Because people remember prices. If a stock dropped to $100 last week and rebounded, traders today look at $100 and think "that's where it bounced — I'll buy there too." That collective memory makes the level <em>real</em>.</p>
+        <p>The simplest, most powerful skill you can learn early on is to mark these floors and ceilings on your chart. You don't even need indicators. Just look at where price has reversed multiple times — those are the levels that matter.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Support</dt><dd>A price level where buyers historically step in. Acts as a floor.</dd>
+            <dt>Resistance</dt><dd>A price level where sellers historically step in. Acts as a ceiling.</dd>
+            <dt>Breakout</dt><dd>Price punches through support or resistance with force.</dd>
+            <dt>Retest</dt><dd>After breaking a level, price comes back to "test" it before continuing.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Bitcoin found support around $30,000 multiple times in 2023. Every time it dropped there, buyers rushed in and pushed it back up. That's why "$30k" became famous. The level wasn't magic — but enough traders believed in it that their actions made it work like a floor.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Open any chart. Find the prices where it has bounced or rejected multiple times. Draw a line. Those lines are your support and resistance — and they'll guide nearly every trade decision you make from now on.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Support and resistance are <strong>zones, not lines</strong>. Drawing a single hairline price level is a beginner mistake — institutional buy and sell orders cluster within a range. A high-quality S/R zone has three properties: (1) it caused multiple reactions, (2) those reactions were sharp (large impulse candles), and (3) volume spiked at the zone. Without all three, you're guessing.</p>
+        <p>The most important concept here is <strong>role reversal</strong> (sometimes called "polarity"): when a support level finally breaks, it flips into resistance on the retest. When resistance breaks, it flips into support. This is because the traders who got trapped on the wrong side of the breakout now have orders sitting at that level — they'll defend it if revisited. That's why the highest-conviction breakout trade is the <em>retest</em>, not the initial break.</p>
+        <p>Layer S/R with other tools for confluence: a horizontal zone that <em>also</em> aligns with a Fibonacci 61.8% retracement <em>and</em> a moving average is exponentially more reliable than any one of them alone. Look for at least 2-3 independent reasons before treating a level as actionable.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Zone</dt><dd>A range of prices where orders cluster — not a single line.</dd>
+            <dt>Role Reversal</dt><dd>Broken support becomes resistance; broken resistance becomes support.</dd>
+            <dt>Fibonacci Retracement</dt><dd>Tool that maps 38.2%, 50%, 61.8% pullback levels from a leg.</dd>
+            <dt>Volume Profile</dt><dd>Shows where the most volume traded at each price — natural S/R.</dd>
+            <dt>VWAP</dt><dd>Volume-Weighted Average Price — institutional intraday reference level.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>SPX 4H breaks above a 6-month resistance at 4,800 with a strong impulse and 3× average volume. Aggressive traders chase the break and often get faded by 2-3%. The disciplined intermediate trader waits, marks 4,800 as the new flipped support zone, and enters longs only when price retests 4,795-4,810 and prints a bullish reaction candle. Tighter stop, better entry, same trade.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>The strongest S/R levels exist on the <em>highest</em> timeframe. A daily resistance carries far more weight than a 15-minute one. When you trade off lower timeframes, always know where the nearest HTF level sits — that's where your trade either explodes or dies.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Draw S/R as zones, not lines. Trade the retest, not the breakout. Stack confluence (HTF level + Fib + volume) before committing capital. Three confirmations beat thirty indicators.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>Traditional support and resistance are surface-level. Underneath them lies the real driver: <strong>order flow and liquidity at the level</strong>. A resistance zone with passive ask-side limit walls visible on the depth chart is real. The same level with no resting orders is decorative. Use Footprint charts, DOM analysis, and aggregated CVD to verify that what looks like resistance on a candlestick chart actually has supply standing behind it.</p>
+        <p>Institutions deliberately engineer S/R breaks to access liquidity. The classic pattern: price approaches a key support, dips just below to sweep stop-loss orders, then rips upward — leaving a long wick that retail mislabels as a "false breakout." It wasn't false. It was the entire point. Smart-money traders pre-position to <em>be on the receiving end</em> of those swept stops.</p>
+        <p>Build a hierarchy: <strong>monthly OHLC levels</strong> → <strong>weekly highs/lows</strong> → <strong>daily pivots</strong> → <strong>session highs/lows</strong> → <strong>VWAP and standard deviation bands</strong>. The further up the hierarchy, the more institutional capital sits at the level. When two levels stack (e.g., monthly low coincides with weekly demand zone), the convergence becomes magnetic — price will travel toward it even when nothing else justifies the move.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Stop Hunt</dt><dd>Engineered breach of a level to trigger retail stops, often followed by reversal.</dd>
+            <dt>Liquidity Pool</dt><dd>Cluster of stop-loss orders sitting above/below an obvious S/R level.</dd>
+            <dt>DOM</dt><dd>Depth of Market — live view of resting bid/ask orders.</dd>
+            <dt>Footprint Chart</dt><dd>Candle-level view of buy vs. sell volume at each price.</dd>
+            <dt>Level Confluence</dt><dd>Multiple HTF levels stacking within a tight range; high-probability magnet.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>NQ futures sit just above a major weekly support shared with the prior month low and a daily 200 SMA. CVD shows continuous absorption on every push down — passive bids stacking. The expert reads this as institutional accumulation. They long the very next 5M CHoCH from a sweep below the level, target +5R. The retail trader, watching the same break of support, shorts the breakdown and gets liquidated 12 minutes later when price reclaims and runs.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Place limit orders <em>inside</em> the zone, not at the edge. Retail clusters orders at round numbers and obvious lines — institutions hunt those clusters. Entering 30-50% deep into the zone often gets you filled with a tighter stop and skips the sweep entirely.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>S/R degrades with each touch. A level that's held 4-5 times is statistically more likely to break on the next test than to hold — buyers/sellers at that price have already deployed capital and have less left to defend it. Counter-intuitive but true: "untested" levels are often stronger than "well-tested" ones.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>S/R is just the visible tip. Real edge comes from reading the order flow, liquidity, and HTF level hierarchy behind it. Trade the engineered sweeps, not the obvious lines retail draws — and never short below an untested HTF support without confirming flow first.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub3">Mark Complete</button>
+        <a class="next-btn" href="section-2-supply-demand.html">Next Section: Supply &amp; Demand →</a>
+      </div>
+    </article>
+
+    <!-- Section nav -->
+    <div class="section-nav">
+      <a href="trading-course.html">
+        <div class="label">← Back to</div>
+        <div class="name">Course Home</div>
+      </a>
+      <a href="section-2-supply-demand.html" class="next">
+        <div class="label">Next Section →</div>
+        <div class="name">02 · Supply &amp; Demand</div>
+      </a>
+    </div>
+  </main>
+</div>
+
+<button class="totop" id="totop" title="Scroll to top">↑</button>
+
+<script>
+(function(){
+  const KEY='tm2026_progress';
+  const SEC_ID='s1';
+  const SUBS=['sub1','sub2','sub3'];
+
+  function loadAll(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+  function saveAll(d){localStorage.setItem(KEY,JSON.stringify(d))}
+  function getSec(){const d=loadAll();return d[SEC_ID]||{}}
+  function setSec(s){const d=loadAll();d[SEC_ID]=s;saveAll(d)}
+
+  // Level tabs
+  document.querySelectorAll('.lvl-tabs').forEach(group=>{
+    const subId=group.dataset.target;
+    const article=document.getElementById(subId);
+    group.querySelectorAll('.lvl-tab').forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        group.querySelectorAll('.lvl-tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');
+        const lvl=tab.dataset.lvl;
+        article.querySelectorAll('.lvl-panel').forEach(p=>{
+          p.classList.toggle('active',p.dataset.lvl===lvl);
+        });
+      });
+    });
+  });
+
+  // Mark complete buttons
+  function refreshMarks(){
+    const sec=getSec();
+    let done=0;
+    SUBS.forEach(id=>{
+      const btn=document.querySelector(`.mark-btn[data-mark="${id}"]`);
+      const navItem=document.querySelector(`.subnav[data-id="${id}"]`);
+      if(sec[id]){
+        if(btn){btn.classList.add('done');btn.textContent='Completed'}
+        if(navItem){navItem.classList.add('done')}
+        done++;
+      }else{
+        if(btn){btn.classList.remove('done');btn.textContent='Mark Complete'}
+        if(navItem){navItem.classList.remove('done')}
+      }
+    });
+    const pct=Math.round((done/SUBS.length)*100);
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.getElementById('progressText').textContent=pct+'%';
+  }
+
+  document.querySelectorAll('.mark-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const id=btn.dataset.mark;
+      const sec=getSec();
+      sec[id]=!sec[id];
+      setSec(sec);
+      refreshMarks();
+    });
+  });
+
+  // Scroll spy
+  const subs=SUBS.map(id=>document.getElementById(id));
+  function onScroll(){
+    const y=window.scrollY+150;
+    let current=subs[0]?.id;
+    subs.forEach(s=>{if(s&&s.offsetTop<=y)current=s.id});
+    document.querySelectorAll('.subnav').forEach(a=>{
+      a.classList.toggle('active',a.dataset.id===current);
+    });
+    document.getElementById('totop').classList.toggle('show',window.scrollY>500);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+
+  // Sidebar smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const tgt=document.querySelector(a.getAttribute('href'));
+      if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth',block:'start'})}
+    });
+  });
+
+  // Top button
+  document.getElementById('totop').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+
+  // Hamburger
+  document.getElementById('hamb').addEventListener('click',()=>{
+    document.getElementById('sidebar').classList.toggle('open');
+  });
+
+  refreshMarks();
+  onScroll();
+})();
+</script>
+</body>
+</html>

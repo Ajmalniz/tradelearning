@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 3 · Liquidity — Trading Mastery 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--bg-2:#10162a;--card:#11182c;--border:rgba(255,255,255,.08);--teal:#00d4aa;--gold:#f0a500;--red:#ff4757;--blue:#3b9eff;--purple:#a36bff;--text:#e7ecf3;--muted:#8a96ab}
+html,body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;line-height:1.7;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 10% 0%,rgba(0,212,170,.08),transparent 60%),radial-gradient(800px 600px at 90% 80%,rgba(240,165,0,.06),transparent 60%)}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.01em;line-height:1.2}
+a{color:inherit;text-decoration:none}p{color:#cdd5e2}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,14,26,.78);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1480px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--gold));display:grid;place-items:center;font-weight:800;color:#0a0e1a;font-size:13px}
+.brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:16px}
+.brand-sub{font-size:11px;color:var(--muted)}
+.back-link{color:var(--muted);font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;transition:.2s}
+.back-link:hover{color:var(--teal);border-color:var(--teal)}
+.progress-wrap{flex:1;max-width:300px}
+.progress-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.progress-bar{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px;transition:width .5s ease;width:0%}
+.hamb{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+.layout{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 70px)}
+.sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;padding:28px 24px;border-right:1px solid var(--border)}
+.sidebar h4{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);margin-bottom:14px;font-weight:600}
+.sec-meta-block{padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);margin-bottom:24px}
+.sec-meta-block .num{font-family:'Syne',sans-serif;font-size:12px;letter-spacing:.18em;color:var(--teal);font-weight:700}
+.sec-meta-block .title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-top:4px}
+.sidebar ul{list-style:none}
+.sidebar li{margin:4px 0}
+.sidebar a.subnav{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;color:var(--muted);transition:.2s;cursor:pointer;border:1px solid transparent}
+.sidebar a.subnav:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.sidebar a.subnav.active{color:var(--teal);background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2)}
+.sidebar a.subnav .dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.15);flex-shrink:0}
+.sidebar a.subnav.done .dot{background:var(--teal)}
+.sidebar a.subnav.done::after{content:'✓';margin-left:auto;color:var(--teal);font-size:12px}
+.section-jump{margin-top:30px;padding-top:24px;border-top:1px solid var(--border)}
+.section-jump a{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:10px 0}
+.section-jump a:hover{color:var(--teal)}
+.main{padding:50px 60px 80px;max-width:920px}
+.section-intro{margin-bottom:60px}
+.section-intro .eyebrow{display:inline-block;color:var(--teal);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(0,212,170,.3);border-radius:99px;margin-bottom:18px}
+.section-intro h1{font-size:clamp(34px,4.5vw,52px);font-weight:800;margin-bottom:16px}
+.section-intro h1 span{background:linear-gradient(135deg,var(--teal),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-intro .lede{color:var(--muted);font-size:17px;max-width:680px}
+.divider{display:flex;align-items:center;gap:14px;margin:50px 0 36px}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent)}
+.divider svg{flex-shrink:0;opacity:.5}
+.subtopic{padding:36px 0;border-top:1px solid var(--border);scroll-margin-top:90px}
+.subtopic:first-of-type{border-top:none;padding-top:0}
+.sub-badge{font-family:'Syne',sans-serif;font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.sub-title{font-size:clamp(26px,3vw,38px);font-weight:800;margin-bottom:20px}
+.lvl-tabs{display:inline-flex;gap:6px;padding:6px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;margin-bottom:28px;flex-wrap:wrap}
+.lvl-tab{padding:9px 18px;font-size:13px;font-weight:600;font-family:inherit;color:var(--muted);background:none;border:none;border-radius:8px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.lvl-tab .dot{width:8px;height:8px;border-radius:99px;background:currentColor}
+.lvl-tab[data-lvl="beg"].active{background:rgba(0,212,170,.14);color:var(--teal)}
+.lvl-tab[data-lvl="int"].active{background:rgba(59,158,255,.14);color:var(--blue)}
+.lvl-tab[data-lvl="exp"].active{background:rgba(163,107,255,.14);color:var(--purple)}
+.lvl-tab:hover{color:var(--text)}
+.lvl-panel{display:none;animation:fade .4s ease}
+.lvl-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.level-indicator{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.level-indicator.beg{background:rgba(0,212,170,.12);color:var(--teal);border:1px solid rgba(0,212,170,.2)}
+.level-indicator.int{background:rgba(59,158,255,.12);color:var(--blue);border:1px solid rgba(59,158,255,.2)}
+.level-indicator.exp{background:rgba(163,107,255,.12);color:var(--purple);border:1px solid rgba(163,107,255,.2)}
+.lvl-panel p{margin-bottom:16px}
+.lvl-panel h4{font-size:18px;margin:24px 0 12px;color:var(--text)}
+.box{padding:20px 22px;border-radius:12px;margin:22px 0;border:1px solid var(--border)}
+.box .box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.box .icon{font-size:18px}
+.box.keyterms{background:rgba(59,158,255,.04);border-color:rgba(59,158,255,.18)}
+.box.keyterms .box-title{color:var(--blue)}
+.box.keyterms dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14px}
+.box.keyterms dt{font-weight:700;color:var(--text)}
+.box.keyterms dd{color:var(--muted)}
+.box.example{background:rgba(0,212,170,.04);border-color:rgba(0,212,170,.18)}
+.box.example .box-title{color:var(--teal)}
+.box.example p{font-size:14px;color:#dde5f0}
+.box.protip{background:rgba(163,107,255,.05);border-color:rgba(163,107,255,.22)}
+.box.protip .box-title{color:var(--purple)}
+.box.protip p{font-size:14px}
+.box.warning{background:rgba(255,71,87,.05);border-color:rgba(255,71,87,.22)}
+.box.warning .box-title{color:var(--red)}
+.box.warning p{font-size:14px}
+.box.takeaway{background:linear-gradient(180deg,rgba(240,165,0,.06),rgba(240,165,0,.02));border:1px solid rgba(240,165,0,.35);margin-top:30px}
+.box.takeaway .box-title{color:var(--gold);font-size:13px}
+.box.takeaway p{font-size:15px;color:#f0e7d2}
+.sub-footer{display:flex;justify-content:space-between;align-items:center;margin-top:30px;flex-wrap:wrap;gap:14px}
+.mark-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);background:none;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.mark-btn:hover{background:rgba(0,212,170,.1)}
+.mark-btn.done{background:var(--teal);color:#0a0e1a}
+.mark-btn.done::before{content:'✓ '}
+.next-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--gold));color:#0a0e1a;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.next-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,212,170,.25)}
+.section-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:80px;padding-top:40px;border-top:1px solid var(--border)}
+.section-nav a{padding:22px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);transition:.25s}
+.section-nav a:hover{border-color:var(--teal);transform:translateY(-2px)}
+.section-nav .label{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.section-nav .name{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
+.section-nav .next{text-align:right}
+.totop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:99px;background:var(--teal);color:#0a0e1a;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,212,170,.3);z-index:40}
+.totop.show{display:flex}
+@media (max-width:960px){.layout{grid-template-columns:1fr}.sidebar{position:fixed;top:0;left:0;height:100vh;width:280px;z-index:60;background:var(--bg-2);transform:translateX(-100%);transition:transform .3s ease;padding-top:80px}.sidebar.open{transform:translateX(0)}.hamb{display:inline-flex}.main{padding:30px 22px 60px}.brand-sub{display:none}.progress-wrap{max-width:140px}.topbar-inner{padding:12px 18px}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="hamb" id="hamb">☰</button>
+    <div class="brand">
+      <div class="brand-logo">TM</div>
+      <div>
+        <div class="brand-name">Trading Mastery 2026</div>
+        <div class="brand-sub">Section 3 of 8</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-row"><span>Section progress</span><span id="progressText">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <a class="back-link" href="trading-course.html">← Course Home</a>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sec-meta-block">
+      <div class="num">SECTION 03</div>
+      <div class="title">Liquidity</div>
+    </div>
+    <h4>Lessons in this section</h4>
+    <ul>
+      <li><a class="subnav" data-id="sub1" href="#sub1"><span class="dot"></span> 3.1 Liquidity Basics</a></li>
+      <li><a class="subnav" data-id="sub2" href="#sub2"><span class="dot"></span> 3.2 Institutional Tactics</a></li>
+      <li><a class="subnav" data-id="sub3" href="#sub3"><span class="dot"></span> 3.3 Impact on Execution</a></li>
+    </ul>
+    <div class="section-jump">
+      <h4>Jump to section</h4>
+      <a href="section-2-supply-demand.html">← Section 2 — Supply &amp; Demand</a>
+      <a href="section-4-risk-management.html">Section 4 — Risk Management →</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="section-intro">
+      <div class="eyebrow">Section 03 · The hidden current</div>
+      <h1>Understanding <span>Liquidity</span></h1>
+      <p class="lede">Every move in every market is fundamentally a search for liquidity. Once you understand where it sits, who hunts it, and why price <em>has</em> to travel toward it, the chart stops looking random — and starts looking like a map.</p>
+    </div>
+
+    <!-- ============ SUBTOPIC 3.1 ============ -->
+    <article class="subtopic" id="sub1">
+      <div class="sub-badge">Lesson 3.1</div>
+      <h2 class="sub-title">Liquidity Basics</h2>
+
+      <div class="lvl-tabs" data-target="sub1">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>Imagine you're at a busy farmers' market. There are tons of people buying and selling fruit. If you want to sell ten oranges fast, you can — buyers are everywhere. That market is <strong>liquid</strong>. Now imagine a tiny side stall on a sleepy afternoon. You try to sell ten oranges, and there's almost no one to buy. That's <strong>illiquid</strong>.</p>
+        <p>Markets work exactly the same way. <strong>Liquidity</strong> is just a fancy word for "how easy it is to buy or sell something without changing the price too much." A highly liquid market — like Bitcoin, the S&amp;P 500, or EUR/USD — has tons of buyers and sellers, so trades happen smoothly. A less liquid market — a tiny altcoin or a small-cap penny stock — has fewer participants, so even small trades can swing the price wildly.</p>
+        <p>As a beginner, the most important practical impact is this: <strong>trade liquid markets</strong>. Stay where there are lots of players. Illiquid markets look tempting because price moves fast — but those same fast moves can blow up your account before you blink.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Liquid Market</dt><dd>Lots of buyers and sellers; you can enter and exit easily.</dd>
+            <dt>Illiquid Market</dt><dd>Few participants; trades cause big price swings.</dd>
+            <dt>Volume</dt><dd>How much of an asset is being traded — basic measure of liquidity.</dd>
+            <dt>Slippage</dt><dd>When your order fills at a worse price than you expected (common in illiquid markets).</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Try buying $10,000 of Bitcoin — your order fills in a heartbeat at almost the exact price you saw. Now try buying $10,000 of an obscure $5-million-market-cap altcoin — your single order can jam the price up 20%, then drop right back down once you're filled. Same dollar amount, very different liquidity.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Liquidity = how easily you can trade without moving the price. Stick to liquid markets early in your career. They're forgiving, predictable, and they don't get manipulated as easily as the small fish.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Liquidity in trading has two distinct meanings worth separating. <strong>Market liquidity</strong> is the depth of resting orders — how much volume is available at each price level (visible in the order book and DOM). <strong>Trading liquidity</strong> refers to clusters of pending orders (mostly stop losses and pending entries) that price tends to "hunt" before reversing. The second meaning is what experienced traders mean when they talk about "taking liquidity" or "running stops."</p>
+        <p>Stops cluster predictably in three locations: <strong>above swing highs</strong> (where short stops sit), <strong>below swing lows</strong> (where long stops sit), and <strong>just past obvious S/R levels and trendlines</strong> (where breakout traders place stops). Institutions know retail places stops there — and they often drive price into those zones to fill their own orders against the stopped-out positions.</p>
+        <p>The pattern to memorize: <strong>price moves to liquidity, takes it, then reverses</strong>. This is why the "false breakout" is the most common shape on every chart you've ever seen. It's not a failure of pattern reading — it's institutions hunting the liquidity that pattern traders provided.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Buy-Side Liquidity</dt><dd>Stops above swing highs (sell-stops); fuel for downward moves after a sweep up.</dd>
+            <dt>Sell-Side Liquidity</dt><dd>Stops below swing lows (buy-stops); fuel for upward moves after a sweep down.</dd>
+            <dt>Liquidity Sweep / Raid</dt><dd>A move that briefly breaches a swing point to trigger stops, then reverses.</dd>
+            <dt>Equal Highs / Equal Lows</dt><dd>Multiple swing tops/bottoms at the same price — a magnet for liquidity.</dd>
+            <dt>Stop Run</dt><dd>Synonym for liquidity sweep — institutions running price through stop clusters.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>EUR/USD has two equal highs at 1.0950 over a week. Retail breakout traders salivate, placing buy-stops at 1.0951 and stop losses at 1.0945. Price spikes to 1.0955, triggers buy-stops (institutions sell into them), reverses to 1.0930. Classic liquidity grab — and the second the high broke, the disciplined intermediate trader knew to short, not chase.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Before placing any trade, ask "where's the nearest liquidity above and below me?" If your target is on the other side of a liquidity pool, expect price to grab that pool first. Plan entries and stops accordingly — never put your stop right at the obvious swing point retail expects.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Liquidity is the fuel. Price moves to it, takes it, and pivots. Mark buy-side and sell-side liquidity on every chart, anticipate sweeps, and stop placing your stops where the entire market already placed theirs.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>At the institutional layer, liquidity is the <strong>only thing that matters</strong>. Algorithms are not analyzing patterns — they are routing orders based on visible and inferred liquidity. Large institutional fills require liquid counter-parties; if those aren't naturally present, they are <em>engineered</em>. Every major swing high and swing low you see on a chart was, in retrospect, the destination of an algorithmic search for the next pool.</p>
+        <p>Beyond the obvious, advanced concepts to internalize: <strong>internal liquidity</strong> (stops inside a range), <strong>external liquidity</strong> (stops outside the prevailing structure), <strong>relative equal highs/lows</strong> (almost-equal but not perfectly equal — even cleaner liquidity targets), <strong>trendline liquidity</strong> (stops at trendline retests), and <strong>session liquidity</strong> (Asian range highs/lows, London open levels, NY close levels — all magnets during their respective sessions).</p>
+        <p>Most importantly, liquidity flow follows a <strong>daily delivery cycle</strong>: institutions typically grab sell-side liquidity in the London session to fuel NY session expansions toward buy-side liquidity, or vice versa. Mapping the day in terms of "which pool gets taken next, and what is the resulting impulse" elevates your timing from "looking at patterns" to "anticipating the next algorithmic move."</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Internal vs. External Liquidity</dt><dd>Stops inside vs. beyond defined structure; external dominates.</dd>
+            <dt>Relative Equal Highs/Lows</dt><dd>Approximately equal swings — magnetic liquidity targets.</dd>
+            <dt>Asian Range</dt><dd>The session's high and low; commonly raided during London open.</dd>
+            <dt>Liquidity Void / FVG</dt><dd>Inefficient price gap; price often returns to "rebalance" it.</dd>
+            <dt>PD Array</dt><dd>Premium/Discount Array — institutional framework for entry locations within a defined range.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>BTC daily prints three relative equal lows at $42,000 — perfect sell-side liquidity. Above sit two daily highs at $48,000 — buy-side. NY session opens, BTC sweeps below $41,950 (triggering retail long stops), CVD shows large limit absorption at the wick low, price reclaims $42,000 within 90 minutes, then runs to take out $48,000 over the next four sessions. A textbook two-day liquidity migration. Retail bought breakouts at $48,000 and got handed the bags.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>The cleanest liquidity setup in any market: <em>relative equal highs/lows + an opposing HTF OB or zone</em>. The equal levels guarantee retail liquidity sits there; the HTF OB tells you which way the institution wants to go after the raid. Combine these two and your win rate climbs into the 70-80% range with conservative sizing.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Liquidity logic breaks down during macro shock events — wars, central bank emergency actions, exchange hacks. Algorithmic delivery models are paused or overridden; price moves on pure forced flow. Always know the macro calendar; sit out the 30 minutes around tier-1 news.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Liquidity isn't an indicator — it's the engine. The trader who can map buy-side / sell-side / internal / external liquidity on multiple timeframes is reading the institutional delivery model in real time. Everything else (structure, zones, OBs) is just confirmation of what the liquidity map already said.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub1">Mark Complete</button>
+        <a class="next-btn" href="#sub2">Next: Institutional Tactics →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 3.2 ============ -->
+    <article class="subtopic" id="sub2">
+      <div class="sub-badge">Lesson 3.2</div>
+      <h2 class="sub-title">Institutional Tactics</h2>
+
+      <div class="lvl-tabs" data-target="sub2">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>Imagine you want to buy 1,000 cars at the lowest possible price. If you just walked into a dealership and shouted, "I want 1,000 cars!" the price would shoot up immediately — every dealer would gouge you. So instead, you'd quietly drop hints, panic some buyers into selling early, or wait for everyone else to leave the lot before making your move.</p>
+        <p>Banks and hedge funds do exactly that, but with stocks, crypto, and currency pairs. Their orders are too big to just slam through the market — so they use tactics to <em>create the conditions</em> they need to fill their positions without paying more than they should.</p>
+        <p>The two most common tactics: (1) <strong>scare retail traders into selling</strong> so the institution can buy cheap, and (2) <strong>excite retail traders into buying</strong> so the institution can sell expensive. Both feel completely normal to retail in the moment. As a beginner, just knowing this exists is enough — over time you'll learn to spot it.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Institutions</dt><dd>Banks, hedge funds, market makers — the big players.</dd>
+            <dt>Retail Traders</dt><dd>Individual traders like you and me — the small players.</dd>
+            <dt>Smart Money</dt><dd>Slang for institutions or anyone trading like one.</dd>
+            <dt>Manipulation</dt><dd>Intentional moves designed to trigger retail reactions.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Bitcoin spikes down 5% suddenly, headlines scream "BTC CRASHES" — retail panics and sells. An hour later, BTC is back where it started and continues upward. Who bought the panic? The institutions who engineered the wick. They turned retail fear into their cheap entries.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>You are not alone on the chart. Behind every move is someone bigger trying to manipulate the smaller players into the wrong action. Pause before you react emotionally — the trade that "feels obvious" is often the trap.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Institutional tactics revolve around three repeatable patterns. <strong>Stop hunts</strong> push price beyond an obvious S/R or swing point to trigger retail stops, then reverse — providing institutional fills from the panic exits. <strong>Fakeouts</strong> let price briefly close beyond a key level (sometimes for 1-3 candles), pulling in breakout traders, then trapping them with a reversal. <strong>Wyckoff schematics</strong> are multi-week accumulation or distribution cycles where institutions slowly build positions while disguising their intent across several distinct phases (PS, SC, AR, ST, Spring, LPS, SOS).</p>
+        <p>Recognizing these tactics requires <em>thinking in terms of what retail does</em>, not what you'd do. Where would a chart-pattern trader buy a breakout? Where would a support-bounce trader buy the dip? Where would a momentum chaser jump on a trending candle? Those are the exact zones institutions target — because those are where retail capital is mispriced and ready to be harvested.</p>
+        <p>The single most repeatable intermediate trick: <strong>the Asian session liquidity grab</strong>. Asian session prints a tight range. London open sweeps one side of that range to grab stops, then NY session delivers the real directional move toward the opposite liquidity. Mapping this daily flow turns "random intraday volatility" into a predictable narrative.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Stop Hunt</dt><dd>Deliberate sweep of stop-loss clusters.</dd>
+            <dt>Fakeout / Failed Breakout</dt><dd>Brief close beyond a key level followed by reversal.</dd>
+            <dt>Wyckoff Schematic</dt><dd>Multi-phase institutional accumulation or distribution pattern.</dd>
+            <dt>Spring</dt><dd>Wyckoff term for the final liquidity sweep before markup; high-conviction long signal.</dd>
+            <dt>Upthrust</dt><dd>Wyckoff term for the final sweep before markdown; high-conviction short signal.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>NAS100 prints a tight Asian range between 17,200 and 17,260. London open sweeps to 17,180 (triggering breakout-short stops above and long stops below the Asian low). Price reclaims 17,200 within 20 minutes. NY session opens, runs price to 17,320 — the opposite Asian range liquidity plus a previous-day high. Two hours, 120 points, mechanical execution of the daily delivery model.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>When you see a sweep of stops followed by a fast reclaim of the level (within 1-3 candles), that's institutional accumulation/distribution in real time. Trade the reclaim, not the sweep — entering at the sweep low/high is gambling on reversal; entering on the reclaim is acting on confirmation.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Institutions don't trade against you randomly — they execute repeatable algorithms designed to harvest retail liquidity. Learn the Asian-London-NY delivery model and the Wyckoff schematic, and you'll start to see why setups that look "obvious" to retail are exactly the ones that fail.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>Institutional tactics are not malice — they are the unavoidable mechanics of executing size in markets that lack natural liquidity at every price. A pension fund needing to buy 500,000 shares can't just bid at market; doing so would move price 5-8% before the fill, devastating execution quality. So they algorithmically engineer counter-flow: spoof opposite-side intent on the DOM, route partial fills across dark pools, time pushes during low-liquidity windows to create false volatility that pulls retail to the opposite side, then execute their real intent into that artificially manufactured counter-flow.</p>
+        <p>At the highest level, the framework is <strong>Power of 3 (PO3)</strong>: every market session and every day has three phases — <strong>Accumulation</strong> (a tight range where institutions build inventory), <strong>Manipulation</strong> (a sweep against the eventual direction to harvest stops and disguise intent), and <strong>Distribution</strong> (the actual directional move that pays the institution). Memorizing PO3 transforms intraday trading: you stop predicting direction and start identifying which phase you're in.</p>
+        <p>Track <strong>Smart Money Reversals (SMR)</strong>: a sweep + CHoCH + return to FVG / OB sequence. SMRs are the cleanest institutional fingerprint on any timeframe — when you see all three components stack in order, the probability of a multi-R directional move increases dramatically. Build your entire intraday playbook around SMRs and pass on everything else.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>PO3 (Power of 3)</dt><dd>Accumulation → Manipulation → Distribution; daily/session structure.</dd>
+            <dt>Spoofing</dt><dd>Placing fake large orders on the DOM to mislead; canceled before fill.</dd>
+            <dt>Dark Pools</dt><dd>Private venues where large institutional orders cross without public visibility.</dd>
+            <dt>SMR</dt><dd>Smart Money Reversal — sweep + CHoCH + retest of OB/FVG.</dd>
+            <dt>Algorithmic Delivery Model</dt><dd>The repeatable session-by-session sequence institutions use to deliver price to liquidity targets.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>NQ futures: Asian range 16,800-16,840 (Accumulation). London open spikes to 16,760, triggering long stops (Manipulation). 16,800 reclaimed by 8:55 NY time. 9:30 NY open, NQ runs to 16,970 over three hours (Distribution) — the daily true move. PO3 executed precisely. Expert traders saw the manipulation low, waited for the OB-mitigation entry near 16,820, sized 1% risk for a 5R target. Retail shorted the manipulation low expecting continuation; their stops fueled the NY rally.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Institutional tactics aren't always against retail — sometimes they create generous setups <em>for</em> aligned traders. If you can identify the manipulation phase before NY open, the entry zone is handed to you. Treat your job as the institution's quiet partner, not their adversary.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Algorithmic delivery models break down during holidays, illiquid hours (e.g. crypto early Sunday UTC), and bracketed news events. Don't force PO3 patterns on every session — when liquidity is thin, the algorithms are off and price moves are dominated by retail/whale noise, which is much harder to model.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Institutional tactics are the daily algorithmic delivery of liquidity. PO3 is the schematic, SMR is the high-conviction entry signal, and your edge comes from aligning your sizing and timing with these mechanics — not fighting them. Pros surf the algos; retail gets surfed by them.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub2">Mark Complete</button>
+        <a class="next-btn" href="#sub3">Next: Impact on Execution →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 3.3 ============ -->
+    <article class="subtopic" id="sub3">
+      <div class="sub-badge">Lesson 3.3</div>
+      <h2 class="sub-title">Impact on Trade Execution</h2>
+
+      <div class="lvl-tabs" data-target="sub3">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>You finally see a clean setup. You hit "buy market" — and instead of getting filled at the price you saw, you got filled 0.3% worse. That's <strong>slippage</strong>, and it's a direct cost of trading in a low-liquidity moment. Liquidity impacts every single trade you take: when you enter, where your stop fills, how much your spread costs, and how fast you can exit when you need to.</p>
+        <p>Two simple rules will save you a lot of money early on. First, <strong>use limit orders instead of market orders</strong> whenever possible. Limit orders let you specify the exact price you'll accept, eliminating slippage. Second, <strong>trade during liquid sessions</strong> — for forex, that's London and New York overlap (around 8am-12pm New York time). For US stocks, that's the first 90 minutes and last 30 minutes of the regular session.</p>
+        <p>If you ever find yourself trading at 3am local time in some exotic currency pair, you're paying massive hidden costs on every trade. Liquidity is a tax: thin liquidity, big tax. Thick liquidity, small tax.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Slippage</dt><dd>Difference between expected and actual fill price.</dd>
+            <dt>Spread</dt><dd>The gap between bid (sell) and ask (buy) prices — your immediate cost.</dd>
+            <dt>Market Order</dt><dd>Buy/sell immediately at whatever price is available.</dd>
+            <dt>Limit Order</dt><dd>Buy/sell only at a specified price or better.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>You market-buy a low-cap crypto at $0.045. Your screen showed $0.0451 just before. Your fill comes back at $0.0468 — you just paid 3.7% over the visible price because there wasn't enough sell-side liquidity at $0.045 to fill your size. That 3.7% is your hidden liquidity tax — and on a $1,000 trade, that's $37 you'll never see again.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Liquidity affects every dollar of every trade. Use limit orders, trade during peak hours, and stick to liquid markets. The trader who ignores execution quality is constantly bleeding small amounts that compound into big losses over a year.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Beyond simple slippage, liquidity directly shapes the <em>R-multiple</em> of every trade. A wide spread eats into your reward; thin volume causes stop hunts that take you out at suboptimal prices. The intermediate trader's framework: always size position not just by stop distance but by <strong>liquidity-adjusted stop distance</strong>. If you're trading a thin asset, your real stop needs to be 1.5-2x wider than the technical stop, because spread + slippage + minor stop runs will routinely trigger a tight stop without invalidating the trade thesis.</p>
+        <p>The four execution windows to know cold: <strong>Asian session</strong> (low volatility, decent for range trades but bad for trend trades), <strong>London open</strong> (8am London = 3am NY) — high volatility, frequent liquidity sweeps, the day's directional bias often gets established here. <strong>NY pre-market</strong> (3am-9:30am NY) — lower volume, choppy. <strong>NY open through power hour</strong> (9:30am-11am NY, plus 3-4pm NY) — best execution quality, deepest liquidity, cleanest moves. Most experienced traders take the bulk of their setups in these two windows.</p>
+        <p>Manage exits using <strong>liquidity-based targets</strong>: instead of arbitrary R-multiple goals, target the next obvious liquidity pool (previous swing high/low, equal lows/highs, session high/low). These are the points algorithms are programmed to deliver price to — your target sits where the market is mechanically motivated to push the asset.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>R-Multiple</dt><dd>Profit/loss expressed as multiples of initial risk (R).</dd>
+            <dt>Liquidity-Adjusted Stop</dt><dd>Technical stop widened to account for spread and slippage on thin assets.</dd>
+            <dt>Liquidity-Based Target</dt><dd>Take-profit at the next obvious liquidity pool, not arbitrary distances.</dd>
+            <dt>Killzones</dt><dd>The London Open, NY AM and NY PM windows where institutional flow concentrates.</dd>
+            <dt>Order Flow Imbalance</dt><dd>Visible CVD divergence; high-conviction reversal signal at liquidity events.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>You long ETH at $2,400 with a 4H demand zone. Technical stop is $2,380 (1.7R risk). Wide weekend spreads + thin Sunday volume = your "stop" actually fills around $2,372. By widening your stop to $2,365 (true liquidity-adjusted level) and reducing position size proportionally, you preserve the trade through the chop and capture the $2,490 target. Same idea, executed for the real market not the imagined one.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Always check the spread <em>just before</em> entering — particularly at session opens and around news. If the spread suddenly widens 2-3x normal, the market makers are pricing in volatility and your execution will get punished. Wait for the spread to normalize, then enter.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Trade your entries inside killzones, size with liquidity-adjusted stops, and target liquidity pools instead of arbitrary R multiples. These three adjustments alone can elevate a 1.5R-average system into a 3R+ system because you're aligning execution with how the market actually delivers price.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>At the institutional level, execution is its own alpha discipline. Top hedge funds spend millions optimizing it — algorithmic order routing, dark-pool participation, latency arbitrage, VWAP/TWAP/POV slicing — because for size, execution quality often exceeds strategy alpha. The retail equivalent is to internalize a simple truth: <strong>your edge is finite, and execution costs are a constant tax against it</strong>. A 60% win-rate system with a 0.1% per-trade execution leak is a 50% win-rate system net.</p>
+        <p>Build a per-asset <strong>execution profile</strong>: average spread by hour, average slippage by size, killzone reaction quality, news event behavior. Trade only in conditions that match your edge's profile. ES futures and BTC during NY open behave nothing like USD/CAD during Asian session — yet retail traders run the same strategy across all of them and wonder why R deteriorates.</p>
+        <p>Master <strong>multi-leg execution</strong>: enter partial size on first signal, add on confirmation, scale out into liquidity. This pyramid approach reduces slippage on each chunk, leverages favorable price action, and lets winners run further while small initial size limits damage on failed setups. Single-shot all-in entries are the retail standard; tiered execution is the professional default.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Execution Alpha</dt><dd>Returns generated purely from better trade implementation, separate from signal quality.</dd>
+            <dt>VWAP/TWAP/POV</dt><dd>Algorithmic order slicing methods institutions use to minimize impact.</dd>
+            <dt>Multi-Leg Execution</dt><dd>Splitting entry/exit into multiple tranches based on confirmation and liquidity.</dd>
+            <dt>Per-Asset Execution Profile</dt><dd>Historical map of spread, slippage, and reaction by time-of-day and condition.</dd>
+            <dt>Latency Alpha</dt><dd>Institutional execution edge from sub-millisecond order routing — unattainable for retail.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>A fund needs to accumulate 1M ES futures over 4 hours. Direct market-buy would move price 1.5%. Instead, the algorithm slices the order into 480 micro-tranches, paces them with VWAP, opportunistically increases participation during liquidity events (NY open, fixings), and pauses during low-volume windows. Average execution: 0.07% better than VWAP. On $200M of notional, that's $140k of pure execution alpha per session. The retail equivalent: tier your entries to mimic this principle on your own scale.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Calculate your <em>true cost per trade</em>: spread + commission + average slippage + funding/swap if held overnight. Multiply by trade frequency. If that number exceeds 20% of your average R-multiple, your strategy isn't bad — your execution is. Fix execution first; signal-tuning compounds nothing while you're bleeding through transaction costs.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Don't use limit orders blindly when chasing institutional flow. If institutions are aggressively eating offers, your limit order will sit unfilled while the market runs without you. Use limit-on-touch or marketable limits — split the difference: take some slippage but guarantee the fill.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Execution is alpha. Build per-asset execution profiles, tier your entries, target liquidity pools, and treat slippage as the silent killer of compounding. Your strategy isn't competing with other strategies — it's competing with itself net of frictions. Win that fight first.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub3">Mark Complete</button>
+        <a class="next-btn" href="section-4-risk-management.html">Next Section: Risk Management →</a>
+      </div>
+    </article>
+
+    <div class="section-nav">
+      <a href="section-2-supply-demand.html">
+        <div class="label">← Previous</div>
+        <div class="name">02 · Supply &amp; Demand</div>
+      </a>
+      <a href="section-4-risk-management.html" class="next">
+        <div class="label">Next Section →</div>
+        <div class="name">04 · Risk Management</div>
+      </a>
+    </div>
+  </main>
+</div>
+
+<button class="totop" id="totop" title="Scroll to top">↑</button>
+
+<script>
+(function(){
+  const KEY='tm2026_progress';const SEC_ID='s3';const SUBS=['sub1','sub2','sub3'];
+  function loadAll(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+  function saveAll(d){localStorage.setItem(KEY,JSON.stringify(d))}
+  function getSec(){const d=loadAll();return d[SEC_ID]||{}}
+  function setSec(s){const d=loadAll();d[SEC_ID]=s;saveAll(d)}
+  document.querySelectorAll('.lvl-tabs').forEach(group=>{
+    const subId=group.dataset.target;const article=document.getElementById(subId);
+    group.querySelectorAll('.lvl-tab').forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        group.querySelectorAll('.lvl-tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');const lvl=tab.dataset.lvl;
+        article.querySelectorAll('.lvl-panel').forEach(p=>{p.classList.toggle('active',p.dataset.lvl===lvl)});
+      });
+    });
+  });
+  function refreshMarks(){
+    const sec=getSec();let done=0;
+    SUBS.forEach(id=>{
+      const btn=document.querySelector(`.mark-btn[data-mark="${id}"]`);
+      const navItem=document.querySelector(`.subnav[data-id="${id}"]`);
+      if(sec[id]){if(btn){btn.classList.add('done');btn.textContent='Completed'}if(navItem){navItem.classList.add('done')}done++}
+      else{if(btn){btn.classList.remove('done');btn.textContent='Mark Complete'}if(navItem){navItem.classList.remove('done')}}
+    });
+    const pct=Math.round((done/SUBS.length)*100);
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.getElementById('progressText').textContent=pct+'%';
+  }
+  document.querySelectorAll('.mark-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{const id=btn.dataset.mark;const sec=getSec();sec[id]=!sec[id];setSec(sec);refreshMarks()});
+  });
+  const subs=SUBS.map(id=>document.getElementById(id));
+  function onScroll(){
+    const y=window.scrollY+150;let current=subs[0]?.id;
+    subs.forEach(s=>{if(s&&s.offsetTop<=y)current=s.id});
+    document.querySelectorAll('.subnav').forEach(a=>{a.classList.toggle('active',a.dataset.id===current)});
+    document.getElementById('totop').classList.toggle('show',window.scrollY>500);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{const tgt=document.querySelector(a.getAttribute('href'));if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth',block:'start'})}});
+  });
+  document.getElementById('totop').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+  document.getElementById('hamb').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open')});
+  refreshMarks();onScroll();
+})();
+</script>
+</body>
+</html>

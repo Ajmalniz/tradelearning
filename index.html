@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trading Masterclass Hub — Choose Your Path</title>
 <style>
-:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--teal:#00bcd4;--purple:#9333ea;--pink:#ec4899;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--teal:#00bcd4;--purple:#9333ea;--pink:#ec4899;--gold:#f0a500;--mastery-teal:#00d4aa;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;min-height:100vh}
 a{color:inherit;text-decoration:none}
@@ -14,15 +14,16 @@ a{color:inherit;text-decoration:none}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(147,51,234,0.07) 0%,transparent 60%)}
 .hero-badge{display:inline-block;background:rgba(147,51,234,0.12);border:1px solid rgba(147,51,234,0.3);color:var(--purple);padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:22px}
 .hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;background:linear-gradient(135deg,#fff 0%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
-.hero p{font-size:1.1rem;color:var(--dim);max-width:560px;margin:0 auto}
+.hero p{font-size:1.1rem;color:var(--dim);max-width:620px;margin:0 auto}
 
-.container{max-width:1000px;margin:0 auto;padding:60px 20px}
+.container{max-width:1280px;margin:0 auto;padding:60px 20px}
 .section-label{text-align:center;font-size:13px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:40px;font-weight:600}
 
-.paths{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:60px}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:60px}
+@media(max-width:1024px){.paths{grid-template-columns:1fr 1fr}}
 @media(max-width:680px){.paths{grid-template-columns:1fr}}
 
-.path-card{border-radius:20px;padding:36px 32px;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.path-card{border-radius:20px;padding:32px 28px;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .path-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
 .path-fabio{background:linear-gradient(135deg,rgba(13,20,33,0.9),rgba(22,32,48,0.9));border:1px solid rgba(0,188,212,0.25)}
 .path-fabio::before{background:linear-gradient(90deg,var(--teal),var(--green))}
@@ -30,48 +31,61 @@ a{color:inherit;text-decoration:none}
 .path-tori{background:linear-gradient(135deg,rgba(13,20,33,0.9),rgba(22,32,48,0.9));border:1px solid rgba(147,51,234,0.25)}
 .path-tori::before{background:linear-gradient(90deg,var(--purple),var(--pink))}
 .path-tori:hover{border-color:rgba(147,51,234,0.5);box-shadow:0 20px 60px rgba(147,51,234,0.1);transform:translateY(-4px)}
+.path-mastery{background:linear-gradient(135deg,rgba(13,20,33,0.9),rgba(22,32,48,0.9));border:1px solid rgba(0,212,170,0.25)}
+.path-mastery::before{background:linear-gradient(90deg,var(--mastery-teal),var(--gold))}
+.path-mastery:hover{border-color:rgba(0,212,170,0.5);box-shadow:0 20px 60px rgba(0,212,170,0.1);transform:translateY(-4px)}
 
-.instructor-tag{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:22px;width:fit-content}
+.instructor-tag{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:20px;width:fit-content}
 .tag-fabio{background:rgba(0,188,212,0.1);border:1px solid rgba(0,188,212,0.3);color:var(--teal)}
 .tag-tori{background:rgba(147,51,234,0.1);border:1px solid rgba(147,51,234,0.3);color:var(--purple)}
+.tag-mastery{background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);color:var(--mastery-teal)}
 
-.path-card h2{font-size:1.6rem;font-weight:800;margin-bottom:10px;line-height:1.2}
-.path-card .subtitle{font-size:0.95rem;color:var(--dim);margin-bottom:24px;line-height:1.6}
+.path-card h2{font-size:1.45rem;font-weight:800;margin-bottom:10px;line-height:1.2}
+.path-card .subtitle{font-size:0.92rem;color:var(--dim);margin-bottom:22px;line-height:1.55}
 
-.path-stats{display:flex;gap:20px;margin-bottom:28px;flex-wrap:wrap}
+.path-stats{display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap}
 .path-stat{text-align:center}
-.path-stat-num{font-size:1.5rem;font-weight:800}
-.path-stat-lbl{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.path-stat-num{font-size:1.4rem;font-weight:800}
+.path-stat-lbl{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
 .fabio-stat .path-stat-num{color:var(--teal)}
 .tori-stat .path-stat-num{color:var(--purple)}
+.mastery-stat .path-stat-num{color:var(--mastery-teal)}
 
-.path-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
-.ptag{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:4px 10px;font-size:12px;color:var(--dim)}
+.path-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.ptag{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:4px 9px;font-size:11px;color:var(--dim)}
 
-.path-highlights{margin-bottom:28px}
-.path-highlights li{list-style:none;padding:5px 0 5px 20px;position:relative;font-size:14px;color:var(--dim);border-bottom:1px solid rgba(30,48,80,0.4)}
+.path-highlights{margin-bottom:24px}
+.path-highlights li{list-style:none;padding:5px 0 5px 20px;position:relative;font-size:13px;color:var(--dim);border-bottom:1px solid rgba(30,48,80,0.4)}
 .path-highlights li:last-child{border-bottom:none}
 .path-highlights li::before{position:absolute;left:0;font-weight:700}
 .path-fabio .path-highlights li::before{content:'→';color:var(--teal)}
 .path-tori .path-highlights li::before{content:'→';color:var(--purple)}
+.path-mastery .path-highlights li::before{content:'→';color:var(--mastery-teal)}
 
-.enter-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:700;margin-top:auto;transition:all .2s}
+.enter-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:10px;font-size:14px;font-weight:700;margin-top:auto;transition:all .2s}
 .btn-fabio{background:rgba(0,188,212,0.12);border:1px solid rgba(0,188,212,0.35);color:var(--teal)}
 .btn-fabio:hover{background:rgba(0,188,212,0.22)}
 .btn-tori{background:rgba(147,51,234,0.12);border:1px solid rgba(147,51,234,0.35);color:var(--purple)}
 .btn-tori:hover{background:rgba(147,51,234,0.22)}
+.btn-mastery{background:rgba(0,212,170,0.12);border:1px solid rgba(0,212,170,0.35);color:var(--mastery-teal)}
+.btn-mastery:hover{background:rgba(0,212,170,0.22)}
+
+.new-badge{display:inline-block;background:linear-gradient(90deg,var(--mastery-teal),var(--gold));color:#0a0e1a;font-size:10px;font-weight:800;letter-spacing:.8px;padding:3px 10px;border-radius:99px;margin-left:8px;vertical-align:middle}
 
 .compare-section{margin-top:10px}
 .compare-title{text-align:center;font-size:1.1rem;font-weight:700;margin-bottom:20px;color:var(--dim)}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden}
-@media(max-width:560px){.compare-grid{grid-template-columns:1fr}}
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+@media(max-width:880px){.compare-grid{grid-template-columns:1fr}}
 .compare-col{padding:0}
-.compare-head{padding:14px 20px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.compare-head{padding:14px 18px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
 .compare-head.fabio-head{background:rgba(0,188,212,0.08);color:var(--teal);border-bottom:1px solid var(--border)}
-.compare-head.tori-head{background:rgba(147,51,234,0.08);color:var(--purple);border-bottom:1px solid var(--border);border-left:1px solid var(--border)}
-.compare-row{padding:10px 20px;font-size:13px;border-bottom:1px solid rgba(30,48,80,0.5)}
+.compare-head.tori-head{background:rgba(147,51,234,0.08);color:var(--purple);border-bottom:1px solid var(--border)}
+.compare-head.mastery-head{background:rgba(0,212,170,0.08);color:var(--mastery-teal);border-bottom:1px solid var(--border)}
+.compare-row{padding:10px 18px;font-size:12.5px;border-bottom:1px solid rgba(30,48,80,0.5)}
 .compare-row:last-child{border-bottom:none}
-.compare-col:last-child .compare-row{border-left:1px solid rgba(30,48,80,0.5)}
+@media(min-width:881px){
+  .compare-col + .compare-col{border-left:1px solid var(--border)}
+}
 
 .quote-strip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:50px 0 0;text-align:center}
 .quote-strip p{font-size:1rem;font-style:italic;color:var(--dim);margin-bottom:6px}
@@ -85,7 +99,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;co
 <div class="hero">
   <div class="hero-badge">Choose Your Path</div>
   <h1>Trading Masterclass Hub</h1>
-  <p>Two complete, self-contained trading courses. Pick the methodology that resonates with you — or study both.</p>
+  <p>Three complete, self-contained trading courses. Pick the methodology that resonates with you — or study all three to build a complete trader's mindset.</p>
 </div>
 
 <div class="container">
@@ -154,39 +168,77 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;co
       <a class="enter-btn btn-tori" href="tori/index.html">Enter Tori's Course →</a>
     </div>
 
+    <!-- TRADING MASTERY 2026 PATH -->
+    <div class="path-card path-mastery">
+      <div class="instructor-tag tag-mastery">🏆 Trading Mastery 2026<span class="new-badge">NEW</span></div>
+      <h2>Stock · Crypto · Forex</h2>
+      <p class="subtitle">A complete dual-path curriculum that takes you from absolute beginner to expert. Every lesson has 3 difficulty tiers — read what fits you today, return to deeper levels as you grow.</p>
+
+      <div class="path-stats">
+        <div class="path-stat mastery-stat"><div class="path-stat-num">24</div><div class="path-stat-lbl">Lessons</div></div>
+        <div class="path-stat mastery-stat"><div class="path-stat-num">8</div><div class="path-stat-lbl">Sections</div></div>
+        <div class="path-stat mastery-stat"><div class="path-stat-num">3 Tier</div><div class="path-stat-lbl">Levels</div></div>
+      </div>
+
+      <div class="path-tags">
+        <span class="ptag">📈 Market Structure</span>
+        <span class="ptag">🛡️ Risk Mgmt</span>
+        <span class="ptag">🧠 Psychology</span>
+        <span class="ptag">🕯️ Patterns</span>
+      </div>
+
+      <ul class="path-highlights">
+        <li>Beginner → Intermediate → Expert toggle on every lesson</li>
+        <li>Market structure, supply &amp; demand, liquidity sweeps</li>
+        <li>Position sizing formulas, Kelly Criterion, stop strategies</li>
+        <li>Fear/greed mastery, common-mistake playbook</li>
+        <li>Candlestick patterns + build your own personal strategy</li>
+      </ul>
+
+      <a class="enter-btn btn-mastery" href="trading-course.html">Enter Trading Mastery 2026 →</a>
+    </div>
+
   </div>
 
   <div class="compare-section">
     <p class="compare-title">Not sure which to pick? Here's a quick comparison</p>
     <div class="compare-grid">
       <div class="compare-col">
-        <div class="compare-head fabio-head">⚡ Fabio — Liquidity &amp; Order Flow</div>
+        <div class="compare-head fabio-head">⚡ Fabio — Liquidity</div>
         <div class="compare-row">Best for: Data-driven, tech-focused traders</div>
-        <div class="compare-row">Tool: Liquidity Heat Map + Order Book</div>
+        <div class="compare-row">Tool: Heat Map + Order Book</div>
         <div class="compare-row">Style: NASDAQ scalping / fast markets</div>
         <div class="compare-row">Pace: Fast — multiple signals per session</div>
-        <div class="compare-row">Strength: Seeing exactly where orders sit</div>
+        <div class="compare-row">Strength: Seeing where orders actually sit</div>
       </div>
       <div class="compare-col">
-        <div class="compare-head tori-head">✨ Tori — Trend Line Trading</div>
+        <div class="compare-head tori-head">✨ Tori — Trend Lines</div>
         <div class="compare-row">Best for: Visual, rule-following traders</div>
-        <div class="compare-row">Tool: Ray Tool (trend lines) on any chart</div>
-        <div class="compare-row">Style: Any market — stocks, crypto, futures</div>
+        <div class="compare-row">Tool: Ray Tool on any chart</div>
+        <div class="compare-row">Style: Stocks, crypto, futures — any market</div>
         <div class="compare-row">Pace: Patient — wait for the right break</div>
         <div class="compare-row">Strength: Simple system you can repeat daily</div>
+      </div>
+      <div class="compare-col">
+        <div class="compare-head mastery-head">🏆 Mastery 2026 — Full Curriculum</div>
+        <div class="compare-row">Best for: New traders + ambitious learners</div>
+        <div class="compare-row">Tool: Structured 3-tier knowledge base</div>
+        <div class="compare-row">Style: All markets, all timeframes</div>
+        <div class="compare-row">Pace: Self-paced — beginner to expert</div>
+        <div class="compare-row">Strength: Complete journey in one place</div>
       </div>
     </div>
   </div>
 
   <div class="quote-strip">
-    <p>"The market rewards patience, discipline, and a repeatable process. Both paths lead there — the question is which system clicks for you."</p>
-    <cite>— Study both. Apply one. Master it.</cite>
+    <p>"The market rewards patience, discipline, and a repeatable process. All three paths lead there — the question is which system clicks for you."</p>
+    <cite>— Study all three. Apply one. Master it.</cite>
   </div>
 
 </div>
 
 <footer>
-  <p>Trading Masterclass Hub · Fabio's Liquidity &amp; Order Flow · Tori's Trend Line Trading</p>
+  <p>Trading Masterclass Hub · Fabio's Liquidity &amp; Order Flow · Tori's Trend Line Trading · Trading Mastery 2026</p>
 </footer>
 
 </body>

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 6 · Common Trading Mistakes — Trading Mastery 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--bg-2:#10162a;--card:#11182c;--border:rgba(255,255,255,.08);--teal:#00d4aa;--gold:#f0a500;--red:#ff4757;--blue:#3b9eff;--purple:#a36bff;--text:#e7ecf3;--muted:#8a96ab}
+html,body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;line-height:1.7;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 10% 0%,rgba(255,71,87,.08),transparent 60%),radial-gradient(800px 600px at 90% 80%,rgba(240,165,0,.06),transparent 60%)}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.01em;line-height:1.2}
+a{color:inherit;text-decoration:none}p{color:#cdd5e2}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,14,26,.78);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1480px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--gold));display:grid;place-items:center;font-weight:800;color:#0a0e1a;font-size:13px}
+.brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:16px}
+.brand-sub{font-size:11px;color:var(--muted)}
+.back-link{color:var(--muted);font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;transition:.2s}
+.back-link:hover{color:var(--teal);border-color:var(--teal)}
+.progress-wrap{flex:1;max-width:300px}
+.progress-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.progress-bar{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px;transition:width .5s ease;width:0%}
+.hamb{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+.layout{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 70px)}
+.sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;padding:28px 24px;border-right:1px solid var(--border)}
+.sidebar h4{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);margin-bottom:14px;font-weight:600}
+.sec-meta-block{padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);margin-bottom:24px}
+.sec-meta-block .num{font-family:'Syne',sans-serif;font-size:12px;letter-spacing:.18em;color:var(--teal);font-weight:700}
+.sec-meta-block .title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-top:4px}
+.sidebar ul{list-style:none}
+.sidebar li{margin:4px 0}
+.sidebar a.subnav{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;color:var(--muted);transition:.2s;cursor:pointer;border:1px solid transparent}
+.sidebar a.subnav:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.sidebar a.subnav.active{color:var(--teal);background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2)}
+.sidebar a.subnav .dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.15);flex-shrink:0}
+.sidebar a.subnav.done .dot{background:var(--teal)}
+.sidebar a.subnav.done::after{content:'✓';margin-left:auto;color:var(--teal);font-size:12px}
+.section-jump{margin-top:30px;padding-top:24px;border-top:1px solid var(--border)}
+.section-jump a{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:10px 0}
+.section-jump a:hover{color:var(--teal)}
+.main{padding:50px 60px 80px;max-width:920px}
+.section-intro{margin-bottom:60px}
+.section-intro .eyebrow{display:inline-block;color:var(--red);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(255,71,87,.3);border-radius:99px;margin-bottom:18px}
+.section-intro h1{font-size:clamp(34px,4.5vw,52px);font-weight:800;margin-bottom:16px}
+.section-intro h1 span{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-intro .lede{color:var(--muted);font-size:17px;max-width:680px}
+.divider{display:flex;align-items:center;gap:14px;margin:50px 0 36px}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent)}
+.divider svg{flex-shrink:0;opacity:.5}
+.subtopic{padding:36px 0;border-top:1px solid var(--border);scroll-margin-top:90px}
+.subtopic:first-of-type{border-top:none;padding-top:0}
+.sub-badge{font-family:'Syne',sans-serif;font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.sub-title{font-size:clamp(26px,3vw,38px);font-weight:800;margin-bottom:20px}
+.lvl-tabs{display:inline-flex;gap:6px;padding:6px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;margin-bottom:28px;flex-wrap:wrap}
+.lvl-tab{padding:9px 18px;font-size:13px;font-weight:600;font-family:inherit;color:var(--muted);background:none;border:none;border-radius:8px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.lvl-tab .dot{width:8px;height:8px;border-radius:99px;background:currentColor}
+.lvl-tab[data-lvl="beg"].active{background:rgba(0,212,170,.14);color:var(--teal)}
+.lvl-tab[data-lvl="int"].active{background:rgba(59,158,255,.14);color:var(--blue)}
+.lvl-tab[data-lvl="exp"].active{background:rgba(163,107,255,.14);color:var(--purple)}
+.lvl-tab:hover{color:var(--text)}
+.lvl-panel{display:none;animation:fade .4s ease}
+.lvl-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.level-indicator{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.level-indicator.beg{background:rgba(0,212,170,.12);color:var(--teal);border:1px solid rgba(0,212,170,.2)}
+.level-indicator.int{background:rgba(59,158,255,.12);color:var(--blue);border:1px solid rgba(59,158,255,.2)}
+.level-indicator.exp{background:rgba(163,107,255,.12);color:var(--purple);border:1px solid rgba(163,107,255,.2)}
+.lvl-panel p{margin-bottom:16px}
+.lvl-panel h4{font-size:18px;margin:24px 0 12px;color:var(--text)}
+.box{padding:20px 22px;border-radius:12px;margin:22px 0;border:1px solid var(--border)}
+.box .box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.box .icon{font-size:18px}
+.box.keyterms{background:rgba(59,158,255,.04);border-color:rgba(59,158,255,.18)}
+.box.keyterms .box-title{color:var(--blue)}
+.box.keyterms dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14px}
+.box.keyterms dt{font-weight:700;color:var(--text)}
+.box.keyterms dd{color:var(--muted)}
+.box.example{background:rgba(0,212,170,.04);border-color:rgba(0,212,170,.18)}
+.box.example .box-title{color:var(--teal)}
+.box.example p{font-size:14px;color:#dde5f0}
+.box.protip{background:rgba(163,107,255,.05);border-color:rgba(163,107,255,.22)}
+.box.protip .box-title{color:var(--purple)}
+.box.protip p{font-size:14px}
+.box.warning{background:rgba(255,71,87,.05);border-color:rgba(255,71,87,.22)}
+.box.warning .box-title{color:var(--red)}
+.box.warning p{font-size:14px}
+.box.mistake{background:rgba(255,71,87,.04);border:1px solid rgba(255,71,87,.18);border-left:3px solid var(--red);margin:18px 0}
+.box.mistake .box-title{color:var(--red)}
+.box.mistake p{font-size:14px}
+.box.takeaway{background:linear-gradient(180deg,rgba(240,165,0,.06),rgba(240,165,0,.02));border:1px solid rgba(240,165,0,.35);margin-top:30px}
+.box.takeaway .box-title{color:var(--gold);font-size:13px}
+.box.takeaway p{font-size:15px;color:#f0e7d2}
+.plan-template{background:rgba(0,212,170,.04);border:1px solid rgba(0,212,170,.2);border-radius:12px;padding:24px;margin:22px 0;font-size:14px}
+.plan-template h5{font-family:'Syne',sans-serif;color:var(--teal);margin-bottom:12px;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.plan-template ol{margin-left:18px;color:#dde5f0}
+.plan-template li{margin-bottom:8px}
+.sub-footer{display:flex;justify-content:space-between;align-items:center;margin-top:30px;flex-wrap:wrap;gap:14px}
+.mark-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);background:none;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.mark-btn:hover{background:rgba(0,212,170,.1)}
+.mark-btn.done{background:var(--teal);color:#0a0e1a}
+.mark-btn.done::before{content:'✓ '}
+.next-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--gold));color:#0a0e1a;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.next-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,212,170,.25)}
+.section-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:80px;padding-top:40px;border-top:1px solid var(--border)}
+.section-nav a{padding:22px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);transition:.25s}
+.section-nav a:hover{border-color:var(--teal);transform:translateY(-2px)}
+.section-nav .label{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.section-nav .name{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
+.section-nav .next{text-align:right}
+.totop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:99px;background:var(--teal);color:#0a0e1a;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,212,170,.3);z-index:40}
+.totop.show{display:flex}
+@media (max-width:960px){.layout{grid-template-columns:1fr}.sidebar{position:fixed;top:0;left:0;height:100vh;width:280px;z-index:60;background:var(--bg-2);transform:translateX(-100%);transition:transform .3s ease;padding-top:80px}.sidebar.open{transform:translateX(0)}.hamb{display:inline-flex}.main{padding:30px 22px 60px}.brand-sub{display:none}.progress-wrap{max-width:140px}.topbar-inner{padding:12px 18px}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="hamb" id="hamb">☰</button>
+    <div class="brand">
+      <div class="brand-logo">TM</div>
+      <div>
+        <div class="brand-name">Trading Mastery 2026</div>
+        <div class="brand-sub">Section 6 of 8</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-row"><span>Section progress</span><span id="progressText">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <a class="back-link" href="trading-course.html">← Course Home</a>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sec-meta-block">
+      <div class="num">SECTION 06</div>
+      <div class="title">Common Mistakes</div>
+    </div>
+    <h4>Lessons in this section</h4>
+    <ul>
+      <li><a class="subnav" data-id="sub1" href="#sub1"><span class="dot"></span> 6.1 Overview of Mistakes</a></li>
+      <li><a class="subnav" data-id="sub2" href="#sub2"><span class="dot"></span> 6.2 Analysis Paralysis</a></li>
+      <li><a class="subnav" data-id="sub3" href="#sub3"><span class="dot"></span> 6.3 Developing a Plan</a></li>
+    </ul>
+    <div class="section-jump">
+      <h4>Jump to section</h4>
+      <a href="section-5-trading-psychology.html">← Section 5 — Psychology</a>
+      <a href="section-7-chart-patterns.html">Section 7 — Chart Patterns →</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="section-intro">
+      <div class="eyebrow">Section 06 · Avoid the script</div>
+      <h1>Common Trading <span>Mistakes</span></h1>
+      <p class="lede">Every blown trading account follows the same script. The names change, the timeframes vary, but the mistakes repeat themselves across decades and markets. Learning them is faster — and cheaper — than discovering them yourself.</p>
+    </div>
+
+    <!-- ============ SUBTOPIC 6.1 ============ -->
+    <article class="subtopic" id="sub1">
+      <div class="sub-badge">Lesson 6.1</div>
+      <h2 class="sub-title">Overview of Common Mistakes</h2>
+
+      <div class="lvl-tabs" data-target="sub1">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>Almost every beginner trader makes the same handful of mistakes — not because they're foolish but because the mistakes feel like the smart thing to do in the moment. Here are the seven most common ones. Read them carefully, because you'll meet every one of them within your first six months of trading.</p>
+
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">❌</span> Mistake #1: Trading Without a Plan</div>
+          <p>You see a setup, you click buy. No written entry, stop, or target. Whatever happens next is improvisation. This is the single most common reason new traders lose money.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">❌</span> Mistake #2: Risking Too Much Per Trade</div>
+          <p>You risk 10%, 20%, even 50% of your account on a "sure thing." Three losing trades — which are statistically guaranteed at some point — wipe out everything.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">❌</span> Mistake #3: No Stop-Loss</div>
+          <p>You enter without a stop, telling yourself "I'll manage it manually." When price tanks, you freeze and watch a 2% loss become a 15% loss.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">❌</span> Mistake #4: Revenge Trading</div>
+          <p>You take a loss. You're angry. You immediately take another trade — bigger size, worse setup, just to "make it back." It loses too. Now you're really angry. The spiral continues.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">❌</span> Mistake #5: Overtrading</div>
+          <p>You take 15 trades a day on a strategy that produces 3 quality setups a week. Most of those 15 trades are noise — and the spread, commissions, and slippage on them silently bleed your account.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">❌</span> Mistake #6: Switching Strategies Constantly</div>
+          <p>Strategy doesn't work for one week → abandon it for a new YouTube one. New one drawsdown → abandon again. After two months you've tried six strategies, mastered none, and lost on all of them.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">❌</span> Mistake #7: Trading on Tips or News</div>
+          <p>A Twitter influencer says "BUY ETH" — you buy. A news headline reads "INFLATION SPIKES" — you sell. You're trading on someone else's analysis with none of the context. This is gambling, not trading.</p>
+        </div>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Plan</dt><dd>Written entry, stop, target, and position size before any trade.</dd>
+            <dt>Revenge Trade</dt><dd>An emotional trade taken to recover a recent loss.</dd>
+            <dt>Overtrading</dt><dd>Taking trades beyond what edge conditions justify.</dd>
+            <dt>Strategy Hopping</dt><dd>Repeatedly abandoning strategies after small drawdowns.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>A new trader funds a $2,000 account. Week 1: trades on a YouTube signal (no plan). Loses $400. Week 2: revenge-trades to recover, risks 30% (no stop). Loses $500. Week 3: abandons strategy, tries Reddit signals (overtrading). Loses $400. Week 4: pulls out the remaining $700 in disgust. <em>Account dead in 4 weeks</em>. Not because trading is impossible — because every common mistake compounded into the same predictable outcome.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>The seven common mistakes aren't obscure — they're the default human behavior in markets. Read this list weekly for your first six months. Every time you're tempted to act, ask "which of these am I about to do?" Self-awareness is 80% of the cure.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Once beginner mistakes are behind you, a more subtle set of mistakes emerges — and they're harder to spot precisely because they feel like sophisticated trading. The seven intermediate mistakes:</p>
+
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">⚠️</span> Mistake #1: Over-Optimizing the Strategy</div>
+          <p>You keep adding indicators and filters to fix every losing trade in backtest. The result is a strategy perfectly tuned to the past — and useless on tomorrow. Curve-fitting destroys forward edge.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">⚠️</span> Mistake #2: Trading Multiple Uncorrelated Strategies Simultaneously</div>
+          <p>You run a scalping system, a swing system, and a breakout system at the same time. None of them get your full attention. The execution quality on each drops, and confusion takes over.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">⚠️</span> Mistake #3: Ignoring Correlation Risk</div>
+          <p>Three trades, all USD-pairs, all longs on USD weakness. You think it's three 1% trades; it's actually one 3% USD bet. When the dollar surges, all three blow up at once.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">⚠️</span> Mistake #4: Premature Break-Even Moves</div>
+          <p>You move stop to BE at the first sign of profit. Normal pullback hits BE. Trade then runs to your original 3R target without you. Habit cost you years of cumulative edge.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">⚠️</span> Mistake #5: Trading Off the Wrong Timeframe</div>
+          <p>You trade off 5M charts but never check the daily. Your "uptrend setup" was a 5M bullish move inside a daily downtrend. Loss probability multiplied.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">⚠️</span> Mistake #6: Holding Losers, Cutting Winners</div>
+          <p>Loss aversion in action. Winners feel scary so you close at +1R. Losers feel hopeful so you let them run past -2R. The math guarantees a losing system regardless of strategy quality.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">⚠️</span> Mistake #7: Skipping Journals</div>
+          <p>You "kind of remember" your trades. You can't identify your real strengths and weaknesses. You repeat the same leaks for years. Without a journal, you're flying blind on the most important data set you have.</p>
+        </div>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Curve-Fitting</dt><dd>Over-optimization to past data; destroys forward performance.</dd>
+            <dt>Correlation Risk</dt><dd>Hidden concentration when multiple trades depend on the same driver.</dd>
+            <dt>Premature BE</dt><dd>Moving stop to break-even before the trade has earned the protection.</dd>
+            <dt>Timeframe Misalignment</dt><dd>Trading off a timeframe that contradicts the dominant HTF direction.</dd>
+            <dt>Journal Discipline</dt><dd>Systematic logging of every trade for pattern recognition.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>An intermediate trader has a 56% win rate, 1.6R avg winner, 1R avg loser. Expectancy: +0.34R/trade. They start adding filters to eliminate losers in backtest. After three months of tweaking: backtest win rate 71% — but live forward results drop to 42% because the system was over-fit. Returning to the original rules: 56% live, +0.34R/trade. Lesson: simplicity scales; complexity decays.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>If a fix to your strategy adds more than 5 lines of rules, it's probably curve-fitting. The strongest professional strategies fit on a 4×6 index card. If yours needs a spreadsheet, you're probably solving the wrong problem.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>The intermediate mistakes hide inside what looks like sophistication: over-optimization, multiple strategies, correlation, premature exits, timeframe drift, asymmetric exits, no journal. Fixing these is what gets you from breakeven to consistently profitable.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>At the elite level, the mistakes get philosophical. They're not about the chart — they're about the operating system around the chart. Six expert-tier mistakes:</p>
+
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">🧠</span> Mistake #1: Mistaking Variance for Skill (or Lack of It)</div>
+          <p>A great month is read as "I've figured it out." A bad month is "the strategy is broken." Both are noise inside a statistical process. The pro evaluates over 100-trade windows minimum.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">🧠</span> Mistake #2: Scaling Size Too Aggressively After Wins</div>
+          <p>After a winning quarter, doubling size feels obvious. But your edge hasn't doubled — only your variance. A drawdown at the higher size returns more than the prior gain. Scale through pre-defined equity milestones, not feelings.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">🧠</span> Mistake #3: Trading Through Life Stress</div>
+          <p>Job change, breakup, health issue, financial pressure — these are all known performance disruptors. Pros sit out during them. Most retail traders <em>increase</em> activity, hoping markets will fix their lives.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">🧠</span> Mistake #4: Not Adapting to Regime Change</div>
+          <p>Your edge was built in a trending bull market. Now markets are choppy and range-bound. You keep applying the same strategy and bleed slowly. Pros identify regime shifts and either modify execution or stand aside.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">🧠</span> Mistake #5: Not Taking Withdrawals</div>
+          <p>You compound everything, never take profits to your bank, and one drawdown undoes a year of gains. Pros systematically extract profits — every month or quarter — both for financial security and psychological reset.</p>
+        </div>
+        <div class="box mistake">
+          <div class="box-title"><span class="icon">🧠</span> Mistake #6: Coaching Others Before Mastering Self</div>
+          <p>Within months of consistency, traders feel compelled to "share their journey" on social media. Public commentary biases their own analysis (now they need to be right publicly). Stay private until consistency is multi-year and verifiable.</p>
+        </div>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Variance</dt><dd>Statistical noise around expected returns; ≠ skill change.</dd>
+            <dt>Scaling Schedule</dt><dd>Pre-defined account balance milestones at which size increases.</dd>
+            <dt>Regime Change</dt><dd>Structural shift in volatility, correlation, or trend dynamics.</dd>
+            <dt>Profit Extraction</dt><dd>Systematic withdrawals from trading account to bank.</dd>
+            <dt>Public Commitment Bias</dt><dd>Sharing positions publicly anchors your own analysis to your stated view.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>A pro grows a $50k account to $150k in 9 months, never withdraws. Month 10: a regime change he doesn't recognize triggers a 32% drawdown. Account is at $102k. Months 11-15: clawing back to $150k while extracting 25% per quarter from now on. Lesson learned the hard way: profit extraction isn't pessimism, it's the only way to turn paper gains into real life-changing capital. Compounding without extraction is gambling on permanent regime stability — which has never existed.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Build a written "extraction rule": every quarter you take 25-40% of net profits to a separate account (savings, brokerage, anything not used for trading). This forces real-world meaning into your P/L, builds emergency reserves, and dramatically reduces the psychological pressure of any single quarter.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Sometimes the right move is to <em>stop trading entirely</em> for weeks or months. Burnout, life crises, regime shifts you can't read — all valid reasons. The pros distinguish themselves by their willingness to step away. The retail trader thinks they "have to" trade every day to be a trader. They don't, and the pretense costs them everything.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>The expert-tier mistakes are about life integration, regime awareness, and operational hygiene. Don't confuse variance with skill, scale carefully, sit out stress, adapt to regimes, extract profits, and stay private. These behaviors separate the 10-year career from the 18-month flame-out.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub1">Mark Complete</button>
+        <a class="next-btn" href="#sub2">Next: Analysis Paralysis →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 6.2 ============ -->
+    <article class="subtopic" id="sub2">
+      <div class="sub-badge">Lesson 6.2</div>
+      <h2 class="sub-title">Analysis Paralysis</h2>
+
+      <div class="lvl-tabs" data-target="sub2">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p><strong>Analysis paralysis</strong> is when you have so much information in front of you that you can't make any decision at all. You open a chart, slap on 12 indicators, draw 30 lines, check four timeframes, read three news articles — and an hour later you're more confused than when you started. The setup that was clear at first glance is now invisible under all the noise.</p>
+        <p>The instinct most new traders have is wrong: <em>more information equals better decisions</em>. Actually, beyond a certain point, more information equals worse decisions. Your brain has a limited working memory. Stuff too much in, and the important signals get drowned out by trivial ones.</p>
+        <p>The cure is radical simplification. Use 1-2 charts. 0-2 indicators max. One timeframe for bias, one for entry. If a setup isn't obvious within 10 seconds of opening the chart, there isn't one. Move on.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Analysis Paralysis</dt><dd>Inability to act due to information overload.</dd>
+            <dt>Cognitive Load</dt><dd>How much your working memory has to juggle at once.</dd>
+            <dt>Decision Fatigue</dt><dd>Degraded judgment from making too many decisions in a row.</dd>
+            <dt>Signal vs. Noise</dt><dd>Relevant information vs. distracting irrelevant information.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>A new trader opens GBP/JPY. They add MACD, RSI, Bollinger Bands, Stochastic, Ichimoku Cloud, and three moving averages. They draw five trendlines, three Fibonacci grids, and a volume profile. After 40 minutes of "analysis," they don't take the trade because "the signals conflict." Meanwhile, a clean trader looking at the same pair sees a clean break of structure and a defined demand zone — and entered in under a minute. Same chart, opposite outcomes, all caused by clutter.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Less is more. Strip your charts down to the absolute minimum. If a setup isn't clear quickly, there isn't a setup — there's just noise. Trust simplicity; it's the secret weapon of every consistent trader.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Analysis paralysis at the intermediate level usually disguises itself as "thoroughness." You're checking every timeframe, every indicator, three news sources, two correlated assets, the DXY, gold, yields, sentiment data — by the time you've finished your "analysis," the setup that was tradable an hour ago is gone, or you've talked yourself out of it because <em>some</em> input was non-confirming.</p>
+        <p>The fix: define a <strong>maximum analysis stack</strong> in advance. For example: HTF (daily) bias + LTF (15M) trigger + one confluence factor (S/R, Fib, or order block) + one risk check (within daily loss limit). That's it. If those four boxes tick, you take the trade. You do not add a fifth box mid-analysis. You do not bring in correlated assets unless your strategy explicitly requires it. Discipline lives in <em>what you refuse to look at</em>.</p>
+        <p>The deeper issue behind paralysis is the unconscious belief that "more analysis = lower risk." It doesn't. Risk is controlled by sizing, not by analysis quality. Once your sizing is right, the worst case of any single trade is bounded. That mathematical safety net is what allows action — without it, every decision feels like life-or-death.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Maximum Analysis Stack</dt><dd>Pre-defined ceiling on inputs considered before action.</dd>
+            <dt>Confluence Capping</dt><dd>Refusing to require more than N confluence factors; 2-3 is optimal, beyond that = noise.</dd>
+            <dt>Sizing-Mediated Confidence</dt><dd>Acting on partially-confirmed setups because position size is small enough to absorb the variance.</dd>
+            <dt>Decision Timer</dt><dd>Hard limit on time spent analyzing before acting or skipping.</dd>
+            <dt>Trigger Hierarchy</dt><dd>One single condition that, when met, mechanically triggers entry — eliminates further deliberation.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>An intermediate trader sets a 90-second decision timer per setup. The required stack: 4H trend ✓ | 4H demand zone ✓ | 15M CHoCH inside zone ✓ | RR ≥ 2 ✓. If all four are present within 90 seconds → enter. If not → skip and refresh. Over 100 trades, this single rule reduces "I should have entered" trades by ~60% and almost eliminates "I shouldn't have entered" trades. The 90-second discipline is the entire upgrade.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Pre-define a "max indicators on chart" rule (e.g., 0-2). Then physically remove the others from your platform. If they're not there, you can't analyze with them. Architectural minimalism beats willpower minimalism every time.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Build a maximum analysis stack. Cap confluence at 2-3. Use a decision timer. Strip indicators. Trust sizing to handle remaining uncertainty. Action with disciplined small risk beats perfect analysis that arrives too late.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>At the elite level, paralysis is rarely about information overload — it's about <strong>perfectionism</strong>. The trader knows they have an edge but wants every trade to look like an A+ chart-pattern textbook example. The result: 80% of edge-bearing setups get skipped, P/L stagnates, and the trader concludes their strategy "doesn't work" — when in reality it works perfectly for trades they never took.</p>
+        <p>The expert insight: <strong>your edge lives in the average, not the masterpiece</strong>. Take every trade that meets your written criteria, even when it doesn't feel pretty. A B+ setup at 0.5% risk takes nothing away from your A+ at 1% risk — but it adds 30-40% more trades to your sample, which dramatically improves edge expression. The masterpiece trader makes 60 trades a year; the consistent trader makes 200 — same hit rate, dramatically different annual return.</p>
+        <p>Combat paralysis with a <strong>setup-then-execute</strong> structural separation. Phase 1 (analysis window, 15 min): identify potential setups, mark levels, define triggers. Phase 2 (execution window, continuous): when a trigger fires, execute mechanically — no re-analysis allowed. By separating the two phases temporally, you eliminate the analysis loop that consumes intermediate traders. Decision pre-made = decision executable.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Perfectionism Trap</dt><dd>Skipping legitimate edge-bearing setups in pursuit of textbook examples.</dd>
+            <dt>Setup-Execute Separation</dt><dd>Temporal separation of analysis and execution phases.</dd>
+            <dt>Tier-Adjusted Execution</dt><dd>Lower-tier setups taken at smaller size, never skipped if they meet criteria.</dd>
+            <dt>Pre-Mortem Decisioning</dt><dd>Pre-deciding outcomes of common scenarios so live trading is mechanical.</dd>
+            <dt>Action Bias Filtering</dt><dd>Distinguishing legitimate inaction from paralysis-driven inaction.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>A pro reviews her last quarter: 47 trades taken, 71% win rate, +18% return. Reviewing her journal of "trades skipped," she finds 23 setups that met all criteria but were skipped because they "didn't feel clean." Backtesting those: would have added another 19% with the same hit rate. Lesson: her edge was perfectly intact — paralysis cost her more than any single losing trade ever did. Next quarter, rule: every criteria-met setup is taken at minimum risk, regardless of aesthetic.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Set a minimum trade count target per week (e.g., 5-12). If you're below target on Friday, review your skipped trades — were they paralysis or legitimate? This subtle "action-bias" balances the standard discipline of "trade less" with the reality that elite traders also need to <em>take the trades they earned</em>.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Be wary of "I'm just being patient" rationalizations. Patience is skipping non-criteria setups; paralysis is skipping criteria-met setups. The two feel identical from the inside — only your journal of skipped trades can tell them apart. Review weekly.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Expert-tier paralysis is perfectionism. Edge lives in the average, not the masterpiece. Separate setup from execution, tier-adjust sizing instead of skipping, and audit skipped trades weekly. The pros who outperform peers with similar strategies do so primarily by taking more of the trades their own rules earned.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub2">Mark Complete</button>
+        <a class="next-btn" href="#sub3">Next: Developing a Trading Plan →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 6.3 ============ -->
+    <article class="subtopic" id="sub3">
+      <div class="sub-badge">Lesson 6.3</div>
+      <h2 class="sub-title">Developing a Trading Plan</h2>
+
+      <div class="lvl-tabs" data-target="sub3">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>A <strong>trading plan</strong> is a written document that says exactly what you will trade, when you will trade it, how much you will risk, and what you will do under different conditions. Without it, you're improvising. With it, you're operating a system. Improvisers lose money; systems make money.</p>
+        <p>Don't overthink this. Your first plan can fit on one page. It should answer six questions:</p>
+
+        <div class="plan-template">
+          <h5>Beginner Trading Plan — Six Questions</h5>
+          <ol>
+            <li><strong>What instruments will I trade?</strong> (e.g., "Only BTC, ETH, and EUR/USD")</li>
+            <li><strong>What timeframe will I trade?</strong> (e.g., "4H for bias, 15M for entry")</li>
+            <li><strong>What is my setup?</strong> (Describe in plain English — e.g., "Long when price reacts off a daily demand zone with a 15M bullish CHoCH")</li>
+            <li><strong>What is my risk per trade?</strong> (e.g., "1% of account")</li>
+            <li><strong>What is my daily loss limit?</strong> (e.g., "3% — then I stop trading for the day")</li>
+            <li><strong>Where do I journal?</strong> (e.g., "Notion or a notebook — log every trade with entry, exit, R-result, and one lesson")</li>
+          </ol>
+        </div>
+
+        <p>Print this. Tape it next to your monitor. Every trade you take must comply with it. Every trade you don't take, but the chart was screaming at you, you note in a "skipped trades" list. Review weekly. That's it. That's your entire system to start.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Trading Plan</dt><dd>Written rule set for instruments, setup, risk, and operations.</dd>
+            <dt>Setup Definition</dt><dd>Specific, observable conditions that mark a tradable opportunity.</dd>
+            <dt>Daily Loss Limit</dt><dd>Pre-defined drawdown at which the trader stops for the day.</dd>
+            <dt>Journal</dt><dd>Written record of every trade and its lessons.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>A new trader writes a plan: trade BTC + ETH only, daily demand zone + 4H CHoCH, 1% risk per trade, 3% daily loss limit, journal in Notion. Six weeks in: 27 trades, 14 wins, 13 losses, +3.2R total. Not a hero return — but every loss was small and predictable, every win was structured, and the journal already shows that BTC weekends are bad for the strategy. That insight alone is worth more than any course module. The plan is producing data; data produces refinement; refinement produces edge.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Write your plan today, before your next trade. One page, six questions answered. Live by it for 30 trades minimum before changing anything. This single document is the difference between a trader and someone who occasionally clicks buy.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>The intermediate plan goes deeper: it includes <strong>specific entry triggers</strong>, <strong>stop placement rules</strong>, <strong>scaling-in and scaling-out logic</strong>, <strong>weekly and monthly drawdown limits</strong>, and a <strong>review protocol</strong>. The point is to eliminate every "I'll figure it out in the moment" decision — because every in-moment decision is where edge leaks.</p>
+
+        <div class="plan-template">
+          <h5>Intermediate Trading Plan — Required Sections</h5>
+          <ol>
+            <li><strong>Markets &amp; Sessions:</strong> What instruments, what trading hours.</li>
+            <li><strong>Timeframe Hierarchy:</strong> HTF for bias, ITF for setup, LTF for trigger.</li>
+            <li><strong>Setup Checklist:</strong> 4-7 specific conditions, all must tick.</li>
+            <li><strong>Entry Trigger:</strong> The single mechanical event that fires the trade.</li>
+            <li><strong>Stop Placement:</strong> Where + how to pad (e.g., "0.2× ATR beyond invalidation").</li>
+            <li><strong>Initial Target:</strong> Where (typically a liquidity pool or structural level), minimum RR.</li>
+            <li><strong>Management Rules:</strong> When to move to BE, when to take partials, when to trail.</li>
+            <li><strong>Sizing:</strong> Risk per trade, max open risk, tier system if used.</li>
+            <li><strong>Risk Limits:</strong> Daily / weekly / monthly drawdown caps.</li>
+            <li><strong>Operations:</strong> Pre-market routine, trading window, post-market review.</li>
+            <li><strong>Review Cadence:</strong> Daily, weekly, monthly review structure.</li>
+          </ol>
+        </div>
+
+        <p>Treat the plan as a <strong>living document</strong> — but update it only via the formal review cadence, never mid-week in reaction to a single trade. Changes are evidence-based, derived from journal patterns, and applied at the start of the next 30-50 trade evaluation window. Random mid-week tweaks destroy the data you need to evaluate the system.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Setup Checklist</dt><dd>Hard ticklist of required conditions before entry.</dd>
+            <dt>Entry Trigger</dt><dd>The mechanical event that converts a setup into a live trade.</dd>
+            <dt>Management Rules</dt><dd>Pre-defined actions for BE move, partials, trailing stops.</dd>
+            <dt>Tiered Sizing</dt><dd>Different risk per setup grade (e.g., A+ = 1%, A = 0.6%).</dd>
+            <dt>Evaluation Window</dt><dd>Fixed trade count over which the system is held constant for analysis.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>An intermediate plan: trade EUR/USD and GBP/USD during London and NY sessions, 4H bias / 1H setup / 15M trigger, setup checklist requires HTF demand zone + 1H CHoCH + RR ≥ 2 + within daily risk budget. Trigger = 15M bullish engulfing inside the zone. Stop = below zone + 5 pips pad. Target = next 4H resistance. BE move at 1R, 50% partial at 1.5R, trail remainder behind 15M swings. Sizing = 0.8%/trade A+, 0.4% A. Limits = 2.5% daily, 5% weekly, 10% monthly. Plan = 1.5 pages, reviewed every Sunday.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Add a "what would I do if..." appendix to your plan, addressing edge cases: news during open trade, gap against position over weekend, internet outage, broker freeze. Pre-deciding these scenarios prevents panic execution when they actually happen — which they will.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>An intermediate plan answers every operational decision in advance. Live by it for 30-50 trades, then review and adjust based on data — never reaction. This is the format that takes break-even traders to consistent profitability.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>The expert plan is a multi-document system: a <strong>Strategy Doc</strong> (the system rules), an <strong>Operations Manual</strong> (how to execute the system day-to-day), and a <strong>Risk Framework</strong> (per-trade, portfolio, drawdown, and scaling rules). Together they form an institutional-grade trading playbook that could be handed to another disciplined trader and produce similar results — because nothing depends on the original trader's discretion.</p>
+        <p>The Strategy Doc specifies the edge in measurable terms: setup criteria, expected win rate, expected R, statistical drawdown distribution. The Operations Manual covers daily routine, journal templates, weekly review structure, monthly performance attribution. The Risk Framework defines per-trade sizing (with tier table), portfolio sizing (correlation caps), drawdown-conditional sizing (Kelly fractions), and a withdrawal/scaling schedule tied to specific equity milestones.</p>
+        <p>Most importantly, the expert plan includes a <strong>kill-switch protocol</strong>: explicit conditions under which the trader stops trading entirely (e.g., 10% monthly drawdown, two consecutive negative quarters, life-stress trigger, unrecognizable market regime). The willingness to stop is the most underrated risk control — and the only one most retail traders never write down.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Strategy Doc</dt><dd>Written specification of the edge in measurable terms.</dd>
+            <dt>Operations Manual</dt><dd>Day-to-day execution playbook independent of strategy specifics.</dd>
+            <dt>Risk Framework</dt><dd>Per-trade, portfolio, drawdown, and scaling rules consolidated.</dd>
+            <dt>Performance Attribution</dt><dd>Decomposing returns by setup type, market, session, etc.</dd>
+            <dt>Kill-Switch Protocol</dt><dd>Pre-defined conditions for halting trading entirely.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>A pro running a $250k account has three documents. Strategy Doc: 4 setup variants with expected stats per variant. Operations Manual: 7am pre-market, 9-11am NY trading window, 4pm review, weekly attribution Sunday 6pm. Risk Framework: 0.7% per A+ / 0.4% A / 0.2% B, max 2.5% open, 4% daily / 6% weekly / 10% monthly limits, scaling at $300k / $400k / $500k milestones to 0.85% / 1.0% / 1.0% with parallel withdrawal of 30% net profits quarterly. Kill-switch: 10% monthly drawdown OR two consecutive sub-2% quarters → 30-day stand-down. The plan is 9 pages. It's never violated. This is why the account compounds reliably across regimes.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Update your plan in a <em>changelog</em> format: date, change, reason, expected impact. Reviewing the changelog quarterly shows whether your tweaks are improving performance or just adding noise. Most retail "strategy evolution" is actually random walk dressed as progress; the changelog is what reveals it.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Be wary of expanding the plan endlessly. Past 10-15 pages of total documentation, you've built complexity that defeats the purpose. Strip to essentials, archive deprecated rules, keep the active document lean. A plan you can recite from memory is a plan you'll actually follow.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>The expert plan is a multi-document, institutional-grade playbook covering strategy, operations, and risk. Include a kill-switch. Maintain a changelog. Update via formal review cadence only. This is the infrastructure that turns trading from a hobby into a sustainable profession.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub3">Mark Complete</button>
+        <a class="next-btn" href="section-7-chart-patterns.html">Next Section: Chart Patterns →</a>
+      </div>
+    </article>
+
+    <div class="section-nav">
+      <a href="section-5-trading-psychology.html">
+        <div class="label">← Previous</div>
+        <div class="name">05 · Trading Psychology</div>
+      </a>
+      <a href="section-7-chart-patterns.html" class="next">
+        <div class="label">Next Section →</div>
+        <div class="name">07 · Chart Patterns</div>
+      </a>
+    </div>
+  </main>
+</div>
+
+<button class="totop" id="totop" title="Scroll to top">↑</button>
+
+<script>
+(function(){
+  const KEY='tm2026_progress';const SEC_ID='s6';const SUBS=['sub1','sub2','sub3'];
+  function loadAll(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+  function saveAll(d){localStorage.setItem(KEY,JSON.stringify(d))}
+  function getSec(){const d=loadAll();return d[SEC_ID]||{}}
+  function setSec(s){const d=loadAll();d[SEC_ID]=s;saveAll(d)}
+  document.querySelectorAll('.lvl-tabs').forEach(group=>{
+    const subId=group.dataset.target;const article=document.getElementById(subId);
+    group.querySelectorAll('.lvl-tab').forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        group.querySelectorAll('.lvl-tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');const lvl=tab.dataset.lvl;
+        article.querySelectorAll('.lvl-panel').forEach(p=>{p.classList.toggle('active',p.dataset.lvl===lvl)});
+      });
+    });
+  });
+  function refreshMarks(){
+    const sec=getSec();let done=0;
+    SUBS.forEach(id=>{
+      const btn=document.querySelector(`.mark-btn[data-mark="${id}"]`);
+      const navItem=document.querySelector(`.subnav[data-id="${id}"]`);
+      if(sec[id]){if(btn){btn.classList.add('done');btn.textContent='Completed'}if(navItem){navItem.classList.add('done')}done++}
+      else{if(btn){btn.classList.remove('done');btn.textContent='Mark Complete'}if(navItem){navItem.classList.remove('done')}}
+    });
+    const pct=Math.round((done/SUBS.length)*100);
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.getElementById('progressText').textContent=pct+'%';
+  }
+  document.querySelectorAll('.mark-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{const id=btn.dataset.mark;const sec=getSec();sec[id]=!sec[id];setSec(sec);refreshMarks()});
+  });
+  const subs=SUBS.map(id=>document.getElementById(id));
+  function onScroll(){
+    const y=window.scrollY+150;let current=subs[0]?.id;
+    subs.forEach(s=>{if(s&&s.offsetTop<=y)current=s.id});
+    document.querySelectorAll('.subnav').forEach(a=>{a.classList.toggle('active',a.dataset.id===current)});
+    document.getElementById('totop').classList.toggle('show',window.scrollY>500);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{const tgt=document.querySelector(a.getAttribute('href'));if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth',block:'start'})}});
+  });
+  document.getElementById('totop').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+  document.getElementById('hamb').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open')});
+  refreshMarks();onScroll();
+})();
+</script>
+</body>
+</html>

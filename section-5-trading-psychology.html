@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 5 · Trading Psychology — Trading Mastery 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--bg-2:#10162a;--card:#11182c;--border:rgba(255,255,255,.08);--teal:#00d4aa;--gold:#f0a500;--red:#ff4757;--blue:#3b9eff;--purple:#a36bff;--text:#e7ecf3;--muted:#8a96ab}
+html,body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;line-height:1.7;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 10% 0%,rgba(163,107,255,.08),transparent 60%),radial-gradient(800px 600px at 90% 80%,rgba(0,212,170,.06),transparent 60%)}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.01em;line-height:1.2}
+a{color:inherit;text-decoration:none}p{color:#cdd5e2}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,14,26,.78);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1480px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--gold));display:grid;place-items:center;font-weight:800;color:#0a0e1a;font-size:13px}
+.brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:16px}
+.brand-sub{font-size:11px;color:var(--muted)}
+.back-link{color:var(--muted);font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;transition:.2s}
+.back-link:hover{color:var(--teal);border-color:var(--teal)}
+.progress-wrap{flex:1;max-width:300px}
+.progress-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.progress-bar{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px;transition:width .5s ease;width:0%}
+.hamb{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+.layout{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 70px)}
+.sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;padding:28px 24px;border-right:1px solid var(--border)}
+.sidebar h4{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);margin-bottom:14px;font-weight:600}
+.sec-meta-block{padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);margin-bottom:24px}
+.sec-meta-block .num{font-family:'Syne',sans-serif;font-size:12px;letter-spacing:.18em;color:var(--teal);font-weight:700}
+.sec-meta-block .title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-top:4px}
+.sidebar ul{list-style:none}
+.sidebar li{margin:4px 0}
+.sidebar a.subnav{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;color:var(--muted);transition:.2s;cursor:pointer;border:1px solid transparent}
+.sidebar a.subnav:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.sidebar a.subnav.active{color:var(--teal);background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2)}
+.sidebar a.subnav .dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.15);flex-shrink:0}
+.sidebar a.subnav.done .dot{background:var(--teal)}
+.sidebar a.subnav.done::after{content:'✓';margin-left:auto;color:var(--teal);font-size:12px}
+.section-jump{margin-top:30px;padding-top:24px;border-top:1px solid var(--border)}
+.section-jump a{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:10px 0}
+.section-jump a:hover{color:var(--teal)}
+.main{padding:50px 60px 80px;max-width:920px}
+.section-intro{margin-bottom:60px}
+.section-intro .eyebrow{display:inline-block;color:var(--purple);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(163,107,255,.3);border-radius:99px;margin-bottom:18px}
+.section-intro h1{font-size:clamp(34px,4.5vw,52px);font-weight:800;margin-bottom:16px}
+.section-intro h1 span{background:linear-gradient(135deg,var(--purple),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-intro .lede{color:var(--muted);font-size:17px;max-width:680px}
+.divider{display:flex;align-items:center;gap:14px;margin:50px 0 36px}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent)}
+.divider svg{flex-shrink:0;opacity:.5}
+.subtopic{padding:36px 0;border-top:1px solid var(--border);scroll-margin-top:90px}
+.subtopic:first-of-type{border-top:none;padding-top:0}
+.sub-badge{font-family:'Syne',sans-serif;font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.sub-title{font-size:clamp(26px,3vw,38px);font-weight:800;margin-bottom:20px}
+.lvl-tabs{display:inline-flex;gap:6px;padding:6px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;margin-bottom:28px;flex-wrap:wrap}
+.lvl-tab{padding:9px 18px;font-size:13px;font-weight:600;font-family:inherit;color:var(--muted);background:none;border:none;border-radius:8px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.lvl-tab .dot{width:8px;height:8px;border-radius:99px;background:currentColor}
+.lvl-tab[data-lvl="beg"].active{background:rgba(0,212,170,.14);color:var(--teal)}
+.lvl-tab[data-lvl="int"].active{background:rgba(59,158,255,.14);color:var(--blue)}
+.lvl-tab[data-lvl="exp"].active{background:rgba(163,107,255,.14);color:var(--purple)}
+.lvl-tab:hover{color:var(--text)}
+.lvl-panel{display:none;animation:fade .4s ease}
+.lvl-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.level-indicator{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.level-indicator.beg{background:rgba(0,212,170,.12);color:var(--teal);border:1px solid rgba(0,212,170,.2)}
+.level-indicator.int{background:rgba(59,158,255,.12);color:var(--blue);border:1px solid rgba(59,158,255,.2)}
+.level-indicator.exp{background:rgba(163,107,255,.12);color:var(--purple);border:1px solid rgba(163,107,255,.2)}
+.lvl-panel p{margin-bottom:16px}
+.lvl-panel h4{font-size:18px;margin:24px 0 12px;color:var(--text)}
+.box{padding:20px 22px;border-radius:12px;margin:22px 0;border:1px solid var(--border)}
+.box .box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.box .icon{font-size:18px}
+.box.keyterms{background:rgba(59,158,255,.04);border-color:rgba(59,158,255,.18)}
+.box.keyterms .box-title{color:var(--blue)}
+.box.keyterms dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14px}
+.box.keyterms dt{font-weight:700;color:var(--text)}
+.box.keyterms dd{color:var(--muted)}
+.box.example{background:rgba(0,212,170,.04);border-color:rgba(0,212,170,.18)}
+.box.example .box-title{color:var(--teal)}
+.box.example p{font-size:14px;color:#dde5f0}
+.box.protip{background:rgba(163,107,255,.05);border-color:rgba(163,107,255,.22)}
+.box.protip .box-title{color:var(--purple)}
+.box.protip p{font-size:14px}
+.box.warning{background:rgba(255,71,87,.05);border-color:rgba(255,71,87,.22)}
+.box.warning .box-title{color:var(--red)}
+.box.warning p{font-size:14px}
+.box.scenario{background:rgba(255,71,87,.04);border:1px solid rgba(255,71,87,.18);border-left:3px solid var(--red)}
+.box.scenario .box-title{color:var(--red)}
+.box.scenario p{font-size:14px}
+.box.takeaway{background:linear-gradient(180deg,rgba(240,165,0,.06),rgba(240,165,0,.02));border:1px solid rgba(240,165,0,.35);margin-top:30px}
+.box.takeaway .box-title{color:var(--gold);font-size:13px}
+.box.takeaway p{font-size:15px;color:#f0e7d2}
+.sub-footer{display:flex;justify-content:space-between;align-items:center;margin-top:30px;flex-wrap:wrap;gap:14px}
+.mark-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);background:none;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.mark-btn:hover{background:rgba(0,212,170,.1)}
+.mark-btn.done{background:var(--teal);color:#0a0e1a}
+.mark-btn.done::before{content:'✓ '}
+.next-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--gold));color:#0a0e1a;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.next-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,212,170,.25)}
+.section-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:80px;padding-top:40px;border-top:1px solid var(--border)}
+.section-nav a{padding:22px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);transition:.25s}
+.section-nav a:hover{border-color:var(--teal);transform:translateY(-2px)}
+.section-nav .label{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.section-nav .name{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
+.section-nav .next{text-align:right}
+.totop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:99px;background:var(--teal);color:#0a0e1a;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,212,170,.3);z-index:40}
+.totop.show{display:flex}
+@media (max-width:960px){.layout{grid-template-columns:1fr}.sidebar{position:fixed;top:0;left:0;height:100vh;width:280px;z-index:60;background:var(--bg-2);transform:translateX(-100%);transition:transform .3s ease;padding-top:80px}.sidebar.open{transform:translateX(0)}.hamb{display:inline-flex}.main{padding:30px 22px 60px}.brand-sub{display:none}.progress-wrap{max-width:140px}.topbar-inner{padding:12px 18px}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="hamb" id="hamb">☰</button>
+    <div class="brand">
+      <div class="brand-logo">TM</div>
+      <div>
+        <div class="brand-name">Trading Mastery 2026</div>
+        <div class="brand-sub">Section 5 of 8</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-row"><span>Section progress</span><span id="progressText">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <a class="back-link" href="trading-course.html">← Course Home</a>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sec-meta-block">
+      <div class="num">SECTION 05</div>
+      <div class="title">Trading Psychology</div>
+    </div>
+    <h4>Lessons in this section</h4>
+    <ul>
+      <li><a class="subnav" data-id="sub1" href="#sub1"><span class="dot"></span> 5.1 Emotional Control</a></li>
+      <li><a class="subnav" data-id="sub2" href="#sub2"><span class="dot"></span> 5.2 Psychological Barriers</a></li>
+      <li><a class="subnav" data-id="sub3" href="#sub3"><span class="dot"></span> 5.3 Improving Discipline</a></li>
+    </ul>
+    <div class="section-jump">
+      <h4>Jump to section</h4>
+      <a href="section-4-risk-management.html">← Section 4 — Risk Management</a>
+      <a href="section-6-trading-mistakes.html">Section 6 — Common Mistakes →</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="section-intro">
+      <div class="eyebrow">Section 05 · The real battlefield</div>
+      <h1>Trading <span>Psychology</span></h1>
+      <p class="lede">Two traders with the same strategy and the same setup get opposite outcomes. The difference is never the chart — it's what happened between their ears when the trade started moving. Master your psychology and you'll outperform 90% of traders who memorized more patterns than you.</p>
+    </div>
+
+    <!-- ============ SUBTOPIC 5.1 ============ -->
+    <article class="subtopic" id="sub1">
+      <div class="sub-badge">Lesson 5.1</div>
+      <h2 class="sub-title">Emotional Control — Fear and Greed</h2>
+
+      <div class="lvl-tabs" data-target="sub1">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>The market is a giant emotional mirror. Every chart you look at is the combined fear, greed, hope, and panic of millions of people just like you. When you trade, the same emotions hit <em>you</em>. Suddenly the same chart that looked clear in your morning study session feels terrifying or thrilling depending on whether your money is winning or losing.</p>
+        <p>The two emotions that destroy most traders are <strong>fear</strong> (closing winners too early because you're afraid of losing the profit, or refusing to take a good setup because the last one lost) and <strong>greed</strong> (sizing too big, holding too long, jumping into trades without setups because everyone else is making money). Both feel completely normal in the moment — that's what makes them dangerous.</p>
+        <p>Here's the most important truth you'll read in this entire course: <strong>trading is not about predicting the market. It's about controlling yourself</strong>. The chart will do what it does. Your job is to stay calm enough to follow your plan whether you're winning or losing.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Fear</dt><dd>Anxiety-driven behavior — exits too early, skips good setups.</dd>
+            <dt>Greed</dt><dd>Reward-seeking behavior — oversizes, overstays, overtrades.</dd>
+            <dt>FOMO</dt><dd>Fear Of Missing Out — chasing a move because others are profiting.</dd>
+            <dt>Tilt</dt><dd>Emotionally compromised trading state, usually after a loss.</dd>
+          </dl>
+        </div>
+
+        <div class="box scenario">
+          <div class="box-title"><span class="icon">😰</span> Scenario: The FOMO Entry</div>
+          <p>Bitcoin pumps 8% in two hours. You missed the start. Your gut screams "buy now before it goes higher!" You enter at the top of the candle. Five minutes later it dumps 4%. You're underwater on a trade you didn't plan, with a stop you didn't set, in a setup that didn't exist. <em>That's FOMO</em>. Recognize the feeling — that's the only defense against it.</p>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>You take a perfect long. Price moves +0.5R. Your heart races. "What if it reverses? Let me close half." You close half. Price runs to +3R. You watch in agony as your "saved" 0.5R becomes the 1.5R you missed. Fear cost you 1R of expectancy. Multiply this over 200 trades a year and it's the difference between a profitable trader and a frustrated one.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Emotions are signals, not commands. Feeling fear or greed doesn't mean you have to act. The pause between feeling and action is the entire game. Build that pause — and you build your edge.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Emotional control isn't about <em>not feeling emotions</em> — that's impossible. It's about decoupling action from emotion. The intermediate framework: <strong>identify, label, delay</strong>. When fear or greed hits, name it ("I'm feeling FOMO right now"), wait 90 seconds, then re-evaluate the setup from a calmer state. This three-step ritual breaks the impulse loop that turns emotional spikes into account-killing trades.</p>
+        <p>Recognize the <strong>cycle of emotions</strong> that follows every trade: anticipation → entry → hope → euphoria (if winning) or anxiety (if losing) → relief or panic → reflection. Each stage has predictable mistakes. Hope makes you ignore stop levels; euphoria makes you size up the next trade; panic makes you exit at the worst possible price; reflection often turns into rumination instead of objective journaling.</p>
+        <p>Pre-commit to your trade plan <strong>in writing</strong> before entry. Define: entry, stop, target, max time in trade, conditions for moving stop. Once the trade is live, you only execute what's written. This eliminates 90% of in-trade emotional decisions because there's nothing to decide — the answer was decided when you were calm. Discipline is mostly a paperwork problem disguised as a psychology problem.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Identify-Label-Delay</dt><dd>3-step ritual to interrupt the emotion-action loop.</dd>
+            <dt>Pre-Commitment</dt><dd>Writing the plan before entry to remove in-trade decisions.</dd>
+            <dt>Emotional Cycle</dt><dd>Predictable emotional sequence across a trade's lifecycle.</dd>
+            <dt>Loss Aversion Bias</dt><dd>Cognitive tendency to feel losses 2× more strongly than equivalent gains.</dd>
+            <dt>Hedonic Treadmill</dt><dd>Adaptation to wins/losses — they fade emotionally and recalibrate expectations.</dd>
+          </dl>
+        </div>
+
+        <div class="box scenario">
+          <div class="box-title"><span class="icon">😡</span> Scenario: Revenge Trading</div>
+          <p>You take three losses in a row. Total drawdown 4% — within your weekly limit but emotionally brutal. Your inner voice says "I need to make this back." You take a setup that doesn't quite qualify, at 2x your normal size. It loses. Now you're at 8% drawdown — outside your limit, in a worse mental state than before, on a trade your plan would have skipped. <em>That's revenge trading</em> — and it ends careers more than any other single behavior.</p>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>You're long EUR/USD. Trade hits +1R. Pre-commitment: move stop to break-even, take 50% off. You feel greedy — "this could run, let me leave it all on." Instead of overriding the plan, you execute it. The trade ends at +1.4R instead of the imaginary +3R, but you've banked 50% at +1R, your remainder is risk-free, and your mind stays clear for the next setup. Discipline > prediction.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Build a "two-loss rule": after two consecutive losses, walk away from the screen for 30 minutes minimum. Recovery is biological — your stress hormones need time to normalize. Trading through emotional spikes is the most expensive habit in the game; mandatory cooldowns are the cheapest discipline tool.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Decouple emotion from action with identify-label-delay. Pre-commit your plan in writing. Build cooldowns and rules that protect Future You from Present You. Emotional control is a system, not a personality trait.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>At the elite level, emotional control becomes a daily performance discipline rather than a vague aspiration. Pros track their physiological state (sleep, HRV, caffeine, hydration) and trade only inside windows where they're cognitively sharp. They identify their personal <strong>tilt triggers</strong> — specific contexts that historically correlate with poor decisions (Mondays after a losing Friday, post-news vol expansions, recent string of losses, life stressors) — and pre-rule themselves out of those windows.</p>
+        <p>They distinguish between <strong>tradeable emotions</strong> (slight excitement, mild anxiety — normal performance state) and <strong>untradeable emotions</strong> (rage, despair, mania — flight responses incompatible with edge execution). Inside the untradeable band, the only correct action is to close the platform — not "trade smaller," not "be more careful." Untradeable emotional states cannot be willpowered through; the next decision will be poor regardless of size.</p>
+        <p>The highest-leverage practice in expert psychology is the <strong>post-trade autopsy</strong>: every losing trade gets graded not by outcome but by execution quality. Did you size correctly? Stop placed correctly? Plan followed? Was the loss within statistical expectation? A "good loss" (correctly executed, within expectation) is celebrated; a "bad win" (rule-breaking that happened to work) is treated as the dangerous outcome it is. This rewards process over outcome — the only frame that survives long-term in a probabilistic environment.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Tilt Trigger</dt><dd>Personal context that historically precedes poor decisions.</dd>
+            <dt>Tradeable vs. Untradeable Emotion</dt><dd>Calibrated emotional intensity ranges with binary trading rules.</dd>
+            <dt>Process Outcome vs. Result Outcome</dt><dd>Execution quality vs. P/L; pros optimize the first.</dd>
+            <dt>HRV (Heart Rate Variability)</dt><dd>Biomarker of autonomic balance; predictive of decision quality.</dd>
+            <dt>Resulting Bias</dt><dd>Judging decisions by outcomes rather than process; the deadliest cognitive trap.</dd>
+          </dl>
+        </div>
+
+        <div class="box scenario">
+          <div class="box-title"><span class="icon">🎰</span> Scenario: Bad Win Disease</div>
+          <p>You enter a trade against your plan with 3× normal size. It wins big. Dopamine floods. The brain encodes "rule-breaking + oversizing = reward." Within 5-15 trades, you do it again — this time it kills your week. Pros recognize that <em>this win is more dangerous than the loss that follows</em>, and journal it as a process failure regardless of P/L. The discipline to label a profitable trade as a mistake is one of the most professional habits in the game.</p>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>A pro running a $2M book wakes up after 5 hours of sleep, HRV reading 30% below baseline. Pre-market rule: if HRV is more than 20% off, trade size halves for the day. After two losing scratches, the rule triggers a hard stop — no further trades until tomorrow. Net P/L: -0.4%. Without the rule, history shows the same biological state produces -2.8% average days. The rule isn't pessimism; it's protecting a million-dollar career from a thousand-dollar morning.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Keep a "no-trade reasons" journal as religiously as a "trade taken" journal. Document every setup you skipped due to emotional misalignment, fatigue, lack of confluence, or rule trigger. Reviewing it weekly trains you to recognize early warning signs before they cost real money. The skill of <em>not trading</em> is rarely taught and constantly profitable.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Long winning streaks are as psychologically dangerous as drawdowns. They produce <strong>winner's tilt</strong> — over-confidence, oversized positions, abandoned setup criteria. After every fresh equity high, expert traders reduce size by 25% for 5-10 trades to neutralize the dopamine effect. The data is clear: the worst drawdowns historically follow the best streaks.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Treat emotional control as a measurable performance discipline. Map your tilt triggers, calibrate tradeable emotion bands, optimize for process over outcome, neutralize winner's tilt. At the top, psychology is the only edge — because every pro has read the same books, watches the same charts, and uses similar tools. Discipline is the unevenly distributed asset.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub1">Mark Complete</button>
+        <a class="next-btn" href="#sub2">Next: Psychological Barriers →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 5.2 ============ -->
+    <article class="subtopic" id="sub2">
+      <div class="sub-badge">Lesson 5.2</div>
+      <h2 class="sub-title">Psychological Barriers</h2>
+
+      <div class="lvl-tabs" data-target="sub2">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>Some mental traps are so common they trip up nearly every new trader in the exact same way. Knowing them in advance is half the cure. Here are the four big ones to watch out for early on.</p>
+        <p><strong>Loss aversion</strong>: humans hate losing twice as much as we love winning. So when a trade is losing, we hope and hold; when it's winning, we panic and exit. This wires us to do the exact opposite of what makes money — let losers run and cut winners short. Just being aware of this bias is the first step in fighting it.</p>
+        <p><strong>Overconfidence after wins</strong>: nothing makes us more dangerous than a few wins in a row. We feel like geniuses, we size up, we skip our setup rules. Then one bad trade gives back a week's profits. <strong>Sunk cost fallacy</strong>: "I've already lost this much, might as well hold and hope." That's how a small planned loss turns into a giant unplanned one. <strong>Confirmation bias</strong>: once we have a position, we only see news and chart patterns that support it. We become blind to evidence against our trade.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Loss Aversion</dt><dd>Losses feel ~2× more painful than equal gains feel pleasurable.</dd>
+            <dt>Overconfidence</dt><dd>Belief in your ability that exceeds actual performance data.</dd>
+            <dt>Sunk Cost Fallacy</dt><dd>Holding a losing trade because you've "already invested" in it.</dd>
+            <dt>Confirmation Bias</dt><dd>Only seeing evidence that supports your existing position.</dd>
+          </dl>
+        </div>
+
+        <div class="box scenario">
+          <div class="box-title"><span class="icon">🚪</span> Scenario: Moving the Stop Loss</div>
+          <p>You long Apple at $180, stop at $176. Price drops to $176.50. Your gut says "let me just give it a little more room." You move the stop to $174. Price keeps falling. You move it to $172. Eventually you take a 5% loss instead of the 2% planned loss. <em>Moving the stop away</em> is the single most common psychological mistake in trading — and it always costs more than the original plan would have.</p>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>You buy a stock. Price drops. You read three articles about why it's a great long-term hold. You don't read one article about why it might keep dropping. That's confirmation bias filtering your reality. The version of you who hadn't entered the trade would have seen both sides clearly. The version of you with money on the line only sees one.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Loss aversion, overconfidence, sunk cost, confirmation bias — these aren't weaknesses, they're human. The win isn't in eliminating them; it's in recognizing them in real time and refusing to act on them. Awareness is most of the cure.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Beyond the basic biases, intermediate traders run into more subtle barriers. <strong>Outcome bias</strong>: judging a trade by P/L rather than execution quality. A perfectly executed -1R is a good trade; a sloppy +3R is a bad trade. Most traders learn this only after years of accidentally reinforcing bad habits because they happened to make money.</p>
+        <p><strong>Recency bias</strong>: weighting recent events more than they statistically deserve. After three losing trades, your brain whispers "the strategy is broken." After three winners, "the market is solved." Neither is true. <strong>Anchoring</strong>: fixating on a number (your entry, a recent high, a target price you set) and refusing to let the chart change your mind. The price has zero memory of your anchor; you must drop yours, too.</p>
+        <p>The biggest intermediate barrier is the <strong>"prove I'm a trader" complex</strong>. New traders trade too much because not trading feels like not being a trader. Real edge often demands sitting out 70%+ of sessions where conditions don't match your playbook. If you can't sit still, you'll trade noise, and noise is unkillable. Build a "trade journal of trades I didn't take" — every skipped non-setup is a win as real as a winning trade.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Outcome Bias</dt><dd>Judging a decision by its outcome instead of the quality of the decision-making process.</dd>
+            <dt>Recency Bias</dt><dd>Over-weighting recent results when evaluating strategy.</dd>
+            <dt>Anchoring</dt><dd>Fixating on a specific price point regardless of changing conditions.</dd>
+            <dt>Overtrading</dt><dd>Taking trades because of activity bias, not because of edge.</dd>
+            <dt>Edge Indifference Discipline</dt><dd>Acting on every A-grade setup equally and skipping every B-grade with equal indifference.</dd>
+          </dl>
+        </div>
+
+        <div class="box scenario">
+          <div class="box-title"><span class="icon">📈</span> Scenario: Anchored to the Entry</div>
+          <p>You short BTC at $44,000. Price drops to $43,200 (+1.8R). Your plan says exit at $43,000. But you anchored on your entry — "I want a bigger move from where I got in." You hold past the target. Price reverses to $43,800. You panic-exit at break-even instead of the planned +2R. Anchoring made you miss your real plan to chase an imaginary one.</p>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>You journal 30 trades. Win rate 53%. Avg winner 1.8R, avg loser 1.0R. Expectancy: +0.49R/trade. Then you have a 3-trade losing streak — well within statistical expectation. Your brain screams "the system is broken!" Recency bias talking. The correct response: continue the next 30 trades with no rule changes. That's how edges are preserved during normal drawdowns.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Pre-commit to a fixed number of trades before evaluating the strategy. Common: 50 trades minimum. Within that window, the rules are sacrosanct. Strategy tweaking mid-sample is how perfectly good systems get destroyed by recency bias. Patience with your own edge is the rarest discipline in retail.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Outcome bias, recency bias, anchoring, and the trade-too-much complex are the intermediate-tier traps. Build process-based grading, statistical patience, anchor-detachment habits, and a "trades not taken" log. These four together create the calm needed for consistency.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>At the elite level, the most subtle barrier is <strong>identity entanglement</strong>: when your sense of self becomes tied to trading performance. After enough years, the trader who is "winning" feels like a different person than the trader who is "losing." This creates massive cognitive distortion — wins make you reckless because you feel infallible; losses make you defensive because you're protecting an ego. The pros decouple identity from outcome: "I am a person who follows my process. P/L is a side effect of doing that well."</p>
+        <p><strong>Drawdown despair</strong> is the second-highest psychological cost a career-grade trader pays. After a multi-week drawdown, even with no rule violations, your edge starts feeling imaginary. This is when traders abandon working systems for new, untested ones — and the new system inevitably also drawdowns first (because all systems do), making the trader feel even more lost. Defense: rigorous expectancy math, comparison against expected drawdown distributions, and the conscious decision that "the worst pain I will feel is statistically inevitable, not evidence of failure."</p>
+        <p>Finally, <strong>peer/social influence</strong>. Twitter wins, Discord calls, FOMO from other traders' P/L screenshots — these inject noise into a trader's discipline. The expert curates social inputs the way a high-performance athlete curates nutrition: nothing in that isn't deliberately chosen. The default trader's social feed is to professional psychology what a fast-food diet is to an Olympic athlete.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Identity Entanglement</dt><dd>Self-worth fused with P/L; massive distortion source.</dd>
+            <dt>Drawdown Despair</dt><dd>Loss of faith in working systems during expected-distribution drawdowns.</dd>
+            <dt>Social Contagion Bias</dt><dd>Adopting others' emotional and trading states via peer feeds.</dd>
+            <dt>Self-Sabotage Pattern</dt><dd>Recurring unconscious actions that prevent sustained profitability — common after large milestones.</dd>
+            <dt>Process Identity</dt><dd>Defining yourself by adherence to process rather than by P/L results.</dd>
+          </dl>
+        </div>
+
+        <div class="box scenario">
+          <div class="box-title"><span class="icon">💀</span> Scenario: The Self-Sabotage Loop</div>
+          <p>You hit a new equity high — first time in 3 years. Within 5 trading days you violate two rules and give back 40% of recent gains. Why? <em>Self-sabotage</em>: subconsciously you don't yet believe you "deserve" the new equity tier, and your behavior reverts you to the familiar prior level. The fix is meta: recognize the pattern, expect it after every milestone, and pre-commit to reduced sizing during the first 10 trades after any equity high.</p>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>A senior pro at -8% YTD halfway through Q3 receives a "you're not allocated to Q4" call from the fund. They acknowledge the emotional weight, journal the despair, and then execute Q4 by following their process exactly as they did at +12% in 2022. Final Q4 result: +14%. The mechanical execution wasn't different — only their willingness to perform it through emotional pressure was. The career-defining ability is the willingness to perform process when results feel meaningless.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Define yourself by your daily process score, not your monthly P/L. Build a simple checklist: 1) Followed sizing rules, 2) Took only A/B grade setups, 3) Respected daily loss limit, 4) Journal complete. Score each day 0-4. A perfect 4 day with a losing P/L is a successful day. This re-aligns identity with what you can control — and eliminates most psychological volatility.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Trading communities (Discord servers, Twitter circles) can be both edge-builders and edge-destroyers. The signal: do you leave the community more disciplined or more reactive? If it's the latter, mute or leave it — no amount of social proof is worth a disrupted decision process.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Beyond biases, the elite-level barriers are identity, drawdown despair, social contagion, and self-sabotage. Build process identity, curate inputs, plan reduced sizing through milestones, and prepare for despair as a known visitor. Long-term consistency is built on these meta-skills more than on any tactical refinement.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub2">Mark Complete</button>
+        <a class="next-btn" href="#sub3">Next: Improving Discipline →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 5.3 ============ -->
+    <article class="subtopic" id="sub3">
+      <div class="sub-badge">Lesson 5.3</div>
+      <h2 class="sub-title">Improving Discipline</h2>
+
+      <div class="lvl-tabs" data-target="sub3">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>Discipline isn't about being a robot. It's about doing what you already know you should do — even when your emotions don't want to. The good news: discipline is a skill, not a personality trait. It can be built like a muscle. The bad news: it has to be built actively, on purpose, every single day.</p>
+        <p>Three simple habits will build more discipline in 30 days than reading 30 books on the topic. <strong>One:</strong> write down your trade plan <em>before</em> you click buy or sell. Entry, stop, target. If you can't write all three, you can't take the trade. <strong>Two:</strong> set a hard daily loss limit. When you hit it, the platform closes. No "just one more setup." <strong>Three:</strong> journal every trade — winner or loser — with a one-sentence note about what you did right or wrong.</p>
+        <p>These three habits feel boring. They are boring. <strong>That's the point</strong>. Trading is supposed to be boring. The exciting trader loses money. The boring trader, doing the same checklist day after day, compounds quietly while the exciting ones blow up dramatically.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Trade Plan</dt><dd>Written entry, stop, target, position size before placing the trade.</dd>
+            <dt>Loss Limit</dt><dd>Pre-defined daily/weekly drawdown cap that stops trading when reached.</dd>
+            <dt>Trade Journal</dt><dd>Log of every trade with reasoning and reflection.</dd>
+            <dt>Pre-Market Routine</dt><dd>Repeatable sequence done before trading to enter a focused state.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>You wake up, open the chart, see "a good setup." You enter without writing anything down. Trade loses. You don't even remember exactly what your stop or target was — you "kind of had them in mind." This is the path that empties accounts. The boring alternative: open a notebook, write "Long EUR/USD at 1.0850, stop 1.0830, target 1.0890, risk $100." Now there's no ambiguity. The trade has a structure. You can review it later. You can learn.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Discipline = pre-written plan + hard loss limit + complete journal. Boring is the goal. Build the three habits for 30 days straight and you'll experience trading as a fundamentally different activity than before.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>The intermediate trader builds a full <strong>operating system</strong> around discipline. Daily structure: pre-market routine (review HTF, mark levels, identify a watchlist of 2-3 instruments), trading window (a defined 2-4 hour block during your liquid session), post-market review (journal trades, grade execution, log lessons). Outside the trading window, no charts, no Twitter, no Discord. This sounds extreme; it's exactly what eliminates revenge trades, FOMO entries, and over-trading.</p>
+        <p>Build a <strong>setup criteria checklist</strong> with 4-7 conditions. Every potential trade must satisfy all conditions or be skipped. Sample checklist: HTF aligned ✓ | Setup at HTF level ✓ | LTF CHoCH ✓ | RR ≥ 2 ✓ | Not in news window ✓ | Within daily risk budget ✓. If even one box doesn't tick, you don't trade. Refusing trades that fail your checklist is the single highest-leverage discipline action you'll take.</p>
+        <p>Add a <strong>weekly review</strong>: every Sunday, compute win rate, avg R, expectancy, biggest mistake, biggest insight. Notice patterns ("I lose most on Mondays"; "I overtrade after wins"). The review is where unconscious patterns become conscious — and conscious patterns can be changed. Without the review loop, you're making the same mistakes for years and calling it experience.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Trading OS</dt><dd>Full daily/weekly structure that automates disciplined behavior.</dd>
+            <dt>Setup Criteria Checklist</dt><dd>Pre-defined conditions that must all be met before entry.</dd>
+            <dt>Weekly Review</dt><dd>Structured Sunday session to analyze patterns and refine process.</dd>
+            <dt>Edge Maintenance</dt><dd>Daily discipline activities that preserve the conditions for edge expression.</dd>
+            <dt>Decision Fatigue</dt><dd>Diminished decision quality as the number of decisions accumulates; managed via fewer, higher-quality decisions.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>Sunday evening review: 12 trades this week, 7 wins, 5 losses, +6.4R total. Biggest mistake: moved stop to BE too early on a USD/JPY trade — would have been +3.2R, ended +0.0R. Biggest insight: every loss happened in the 11am-12pm NY window when energy was lowest. Action: skip 11am-12pm next week. One small data-driven adjustment per week compounds to material changes over a quarter.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Use a physical printed checklist beside your monitor. Digital lists get ignored or rushed; pen-on-paper signing forces conscious engagement. Pros call this "putting friction on impulse" — every fraction of a second between feeling and action is where edge lives.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Build a trading OS: defined pre-market, trading window, post-market review. Implement a strict setup checklist. Hold a weekly review. Apply one data-driven adjustment per week. Disciplined infrastructure beats willpower every time.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>Expert discipline operates at the systems-design level: the goal is to make following the plan <strong>easier than violating it</strong>. Physical and digital environment becomes the discipline mechanism. Use platform alerts so you don't watch the chart between setups. Use auto-execute scripts to enforce stop placement at entry. Use account-level loss-limit rules at the broker. Use blacklisting tools that block social feeds during trading hours. The expert outsources willpower to architecture.</p>
+        <p>Implement <strong>statistical-process control</strong> on your own trading. Track rolling 30-trade metrics: win rate, expectancy, avg R, max drawdown, rule-violation rate. When any metric drifts outside its historical 2-sigma band, reduce size automatically until the metric returns to range. This converts discretion into algorithmic decision-making — your size flows from data, not from feelings.</p>
+        <p>Master <strong>deliberate practice loops</strong>: every 90 days, identify the single biggest weakness in your trading (e.g., premature exits, oversizing on losses, missing A+ setups). Design a dedicated drill to improve it (e.g., replay simulator with locked stops, journal scoring on specific behavior). After 90 days, evaluate progress, then choose the next weakness. This is how pros compound — not by adding random new techniques but by relentlessly fixing one identified leak at a time.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Architectural Discipline</dt><dd>Designing the environment so the right action is the default action.</dd>
+            <dt>Statistical Process Control (SPC)</dt><dd>Monitoring own metrics against expected ranges; deviation triggers protocol.</dd>
+            <dt>Deliberate Practice Loop</dt><dd>90-day improvement cycles targeting one identified weakness.</dd>
+            <dt>Pre-Mortem</dt><dd>Imagining the worst-case outcome before action to surface risks; routinely applied to monthly trading plans.</dd>
+            <dt>Outcome-Process Decoupling</dt><dd>Maintaining mechanical execution regardless of recent results — the apex of professional psychology.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>Quarterly review: rolling 30-trade win rate at 41%, down from baseline 54%. SPC trigger: position size halved automatically until metric reverts to baseline. Concurrently, deliberate-practice quarter is launched on premature exits (the diagnosed leak). 60 days later: avg winner expanded from 1.7R to 2.3R, win rate back to 53%, SPC reverts to full sizing. The trader didn't change strategy, market, or instrument — only their relationship to discipline. That's how multi-decade careers happen.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Every quarter, write a one-page "letter to next quarter's self" — what worked, what didn't, what you'll do differently, and what you commit to <em>not</em> do. Read it on day one of the new quarter. The continuity of self-reflection across quarters is what turns one good year into ten good years.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Discipline systems can become obsessions. If your system requires more time and willpower than the trading itself, you've built bureaucracy not discipline. Strip rules down to the minimum that produces consistency — usually 4-7 enforced behaviors total. Beyond that, you're adding overhead without adding edge.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Discipline at the elite level is architectural, statistical, and deliberate. Outsource willpower to environment. Monitor your own metrics like a quant. Compound through 90-day improvement loops. This is the system that turns talent into a 10-year career, and 10 years into financial independence.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub3">Mark Complete</button>
+        <a class="next-btn" href="section-6-trading-mistakes.html">Next Section: Common Mistakes →</a>
+      </div>
+    </article>
+
+    <div class="section-nav">
+      <a href="section-4-risk-management.html">
+        <div class="label">← Previous</div>
+        <div class="name">04 · Risk Management</div>
+      </a>
+      <a href="section-6-trading-mistakes.html" class="next">
+        <div class="label">Next Section →</div>
+        <div class="name">06 · Common Mistakes</div>
+      </a>
+    </div>
+  </main>
+</div>
+
+<button class="totop" id="totop" title="Scroll to top">↑</button>
+
+<script>
+(function(){
+  const KEY='tm2026_progress';const SEC_ID='s5';const SUBS=['sub1','sub2','sub3'];
+  function loadAll(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+  function saveAll(d){localStorage.setItem(KEY,JSON.stringify(d))}
+  function getSec(){const d=loadAll();return d[SEC_ID]||{}}
+  function setSec(s){const d=loadAll();d[SEC_ID]=s;saveAll(d)}
+  document.querySelectorAll('.lvl-tabs').forEach(group=>{
+    const subId=group.dataset.target;const article=document.getElementById(subId);
+    group.querySelectorAll('.lvl-tab').forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        group.querySelectorAll('.lvl-tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');const lvl=tab.dataset.lvl;
+        article.querySelectorAll('.lvl-panel').forEach(p=>{p.classList.toggle('active',p.dataset.lvl===lvl)});
+      });
+    });
+  });
+  function refreshMarks(){
+    const sec=getSec();let done=0;
+    SUBS.forEach(id=>{
+      const btn=document.querySelector(`.mark-btn[data-mark="${id}"]`);
+      const navItem=document.querySelector(`.subnav[data-id="${id}"]`);
+      if(sec[id]){if(btn){btn.classList.add('done');btn.textContent='Completed'}if(navItem){navItem.classList.add('done')}done++}
+      else{if(btn){btn.classList.remove('done');btn.textContent='Mark Complete'}if(navItem){navItem.classList.remove('done')}}
+    });
+    const pct=Math.round((done/SUBS.length)*100);
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.getElementById('progressText').textContent=pct+'%';
+  }
+  document.querySelectorAll('.mark-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{const id=btn.dataset.mark;const sec=getSec();sec[id]=!sec[id];setSec(sec);refreshMarks()});
+  });
+  const subs=SUBS.map(id=>document.getElementById(id));
+  function onScroll(){
+    const y=window.scrollY+150;let current=subs[0]?.id;
+    subs.forEach(s=>{if(s&&s.offsetTop<=y)current=s.id});
+    document.querySelectorAll('.subnav').forEach(a=>{a.classList.toggle('active',a.dataset.id===current)});
+    document.getElementById('totop').classList.toggle('show',window.scrollY>500);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{const tgt=document.querySelector(a.getAttribute('href'));if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth',block:'start'})}});
+  });
+  document.getElementById('totop').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+  document.getElementById('hamb').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open')});
+  refreshMarks();onScroll();
+})();
+</script>
+</body>
+</html>

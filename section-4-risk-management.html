@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 4 · Risk Management — Trading Mastery 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--bg-2:#10162a;--card:#11182c;--border:rgba(255,255,255,.08);--teal:#00d4aa;--gold:#f0a500;--red:#ff4757;--blue:#3b9eff;--purple:#a36bff;--text:#e7ecf3;--muted:#8a96ab}
+html,body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;line-height:1.7;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 10% 0%,rgba(255,71,87,.06),transparent 60%),radial-gradient(800px 600px at 90% 80%,rgba(240,165,0,.08),transparent 60%)}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.01em;line-height:1.2}
+a{color:inherit;text-decoration:none}p{color:#cdd5e2}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,14,26,.78);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1480px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--gold));display:grid;place-items:center;font-weight:800;color:#0a0e1a;font-size:13px}
+.brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:16px}
+.brand-sub{font-size:11px;color:var(--muted)}
+.back-link{color:var(--muted);font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;transition:.2s}
+.back-link:hover{color:var(--teal);border-color:var(--teal)}
+.progress-wrap{flex:1;max-width:300px}
+.progress-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.progress-bar{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px;transition:width .5s ease;width:0%}
+.hamb{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+.layout{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 70px)}
+.sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;padding:28px 24px;border-right:1px solid var(--border)}
+.sidebar h4{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);margin-bottom:14px;font-weight:600}
+.sec-meta-block{padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);margin-bottom:24px}
+.sec-meta-block .num{font-family:'Syne',sans-serif;font-size:12px;letter-spacing:.18em;color:var(--teal);font-weight:700}
+.sec-meta-block .title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-top:4px}
+.sidebar ul{list-style:none}
+.sidebar li{margin:4px 0}
+.sidebar a.subnav{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;color:var(--muted);transition:.2s;cursor:pointer;border:1px solid transparent}
+.sidebar a.subnav:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.sidebar a.subnav.active{color:var(--teal);background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2)}
+.sidebar a.subnav .dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.15);flex-shrink:0}
+.sidebar a.subnav.done .dot{background:var(--teal)}
+.sidebar a.subnav.done::after{content:'✓';margin-left:auto;color:var(--teal);font-size:12px}
+.section-jump{margin-top:30px;padding-top:24px;border-top:1px solid var(--border)}
+.section-jump a{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:10px 0}
+.section-jump a:hover{color:var(--teal)}
+.main{padding:50px 60px 80px;max-width:920px}
+.section-intro{margin-bottom:60px}
+.section-intro .eyebrow{display:inline-block;color:var(--red);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(255,71,87,.3);border-radius:99px;margin-bottom:18px}
+.section-intro h1{font-size:clamp(34px,4.5vw,52px);font-weight:800;margin-bottom:16px}
+.section-intro h1 span{background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-intro .lede{color:var(--muted);font-size:17px;max-width:680px}
+.divider{display:flex;align-items:center;gap:14px;margin:50px 0 36px}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent)}
+.divider svg{flex-shrink:0;opacity:.5}
+.subtopic{padding:36px 0;border-top:1px solid var(--border);scroll-margin-top:90px}
+.subtopic:first-of-type{border-top:none;padding-top:0}
+.sub-badge{font-family:'Syne',sans-serif;font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.sub-title{font-size:clamp(26px,3vw,38px);font-weight:800;margin-bottom:20px}
+.lvl-tabs{display:inline-flex;gap:6px;padding:6px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;margin-bottom:28px;flex-wrap:wrap}
+.lvl-tab{padding:9px 18px;font-size:13px;font-weight:600;font-family:inherit;color:var(--muted);background:none;border:none;border-radius:8px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.lvl-tab .dot{width:8px;height:8px;border-radius:99px;background:currentColor}
+.lvl-tab[data-lvl="beg"].active{background:rgba(0,212,170,.14);color:var(--teal)}
+.lvl-tab[data-lvl="int"].active{background:rgba(59,158,255,.14);color:var(--blue)}
+.lvl-tab[data-lvl="exp"].active{background:rgba(163,107,255,.14);color:var(--purple)}
+.lvl-tab:hover{color:var(--text)}
+.lvl-panel{display:none;animation:fade .4s ease}
+.lvl-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.level-indicator{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.level-indicator.beg{background:rgba(0,212,170,.12);color:var(--teal);border:1px solid rgba(0,212,170,.2)}
+.level-indicator.int{background:rgba(59,158,255,.12);color:var(--blue);border:1px solid rgba(59,158,255,.2)}
+.level-indicator.exp{background:rgba(163,107,255,.12);color:var(--purple);border:1px solid rgba(163,107,255,.2)}
+.lvl-panel p{margin-bottom:16px}
+.lvl-panel h4{font-size:18px;margin:24px 0 12px;color:var(--text)}
+.box{padding:20px 22px;border-radius:12px;margin:22px 0;border:1px solid var(--border)}
+.box .box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.box .icon{font-size:18px}
+.box.keyterms{background:rgba(59,158,255,.04);border-color:rgba(59,158,255,.18)}
+.box.keyterms .box-title{color:var(--blue)}
+.box.keyterms dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14px}
+.box.keyterms dt{font-weight:700;color:var(--text)}
+.box.keyterms dd{color:var(--muted)}
+.box.example{background:rgba(0,212,170,.04);border-color:rgba(0,212,170,.18)}
+.box.example .box-title{color:var(--teal)}
+.box.example p{font-size:14px;color:#dde5f0}
+.box.protip{background:rgba(163,107,255,.05);border-color:rgba(163,107,255,.22)}
+.box.protip .box-title{color:var(--purple)}
+.box.protip p{font-size:14px}
+.box.warning{background:rgba(255,71,87,.05);border-color:rgba(255,71,87,.22)}
+.box.warning .box-title{color:var(--red)}
+.box.warning p{font-size:14px}
+.box.takeaway{background:linear-gradient(180deg,rgba(240,165,0,.06),rgba(240,165,0,.02));border:1px solid rgba(240,165,0,.35);margin-top:30px}
+.box.takeaway .box-title{color:var(--gold);font-size:13px}
+.box.takeaway p{font-size:15px;color:#f0e7d2}
+.box.formula{background:rgba(240,165,0,.05);border:1px dashed rgba(240,165,0,.4);font-family:'JetBrains Mono',monospace}
+.box.formula .box-title{color:var(--gold);font-family:'Syne',sans-serif}
+.box.formula .eq{font-size:16px;padding:12px 16px;background:rgba(0,0,0,.3);border-radius:8px;color:var(--gold);margin:8px 0;letter-spacing:.02em}
+.box.formula p{font-family:'IBM Plex Sans',sans-serif;font-size:14px}
+.sub-footer{display:flex;justify-content:space-between;align-items:center;margin-top:30px;flex-wrap:wrap;gap:14px}
+.mark-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);background:none;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.mark-btn:hover{background:rgba(0,212,170,.1)}
+.mark-btn.done{background:var(--teal);color:#0a0e1a}
+.mark-btn.done::before{content:'✓ '}
+.next-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--gold));color:#0a0e1a;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.next-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,212,170,.25)}
+.section-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:80px;padding-top:40px;border-top:1px solid var(--border)}
+.section-nav a{padding:22px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);transition:.25s}
+.section-nav a:hover{border-color:var(--teal);transform:translateY(-2px)}
+.section-nav .label{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.section-nav .name{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
+.section-nav .next{text-align:right}
+.totop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:99px;background:var(--teal);color:#0a0e1a;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,212,170,.3);z-index:40}
+.totop.show{display:flex}
+table.calc{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+table.calc th,table.calc td{padding:10px 14px;border-bottom:1px solid var(--border);text-align:left}
+table.calc th{color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+table.calc td.num{color:var(--gold);font-family:'JetBrains Mono',monospace}
+@media (max-width:960px){.layout{grid-template-columns:1fr}.sidebar{position:fixed;top:0;left:0;height:100vh;width:280px;z-index:60;background:var(--bg-2);transform:translateX(-100%);transition:transform .3s ease;padding-top:80px}.sidebar.open{transform:translateX(0)}.hamb{display:inline-flex}.main{padding:30px 22px 60px}.brand-sub{display:none}.progress-wrap{max-width:140px}.topbar-inner{padding:12px 18px}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="hamb" id="hamb">☰</button>
+    <div class="brand">
+      <div class="brand-logo">TM</div>
+      <div>
+        <div class="brand-name">Trading Mastery 2026</div>
+        <div class="brand-sub">Section 4 of 8</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-row"><span>Section progress</span><span id="progressText">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <a class="back-link" href="trading-course.html">← Course Home</a>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sec-meta-block">
+      <div class="num">SECTION 04</div>
+      <div class="title">Risk Management</div>
+    </div>
+    <h4>Lessons in this section</h4>
+    <ul>
+      <li><a class="subnav" data-id="sub1" href="#sub1"><span class="dot"></span> 4.1 Risk Management Principles</a></li>
+      <li><a class="subnav" data-id="sub2" href="#sub2"><span class="dot"></span> 4.2 Position Sizing</a></li>
+      <li><a class="subnav" data-id="sub3" href="#sub3"><span class="dot"></span> 4.3 Stop-Loss Strategies</a></li>
+    </ul>
+    <div class="section-jump">
+      <h4>Jump to section</h4>
+      <a href="section-3-liquidity.html">← Section 3 — Liquidity</a>
+      <a href="section-5-trading-psychology.html">Section 5 — Psychology →</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="section-intro">
+      <div class="eyebrow">Section 04 · Survival comes first</div>
+      <h1>Risk <span>Management</span></h1>
+      <p class="lede">Strategies come and go. Risk management is the only skill that decides whether you're still trading in three years or telling stories about the year you blew up. This is the most important section in the entire course — re-read it every quarter.</p>
+    </div>
+
+    <!-- ============ SUBTOPIC 4.1 ============ -->
+    <article class="subtopic" id="sub1">
+      <div class="sub-badge">Lesson 4.1</div>
+      <h2 class="sub-title">Risk Management Principles</h2>
+
+      <div class="lvl-tabs" data-target="sub1">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>Imagine you have $1,000 in a casino. If you bet $500 on a single hand of blackjack, two bad hands and you're out. But if you bet $10 a hand, even on a terrible night you walk out with $400 still in your pocket. Trading works exactly the same way. <strong>Risk management</strong> is the discipline of betting small enough that no single trade — or even ten trades — can knock you out of the game.</p>
+        <p>The single most important rule for beginners: <strong>never risk more than 1-2% of your account on any single trade</strong>. If you have $10,000, that means you can afford to lose $100-$200 on any one trade. Period. No "I'm sure about this one." No "let me go bigger to make up for yesterday." That 1-2% rule is the difference between an aspiring trader and a deposit machine for the broker.</p>
+        <p>Why so small? Because <strong>losses compound mathematically against you</strong>. Lose 50% of your account, and you need to make 100% back just to break even. Lose 90%? You need 900% to recover. Tiny risk per trade keeps you in the game long enough for your edge — if you have one — to play out.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Risk</dt><dd>The amount of money you're prepared to lose on a single trade.</dd>
+            <dt>Account Risk %</dt><dd>The percentage of your total capital risked per trade (target: 0.5%-2%).</dd>
+            <dt>Drawdown</dt><dd>How far your account has fallen from its peak.</dd>
+            <dt>Blow-Up</dt><dd>Slang for losing most or all of your account on one or a few trades.</dd>
+          </dl>
+        </div>
+
+        <div class="box formula">
+          <div class="box-title"><span class="icon">📐</span> The Recovery Math (Memorize This)</div>
+          <table class="calc">
+            <thead><tr><th>Drawdown</th><th>Gain Needed to Recover</th></tr></thead>
+            <tbody>
+              <tr><td>10%</td><td class="num">11%</td></tr>
+              <tr><td>25%</td><td class="num">33%</td></tr>
+              <tr><td>50%</td><td class="num">100%</td></tr>
+              <tr><td>75%</td><td class="num">300%</td></tr>
+              <tr><td>90%</td><td class="num">900%</td></tr>
+            </tbody>
+          </table>
+          <p>Read this table three times. Then promise yourself you'll never risk enough on one trade to put yourself in the bottom two rows.</p>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>You have $5,000. You risk 1% per trade = $50 per trade. You take ten trades in a row that lose. You're down $500 — bruised, but you still have $4,500 to work with. Compare that to risking 10% per trade: ten losses in a row = $3,260 lost, less than $1,800 left. Same losing streak, completely different outcomes. The first version lets you keep trading. The second version ends your career.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Risk 1-2% per trade. Always. Even when you're certain. Especially when you're certain. The trade you're most confident about is the one most likely to humble you — and your job is to survive long enough to take the next one.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Beyond the per-trade risk percentage, intermediate traders manage <strong>portfolio-level exposure</strong>. Three trades, each risking 1.5%, that all depend on the same market driver (say, US dollar strength) aren't three trades — they're one 4.5% trade in disguise. The intermediate framework: cap total open risk at 3-5% of account at any given moment, regardless of how many setups are calling your name.</p>
+        <p>Master the <strong>risk-to-reward ratio (RR)</strong>. A 1.5R minimum target on every trade is the entry-level threshold; 2R or higher is the professional standard. The math: at 50% win rate, a 2R minimum gives you a 1R per-trade expectancy — you make money even with a coin-flip strategy. Below 1.5R you're praying for high win rate, which no system reliably delivers across regimes.</p>
+        <p>Build a daily, weekly, and monthly <strong>loss limit</strong>. If you lose 3% in a day, you're done — log off, no exceptions. If you lose 6% in a week, no new positions until next week. If you lose 10% in a month, you halve your size until you reclaim it. These guardrails are non-negotiable because <em>tilt</em> — emotional trading after losses — is what actually empties accounts, not the original losses.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Open Risk</dt><dd>The sum of risk across all currently open positions.</dd>
+            <dt>Correlation Risk</dt><dd>Hidden concentration from multiple trades dependent on the same driver.</dd>
+            <dt>Risk-to-Reward (RR)</dt><dd>Target distance divided by stop distance; aim for ≥2R.</dd>
+            <dt>Expectancy</dt><dd>(Win% × Avg Win) − (Loss% × Avg Loss); must be positive long-term.</dd>
+            <dt>Daily/Weekly Loss Limit</dt><dd>Hard cutoffs to prevent emotional drawdown spirals.</dd>
+          </dl>
+        </div>
+
+        <div class="box formula">
+          <div class="box-title"><span class="icon">📐</span> Expectancy Formula</div>
+          <div class="eq">E = (Win% × AvgWin) − (Loss% × AvgLoss)</div>
+          <p>Example: Win 40% of trades, average win 2.5R, average loss 1R → E = (0.40 × 2.5) − (0.60 × 1.0) = +0.40R per trade. Over 100 trades, that's +40R. <em>That</em> is your edge expressed in math — without these numbers, you're not trading, you're guessing.</p>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>You see three setups: long EUR/USD, long GBP/USD, short USD/JPY. All depend on USD weakness. Sizing each at 1.5% feels like three independent 1.5% trades, but they're actually one 4.5% bet on the dollar. If the dollar surges, you take all three losses at once. Solution: take one at 1.5%, the second at 1%, the third at 0.5% — total exposure 3%, but distribution is correlation-aware.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>The 1.5R minimum target test: if you can't honestly identify a 1.5R reward zone before you click buy, the trade is a coin flip dressed as analysis. Pass on it. Some of the most profitable months come from saying "no" to 80% of setups and full-sizing the remaining 20%.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Risk per trade is just the start. Cap portfolio risk, account for correlation, enforce minimum RR, calculate expectancy, and respect hard loss limits. Risk management isn't a chapter — it's the operating system every other skill runs on top of.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>At the institutional level, risk management is a multidimensional control problem: <strong>volatility-adjusted position sizing</strong> (ATR-scaled risk so a 1% risk in a high-vol regime is the same psychological/financial bet as 1% in a low-vol regime), <strong>regime-dependent exposure caps</strong> (cut total open risk when implied volatility spikes or correlations break down), and <strong>drawdown-conditioned sizing</strong> (Kelly-fraction or fractional Kelly methods that reduce size as drawdown deepens, increase size as the equity curve climbs new highs).</p>
+        <p>The <strong>Kelly Criterion</strong> — f* = (bp − q) / b where b = win amount per unit risked, p = win probability, q = loss probability — is the mathematically optimal sizing formula for a known edge. In practice, half-Kelly or quarter-Kelly is used because true probabilities are uncertain and full Kelly produces brutal volatility. The expert insight: most retail traders are betting <em>multiples</em> of full Kelly without knowing it. That's why drawdowns are catastrophic — they're statistically inevitable at over-sized positions.</p>
+        <p>For prop firm challenges (FTMO, MyForexFunds, TopStep, etc.), risk discipline must be even tighter: <strong>0.5%-1% max per trade</strong>, <strong>≤3% daily loss</strong>, <strong>≤5% total drawdown</strong>. These constraints are not pessimistic — they're the only realistic way to convert a 5-10% profit target into a 60%+ pass rate over a 30-day window. Anything more aggressive trades the challenge for variance.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Kelly Criterion</dt><dd>Math formula for optimal bet size given edge and odds; use fractional Kelly in practice.</dd>
+            <dt>ATR-Scaled Risk</dt><dd>Position sized so $-risk normalizes across volatility regimes.</dd>
+            <dt>Drawdown-Conditioned Sizing</dt><dd>Adaptive sizing that shrinks in drawdowns, grows during equity highs.</dd>
+            <dt>VaR / CVaR</dt><dd>Value at Risk / Conditional VaR — tail-risk metrics institutions monitor.</dd>
+            <dt>Prop Firm Risk Profile</dt><dd>0.5-1% per trade, ≤3% daily, ≤5% total — the only viable risk budget for funded accounts.</dd>
+          </dl>
+        </div>
+
+        <div class="box formula">
+          <div class="box-title"><span class="icon">📐</span> Kelly Criterion</div>
+          <div class="eq">f* = (bp − q) / b</div>
+          <p>Where: f* = fraction of capital to risk; b = avg win per unit risked (R-multiple); p = win probability; q = loss probability (1 − p). For a 55% winner with 2R avg payoff: f* = (2 × 0.55 − 0.45) / 2 = 32.5%. <em>Never</em> use full Kelly — risk 1/4 to 1/2 of f* in real trading to survive the variance.</p>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>A $50,000 prop firm challenge. Daily loss limit 4%. Max drawdown 8%. The expert sets a personal cap of 0.6% per trade ($300 risk), max 2 open trades simultaneously (1.2% portfolio), max 3 losses per day ($900 = below the 4% wall with buffer). Target 8% profit over 30 days = 0.27% per day. With 1.5-2R average winners and 50% win rate, the math closes in roughly 25 trading days. Discipline, not heroism, passes the challenge.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Anti-Martingale (pyramid up) wins compounding races; Martingale (double down on losses) wins gambling stories until it doesn't. After a losing trade, reduce size or keep it flat. After a winning trade, you may scale up cautiously. The behavior is opposite to retail instinct — which is exactly why it's profitable.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Risk management formulas assume your win-rate and RR estimates are accurate. They almost never are at the start. Assume your edge is 30% smaller than it looks in backtests, then size from that conservative estimate. The market is brutal to traders whose self-confidence outruns their statistics.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Volatility-adjust, regime-cap, fractional-Kelly. Treat risk management like an engineering discipline — measure, model, monitor. The traders who survive decades aren't the boldest with their entries; they're the most surgical with their sizing.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub1">Mark Complete</button>
+        <a class="next-btn" href="#sub2">Next: Position Sizing →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 4.2 ============ -->
+    <article class="subtopic" id="sub2">
+      <div class="sub-badge">Lesson 4.2</div>
+      <h2 class="sub-title">Position Sizing</h2>
+
+      <div class="lvl-tabs" data-target="sub2">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>You've decided you'll risk 1% of your $10,000 account = $100. Great. Now: how many shares, how many lots, how many coins do you actually buy? That's <strong>position sizing</strong>. The key insight is this: position size depends on <em>how far away your stop is</em>, not how confident you feel. If the stop is tight, you can hold more units. If the stop is wider, you hold fewer.</p>
+        <p>Here's the most useful formula for beginners — write it on a sticky note next to your monitor:</p>
+
+        <div class="box formula">
+          <div class="box-title"><span class="icon">📐</span> Universal Position Sizing Formula</div>
+          <div class="eq">Position Size = Account Risk ($) / Stop Distance ($ per unit)</div>
+          <p>Example: $100 risk, you're buying Apple at $180 with a stop at $176 → stop distance is $4. Position size = $100 / $4 = 25 shares. If price hits your stop, you lose exactly $100 — your planned risk. Not a penny more.</p>
+        </div>
+
+        <p>This single formula is the secret to surviving as a beginner. It auto-scales: tight stop → bigger size → bigger upside potential at the same fixed risk. Loose stop → smaller size → still capped at the same loss. Either way, you can't accidentally take a 10% hit on one trade unless you skip the formula entirely.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Position Size</dt><dd>How many shares/coins/lots/contracts you actually buy or sell.</dd>
+            <dt>Stop Distance</dt><dd>The price difference between your entry and your stop.</dd>
+            <dt>Risk Per Unit</dt><dd>Same as stop distance — how much you lose per unit if stopped.</dd>
+            <dt>Account Risk</dt><dd>Dollar amount you've decided to risk on this trade.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>You have $5,000. 1% risk = $50. Bitcoin is at $42,000, you want to long with a stop at $41,400. Stop distance = $600 per BTC. Position size = $50 / $600 = 0.0833 BTC. You buy 0.083 BTC. If stopped, you lose $50 — exactly what you planned. No math headaches. No emotional sizing.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Position Size = Account Risk ÷ Stop Distance. Use this on every single trade, mechanically, before you even decide if you "feel good" about it. Sizing by feel is how accounts disappear; sizing by formula is how they survive.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>In forex specifically, the basic formula gets adjusted because risk-per-unit is measured in <strong>pips</strong> and the dollar value of a pip varies by pair and lot size. The intermediate forex formula:</p>
+
+        <div class="box formula">
+          <div class="box-title"><span class="icon">📐</span> Forex Position Sizing</div>
+          <div class="eq">Lots = Account Risk ($) / (Stop Loss in Pips × Pip Value per Lot)</div>
+          <p>Standard lot pip value on major USD-quote pairs: $10. Mini lot: $1. Micro lot: $0.10. Example: $200 risk, 25 pip stop on EUR/USD using mini lots → Lots = $200 / (25 × $1) = 8 mini lots. Done.</p>
+        </div>
+
+        <p>For US stocks and crypto the math is even simpler — buy as many units as fit into your risk budget given the stop distance, denominated in the asset's quote currency. For futures, factor in the tick value (e.g., ES tick = $12.50; NQ tick = $5; MES tick = $1.25). Always know your asset's tick or pip value cold; sizing errors here are how traders accidentally take a $1,800 loss on a "small trade."</p>
+
+        <p>Layer in <strong>volatility-aware sizing</strong>: use the Average True Range (ATR) to set the stop, not just a fixed percentage. ATR-based stops naturally widen during volatile conditions and tighten during calm ones — which keeps your effective risk consistent across regimes. A common rule: stop = entry ± 1.5×ATR(14). Then size from that stop using the formula above.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Pip</dt><dd>Smallest price move in forex (0.0001 on most pairs; 0.01 on JPY pairs).</dd>
+            <dt>Lot</dt><dd>Standardized forex trade size; standard = 100,000 units; mini = 10,000; micro = 1,000.</dd>
+            <dt>Tick</dt><dd>Smallest price increment in futures; tick value varies by contract.</dd>
+            <dt>ATR (Average True Range)</dt><dd>Indicator measuring volatility; used to set adaptive stops.</dd>
+            <dt>Notional Value</dt><dd>Full market value of your position (size × price); separate from risk.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>$20,000 account. GBP/JPY 4H trade. ATR(14) = 80 pips. Stop = 1.5 × ATR = 120 pips. Risk = 1% = $200. Pip value of GBP/JPY at current rates ≈ $0.68 per micro lot. Lots = $200 / (120 × $0.68) = 2.45 micro lots → round down to 2 micro lots to stay within risk. Total notional: $19,600 — you're trading nearly your full account with $164 of actual risk. That's professional leverage management.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Build a sizing spreadsheet (or use a calculator widget). Inputs: account balance, risk %, instrument, stop pips/dollars. Output: exact position size. Never eyeball it. Mechanical sizing is the single biggest leak-stopper in retail accounts — three minutes of math saves three months of tilt-driven oversizing.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Memorize the asset-class-specific formulas: stocks (shares = risk/stop), forex (lots = risk/(pips × pip value)), futures (contracts = risk/(ticks × tick value)). Pair them with ATR-based stops for volatility-aware sizing. Mechanical sizing is the foundation of long-term consistency.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>Position sizing at the expert level is a continuous function of <strong>edge confidence, market regime, and ongoing equity-curve dynamics</strong>. Static "1% per trade" works for beginners but leaves expectancy on the table. The expert distinguishes between <em>A+ setups</em> (full statistical edge, MTF aligned, clean liquidity) and <em>B-grade setups</em> (partial confluence, weaker location), sizing the first at maximum risk budget and the second at 30-50% of it. Some pros use a 3-tier system: A+ (1%), A (0.6%), B (0.3%). Over 200 trades, this asymmetry materially increases expected return without changing total risk exposure.</p>
+        <p>Implement <strong>volatility parity sizing</strong>: across a portfolio of trades, normalize each position to deliver the same dollar P/L per 1-sigma move. A high-volatility crypto position should have notional 3-5x smaller than a low-volatility forex pair to achieve volatility parity. Without this normalization, your portfolio P/L is dominated by the highest-vol holding regardless of conviction.</p>
+        <p>Apply <strong>dynamic Kelly fractions</strong> to your equity curve: when in a winning streak with a fresh equity high, you may scale to 0.4× Kelly. Inside a drawdown (>5% from recent peak), drop to 0.15× Kelly until you reclaim the high. This counter-emotional sizing (smaller when losing, larger when winning) is the inverse of human instinct and is the empirical basis for steady compounding across regimes.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Tiered Sizing</dt><dd>Different risk budgets for different setup grades (A+ vs B).</dd>
+            <dt>Volatility Parity</dt><dd>Sizing so each position delivers equal P/L per 1σ market move.</dd>
+            <dt>Fractional Kelly</dt><dd>1/4 to 1/2 of optimal Kelly bet — practical compromise between edge maximization and ruin avoidance.</dd>
+            <dt>Equity-Curve Conditioning</dt><dd>Adjusting risk size based on recent P/L performance — pro-cyclical when winning, anti-cyclical when losing.</dd>
+            <dt>Risk-Parity Allocation</dt><dd>Portfolio sizing concept where each instrument contributes equal expected variance.</dd>
+          </dl>
+        </div>
+
+        <div class="box formula">
+          <div class="box-title"><span class="icon">📐</span> Tiered Sizing Stack</div>
+          <table class="calc">
+            <thead><tr><th>Setup Grade</th><th>Criteria</th><th>Risk %</th></tr></thead>
+            <tbody>
+              <tr><td>A+</td><td>MTF aligned · sweep · OB · 3R+ to liquidity</td><td class="num">1.0%</td></tr>
+              <tr><td>A</td><td>HTF aligned · clean structure · 2R+ to target</td><td class="num">0.6%</td></tr>
+              <tr><td>B</td><td>Partial confluence · 1.5R available</td><td class="num">0.3%</td></tr>
+              <tr><td>C</td><td>Single signal · doubt present</td><td class="num">Skip</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>$100,000 account in a 4% drawdown over 8 days. Standard tier: A+ = 1%, A = 0.6%. Drawdown-conditioned tier: A+ drops to 0.6%, A to 0.4%, B is skipped entirely. Until the equity curve reclaims its prior high, sizing stays muted. Result: psychological pressure stays low, additional drawdown is capped, and full sizing resumes only when the system has empirically proven it's still working. This single adaptation has saved more careers than any technical refinement.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Audit your last 50 trades and grade them retroactively as A+/A/B/C. Compute hit rate and average R by tier. You'll often find your "C" setups have negative expectancy while your A+ setups print 3R averages. The single biggest jump in performance for most traders isn't a new strategy — it's <em>refusing to take C trades</em>.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Tiered sizing only works if you grade honestly. The temptation is to label every trade A+ because you want to bet big. Build a written grading rubric, apply it before entry, and refuse to upgrade a setup mid-trade. Discipline at the sizing step is where most edges actually live or die.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Position sizing is dynamic, tiered, volatility-aware, and equity-curve conditioned. Static 1%-per-trade is the foundation; advanced sizing is the alpha. The traders who size with the same precision as institutions outperform traders with identical signal quality by 30-50% over multi-year periods.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub2">Mark Complete</button>
+        <a class="next-btn" href="#sub3">Next: Stop-Loss Strategies →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 4.3 ============ -->
+    <article class="subtopic" id="sub3">
+      <div class="sub-badge">Lesson 4.3</div>
+      <h2 class="sub-title">Stop-Loss Strategies</h2>
+
+      <div class="lvl-tabs" data-target="sub3">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>A <strong>stop-loss</strong> is an order you place with your broker that automatically closes your trade if price moves against you to a certain level. Think of it as the seatbelt of trading. You don't notice it on the smooth roads — but when an unexpected crash happens, it's the only thing between you and a catastrophic loss.</p>
+        <p>Every single trade needs a stop. <strong>No exceptions</strong>. The number-one cause of blown accounts isn't bad strategy — it's "I'll manage the trade manually" turning into "I can't watch this drop another 10%" turning into "I should have just had a stop." The market does not care about your hopes. A pre-placed stop converts your worst possible loss from open-ended to finite, and that's the foundation of survival.</p>
+        <p>Three simple stop placement rules to start with. <strong>One</strong>: place the stop below the recent swing low (for longs) or above the recent swing high (for shorts). <strong>Two</strong>: never place the stop at a round number where everyone else does — pad it by a few ticks. <strong>Three</strong>: once placed, do not move it further away. Ever. (Moving it closer to lock in profit as the trade works is fine.)</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Stop-Loss</dt><dd>Automatic exit order if price moves against you.</dd>
+            <dt>Hard Stop</dt><dd>Stop pre-placed with the broker; executes automatically.</dd>
+            <dt>Mental Stop</dt><dd>Stop you "promise yourself" to execute manually — usually a disaster waiting to happen.</dd>
+            <dt>Trailing Stop</dt><dd>Stop that automatically follows the price as it moves in your favor.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>You long Apple at $180. Recent swing low is $176.50. You place a hard stop at $176.30 — just below the swing, padded by 20 cents to avoid stop hunts. If Apple drops to $176.30, your position closes automatically, you lose your pre-planned amount, and you move on. Pain is finite. Without that stop, you'd watch it drop to $172 and freeze, hoping it comes back.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Beginner Warning</div>
+          <p>Never trade without a stop. Never use "mental stops." Never trade leverage on assets you can't afford to lose. These three rules alone save more beginner accounts than any indicator ever invented.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Stops are not optional. Every trade gets a hard stop, placed at the broker, before you walk away from your screen. If you can't justify a place for the stop, you don't have a trade — you have a hope.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Beyond "below the swing low," there are several stop-placement methodologies, each with its trade-offs. <strong>Structure-based stops</strong> (below the last HL for longs, above the last LH for shorts) align with market logic but can be wide. <strong>ATR-based stops</strong> (e.g., 1.5×ATR(14) from entry) automatically adapt to volatility but can place stops in awkward locations. <strong>Indicator stops</strong> (below a moving average or VWAP) trail price intelligently but can cut winners early. <strong>Time-based stops</strong> (exit if not profitable within N candles) catch stagnant trades but can miss late breakouts. Choose your stop type based on your strategy's nature — and stick to one.</p>
+        <p>Master the three dynamic stop techniques: <strong>Break-Even (BE) move</strong> — once price reaches 1R in your favor, move stop to entry, eliminating loss risk. <strong>Partial profit + trail</strong> — close 50% at 1R, trail the remainder behind structure. <strong>Volatility trailing stop</strong> — trail using a Chandelier Exit or ATR-based trail to ride large moves while protecting profits.</p>
+        <p>Avoid the two most common stop mistakes: <strong>placing stops too tight</strong> (inside normal noise — guarantees death by a thousand cuts) and <strong>placing stops at obvious round numbers or just behind the swing</strong> (where every retail trader's stop sits — algorithms hunt these). Padding the stop 0.1-0.3% beyond the obvious level (or 5-10 pips in forex) dramatically reduces stop-hunt rate without inflating risk much.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Break-Even Stop</dt><dd>Stop moved to entry price after 1R favorable move.</dd>
+            <dt>Trailing Stop</dt><dd>Stop that follows price up (long) or down (short) to lock in profit.</dd>
+            <dt>Chandelier Exit</dt><dd>ATR-based trailing stop — trails the highest high minus N×ATR.</dd>
+            <dt>Stop Hunt</dt><dd>Engineered move that triggers obvious stops then reverses.</dd>
+            <dt>Padding</dt><dd>Extra space added beyond obvious level to avoid stop-hunt area.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>Long ETH at $2,400. Swing low $2,380. Place stop at $2,376 (below the swing, padded). Target $2,460 (2R). Price runs to $2,420 (+1R) — move stop to break-even ($2,400). Price runs to $2,440 — close 50%, trail remainder behind 1H swing lows. Price hits $2,490, the trail triggers at $2,470. Outcome: +R on the first 50%, +2.92R on the second 50%. Total realized: +1.96R from a single setup. That's surgical stop management.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Do not move stops in the first 30 minutes after entry unless price has clearly proven your thesis. Initial chop is normal. Premature break-even moves are how perfectly good trades become break-evens that "would have been" 4R winners. Trust your stop, give the trade room to breathe.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Choose a stop methodology (structure, ATR, indicator, time) and apply it consistently. Layer in break-even moves, partial profits, and volatility trails for active management. Always pad stops beyond the obvious. Avoiding stop hunts is the single biggest improvement most intermediate traders need.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>At the expert level, stop-loss placement is not a single decision but an <strong>adaptive lifecycle</strong>. Initial stop is structurally justified (invalidation of the setup thesis, not arbitrary distance). The stop's location must answer: "What price action would prove I was wrong about the setup?" If you can articulate that, the stop has a logical home. If you can't, the trade doesn't have a real edge.</p>
+        <p>Pros separate <strong>technical stops</strong> (the price level that invalidates the thesis) from <strong>risk stops</strong> (the price level corresponding to maximum acceptable dollar loss). When risk stop is tighter than technical stop, the position is too large — reduce size, not the stop. When technical stop is tighter than risk stop, you've got a high-conviction asymmetric setup — size up to the risk stop ceiling, not the technical stop. This bidirectional reasoning is what makes pros' R-multiples consistently higher than retail's.</p>
+        <p>Use <strong>stop laddering</strong> on swing trades: 1/3 stop at structural invalidation, 1/3 at the next deeper liquidity pool below, 1/3 at a "max bleed" level. This lets the position survive stop-hunt sweeps that would invalidate a single hard stop, while still capping total exposure. Pair laddering with multi-leg entry, and your average winner expands significantly while your worst-case loss stays within risk budget.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Thesis Invalidation</dt><dd>The specific price action that disproves your setup hypothesis; the only legitimate stop location.</dd>
+            <dt>Technical Stop vs. Risk Stop</dt><dd>Structural invalidation price vs. max-dollar-loss price; reconcile by sizing, not by moving stops.</dd>
+            <dt>Stop Laddering</dt><dd>Splitting stop into multiple tranches at different levels to survive sweeps.</dd>
+            <dt>Stop Hunt Bypass</dt><dd>Placing stops beyond known liquidity pools, even at the cost of wider distance.</dd>
+            <dt>Adaptive Stop Management</dt><dd>Recalibrating stops based on evolving structure, not the original chart.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>Short SPY into a daily supply zone. Technical invalidation: a daily close above the zone. Initial position 0.7% risk with a hard stop above the zone. As the trade pays 1R, ladder the stop: leave 50% with thesis invalidation, trail 50% behind 4H lower highs. When price approaches a previous untested supply zone above, exit the trailing portion entirely (don't let it round-trip). Net realized: 2.4R, where retail with a single tight stop would have been stopped twice on intraday sweeps. Same trade, expert execution.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>The strongest trade journals track not just hit rate but <em>stop adjustment outcomes</em>. Was the BE move premature? Did the trailing stop give back too much? Was a wider initial stop required? Iterating on these decisions is where the next decimal of edge lives — far more than tweaking entries.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Never use stop laddering or wide stops without proportionally reducing size. Wider stop = smaller position = same dollar risk. The most common pro-style mistake is widening stops without re-sizing — turning a 1% trade into a 3% disaster. The formula does not bend.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Stops are about thesis invalidation, not distance. Separate technical from risk stops; reconcile through sizing. Use laddering on swings, dynamic management throughout the trade lifecycle, and obsessively journal stop decisions. The art of the stop is where amateur survival becomes professional consistency.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub3">Mark Complete</button>
+        <a class="next-btn" href="section-5-trading-psychology.html">Next Section: Psychology →</a>
+      </div>
+    </article>
+
+    <div class="section-nav">
+      <a href="section-3-liquidity.html">
+        <div class="label">← Previous</div>
+        <div class="name">03 · Liquidity</div>
+      </a>
+      <a href="section-5-trading-psychology.html" class="next">
+        <div class="label">Next Section →</div>
+        <div class="name">05 · Trading Psychology</div>
+      </a>
+    </div>
+  </main>
+</div>
+
+<button class="totop" id="totop" title="Scroll to top">↑</button>
+
+<script>
+(function(){
+  const KEY='tm2026_progress';const SEC_ID='s4';const SUBS=['sub1','sub2','sub3'];
+  function loadAll(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+  function saveAll(d){localStorage.setItem(KEY,JSON.stringify(d))}
+  function getSec(){const d=loadAll();return d[SEC_ID]||{}}
+  function setSec(s){const d=loadAll();d[SEC_ID]=s;saveAll(d)}
+  document.querySelectorAll('.lvl-tabs').forEach(group=>{
+    const subId=group.dataset.target;const article=document.getElementById(subId);
+    group.querySelectorAll('.lvl-tab').forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        group.querySelectorAll('.lvl-tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');const lvl=tab.dataset.lvl;
+        article.querySelectorAll('.lvl-panel').forEach(p=>{p.classList.toggle('active',p.dataset.lvl===lvl)});
+      });
+    });
+  });
+  function refreshMarks(){
+    const sec=getSec();let done=0;
+    SUBS.forEach(id=>{
+      const btn=document.querySelector(`.mark-btn[data-mark="${id}"]`);
+      const navItem=document.querySelector(`.subnav[data-id="${id}"]`);
+      if(sec[id]){if(btn){btn.classList.add('done');btn.textContent='Completed'}if(navItem){navItem.classList.add('done')}done++}
+      else{if(btn){btn.classList.remove('done');btn.textContent='Mark Complete'}if(navItem){navItem.classList.remove('done')}}
+    });
+    const pct=Math.round((done/SUBS.length)*100);
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.getElementById('progressText').textContent=pct+'%';
+  }
+  document.querySelectorAll('.mark-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{const id=btn.dataset.mark;const sec=getSec();sec[id]=!sec[id];setSec(sec);refreshMarks()});
+  });
+  const subs=SUBS.map(id=>document.getElementById(id));
+  function onScroll(){
+    const y=window.scrollY+150;let current=subs[0]?.id;
+    subs.forEach(s=>{if(s&&s.offsetTop<=y)current=s.id});
+    document.querySelectorAll('.subnav').forEach(a=>{a.classList.toggle('active',a.dataset.id===current)});
+    document.getElementById('totop').classList.toggle('show',window.scrollY>500);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{const tgt=document.querySelector(a.getAttribute('href'));if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth',block:'start'})}});
+  });
+  document.getElementById('totop').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+  document.getElementById('hamb').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open')});
+  refreshMarks();onScroll();
+})();
+</script>
+</body>
+</html>

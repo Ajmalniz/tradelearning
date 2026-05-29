@@ -1,0 +1,135 @@
+Create a complete,  trading course tutorial website called "Trading Mastery 2026" covering Stock, Crypto & Forex trading. The file should be saved as `trading-course.html`.
+
+## CONTENT STRUCTURE
+
+The course has 8 sections, each with 3 subtopics. Each subtopic must have:
+- A beginner explanation (simple language, analogies, real-world examples)
+- An intermediate explanation (concepts deepened, terminology introduced)
+- An expert explanation (professional-level insight, nuances, edge cases)
+- A key takeaway box
+- At least one practical example or scenario
+
+### Sections & Subtopics:
+
+**Section 1: Market Structure**
+- Understanding Market Structure (Foundation for all trading strategies)
+- Market Trends (Identifying bullish and bearish trends)
+- Support and Resistance (Key levels that dictate price movements)
+
+**Section 2: Supply and Demand**
+- Supply Zones (Areas where selling pressure exceeds buying)
+- Demand Zones (Areas where buying pressure exceeds selling)
+- Order Blocks (Significant price levels for institutional traders)
+
+**Section 3: Liquidity**
+- Liquidity Basics (Understanding how liquidity affects trading)
+- Institutional Tactics (Techniques for leveraging liquidity)
+- Impact on Trade Execution (How liquidity influences trade entry and exit)
+
+**Section 4: Risk Management**
+- Risk Management Principles (Importance in trading strategies)
+- Position Sizing (Techniques for calculating position sizes based on risk)
+- Stop-Loss Strategies (Tools for limiting potential losses)
+
+**Section 5: Trading Psychology**
+- Emotional Control (Managing fear and greed in trading decisions)
+- Psychological Barriers (Common mindset issues that affect traders)
+- Improving Discipline (Techniques for maintaining focus and discipline)
+
+**Section 6: Common Trading Mistakes**
+- Overview of Mistakes (Common pitfalls traders encounter)
+- Analysis Paralysis (Understanding the risk of overthinking)
+- Developing a Trading Plan (Importance of a systematic trading approach)
+
+**Section 7: Chart Patterns**
+- Introduction to Candlestick Patterns (Basics of reading candlestick charts)
+- Marubozu Candlestick Pattern (Characteristics and trading implications)
+- Doji Candlestick Pattern (Understanding indecision in the market)
+
+**Section 8: Practical Application**
+- Applying Concepts to Real Charts (Live examples of implementing learned skills)
+- Analyzing Live Market Conditions (Hands-on practice with current market data)
+- Developing a Personal Trading Strategy (Tailoring strategies to individual trading style)
+
+---
+
+## UI/UX REQUIREMENTS
+
+### Layout:
+- Fixed left sidebar navigation showing all 8 sections with their 3 subtopics each (collapsible section groups)
+- Main content area on the right
+- Sticky top header with course title and progress bar
+- Mobile responsive with hamburger menu for sidebar on small screens
+
+### Navigation Features:
+- Click any section/subtopic in sidebar to jump to it (smooth scroll)
+- Active section highlighted in sidebar
+- Progress tracker showing % of course completed (based on sections visited/scrolled)
+- "Mark as Complete" button on each subtopic
+- Next/Previous subtopic navigation buttons at bottom of each content block
+
+### Level Toggle (IMPORTANT):
+- Each subtopic has a 3-level toggle: [Beginner] [Intermediate] [Expert]
+- Default shows Beginner level
+- Clicking a level tab smoothly transitions to that level's content
+- Level indicator badge visible (colored: green=beginner, blue=intermediate, purple=expert)
+
+### Visual Design — Dark Financial Theme:
+- Dark background: #0a0e1a (deep navy-black)
+- Accent: #00d4aa (trading green / teal)
+- Secondary accent: #f0a500 (gold for highlights)
+- Danger/warning: #ff4757 (red for risk concepts)
+- Font: Import 'Syne' (headers) + 'IBM Plex Sans' (body) from Google Fonts
+- Cards with subtle glassmorphism borders
+- Candlestick chart SVG decorations as section dividers (purely decorative)
+- Animated gradient mesh background (subtle, not distracting)
+
+### Content Blocks — Each Subtopic Must Have:
+1. Section badge (e.g. "Section 1 · Market Structure")
+2. Subtopic title (large, bold)
+3. Difficulty selector tabs (Beginner / Intermediate / Expert)
+4. Content panel for selected difficulty:
+   - Concept explanation (2–4 paragraphs)
+   - Key Terms box (styled differently, with term + definition)
+   - Practical Example (styled callout box with 📊 icon)
+   - Pro Tip box (styled with 💡 icon, visible only at Intermediate/Expert)
+5. Key Takeaway box (gold-bordered, bottom of subtopic)
+6. Mark Complete button + Next Topic button
+
+### Extra Features:
+- Search bar in sidebar to filter subtopics
+- Course completion certificate message when all subtopics are marked complete
+- Smooth fade-in animation as content sections come into view (Intersection Observer)
+- Scroll-to-top button
+- Local storage to persist which subtopics are marked complete across page reloads
+
+---
+
+## TECHNICAL REQUIREMENTS
+
+- Single HTML file (no external JS files, no frameworks — vanilla HTML/CSS/JS only)
+- All CSS in a `<style>` tag in `<head>`
+- All JavaScript in a `<script>` tag before `</body>`
+- Google Fonts loaded via `<link>` in head
+- No external libraries except Google Fonts
+- Must work by simply opening the HTML file in a browser (no server needed)
+- All content must be fully written out — do not use placeholder text like "Lorem ipsum"
+- All 8 sections × 3 subtopics × 3 levels = 72 content blocks must have real, meaningful trading education content
+
+---
+
+## CONTENT QUALITY GUIDELINES
+
+Write the content as a professional trading educator would:
+- Beginner: Use analogies (e.g., compare support levels to a floor, resistance to a ceiling)
+- Intermediate: Introduce proper trading terminology, discuss confluence, explain how to identify on charts
+- Expert: Discuss institutional behavior, market maker manipulation, multi-timeframe analysis, edge cases and nuances
+
+For Risk Management subtopics specifically, include formulas:
+- Position Size = (Account Risk $ / Stop Loss in pips × Pip Value)
+- Risk % per trade recommendation (0.5%–2% for beginners, up to 1% for prop firm challenges)
+
+For Trading Psychology, include recognizable scenarios traders face (e.g., moving stop loss, revenge trading, FOMO entries).
+
+---
+

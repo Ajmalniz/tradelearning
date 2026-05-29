@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 2 · Supply and Demand — Trading Mastery 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--bg-2:#10162a;--card:#11182c;--border:rgba(255,255,255,.08);--teal:#00d4aa;--gold:#f0a500;--red:#ff4757;--blue:#3b9eff;--purple:#a36bff;--text:#e7ecf3;--muted:#8a96ab}
+html,body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;line-height:1.7;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 10% 0%,rgba(0,212,170,.08),transparent 60%),radial-gradient(800px 600px at 90% 80%,rgba(240,165,0,.06),transparent 60%)}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.01em;line-height:1.2}
+a{color:inherit;text-decoration:none}p{color:#cdd5e2}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,14,26,.78);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1480px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--gold));display:grid;place-items:center;font-weight:800;color:#0a0e1a;font-size:13px}
+.brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:16px}
+.brand-sub{font-size:11px;color:var(--muted)}
+.back-link{color:var(--muted);font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;transition:.2s}
+.back-link:hover{color:var(--teal);border-color:var(--teal)}
+.progress-wrap{flex:1;max-width:300px}
+.progress-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.progress-bar{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px;transition:width .5s ease;width:0%}
+.hamb{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+.layout{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 70px)}
+.sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;padding:28px 24px;border-right:1px solid var(--border)}
+.sidebar h4{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);margin-bottom:14px;font-weight:600}
+.sec-meta-block{padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);margin-bottom:24px}
+.sec-meta-block .num{font-family:'Syne',sans-serif;font-size:12px;letter-spacing:.18em;color:var(--teal);font-weight:700}
+.sec-meta-block .title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-top:4px}
+.sidebar ul{list-style:none}
+.sidebar li{margin:4px 0}
+.sidebar a.subnav{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;color:var(--muted);transition:.2s;cursor:pointer;border:1px solid transparent}
+.sidebar a.subnav:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.sidebar a.subnav.active{color:var(--teal);background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2)}
+.sidebar a.subnav .dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.15);flex-shrink:0}
+.sidebar a.subnav.done .dot{background:var(--teal)}
+.sidebar a.subnav.done::after{content:'✓';margin-left:auto;color:var(--teal);font-size:12px}
+.section-jump{margin-top:30px;padding-top:24px;border-top:1px solid var(--border)}
+.section-jump a{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:10px 0}
+.section-jump a:hover{color:var(--teal)}
+.main{padding:50px 60px 80px;max-width:920px}
+.section-intro{margin-bottom:60px}
+.section-intro .eyebrow{display:inline-block;color:var(--teal);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(0,212,170,.3);border-radius:99px;margin-bottom:18px}
+.section-intro h1{font-size:clamp(34px,4.5vw,52px);font-weight:800;margin-bottom:16px}
+.section-intro h1 span{background:linear-gradient(135deg,var(--teal),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-intro .lede{color:var(--muted);font-size:17px;max-width:680px}
+.divider{display:flex;align-items:center;gap:14px;margin:50px 0 36px}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent)}
+.divider svg{flex-shrink:0;opacity:.5}
+.subtopic{padding:36px 0;border-top:1px solid var(--border);scroll-margin-top:90px}
+.subtopic:first-of-type{border-top:none;padding-top:0}
+.sub-badge{font-family:'Syne',sans-serif;font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.sub-title{font-size:clamp(26px,3vw,38px);font-weight:800;margin-bottom:20px}
+.lvl-tabs{display:inline-flex;gap:6px;padding:6px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;margin-bottom:28px;flex-wrap:wrap}
+.lvl-tab{padding:9px 18px;font-size:13px;font-weight:600;font-family:inherit;color:var(--muted);background:none;border:none;border-radius:8px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.lvl-tab .dot{width:8px;height:8px;border-radius:99px;background:currentColor}
+.lvl-tab[data-lvl="beg"].active{background:rgba(0,212,170,.14);color:var(--teal)}
+.lvl-tab[data-lvl="int"].active{background:rgba(59,158,255,.14);color:var(--blue)}
+.lvl-tab[data-lvl="exp"].active{background:rgba(163,107,255,.14);color:var(--purple)}
+.lvl-tab:hover{color:var(--text)}
+.lvl-panel{display:none;animation:fade .4s ease}
+.lvl-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.level-indicator{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.level-indicator.beg{background:rgba(0,212,170,.12);color:var(--teal);border:1px solid rgba(0,212,170,.2)}
+.level-indicator.int{background:rgba(59,158,255,.12);color:var(--blue);border:1px solid rgba(59,158,255,.2)}
+.level-indicator.exp{background:rgba(163,107,255,.12);color:var(--purple);border:1px solid rgba(163,107,255,.2)}
+.lvl-panel p{margin-bottom:16px}
+.lvl-panel h4{font-size:18px;margin:24px 0 12px;color:var(--text)}
+.box{padding:20px 22px;border-radius:12px;margin:22px 0;border:1px solid var(--border)}
+.box .box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.box .icon{font-size:18px}
+.box.keyterms{background:rgba(59,158,255,.04);border-color:rgba(59,158,255,.18)}
+.box.keyterms .box-title{color:var(--blue)}
+.box.keyterms dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14px}
+.box.keyterms dt{font-weight:700;color:var(--text)}
+.box.keyterms dd{color:var(--muted)}
+.box.example{background:rgba(0,212,170,.04);border-color:rgba(0,212,170,.18)}
+.box.example .box-title{color:var(--teal)}
+.box.example p{font-size:14px;color:#dde5f0}
+.box.protip{background:rgba(163,107,255,.05);border-color:rgba(163,107,255,.22)}
+.box.protip .box-title{color:var(--purple)}
+.box.protip p{font-size:14px}
+.box.warning{background:rgba(255,71,87,.05);border-color:rgba(255,71,87,.22)}
+.box.warning .box-title{color:var(--red)}
+.box.warning p{font-size:14px}
+.box.takeaway{background:linear-gradient(180deg,rgba(240,165,0,.06),rgba(240,165,0,.02));border:1px solid rgba(240,165,0,.35);margin-top:30px}
+.box.takeaway .box-title{color:var(--gold);font-size:13px}
+.box.takeaway p{font-size:15px;color:#f0e7d2}
+.sub-footer{display:flex;justify-content:space-between;align-items:center;margin-top:30px;flex-wrap:wrap;gap:14px}
+.mark-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);background:none;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.mark-btn:hover{background:rgba(0,212,170,.1)}
+.mark-btn.done{background:var(--teal);color:#0a0e1a}
+.mark-btn.done::before{content:'✓ '}
+.next-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--gold));color:#0a0e1a;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.next-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,212,170,.25)}
+.section-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:80px;padding-top:40px;border-top:1px solid var(--border)}
+.section-nav a{padding:22px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);transition:.25s}
+.section-nav a:hover{border-color:var(--teal);transform:translateY(-2px)}
+.section-nav .label{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.section-nav .name{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
+.section-nav .next{text-align:right}
+.totop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:99px;background:var(--teal);color:#0a0e1a;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,212,170,.3);z-index:40}
+.totop.show{display:flex}
+@media (max-width:960px){.layout{grid-template-columns:1fr}.sidebar{position:fixed;top:0;left:0;height:100vh;width:280px;z-index:60;background:var(--bg-2);transform:translateX(-100%);transition:transform .3s ease;padding-top:80px}.sidebar.open{transform:translateX(0)}.hamb{display:inline-flex}.main{padding:30px 22px 60px}.brand-sub{display:none}.progress-wrap{max-width:140px}.topbar-inner{padding:12px 18px}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="hamb" id="hamb">☰</button>
+    <div class="brand">
+      <div class="brand-logo">TM</div>
+      <div>
+        <div class="brand-name">Trading Mastery 2026</div>
+        <div class="brand-sub">Section 2 of 8</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-row"><span>Section progress</span><span id="progressText">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <a class="back-link" href="trading-course.html">← Course Home</a>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sec-meta-block">
+      <div class="num">SECTION 02</div>
+      <div class="title">Supply &amp; Demand</div>
+    </div>
+    <h4>Lessons in this section</h4>
+    <ul>
+      <li><a class="subnav" data-id="sub1" href="#sub1"><span class="dot"></span> 2.1 Supply Zones</a></li>
+      <li><a class="subnav" data-id="sub2" href="#sub2"><span class="dot"></span> 2.2 Demand Zones</a></li>
+      <li><a class="subnav" data-id="sub3" href="#sub3"><span class="dot"></span> 2.3 Order Blocks</a></li>
+    </ul>
+    <div class="section-jump">
+      <h4>Jump to section</h4>
+      <a href="section-1-market-structure.html">← Section 1 — Market Structure</a>
+      <a href="section-3-liquidity.html">Section 3 — Liquidity →</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="section-intro">
+      <div class="eyebrow">Section 02 · Institutional zones</div>
+      <h1>Supply &amp; <span>Demand</span></h1>
+      <p class="lede">Markets don't move because of indicators — they move because someone, somewhere, placed a much bigger order than the other side could absorb. The footprints those orders leave are called supply and demand zones. Learn to spot them, and you'll know where price wants to go before it gets there.</p>
+    </div>
+
+    <!-- ============ SUBTOPIC 2.1 ============ -->
+    <article class="subtopic" id="sub1">
+      <div class="sub-badge">Lesson 2.1</div>
+      <h2 class="sub-title">Supply Zones</h2>
+
+      <div class="lvl-tabs" data-target="sub1">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>Imagine an apple market. If there are way more apple sellers than apple buyers, the price of apples drops fast. Now imagine that happening at a specific price on a chart — that's a <strong>supply zone</strong>. It's a price area where sellers <em>overwhelmingly</em> outnumber buyers, so price gets shoved downward.</p>
+        <p>On a chart, you spot a supply zone by looking for a place where price moved up, paused for a moment, and then dropped <em>hard</em>. That pause-then-drop is the fingerprint big sellers leave behind. If price ever comes back to that pause area, sellers are likely still waiting there — so price often gets pushed down again.</p>
+        <p>Think of it as the "no entry" sign on a price highway. When traffic (price) approaches that sign, it tends to turn back. As a beginner, your job is simple: <em>don't buy into a fresh supply zone</em>. That's like running toward a closed door expecting to walk through it.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Supply</dt><dd>Sellers wanting to sell at a certain price.</dd>
+            <dt>Supply Zone</dt><dd>An area on the chart where sellers historically dominate.</dd>
+            <dt>Fresh Zone</dt><dd>A zone that hasn't been retested yet — usually the strongest.</dd>
+            <dt>Mitigation</dt><dd>Fancy word for when price comes back and fills the orders in a zone.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Tesla rallies from $200 to $250, pauses for two days at $250-$255, then crashes to $215. Those two days at $250-$255 are now a supply zone. If a week later Tesla rallies back to $250, you should expect heavy selling — because sellers who couldn't get filled the first time are still parked there.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>A supply zone is where big sellers are camping. Don't buy into one — instead, watch it as a place where price might reverse downward. Mark them on your chart and respect them.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>A valid supply zone has a specific anatomy: a small consolidation of 1-5 candles (the <strong>base</strong>) followed by an <strong>impulse leg</strong> away from it — specifically, a strong bearish move with large-bodied red candles and minimal upper wicks. The base is where institutions accumulated their short positions before slamming the market down. Without a strong departure leg, the "zone" is just decoration.</p>
+        <p>The two highest-quality supply zone formations are <strong>Rally-Base-Drop (RBD)</strong> — price rallies up, pauses, then drops — and <strong>Drop-Base-Drop (DBD)</strong> — price drops, pauses inside a downtrend, then drops again. RBD zones mark reversals at tops; DBD zones mark continuations within a downtrend. Both work; both need a clean base and a strong drop to qualify.</p>
+        <p>Zones <em>weaken</em> with each retest. A fresh zone (one untouched since formation) has the highest probability of holding. A zone that's already been tested twice may have most of its institutional orders filled, leaving little reaction power on the third visit. This is why fresh zone identification is more valuable than chasing well-known levels everyone is watching.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Base</dt><dd>The narrow consolidation candles before the impulsive move.</dd>
+            <dt>Impulse</dt><dd>The strong, fast move away from the base — proof of imbalance.</dd>
+            <dt>RBD</dt><dd>Rally-Base-Drop — supply pattern marking a top.</dd>
+            <dt>DBD</dt><dd>Drop-Base-Drop — supply pattern marking continuation in a downtrend.</dd>
+            <dt>Zone Strength</dt><dd>Function of base tightness × impulse strength × freshness × HTF alignment.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>EUR/USD prints three tight 1H consolidation candles at 1.0850-1.0865, then dumps 60 pips in two candles. That base is your supply zone. Two days later, price rallies back to 1.0855 and stalls. Short entry at 1.0856, stop above 1.0870, target prior swing low — clean 3R setup based purely on the supply zone.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Draw your zone from the <em>open of the last bullish candle</em> in the base to the <em>high of the base</em>. That box catches institutional orders sitting inside it without being so wide that your stop becomes unreasonable.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>RBD and DBD are your two reliable supply patterns. Trade only fresh zones, draw them tight (base only), and confirm the departure leg was genuinely impulsive. Decorative zones lose money — institutional zones print.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>A supply zone is not a price area — it's a <strong>limit order cluster</strong> left behind when an institution couldn't fully execute its sell intent. The "base" is the visible by-product of an institution working a large order: they sell in tranches inside the consolidation while creating the illusion of accumulation to absorb counterparty bids. When their inventory is built, they pull bids and release the supply violently downward. That's why the impulse out of the base must be aggressive — it's the signature of unfinished business.</p>
+        <p>The most powerful supply zones are <strong>unmitigated daily/weekly zones</strong> that sit above untested liquidity. Price gravitates to them not because of pattern probability but because there's nothing in between to absorb a move. Tag these zones early on your HTF chart and let them dictate your bias: even if the LTF shows a "bullish setup," you're trading into a wall.</p>
+        <p>Distinguish between <strong>continuation supply</strong> (DBD inside a downtrend — high success, low reward) and <strong>reversal supply</strong> (RBD at a major HTF level after a sweep — lower frequency, massive reward). A professional swing book is built almost entirely on the latter. Combine an RBD at a monthly high with a CHoCH on the 4H, and you have an institutional short setup that pays for the month.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Unmitigated Zone</dt><dd>Zone that price hasn't returned to since formation.</dd>
+            <dt>Inefficiency / FVG</dt><dd>A price gap with no two-sided trade — often paired with supply zones.</dd>
+            <dt>Continuation Supply</dt><dd>DBD inside a downtrend; reliable but capped reward.</dd>
+            <dt>Reversal Supply</dt><dd>RBD at a major HTF level after a sweep; lower hit rate, very high R.</dd>
+            <dt>Premium / Discount</dt><dd>The upper / lower half of a defined trading range; supply zones in premium are stronger.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>BTC weekly forms an RBD supply zone at $69,000-$70,000 — the exact prior all-time high — after a sweep of liquidity above $69k. Months later, BTC rallies into $68,800-$70,200 on the daily. The expert short-sells in the zone with a 4H CHoCH trigger, $70,500 stop, $58,000 target. Position lives for weeks. Retail buyers calling for "new highs any day now" provided the exit liquidity.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Layer zones across timeframes: only act on a 1H supply zone if it sits inside a 4H supply zone, which sits inside a daily supply zone. Three-layer stacks have a measurably higher hit rate than isolated single-timeframe zones — because they represent institutional intent on multiple horizons.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>If a supply zone is breached but reclaimed within 2-3 candles, treat it as <em>strengthened</em>, not invalidated. The breach swept stops above; the reclaim proves sellers are still in control. This is a counter-intuitive setup that often produces the cleanest entries.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Supply zones are limit-order graveyards. Hunt the unmitigated HTF zones, prefer reversal patterns at premium levels, and use multi-timeframe nesting for highest conviction. The biggest swings in your career will come from properly identified weekly/monthly supply.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub1">Mark Complete</button>
+        <a class="next-btn" href="#sub2">Next: Demand Zones →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 2.2 ============ -->
+    <article class="subtopic" id="sub2">
+      <div class="sub-badge">Lesson 2.2</div>
+      <h2 class="sub-title">Demand Zones</h2>
+
+      <div class="lvl-tabs" data-target="sub2">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>If supply is where sellers crush price downward, <strong>demand</strong> is the exact opposite — it's where buyers come in so hard they shove price upward. A <strong>demand zone</strong> is a price area where buyers have historically been so aggressive they overpowered every seller in sight.</p>
+        <p>You spot demand zones the same way you spot supply zones — but inverted. Look for places where price was falling, paused briefly, and then rocketed back up. That pause-then-rally pattern is the fingerprint of big buyers loading up.</p>
+        <p>Demand zones are your friend when you want to buy. They're the price areas where you have the best odds that "the floor" will hold. Imagine a trampoline — when price falls onto a demand zone, the trampoline bounces it back up. As a beginner, you learn to buy from demand zones, not from the middle of nowhere.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Demand</dt><dd>Buyers wanting to buy at a certain price.</dd>
+            <dt>Demand Zone</dt><dd>An area on the chart where buyers historically dominate.</dd>
+            <dt>Bounce</dt><dd>When price reverses upward off a demand zone.</dd>
+            <dt>Reaction</dt><dd>How aggressively price moves away from a zone on first contact.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Apple stock drops from $180 to $160, sits at $158-$160 for one trading day, then rallies to $175. That $158-$160 area is now demand. Two weeks later, when Apple dips back to $158, smart traders are watching for the bounce — and they often get one.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Demand zones are where buyers parked their money. Buy when price returns to them — don't chase trades in the empty middle of the chart. Patience next to a demand zone beats action everywhere else.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Demand zones mirror supply zones in two flavors: <strong>Drop-Base-Rally (DBR)</strong>, which marks reversals at lows, and <strong>Rally-Base-Rally (RBR)</strong>, which marks continuations in uptrends. A valid demand zone needs the same anatomy in reverse: a small consolidation base, followed by an aggressive bullish departure with large-bodied green candles and minimal lower wicks.</p>
+        <p>The strength of a demand zone is judged by the <strong>departure leg</strong>. If price leaves the base with a 3:1 candle-to-base ratio (each impulse candle is at least 3× the average size of base candles), that's institutional. If the departure is hesitant or wicky, you're looking at retail activity — pass.</p>
+        <p>The single most overlooked rule: <strong>only trade demand zones inside the higher-timeframe trend direction</strong>. A daily uptrend with a 1H DBR demand zone forming on a pullback = high-probability long. A daily downtrend with a 1H demand zone = you're catching a knife. Without HTF alignment, any single demand zone is a 50/50 coin flip — with it, you're playing 70/30 odds.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>DBR</dt><dd>Drop-Base-Rally — demand pattern marking a bottom.</dd>
+            <dt>RBR</dt><dd>Rally-Base-Rally — demand pattern marking continuation in an uptrend.</dd>
+            <dt>Departure Strength</dt><dd>Ratio of impulse candle size to base candle size; ≥3:1 is institutional.</dd>
+            <dt>Mitigation Block</dt><dd>The last opposing candle before the impulse; precise zone reference.</dd>
+            <dt>HTF Alignment</dt><dd>Trading demand zones only in the direction of higher-timeframe trend.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>GBP/USD daily is uptrending. On the 4H, price pulls back into a prior RBR demand zone at 1.2620-1.2640. You drop to the 15M, wait for a bullish CHoCH inside the zone, enter long at 1.2632, stop at 1.2615 (below zone), target 1.2730 prior swing high. Risk: 17 pips. Reward: 98 pips. Nearly 6R, taken with discipline at demand, not chased in the middle.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Don't enter blind at the zone boundary. Wait for a LTF bullish CHoCH inside or just above the zone — that's your "buyers reclaimed it" confirmation. Without it, you're hoping. With it, you're acting on evidence.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>DBR and RBR are your demand patterns. Validate them with a strong 3:1 departure leg, only trade them in HTF trend direction, and confirm with a LTF CHoCH before entering. Three filters turn random zone-buying into a measurable edge.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>A demand zone is where institutions accumulated long inventory and were unable to fill all their bids before the market took off. Price returns there because <em>they still want more</em>. The expert frame: every untouched demand zone represents an unfilled institutional buy intent, and price has a mechanical tendency to revisit it within 3-15 sessions of formation, particularly when no opposing HTF supply blocks the path.</p>
+        <p>Premium demand zones — those formed at <strong>session opens, after stop hunts below previous lows, or coinciding with weekly key levels</strong> — outperform random demand zones by a significant margin. Build a hierarchy: untested daily DBR &gt; 4H DBR &gt; 1H DBR. Layer them, and your win rate on long swings climbs into the 70s.</p>
+        <p>Watch for <strong>demand zone failure tells</strong>: if price approaches a high-quality zone but the departure into it is hesitant (small candles, declining volume), the institutions originally responsible may have already exited those positions elsewhere. A "perfect-looking" zone with weak approach behavior is often a trap — entry should require evidence of fresh institutional bid absorption, visible in CVD or footprint data, not just the zone's prior shape.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Institutional Bid Absorption</dt><dd>Visible heavy buying that consumes seller aggression without price dropping.</dd>
+            <dt>Premium Demand Zone</dt><dd>Zone with multi-factor confluence (HTF + session + sweep + volume).</dd>
+            <dt>Zone Decay</dt><dd>Reduced reaction probability as a zone ages or gets tested multiple times.</dd>
+            <dt>Liquidity Sweep + Demand</dt><dd>Highest-conviction long setup: stops swept below the zone, then rally.</dd>
+            <dt>FVG (Fair Value Gap)</dt><dd>Three-candle pattern with a price gap — often acts as a demand magnet.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>SPY daily demand at $445-$447, untouched since formation, sits at the intersection of the 50-day SMA and the previous weekly low. Price sweeps below $444.80 on a CPI release (liquidity raid), prints a hammer reversal, and 1H CHoCH occurs at $446.20. The expert longs at $446 with stop at $443.80, targeting $458 daily resistance. Position runs for 11 sessions. The retail trader, watching the CPI red candle, sold at $446 and missed a 2.6% rally.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>If you see a strong demand zone sitting just below an obvious cluster of stops (equal lows or trendline support), <em>expect</em> price to sweep the stops first, then reverse from the zone. Place limit orders inside the zone — let retail sell to you at the sweep low — and never panic out at the wick.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Demand zones in <strong>illiquid altcoins</strong> are unreliable — without institutional participation, the "zone" was likely formed by a single whale who has already exited. Demand zones require institutional liquidity to mean anything; in thin markets, structure dominates.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Demand zones are unfilled institutional buy intent. Hunt premium zones with HTF alignment, prefer sweep-then-reclaim entries, and verify approach quality via order flow. The most lucrative longs of your career will be entries at HTF demand right after a fakeout — not breakout chases.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub2">Mark Complete</button>
+        <a class="next-btn" href="#sub3">Next: Order Blocks →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 2.3 ============ -->
+    <article class="subtopic" id="sub3">
+      <div class="sub-badge">Lesson 2.3</div>
+      <h2 class="sub-title">Order Blocks</h2>
+
+      <div class="lvl-tabs" data-target="sub3">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>An <strong>order block</strong> is just a fancier name for the very precise candle on a chart where big institutional traders placed their orders before the market moved sharply. Think of supply and demand zones as the <em>neighborhood</em>; an order block is the exact <em>house</em>.</p>
+        <p>The simplest way to see one: find a chart where price suddenly exploded up or down. Now look at the <em>last candle</em> that was the opposite color of the explosion. That last candle is the order block. It's like the last footprint a giant left in the sand before it sprinted away.</p>
+        <p>Why does it matter? Because banks and hedge funds don't always finish placing all their orders the first time. When price comes back to that specific candle, they often add more — and price tends to bounce hard from that exact spot. It's a more precise version of demand and supply.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Order Block</dt><dd>The last opposing candle before a strong directional move.</dd>
+            <dt>Bullish OB</dt><dd>Last red candle before a big move up.</dd>
+            <dt>Bearish OB</dt><dd>Last green candle before a big move down.</dd>
+            <dt>Mitigated</dt><dd>Price has come back to fill orders at the OB.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Ethereum prints a red candle at $2,400 closing at $2,380. The very next candle bursts upward to $2,460 — clearly the start of a rally. That $2,380-$2,400 red candle is your bullish order block. If ETH later comes back to $2,400, that's where smart buyers reload.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Order blocks are the precise candles where institutions made their move. Find the last opposite-color candle before a big swing, mark it, and watch for price reactions when it comes back. It's the sniper version of zone trading.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>An order block is the last bearish candle before a bullish BOS (or the last bullish candle before a bearish BOS) that <em>caused</em> a structural shift. The key distinction from a simple S/D zone: an order block must precede a confirmed break of structure. Without that BOS, the "order block" is just a candle — there's no proof institutions transacted there.</p>
+        <p>There are several refined variants worth knowing. The <strong>standard OB</strong> is the simple last-opposing-candle definition. The <strong>refined OB</strong> uses only the candle's body (open to close) and ignores the wicks — tighter zone, often used on LTF entries. The <strong>breaker block</strong> is an order block whose original level failed and flipped polarity — old support becomes resistance. The <strong>mitigation block</strong> is an order block that price returned to and respected, confirming the institutional intent was real.</p>
+        <p>The textbook entry: identify an OB on the HTF (e.g. 4H), wait for price to mitigate (return to) the OB, drop to a LTF (15M), wait for a CHoCH inside the OB, enter on the next pullback. Stops go beyond the OB's wick or body depending on aggression level. Targets are typically the next opposing structure point or the next liquidity pool.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Refined OB</dt><dd>Order block drawn body-only, ignoring wicks; tighter entry zone.</dd>
+            <dt>Breaker Block</dt><dd>Failed OB that flipped role; old demand became supply or vice versa.</dd>
+            <dt>Mitigation Block</dt><dd>OB that price respected on retest — confirmed institutional intent.</dd>
+            <dt>BOS Requirement</dt><dd>Order block requires a structural break following it to qualify.</dd>
+            <dt>OB Stack</dt><dd>Multiple aligned OBs across timeframes — confluence multiplier.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>USD/JPY 4H prints a bearish OB at 149.80-150.10, followed by a 200-pip dump that breaks structure to the downside. Three days later, price retraces into the OB. You drop to 15M, see a bearish CHoCH at 149.95, enter short at 149.92, stop at 150.15 above the OB high, target the prior daily low at 148.50. Clean 6.5R reward-to-risk setup, defined by the OB precisely.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Use the <em>open of the OB candle</em> as your limit-order entry. If you wait for the high or low of the OB to trade, you'll often miss the move entirely — price frequently reverses inside the OB, never touching the extreme.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Order blocks must precede a BOS to be valid. Use refined OBs for tight entries, breaker blocks for flipped polarity trades, and always confirm with an LTF CHoCH before pulling the trigger. Treat OBs as institutional fingerprints, not chart art.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>Order blocks are a discretionary proxy for limit-order memory. The institution that "made" the OB likely used iceberg orders, TWAP execution, or dark-pool venues — the visible candle is just the surface artifact. The expert validates OBs not by their shape but by their <strong>context</strong>: does the OB sit at an HTF discount/premium zone? Does it correspond to a session pivot (London open, NY close)? Did it form on a high-volume node visible in volume profile? Without contextual validation, an OB is just any candle.</p>
+        <p>The single most powerful OB derivative is the <strong>extreme order block</strong> — the OB closest to the highest high or lowest low of a swing leg. It captures the most aggressive institutional aggression, and when revisited, almost always produces violent reactions. Combine extreme OBs with fair value gaps (FVGs) in the leg, and you have a precision entry framework: enter at the extreme OB, with the FVG above acting as a magnet for the move.</p>
+        <p>Distinguish between <strong>internal order blocks</strong> (those that contribute to a leg but don't define its extremes) and <strong>external order blocks</strong> (those at the leg extremes that institutions are most likely to defend). Trade external OBs with full position sizing; trade internal OBs only with tight stops and small risk, because they have lower defense probability. Building a tiered OB hierarchy is how professional traders allocate risk efficiently.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Extreme OB</dt><dd>The OB closest to a swing's extreme high/low; highest defense probability.</dd>
+            <dt>Internal OB</dt><dd>OB inside the leg that doesn't define an extreme; lower priority.</dd>
+            <dt>FVG (Fair Value Gap)</dt><dd>Three-candle imbalance; works powerfully with OBs for entries.</dd>
+            <dt>Iceberg Order</dt><dd>Large institutional order hidden behind smaller visible chunks.</dd>
+            <dt>Discount / Premium Array</dt><dd>OB located below/above the 50% equilibrium of a defined range.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>NQ futures form a bullish extreme OB at 17,820-17,860 on the 1H — the very last red candle before a 200-point ramp. Three sessions later, price sweeps liquidity below 17,800 (extreme OB low), reclaims 17,840, prints a 5M CHoCH at 17,850. The expert longs at 17,845, stop at 17,795 (below sweep), targets the unmitigated bearish OB at 18,180. Risk 50 pts, reward 335 pts — 6.7R, mechanical and clean.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>The first revisit to an OB is usually the highest-conviction entry. Each subsequent revisit weakens the OB. By the third touch, treat it as broken regardless of what your indicators say — the orders have been depleted.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>News-driven OBs (those formed on FOMC, NFP, CPI candles) often fail on retest because the institutional flow was reactive, not strategic. Filter OBs by formation context — algorithmic OBs (formed in normal session flow) outperform news-driven OBs by a wide margin.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Order blocks are tradable proxies for institutional memory, but only when context-validated. Hunt extreme OBs, layer them with FVGs, prioritize first revisits, and weight your sizing by OB tier (external > internal). This framework is what separates surgical institutional traders from chart-pattern hobbyists.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub3">Mark Complete</button>
+        <a class="next-btn" href="section-3-liquidity.html">Next Section: Liquidity →</a>
+      </div>
+    </article>
+
+    <div class="section-nav">
+      <a href="section-1-market-structure.html">
+        <div class="label">← Previous</div>
+        <div class="name">01 · Market Structure</div>
+      </a>
+      <a href="section-3-liquidity.html" class="next">
+        <div class="label">Next Section →</div>
+        <div class="name">03 · Liquidity</div>
+      </a>
+    </div>
+  </main>
+</div>
+
+<button class="totop" id="totop" title="Scroll to top">↑</button>
+
+<script>
+(function(){
+  const KEY='tm2026_progress';
+  const SEC_ID='s2';
+  const SUBS=['sub1','sub2','sub3'];
+  function loadAll(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+  function saveAll(d){localStorage.setItem(KEY,JSON.stringify(d))}
+  function getSec(){const d=loadAll();return d[SEC_ID]||{}}
+  function setSec(s){const d=loadAll();d[SEC_ID]=s;saveAll(d)}
+  document.querySelectorAll('.lvl-tabs').forEach(group=>{
+    const subId=group.dataset.target;const article=document.getElementById(subId);
+    group.querySelectorAll('.lvl-tab').forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        group.querySelectorAll('.lvl-tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');const lvl=tab.dataset.lvl;
+        article.querySelectorAll('.lvl-panel').forEach(p=>{p.classList.toggle('active',p.dataset.lvl===lvl)});
+      });
+    });
+  });
+  function refreshMarks(){
+    const sec=getSec();let done=0;
+    SUBS.forEach(id=>{
+      const btn=document.querySelector(`.mark-btn[data-mark="${id}"]`);
+      const navItem=document.querySelector(`.subnav[data-id="${id}"]`);
+      if(sec[id]){if(btn){btn.classList.add('done');btn.textContent='Completed'}if(navItem){navItem.classList.add('done')}done++}
+      else{if(btn){btn.classList.remove('done');btn.textContent='Mark Complete'}if(navItem){navItem.classList.remove('done')}}
+    });
+    const pct=Math.round((done/SUBS.length)*100);
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.getElementById('progressText').textContent=pct+'%';
+  }
+  document.querySelectorAll('.mark-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{const id=btn.dataset.mark;const sec=getSec();sec[id]=!sec[id];setSec(sec);refreshMarks()});
+  });
+  const subs=SUBS.map(id=>document.getElementById(id));
+  function onScroll(){
+    const y=window.scrollY+150;let current=subs[0]?.id;
+    subs.forEach(s=>{if(s&&s.offsetTop<=y)current=s.id});
+    document.querySelectorAll('.subnav').forEach(a=>{a.classList.toggle('active',a.dataset.id===current)});
+    document.getElementById('totop').classList.toggle('show',window.scrollY>500);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{const tgt=document.querySelector(a.getAttribute('href'));if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth',block:'start'})}});
+  });
+  document.getElementById('totop').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+  document.getElementById('hamb').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open')});
+  refreshMarks();onScroll();
+})();
+</script>
+</body>
+</html>

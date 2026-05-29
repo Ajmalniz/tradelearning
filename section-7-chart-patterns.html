@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 7 · Chart Patterns — Trading Mastery 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--bg-2:#10162a;--card:#11182c;--border:rgba(255,255,255,.08);--teal:#00d4aa;--gold:#f0a500;--red:#ff4757;--blue:#3b9eff;--purple:#a36bff;--text:#e7ecf3;--muted:#8a96ab}
+html,body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;line-height:1.7;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 10% 0%,rgba(0,212,170,.08),transparent 60%),radial-gradient(800px 600px at 90% 80%,rgba(240,165,0,.06),transparent 60%)}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.01em;line-height:1.2}
+a{color:inherit;text-decoration:none}p{color:#cdd5e2}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,14,26,.78);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1480px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--gold));display:grid;place-items:center;font-weight:800;color:#0a0e1a;font-size:13px}
+.brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:16px}
+.brand-sub{font-size:11px;color:var(--muted)}
+.back-link{color:var(--muted);font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;transition:.2s}
+.back-link:hover{color:var(--teal);border-color:var(--teal)}
+.progress-wrap{flex:1;max-width:300px}
+.progress-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.progress-bar{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px;transition:width .5s ease;width:0%}
+.hamb{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+.layout{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 70px)}
+.sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;padding:28px 24px;border-right:1px solid var(--border)}
+.sidebar h4{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);margin-bottom:14px;font-weight:600}
+.sec-meta-block{padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);margin-bottom:24px}
+.sec-meta-block .num{font-family:'Syne',sans-serif;font-size:12px;letter-spacing:.18em;color:var(--teal);font-weight:700}
+.sec-meta-block .title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-top:4px}
+.sidebar ul{list-style:none}
+.sidebar li{margin:4px 0}
+.sidebar a.subnav{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;color:var(--muted);transition:.2s;cursor:pointer;border:1px solid transparent}
+.sidebar a.subnav:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.sidebar a.subnav.active{color:var(--teal);background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2)}
+.sidebar a.subnav .dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.15);flex-shrink:0}
+.sidebar a.subnav.done .dot{background:var(--teal)}
+.sidebar a.subnav.done::after{content:'✓';margin-left:auto;color:var(--teal);font-size:12px}
+.section-jump{margin-top:30px;padding-top:24px;border-top:1px solid var(--border)}
+.section-jump a{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:10px 0}
+.section-jump a:hover{color:var(--teal)}
+.main{padding:50px 60px 80px;max-width:920px}
+.section-intro{margin-bottom:60px}
+.section-intro .eyebrow{display:inline-block;color:var(--teal);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(0,212,170,.3);border-radius:99px;margin-bottom:18px}
+.section-intro h1{font-size:clamp(34px,4.5vw,52px);font-weight:800;margin-bottom:16px}
+.section-intro h1 span{background:linear-gradient(135deg,var(--teal),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-intro .lede{color:var(--muted);font-size:17px;max-width:680px}
+.divider{display:flex;align-items:center;gap:14px;margin:50px 0 36px}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent)}
+.divider svg{flex-shrink:0;opacity:.5}
+.subtopic{padding:36px 0;border-top:1px solid var(--border);scroll-margin-top:90px}
+.subtopic:first-of-type{border-top:none;padding-top:0}
+.sub-badge{font-family:'Syne',sans-serif;font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.sub-title{font-size:clamp(26px,3vw,38px);font-weight:800;margin-bottom:20px}
+.lvl-tabs{display:inline-flex;gap:6px;padding:6px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;margin-bottom:28px;flex-wrap:wrap}
+.lvl-tab{padding:9px 18px;font-size:13px;font-weight:600;font-family:inherit;color:var(--muted);background:none;border:none;border-radius:8px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.lvl-tab .dot{width:8px;height:8px;border-radius:99px;background:currentColor}
+.lvl-tab[data-lvl="beg"].active{background:rgba(0,212,170,.14);color:var(--teal)}
+.lvl-tab[data-lvl="int"].active{background:rgba(59,158,255,.14);color:var(--blue)}
+.lvl-tab[data-lvl="exp"].active{background:rgba(163,107,255,.14);color:var(--purple)}
+.lvl-tab:hover{color:var(--text)}
+.lvl-panel{display:none;animation:fade .4s ease}
+.lvl-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.level-indicator{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.level-indicator.beg{background:rgba(0,212,170,.12);color:var(--teal);border:1px solid rgba(0,212,170,.2)}
+.level-indicator.int{background:rgba(59,158,255,.12);color:var(--blue);border:1px solid rgba(59,158,255,.2)}
+.level-indicator.exp{background:rgba(163,107,255,.12);color:var(--purple);border:1px solid rgba(163,107,255,.2)}
+.lvl-panel p{margin-bottom:16px}
+.lvl-panel h4{font-size:18px;margin:24px 0 12px;color:var(--text)}
+.box{padding:20px 22px;border-radius:12px;margin:22px 0;border:1px solid var(--border)}
+.box .box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.box .icon{font-size:18px}
+.box.keyterms{background:rgba(59,158,255,.04);border-color:rgba(59,158,255,.18)}
+.box.keyterms .box-title{color:var(--blue)}
+.box.keyterms dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14px}
+.box.keyterms dt{font-weight:700;color:var(--text)}
+.box.keyterms dd{color:var(--muted)}
+.box.example{background:rgba(0,212,170,.04);border-color:rgba(0,212,170,.18)}
+.box.example .box-title{color:var(--teal)}
+.box.example p{font-size:14px;color:#dde5f0}
+.box.protip{background:rgba(163,107,255,.05);border-color:rgba(163,107,255,.22)}
+.box.protip .box-title{color:var(--purple)}
+.box.protip p{font-size:14px}
+.box.warning{background:rgba(255,71,87,.05);border-color:rgba(255,71,87,.22)}
+.box.warning .box-title{color:var(--red)}
+.box.warning p{font-size:14px}
+.box.takeaway{background:linear-gradient(180deg,rgba(240,165,0,.06),rgba(240,165,0,.02));border:1px solid rgba(240,165,0,.35);margin-top:30px}
+.box.takeaway .box-title{color:var(--gold);font-size:13px}
+.box.takeaway p{font-size:15px;color:#f0e7d2}
+.candle-illustration{background:rgba(16,22,42,.6);border:1px solid var(--border);border-radius:12px;padding:28px;margin:22px 0;text-align:center}
+.candle-illustration h5{font-family:'Syne',sans-serif;color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.candle-illustration svg{max-width:100%;height:auto}
+.candle-illustration .label{font-size:13px;color:var(--muted);margin-top:14px;font-style:italic}
+.anatomy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:18px 0}
+.anatomy-card{background:rgba(16,22,42,.5);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.anatomy-card .label{font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:10px;color:var(--teal)}
+.anatomy-card.bear .label{color:var(--red)}
+.anatomy-card .desc{font-size:12px;color:var(--muted);margin-top:6px}
+.sub-footer{display:flex;justify-content:space-between;align-items:center;margin-top:30px;flex-wrap:wrap;gap:14px}
+.mark-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);background:none;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.mark-btn:hover{background:rgba(0,212,170,.1)}
+.mark-btn.done{background:var(--teal);color:#0a0e1a}
+.mark-btn.done::before{content:'✓ '}
+.next-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--gold));color:#0a0e1a;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.next-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,212,170,.25)}
+.section-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:80px;padding-top:40px;border-top:1px solid var(--border)}
+.section-nav a{padding:22px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);transition:.25s}
+.section-nav a:hover{border-color:var(--teal);transform:translateY(-2px)}
+.section-nav .label{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.section-nav .name{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
+.section-nav .next{text-align:right}
+.totop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:99px;background:var(--teal);color:#0a0e1a;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,212,170,.3);z-index:40}
+.totop.show{display:flex}
+@media (max-width:960px){.layout{grid-template-columns:1fr}.sidebar{position:fixed;top:0;left:0;height:100vh;width:280px;z-index:60;background:var(--bg-2);transform:translateX(-100%);transition:transform .3s ease;padding-top:80px}.sidebar.open{transform:translateX(0)}.hamb{display:inline-flex}.main{padding:30px 22px 60px}.brand-sub{display:none}.progress-wrap{max-width:140px}.topbar-inner{padding:12px 18px}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="hamb" id="hamb">☰</button>
+    <div class="brand">
+      <div class="brand-logo">TM</div>
+      <div>
+        <div class="brand-name">Trading Mastery 2026</div>
+        <div class="brand-sub">Section 7 of 8</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-row"><span>Section progress</span><span id="progressText">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <a class="back-link" href="trading-course.html">← Course Home</a>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sec-meta-block">
+      <div class="num">SECTION 07</div>
+      <div class="title">Chart Patterns</div>
+    </div>
+    <h4>Lessons in this section</h4>
+    <ul>
+      <li><a class="subnav" data-id="sub1" href="#sub1"><span class="dot"></span> 7.1 Candlestick Basics</a></li>
+      <li><a class="subnav" data-id="sub2" href="#sub2"><span class="dot"></span> 7.2 Marubozu</a></li>
+      <li><a class="subnav" data-id="sub3" href="#sub3"><span class="dot"></span> 7.3 Doji</a></li>
+    </ul>
+    <div class="section-jump">
+      <h4>Jump to section</h4>
+      <a href="section-6-trading-mistakes.html">← Section 6 — Mistakes</a>
+      <a href="section-8-practical-application.html">Section 8 — Application →</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="section-intro">
+      <div class="eyebrow">Section 07 · Reading the candles</div>
+      <h1>Chart <span>Patterns</span></h1>
+      <p class="lede">A candle isn't a picture — it's a story compressed into four data points. Learn to read those stories and the chart begins narrating where buyers and sellers were strong, where they panicked, and where the next move is most likely to come from.</p>
+    </div>
+
+    <!-- ============ SUBTOPIC 7.1 ============ -->
+    <article class="subtopic" id="sub1">
+      <div class="sub-badge">Lesson 7.1</div>
+      <h2 class="sub-title">Introduction to Candlestick Patterns</h2>
+
+      <div class="lvl-tabs" data-target="sub1">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>A <strong>candlestick</strong> is a way of drawing what price did during a specific time period — could be 1 minute, 4 hours, 1 day, anything. Each candle shows you four pieces of information: where price <strong>opened</strong>, where it <strong>closed</strong>, the <strong>highest</strong> point it reached, and the <strong>lowest</strong> point. From those four numbers, the candle paints a tiny picture of who won that battle — buyers or sellers.</p>
+        <p>The fat part of the candle is called the <strong>body</strong>. The thin lines sticking out top and bottom are called <strong>wicks</strong> (or shadows). If the close is higher than the open, the candle is colored green (bullish — buyers won). If the close is lower than the open, it's red (bearish — sellers won). Simple.</p>
+
+        <div class="candle-illustration">
+          <h5>Anatomy of a Candle</h5>
+          <svg width="320" height="220" viewBox="0 0 320 220">
+            <!-- Bullish candle -->
+            <g transform="translate(80,0)">
+              <line x1="0" y1="20" x2="0" y2="50" stroke="#00d4aa" stroke-width="2"/>
+              <rect x="-20" y="50" width="40" height="110" fill="#00d4aa" opacity=".85"/>
+              <line x1="0" y1="160" x2="0" y2="195" stroke="#00d4aa" stroke-width="2"/>
+              <text x="35" y="25" font-size="11" fill="#8a96ab">High</text>
+              <text x="35" y="58" font-size="11" fill="#8a96ab">Close</text>
+              <text x="35" y="163" font-size="11" fill="#8a96ab">Open</text>
+              <text x="35" y="198" font-size="11" fill="#8a96ab">Low</text>
+              <text x="-5" y="218" font-size="11" fill="#00d4aa" font-weight="700">BULLISH</text>
+            </g>
+            <!-- Bearish candle -->
+            <g transform="translate(240,0)">
+              <line x1="0" y1="20" x2="0" y2="50" stroke="#ff4757" stroke-width="2"/>
+              <rect x="-20" y="50" width="40" height="110" fill="#ff4757" opacity=".85"/>
+              <line x1="0" y1="160" x2="0" y2="195" stroke="#ff4757" stroke-width="2"/>
+              <text x="-65" y="25" font-size="11" fill="#8a96ab">High</text>
+              <text x="-65" y="58" font-size="11" fill="#8a96ab">Open</text>
+              <text x="-65" y="163" font-size="11" fill="#8a96ab">Close</text>
+              <text x="-65" y="198" font-size="11" fill="#8a96ab">Low</text>
+              <text x="-15" y="218" font-size="11" fill="#ff4757" font-weight="700">BEARISH</text>
+            </g>
+          </svg>
+          <div class="label">Each candle = 4 data points → 1 story</div>
+        </div>
+
+        <p>Reading a single candle is easy. The real skill is reading <em>sequences</em> of candles — how each one builds on the last. A run of big green candles tells you buyers are dominant. A big red candle after a long uptrend is a warning sign. Multiple candles together form <strong>patterns</strong> — repeatable shapes that hint at what price might do next.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Open</dt><dd>The price at the start of the candle's time period.</dd>
+            <dt>Close</dt><dd>The price at the end of the candle's time period.</dd>
+            <dt>High / Low</dt><dd>The extremes price reached during the candle.</dd>
+            <dt>Body</dt><dd>The thick part of the candle (between open and close).</dd>
+            <dt>Wick / Shadow</dt><dd>The thin lines above or below the body.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Bitcoin's 1-hour candle: opens at $42,000, climbs to $42,500 (high), dips to $41,950 (low), closes at $42,400. The candle is green (close > open), has a small upper wick ($42,500 - $42,400 = $100), and a longer lower wick ($42,000 - $41,950 = $50, then back up to $42,400). Story: sellers tried to push down at the start but buyers took over and dominated the close. Bullish hour.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Every candle has 4 data points — open, close, high, low — telling you the story of one time period. Body = who won. Wick = how hard the loser fought. Master reading single candles before chasing fancy patterns; the foundation matters most.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>A candle's <strong>shape</strong> tells you the balance of power inside the time period. A long body with tiny wicks = decisive control, one side dominated start to finish. A small body with long wicks = volatility but indecision, both sides fought hard and neither closed at the extreme. A long lower wick on a green candle = sellers attacked but buyers reclaimed control — often a bullish reversal signal at support. A long upper wick on a red candle = buyers attacked but sellers reclaimed — often a bearish reversal signal at resistance.</p>
+        <p>Combinations of 2-3 candles form named patterns with statistical significance: <strong>Bullish/Bearish Engulfing</strong> (the second candle completely wraps the first, signaling strong reversal), <strong>Hammer/Hanging Man</strong> (long lower wick + small body, hammer at lows = bullish, hanging man at highs = bearish), <strong>Inverted Hammer/Shooting Star</strong> (long upper wick + small body, mirror), <strong>Morning Star/Evening Star</strong> (3-candle reversal with a small body sandwiched between strong opposing candles).</p>
+        <p>Context is the entire game with patterns. A bullish engulfing in the middle of nowhere means nothing. The same pattern <em>at a daily demand zone, after a sweep of liquidity, during the NY session</em> is one of the highest-probability long setups in trading. Patterns aren't trade signals on their own — they're confirmation when location and structure already say the trade should work.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Engulfing</dt><dd>Candle whose body fully covers the previous candle's body; strong reversal signal.</dd>
+            <dt>Hammer</dt><dd>Small body + long lower wick at a low; bullish.</dd>
+            <dt>Shooting Star</dt><dd>Small body + long upper wick at a high; bearish.</dd>
+            <dt>Pin Bar</dt><dd>Generic term for any candle with a long rejection wick; powerful at S/R.</dd>
+            <dt>Inside Bar</dt><dd>Candle whose range is entirely inside the previous candle; consolidation signal.</dd>
+          </dl>
+        </div>
+
+        <div class="candle-illustration">
+          <h5>Common Single &amp; Multi-Candle Patterns</h5>
+          <div class="anatomy-grid">
+            <div class="anatomy-card">
+              <svg width="60" height="80" viewBox="0 0 60 80"><line x1="30" y1="10" x2="30" y2="30" stroke="#00d4aa" stroke-width="2"/><rect x="20" y="30" width="20" height="35" fill="#00d4aa"/><line x1="30" y1="65" x2="30" y2="70" stroke="#00d4aa" stroke-width="2"/></svg>
+              <div class="label">Bullish Marubozu</div>
+              <div class="desc">No/tiny wicks</div>
+            </div>
+            <div class="anatomy-card">
+              <svg width="60" height="80" viewBox="0 0 60 80"><line x1="30" y1="10" x2="30" y2="35" stroke="#00d4aa" stroke-width="2"/><rect x="20" y="35" width="20" height="10" fill="#00d4aa"/><line x1="30" y1="45" x2="30" y2="70" stroke="#00d4aa" stroke-width="2"/></svg>
+              <div class="label">Hammer</div>
+              <div class="desc">Long lower wick</div>
+            </div>
+            <div class="anatomy-card bear">
+              <svg width="60" height="80" viewBox="0 0 60 80"><line x1="30" y1="10" x2="30" y2="30" stroke="#ff4757" stroke-width="2"/><rect x="20" y="30" width="20" height="10" fill="#ff4757"/><line x1="30" y1="40" x2="30" y2="70" stroke="#ff4757" stroke-width="2"/></svg>
+              <div class="label">Shooting Star</div>
+              <div class="desc">Long upper wick</div>
+            </div>
+            <div class="anatomy-card">
+              <svg width="80" height="80" viewBox="0 0 80 80"><line x1="22" y1="20" x2="22" y2="30" stroke="#ff4757" stroke-width="2"/><rect x="14" y="30" width="16" height="20" fill="#ff4757"/><line x1="22" y1="50" x2="22" y2="60" stroke="#ff4757" stroke-width="2"/><line x1="56" y1="15" x2="56" y2="25" stroke="#00d4aa" stroke-width="2"/><rect x="46" y="25" width="20" height="35" fill="#00d4aa"/><line x1="56" y1="60" x2="56" y2="65" stroke="#00d4aa" stroke-width="2"/></svg>
+              <div class="label">Bullish Engulfing</div>
+              <div class="desc">Green wraps red</div>
+            </div>
+            <div class="anatomy-card">
+              <svg width="60" height="80" viewBox="0 0 60 80"><line x1="30" y1="20" x2="30" y2="35" stroke="#cdd5e2" stroke-width="2"/><line x1="20" y1="40" x2="40" y2="40" stroke="#cdd5e2" stroke-width="3"/><line x1="30" y1="40" x2="30" y2="55" stroke="#cdd5e2" stroke-width="2"/></svg>
+              <div class="label">Doji</div>
+              <div class="desc">No body</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>EUR/USD 4H reaches a daily demand zone after a 200-pip drop. Forms a hammer (small green body, long lower wick reaching deep into the zone). Volume is 2× the prior candles. RSI shows divergence. Three independent reasons to take a long: location (demand zone), pattern (hammer), confirmation (volume + divergence). Entry on close of the hammer, stop below the wick low, target the next supply zone +180 pips. Patterns are signals; context turns them into setups.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>The most reliable patterns appear on the closes of higher timeframes (4H, daily) at known S/R or supply/demand zones. The same pattern on a 1-minute chart is mostly noise. Pattern reliability scales directly with timeframe and location.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Candle shape = balance of power. Multi-candle patterns add narrative. But patterns without context are just art — apply them only at meaningful locations with HTF confirmation. Pattern + location + structure = setup.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>Candlestick patterns are visual proxies for <strong>order flow events</strong>. A bullish engulfing isn't important because it's a "shape" — it's important because it records that aggressive buying overwhelmed prior selling within a single time period. The expert reads the order flow story behind the pattern: who was aggressive, where did absorption happen, what level of volume backed the move. Without that flow context, patterns devolve to chart-pattern-recognition kitsch.</p>
+        <p>Patterns suffer from <strong>visibility decay</strong>: once a pattern becomes universally taught, algorithms front-run it and the edge erodes. Today, the classic "head and shoulders" or "double top" works less reliably than 20 years ago precisely because every retail trader sees it. Patterns that retain edge are those tied to <em>liquidity mechanics</em>: rejection wicks at swept liquidity, engulfings after CHoCH, doji at FVG fills. These work because they encode the actual algorithmic delivery model, not because of arbitrary shape.</p>
+        <p>Pros apply patterns within a <strong>multi-timeframe nesting</strong>: weekly pattern frames the trade thesis, daily pattern provides setup zone, 4H pattern confirms direction, 1H or 15M pattern triggers the entry. A pattern stack across 3-4 timeframes is statistically much more powerful than any single-timeframe pattern — and is the reason institutional reads on chart action seem almost prescient compared to retail's reactive single-candle interpretations.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Order Flow Signature</dt><dd>The underlying buying/selling aggression a pattern encodes.</dd>
+            <dt>Visibility Decay</dt><dd>Pattern edge erosion as the pattern becomes well-known and algorithmically front-run.</dd>
+            <dt>Liquidity-Coupled Patterns</dt><dd>Patterns tied to liquidity mechanics that retain edge despite popularity.</dd>
+            <dt>Multi-Timeframe Pattern Nesting</dt><dd>Stacking aligned patterns across timeframes for high-conviction setups.</dd>
+            <dt>Pattern Failure Mode</dt><dd>The specific way a pattern invalidates; tradable as a contrarian signal when it occurs.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>NQ daily forms a bullish engulfing at a 4-week demand zone. Weekly is in uptrend. 4H prints a CHoCH up. 15M prints a hammer at the engulfing's body midpoint after a sweep below intra-day low. Four-timeframe alignment with liquidity coupling. The expert longs at the hammer close with stop below the swept low, targets the prior daily high (+3.4R). Retail trader watching only the 15M might short the hammer (looks tiny on small timeframe). Same chart, opposite outcomes.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Pattern failure is a tradable signal. When a textbook engulfing or pin bar fails to follow through, it often becomes a powerful continuation signal in the opposite direction — because the failed pattern means retail just got trapped and their stops are about to fuel the original move. Trade the failures, not just the successes.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Patterns degrade dramatically in low-volume conditions (overnight, holidays, illiquid pairs). Without participation, candle shapes are formed by tiny order imbalances that have no predictive value. Always check volume; respect patterns only when accompanied by adequate activity.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Patterns are order-flow signatures, not chart art. Prefer liquidity-coupled patterns over classic shape patterns. Nest patterns across timeframes for high-conviction setups. Treat pattern failures as tradable contrarian signals. This frame turns patterns from beginner-trader checklist into institutional-grade reads.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub1">Mark Complete</button>
+        <a class="next-btn" href="#sub2">Next: Marubozu →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 7.2 ============ -->
+    <article class="subtopic" id="sub2">
+      <div class="sub-badge">Lesson 7.2</div>
+      <h2 class="sub-title">Marubozu Candlestick Pattern</h2>
+
+      <div class="lvl-tabs" data-target="sub2">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>The word <strong>marubozu</strong> is Japanese for "bald-headed." That's a perfect name because a marubozu candle is a candle with <em>no wicks</em> — just one big solid body. Either it's a giant green block (bullish marubozu) or a giant red block (bearish marubozu). When you see one, it tells you that the winning side completely dominated the time period from the moment it opened to the moment it closed.</p>
+
+        <div class="candle-illustration">
+          <h5>Bullish &amp; Bearish Marubozu</h5>
+          <svg width="280" height="200" viewBox="0 0 280 200">
+            <g transform="translate(60,30)">
+              <rect x="-20" y="0" width="40" height="140" fill="#00d4aa"/>
+              <text x="-12" y="170" font-size="11" fill="#00d4aa" font-weight="700">BULLISH</text>
+              <text x="-7" y="184" font-size="10" fill="#8a96ab">Buyers in control</text>
+            </g>
+            <g transform="translate(200,30)">
+              <rect x="-20" y="0" width="40" height="140" fill="#ff4757"/>
+              <text x="-15" y="170" font-size="11" fill="#ff4757" font-weight="700">BEARISH</text>
+              <text x="-10" y="184" font-size="10" fill="#8a96ab">Sellers in control</text>
+            </g>
+          </svg>
+          <div class="label">No wicks · One side dominated start to finish</div>
+        </div>
+
+        <p>Picture a tug-of-war. A marubozu is when one team yanks the rope so hard the other team never even gets to plant their feet — the rope went one direction the entire time. That's why marubozus are considered powerful signals: they show overwhelming, decisive control. After a strong bullish marubozu, more upward movement is more likely. After a strong bearish marubozu, more downward movement is more likely.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Marubozu</dt><dd>Japanese for "bald-headed"; a candle with no wicks.</dd>
+            <dt>Bullish Marubozu</dt><dd>Strong green candle, open = low, close = high.</dd>
+            <dt>Bearish Marubozu</dt><dd>Strong red candle, open = high, close = low.</dd>
+            <dt>Continuation Signal</dt><dd>A pattern suggesting the current direction will continue.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Ethereum 4H opens at $2,300, never dips below $2,300, climbs steadily, and closes at $2,360. No wick top or bottom. That's a textbook bullish marubozu. In the next few candles, ETH continues to $2,400. The marubozu signaled that bulls had complete control — and they kept it.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>A marubozu = no wicks = one side dominated. Bullish marubozu after a low can mean a strong reversal up; bearish marubozu after a high can mean a strong reversal down. When you see one in a trend, expect the trend to continue.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Strictly, a "true" marubozu has zero wick on both ends. In practice, traders accept <strong>near-marubozu</strong> candles where wicks are less than 5% of the body. The interpretation is the same: one-sided dominance. There are three sub-types worth knowing: the <strong>full marubozu</strong> (no wicks at all), the <strong>opening marubozu</strong> (no wick at the open side — body starts at the low for bullish or high for bearish), and the <strong>closing marubozu</strong> (no wick at the close side — body ends at the high for bullish or low for bearish). The closing marubozu is generally the most actionable because it signals strength <em>into</em> the close, suggesting continuation.</p>
+        <p>Marubozus carry different implications depending on context. <strong>In a trend</strong>, a marubozu in the direction of the trend is a continuation signal — strong impulse, expect more. <strong>At a key level</strong> (broken resistance, broken support, demand zone, supply zone), a marubozu is confirmation that the level is being respected or overwhelmed. <strong>After a long consolidation</strong>, the first marubozu can be a breakout signal worth front-running on the retest of the broken range.</p>
+        <p>Filter marubozu signals with <strong>volume</strong>. A marubozu on rising volume is institutional. A marubozu on declining or flat volume is suspicious — it can be a low-liquidity move that reverses violently when real participants return. Always pair pattern with volume; one without the other is half the picture.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Full Marubozu</dt><dd>Zero wicks both ends.</dd>
+            <dt>Opening Marubozu</dt><dd>No wick on the open side.</dd>
+            <dt>Closing Marubozu</dt><dd>No wick on the close side; most actionable.</dd>
+            <dt>Continuation Marubozu</dt><dd>Marubozu in the direction of the established trend.</dd>
+            <dt>Breakout Marubozu</dt><dd>First marubozu after consolidation; signals new regime.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>GBP/USD daily consolidates between 1.2700-1.2750 for two weeks. Friday prints a bullish marubozu that closes at 1.2780 — clean break above the range, no upper wick, volume 1.8× the 20-day average. Monday's pullback to 1.2755 is your entry zone for a continuation long, stop below the marubozu's low (1.2750), target the next 4H supply at 1.2880. Result: clean 5R off a textbook breakout marubozu.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>A marubozu's body length is a quick proxy for the impulse strength of the move. Compare the marubozu's body to the average true range (ATR) of the recent 20 candles. A marubozu with a body 1.5-2× ATR is meaningful; one within ATR is more average and less actionable.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Distinguish full, opening, and closing marubozus. Apply them differently by context — trend continuation, level confirmation, breakout. Filter with volume and ATR-relative body size. A confirmed marubozu after a setup is the highest-conviction confirmation candle in your toolkit.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>Marubozus are the visual signature of <strong>uncontested aggression</strong>: one side's market orders so consistently outweighed the other's that price never had reason to retrace within the time window. From an order flow standpoint, a true marubozu indicates either (a) institutional execution at scale (a sweep-style algorithm consuming all available counter-liquidity), or (b) a regime shift where one side capitulated entirely. The interpretation depends on context — distinguishing the two is the expert read.</p>
+        <p>Use marubozus as <strong>execution triggers, not standalone signals</strong>. A pro waits for the setup criteria to align (HTF zone + LTF structure shift + liquidity sweep) and then uses a marubozu as the entry trigger because it confirms the institutional aggression has begun. Entering at the close of the marubozu (or the open of the next candle) often gets you in at the very start of a multi-candle impulse with a structurally sound stop just behind the marubozu's body.</p>
+        <p>Watch for <strong>exhaustion marubozus</strong>: a bullish marubozu that prints into a long extended uptrend, far above moving averages, with declining cumulative volume delta = climax move, often the last buying push before distribution. The pro reads this as a topping signal, not continuation — exactly the opposite of the naive "bullish = buy" interpretation. Context flips the meaning, and recognizing climax marubozus is one of the highest-edge skills in pattern reading.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Uncontested Aggression</dt><dd>One-sided order flow that drives price without counter-resistance.</dd>
+            <dt>Sweep-Style Algorithm</dt><dd>Institutional execution mode that consumes all available liquidity at a level.</dd>
+            <dt>Climax Marubozu</dt><dd>Marubozu printed in extreme extension; often a topping/bottoming signal.</dd>
+            <dt>CVD Divergence</dt><dd>Price marubozu without supporting order flow; warning sign.</dd>
+            <dt>Marubozu Pivot</dt><dd>Marubozu close serves as the new key S/R level for subsequent candles.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>BTC weekly extended 6 weeks above 50-week SMA, RSI at 84, CVD diverging downward. Prints a bullish marubozu closing at $68,500 — a new high. Volume up but driven by retail FOMO buys, not new institutional accumulation. Expert reads this as climax marubozu, watches for the first bearish CHoCH on the daily, shorts the next supply rejection. Two weeks later BTC is at $58,000. The very same pattern was naively interpreted by retail as confirmation of continuation; the expert read the context and traded the reverse.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>The body's <em>midpoint</em> of a strong marubozu often acts as future support (bullish) or resistance (bearish) on subsequent retests. Use the midpoint as a hidden entry zone — most traders watch the open or close, not the midpoint, so entries there are often less crowded and more efficient.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Marubozus on news releases (FOMC, NFP, CPI) are flow events, not technical signals. They can fully retrace within hours. Filter pattern interpretation by event proximity — within 30 minutes of tier-1 news, marubozus carry little continuation signal and shouldn't trigger entries.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Marubozus encode uncontested aggression. Use them as triggers within validated setups, distinguish continuation from climax via order flow context, and respect the midpoint as latent S/R. This depth of interpretation turns one of the most popular candles into a precision execution tool.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub2">Mark Complete</button>
+        <a class="next-btn" href="#sub3">Next: Doji →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 7.3 ============ -->
+    <article class="subtopic" id="sub3">
+      <div class="sub-badge">Lesson 7.3</div>
+      <h2 class="sub-title">Doji Candlestick Pattern</h2>
+
+      <div class="lvl-tabs" data-target="sub3">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>A <strong>doji</strong> is a candle where the open and close are nearly identical. Visually it looks like a plus sign or a cross — practically no body, just a horizontal line with wicks above and/or below. A doji is the chart's way of saying <em>"buyers and sellers fought hard, but neither won."</em> It's a candle of pure indecision.</p>
+
+        <div class="candle-illustration">
+          <h5>Doji Variations</h5>
+          <svg width="360" height="180" viewBox="0 0 360 180">
+            <!-- Standard Doji -->
+            <g transform="translate(50,30)">
+              <line x1="0" y1="0" x2="0" y2="50" stroke="#cdd5e2" stroke-width="2"/>
+              <line x1="-15" y1="55" x2="15" y2="55" stroke="#cdd5e2" stroke-width="3"/>
+              <line x1="0" y1="60" x2="0" y2="120" stroke="#cdd5e2" stroke-width="2"/>
+              <text x="-22" y="140" font-size="10" fill="#8a96ab" font-weight="700">STANDARD</text>
+            </g>
+            <!-- Long-legged -->
+            <g transform="translate(140,30)">
+              <line x1="0" y1="0" x2="0" y2="55" stroke="#cdd5e2" stroke-width="2"/>
+              <line x1="-15" y1="60" x2="15" y2="60" stroke="#cdd5e2" stroke-width="3"/>
+              <line x1="0" y1="65" x2="0" y2="130" stroke="#cdd5e2" stroke-width="2"/>
+              <text x="-30" y="148" font-size="10" fill="#8a96ab" font-weight="700">LONG-LEGGED</text>
+            </g>
+            <!-- Dragonfly (bullish reversal) -->
+            <g transform="translate(225,30)">
+              <line x1="-15" y1="20" x2="15" y2="20" stroke="#00d4aa" stroke-width="3"/>
+              <line x1="0" y1="20" x2="0" y2="120" stroke="#00d4aa" stroke-width="2"/>
+              <text x="-22" y="140" font-size="10" fill="#00d4aa" font-weight="700">DRAGONFLY</text>
+            </g>
+            <!-- Gravestone (bearish reversal) -->
+            <g transform="translate(310,30)">
+              <line x1="0" y1="0" x2="0" y2="100" stroke="#ff4757" stroke-width="2"/>
+              <line x1="-15" y1="100" x2="15" y2="100" stroke="#ff4757" stroke-width="3"/>
+              <text x="-22" y="140" font-size="10" fill="#ff4757" font-weight="700">GRAVESTONE</text>
+            </g>
+          </svg>
+          <div class="label">Open ≈ Close · Indecision &amp; potential reversal</div>
+        </div>
+
+        <p>Why does indecision matter? Because a chart that's been moving strongly in one direction and suddenly prints a doji is showing you that momentum is fading. The bulls (or bears) couldn't push price further. That pause often comes right before a reversal. Doji at the top of a rally = warning, the up move may be running out of steam. Doji at the bottom of a drop = warning, the down move may be losing steam.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Doji</dt><dd>Candle where open and close are nearly equal; no real body.</dd>
+            <dt>Indecision</dt><dd>Balanced buying and selling pressure; neither side dominates.</dd>
+            <dt>Dragonfly Doji</dt><dd>Long lower wick, no upper wick; bullish reversal signal.</dd>
+            <dt>Gravestone Doji</dt><dd>Long upper wick, no lower wick; bearish reversal signal.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>Bitcoin rallies for 4 days. On the 5th day, it prints a doji on the daily chart — small body, equal wicks. Buyers couldn't extend the rally. Two days later, BTC is down 6%. The doji was the chart's whisper that the move was tiring; the reversal was the conversation that followed.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>A doji = indecision. After a strong move, a doji is a warning the trend may be stalling. Pay attention. Don't trade the doji blindly — wait for the next candle to confirm direction, then act.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>There are five doji variants worth distinguishing: <strong>Standard doji</strong> (small wicks both sides), <strong>Long-legged doji</strong> (long wicks both sides, max indecision), <strong>Dragonfly doji</strong> (no upper wick, long lower wick — buyers reclaimed after a sell push, bullish reversal at lows), <strong>Gravestone doji</strong> (no lower wick, long upper wick — sellers reclaimed after a buy push, bearish reversal at highs), and <strong>Four-price doji</strong> (no wicks at all, all 4 prices equal — extreme illiquidity, rare and unactionable).</p>
+        <p>Doji <em>at a key level</em> is dramatically more meaningful than doji in the middle of nowhere. Dragonfly doji at daily support, with the lower wick sweeping liquidity below the previous low, is one of the highest-quality bullish reversal signals available. Gravestone doji at daily resistance, with the upper wick sweeping liquidity above the previous high, is the mirror bearish signal. <em>Location turns the doji from indecision into actionable evidence of institutional reversal.</em></p>
+        <p>The key trading rule: <strong>always wait for the confirmation candle</strong>. A doji on its own is just indecision. The candle that follows tells you which way the market resolved. If a bearish gravestone doji at resistance is followed by a bearish engulfing — that's your entry trigger. If it's followed by another doji or a bullish candle — pass; the bearish signal is invalidated. Patience for confirmation prevents trading on noise.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Long-Legged Doji</dt><dd>Extra-long wicks both sides; maximum volatility-indecision combo.</dd>
+            <dt>Dragonfly Doji</dt><dd>No upper wick + long lower wick; bullish reversal at lows.</dd>
+            <dt>Gravestone Doji</dt><dd>No lower wick + long upper wick; bearish reversal at highs.</dd>
+            <dt>Confirmation Candle</dt><dd>The candle after the doji that resolves the indecision direction.</dd>
+            <dt>Liquidity-Swept Doji</dt><dd>Doji whose wick swept beyond a known swing point; institutional fingerprint.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>USD/CAD 4H rallies into a daily resistance zone at 1.3580. Prints a gravestone doji whose upper wick reaches 1.3608 — sweeping liquidity above the prior high — and closes at 1.3578. The next 4H candle is a strong bearish engulfing closing at 1.3540. Entry on the engulfing close, stop above the gravestone high at 1.3615, target the prior 4H demand at 1.3460. Total RR: 2.7. The setup was: location (resistance) + sweep (liquidity above) + reversal pattern (gravestone doji) + confirmation (engulfing) — four factors aligned for a clean institutional-style short.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>A doji with above-average volume is more meaningful than one on low volume. High-volume doji = both sides really fought hard (real indecision). Low-volume doji = simply not enough participation either way (irrelevant). Always check volume to qualify doji signals.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Five doji types, each with specific meaning. Location dramatically amplifies signal quality. Always wait for the confirmation candle before acting. Volume validates the indecision. With these filters, doji becomes a precision reversal tool rather than chart confusion.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>A doji at a major HTF level represents a moment of <strong>order flow equilibrium</strong>: buyers and sellers are matched at the level, and the next aggressive participant decides direction. From an institutional perspective, the doji often marks the boundary of an algorithmic distribution or accumulation phase. The wicks tell you exactly where each side tried to push price, and the body's position (open = close) marks the equilibrium that emerged after both pushes failed. Reading this microstructure transforms doji from "indecision" into "where the next institutional commitment will be revealed."</p>
+        <p>Distinguish between <strong>continuation doji</strong> (small doji inside a strong trend after a healthy pullback — often a rest before continuation) and <strong>reversal doji</strong> (large-wicked doji at extreme highs/lows after extended moves — often a signal of distribution/accumulation completion). The two have opposite implications; misreading them is a high-cost mistake. Use ATR-relative wick length and trend extension as filters.</p>
+        <p>The highest-leverage application: <strong>doji at a swept liquidity level with multi-timeframe confluence</strong>. Daily uptrend → 4H sweeps a recent low → 4H prints a dragonfly doji at that swept low → 15M shows CHoCH up. This four-factor stack (HTF trend, LTF sweep, reversal doji, structural shift) is the institutional signature of a high-conviction reversal entry. Trade these and you'll see a meaningful jump in your average R per trade compared to taking doji signals in isolation.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Equilibrium Doji</dt><dd>Doji representing balanced order flow at a key level; precedes directional resolution.</dd>
+            <dt>Continuation Doji</dt><dd>Small doji during a healthy trend pause; bullish/bearish per trend direction.</dd>
+            <dt>Reversal Doji</dt><dd>Large doji at trend extremes; signals likely turn.</dd>
+            <dt>Confluence Stack</dt><dd>Multiple independent signals aligning at a doji's location.</dd>
+            <dt>Doji Pivot Level</dt><dd>The doji's wick high/low becomes a key S/R level for subsequent candles.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>SPX 4H in a daily uptrend pulls back to a daily demand zone. The lower wick of a long-legged doji sweeps below the previous swing low (taking liquidity), then closes back inside the zone. 15M prints a bullish CHoCH. The expert longs at the CHoCH close with stop below the doji's wick low, targets the prior 4H high. Result: clean 3.8R. The doji wasn't "indecision" — it was the institutional fingerprint of a sweep-and-reverse, and recognizing it was the entire trade.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>The wick extremes of a meaningful doji often act as the next chapter's most magnetic price levels. Mark them as horizontal lines and watch how subsequent candles respect or break them. This single habit will improve your level mapping more than any indicator combination.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Dojis on very low timeframes (1M, 5M) or low-liquidity sessions are essentially randomness. Pattern reliability scales with timeframe and liquidity. A daily doji at a weekly level is institutional; a 1-minute doji at lunch is microscope noise. Calibrate your interpretation accordingly.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Doji at the expert level is microstructure equilibrium at a key location. Distinguish continuation from reversal context. Combine with sweeps and multi-timeframe shifts for institutional-grade reversal entries. The doji is the calmest candle on the chart — and often the most informative if you know how to read it.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub3">Mark Complete</button>
+        <a class="next-btn" href="section-8-practical-application.html">Next Section: Practical Application →</a>
+      </div>
+    </article>
+
+    <div class="section-nav">
+      <a href="section-6-trading-mistakes.html">
+        <div class="label">← Previous</div>
+        <div class="name">06 · Common Mistakes</div>
+      </a>
+      <a href="section-8-practical-application.html" class="next">
+        <div class="label">Next Section →</div>
+        <div class="name">08 · Practical Application</div>
+      </a>
+    </div>
+  </main>
+</div>
+
+<button class="totop" id="totop" title="Scroll to top">↑</button>
+
+<script>
+(function(){
+  const KEY='tm2026_progress';const SEC_ID='s7';const SUBS=['sub1','sub2','sub3'];
+  function loadAll(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+  function saveAll(d){localStorage.setItem(KEY,JSON.stringify(d))}
+  function getSec(){const d=loadAll();return d[SEC_ID]||{}}
+  function setSec(s){const d=loadAll();d[SEC_ID]=s;saveAll(d)}
+  document.querySelectorAll('.lvl-tabs').forEach(group=>{
+    const subId=group.dataset.target;const article=document.getElementById(subId);
+    group.querySelectorAll('.lvl-tab').forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        group.querySelectorAll('.lvl-tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');const lvl=tab.dataset.lvl;
+        article.querySelectorAll('.lvl-panel').forEach(p=>{p.classList.toggle('active',p.dataset.lvl===lvl)});
+      });
+    });
+  });
+  function refreshMarks(){
+    const sec=getSec();let done=0;
+    SUBS.forEach(id=>{
+      const btn=document.querySelector(`.mark-btn[data-mark="${id}"]`);
+      const navItem=document.querySelector(`.subnav[data-id="${id}"]`);
+      if(sec[id]){if(btn){btn.classList.add('done');btn.textContent='Completed'}if(navItem){navItem.classList.add('done')}done++}
+      else{if(btn){btn.classList.remove('done');btn.textContent='Mark Complete'}if(navItem){navItem.classList.remove('done')}}
+    });
+    const pct=Math.round((done/SUBS.length)*100);
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.getElementById('progressText').textContent=pct+'%';
+  }
+  document.querySelectorAll('.mark-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{const id=btn.dataset.mark;const sec=getSec();sec[id]=!sec[id];setSec(sec);refreshMarks()});
+  });
+  const subs=SUBS.map(id=>document.getElementById(id));
+  function onScroll(){
+    const y=window.scrollY+150;let current=subs[0]?.id;
+    subs.forEach(s=>{if(s&&s.offsetTop<=y)current=s.id});
+    document.querySelectorAll('.subnav').forEach(a=>{a.classList.toggle('active',a.dataset.id===current)});
+    document.getElementById('totop').classList.toggle('show',window.scrollY>500);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{const tgt=document.querySelector(a.getAttribute('href'));if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth',block:'start'})}});
+  });
+  document.getElementById('totop').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+  document.getElementById('hamb').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open')});
+  refreshMarks();onScroll();
+})();
+</script>
+</body>
+</html>

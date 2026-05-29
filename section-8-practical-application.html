@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 8 · Practical Application — Trading Mastery 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--bg-2:#10162a;--card:#11182c;--border:rgba(255,255,255,.08);--teal:#00d4aa;--gold:#f0a500;--red:#ff4757;--blue:#3b9eff;--purple:#a36bff;--text:#e7ecf3;--muted:#8a96ab}
+html,body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;line-height:1.7;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 10% 0%,rgba(0,212,170,.08),transparent 60%),radial-gradient(800px 600px at 90% 80%,rgba(163,107,255,.06),transparent 60%)}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;letter-spacing:-.01em;line-height:1.2}
+a{color:inherit;text-decoration:none}p{color:#cdd5e2}
+.topbar{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,14,26,.78);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:1480px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--gold));display:grid;place-items:center;font-weight:800;color:#0a0e1a;font-size:13px}
+.brand-name{font-family:'Syne',sans-serif;font-weight:800;font-size:16px}
+.brand-sub{font-size:11px;color:var(--muted)}
+.back-link{color:var(--muted);font-size:13px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;transition:.2s}
+.back-link:hover{color:var(--teal);border-color:var(--teal)}
+.progress-wrap{flex:1;max-width:300px}
+.progress-row{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.progress-bar{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:99px;transition:width .5s ease;width:0%}
+.hamb{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+.layout{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 70px)}
+.sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;padding:28px 24px;border-right:1px solid var(--border)}
+.sidebar h4{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);margin-bottom:14px;font-weight:600}
+.sec-meta-block{padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);margin-bottom:24px}
+.sec-meta-block .num{font-family:'Syne',sans-serif;font-size:12px;letter-spacing:.18em;color:var(--teal);font-weight:700}
+.sec-meta-block .title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-top:4px}
+.sidebar ul{list-style:none}
+.sidebar li{margin:4px 0}
+.sidebar a.subnav{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:14px;color:var(--muted);transition:.2s;cursor:pointer;border:1px solid transparent}
+.sidebar a.subnav:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.sidebar a.subnav.active{color:var(--teal);background:rgba(0,212,170,.08);border-color:rgba(0,212,170,.2)}
+.sidebar a.subnav .dot{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.15);flex-shrink:0}
+.sidebar a.subnav.done .dot{background:var(--teal)}
+.sidebar a.subnav.done::after{content:'✓';margin-left:auto;color:var(--teal);font-size:12px}
+.section-jump{margin-top:30px;padding-top:24px;border-top:1px solid var(--border)}
+.section-jump a{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:10px 0}
+.section-jump a:hover{color:var(--teal)}
+.main{padding:50px 60px 80px;max-width:920px}
+.section-intro{margin-bottom:60px}
+.section-intro .eyebrow{display:inline-block;color:var(--teal);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(0,212,170,.3);border-radius:99px;margin-bottom:18px}
+.section-intro h1{font-size:clamp(34px,4.5vw,52px);font-weight:800;margin-bottom:16px}
+.section-intro h1 span{background:linear-gradient(135deg,var(--teal),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-intro .lede{color:var(--muted);font-size:17px;max-width:680px}
+.divider{display:flex;align-items:center;gap:14px;margin:50px 0 36px}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent)}
+.divider svg{flex-shrink:0;opacity:.5}
+.subtopic{padding:36px 0;border-top:1px solid var(--border);scroll-margin-top:90px}
+.subtopic:first-of-type{border-top:none;padding-top:0}
+.sub-badge{font-family:'Syne',sans-serif;font-size:11px;letter-spacing:.18em;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.sub-title{font-size:clamp(26px,3vw,38px);font-weight:800;margin-bottom:20px}
+.lvl-tabs{display:inline-flex;gap:6px;padding:6px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;margin-bottom:28px;flex-wrap:wrap}
+.lvl-tab{padding:9px 18px;font-size:13px;font-weight:600;font-family:inherit;color:var(--muted);background:none;border:none;border-radius:8px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.lvl-tab .dot{width:8px;height:8px;border-radius:99px;background:currentColor}
+.lvl-tab[data-lvl="beg"].active{background:rgba(0,212,170,.14);color:var(--teal)}
+.lvl-tab[data-lvl="int"].active{background:rgba(59,158,255,.14);color:var(--blue)}
+.lvl-tab[data-lvl="exp"].active{background:rgba(163,107,255,.14);color:var(--purple)}
+.lvl-tab:hover{color:var(--text)}
+.lvl-panel{display:none;animation:fade .4s ease}
+.lvl-panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.level-indicator{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.level-indicator.beg{background:rgba(0,212,170,.12);color:var(--teal);border:1px solid rgba(0,212,170,.2)}
+.level-indicator.int{background:rgba(59,158,255,.12);color:var(--blue);border:1px solid rgba(59,158,255,.2)}
+.level-indicator.exp{background:rgba(163,107,255,.12);color:var(--purple);border:1px solid rgba(163,107,255,.2)}
+.lvl-panel p{margin-bottom:16px}
+.lvl-panel h4{font-size:18px;margin:24px 0 12px;color:var(--text)}
+.box{padding:20px 22px;border-radius:12px;margin:22px 0;border:1px solid var(--border)}
+.box .box-title{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.box .icon{font-size:18px}
+.box.keyterms{background:rgba(59,158,255,.04);border-color:rgba(59,158,255,.18)}
+.box.keyterms .box-title{color:var(--blue)}
+.box.keyterms dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14px}
+.box.keyterms dt{font-weight:700;color:var(--text)}
+.box.keyterms dd{color:var(--muted)}
+.box.example{background:rgba(0,212,170,.04);border-color:rgba(0,212,170,.18)}
+.box.example .box-title{color:var(--teal)}
+.box.example p{font-size:14px;color:#dde5f0}
+.box.protip{background:rgba(163,107,255,.05);border-color:rgba(163,107,255,.22)}
+.box.protip .box-title{color:var(--purple)}
+.box.protip p{font-size:14px}
+.box.warning{background:rgba(255,71,87,.05);border-color:rgba(255,71,87,.22)}
+.box.warning .box-title{color:var(--red)}
+.box.warning p{font-size:14px}
+.box.takeaway{background:linear-gradient(180deg,rgba(240,165,0,.06),rgba(240,165,0,.02));border:1px solid rgba(240,165,0,.35);margin-top:30px}
+.box.takeaway .box-title{color:var(--gold);font-size:13px}
+.box.takeaway p{font-size:15px;color:#f0e7d2}
+.box.framework{background:rgba(163,107,255,.04);border:1px solid rgba(163,107,255,.18)}
+.box.framework .box-title{color:var(--purple)}
+.box.framework ol{padding-left:20px;font-size:14px;color:#dde5f0}
+.box.framework li{margin-bottom:8px}
+.chart-mock{background:rgba(16,22,42,.6);border:1px solid var(--border);border-radius:12px;padding:22px;margin:22px 0}
+.chart-mock h5{font-family:'Syne',sans-serif;color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.chart-mock svg{width:100%;height:auto;max-width:100%}
+.chart-mock .legend{font-size:12px;color:var(--muted);margin-top:10px}
+.chart-mock .legend span{display:inline-block;margin-right:18px}
+.chart-mock .legend .dot{display:inline-block;width:10px;height:10px;border-radius:99px;margin-right:6px;vertical-align:middle}
+.sub-footer{display:flex;justify-content:space-between;align-items:center;margin-top:30px;flex-wrap:wrap;gap:14px}
+.mark-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);background:none;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.mark-btn:hover{background:rgba(0,212,170,.1)}
+.mark-btn.done{background:var(--teal);color:#0a0e1a}
+.mark-btn.done::before{content:'✓ '}
+.next-btn{padding:11px 22px;font-family:inherit;font-weight:600;font-size:13px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--gold));color:#0a0e1a;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.next-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,212,170,.25)}
+.section-nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:80px;padding-top:40px;border-top:1px solid var(--border)}
+.section-nav a{padding:22px;border:1px solid var(--border);border-radius:12px;background:rgba(16,22,42,.5);transition:.25s}
+.section-nav a:hover{border-color:var(--teal);transform:translateY(-2px)}
+.section-nav .label{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.section-nav .name{font-family:'Syne',sans-serif;font-weight:700;font-size:17px}
+.section-nav .next{text-align:right}
+.totop{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:99px;background:var(--teal);color:#0a0e1a;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,212,170,.3);z-index:40}
+.totop.show{display:flex}
+.cert-banner{margin-top:60px;padding:36px;border:1px solid rgba(240,165,0,.35);border-radius:14px;background:linear-gradient(180deg,rgba(240,165,0,.06),rgba(16,22,42,.5));text-align:center;display:none}
+.cert-banner.show{display:block}
+.cert-banner .badge{font-size:42px;margin-bottom:10px}
+.cert-banner h3{color:var(--gold);font-size:24px;margin-bottom:8px}
+.cert-banner p{color:#cdd5e2;font-size:14px;max-width:500px;margin:0 auto 16px}
+.cert-banner a{display:inline-block;padding:10px 22px;background:linear-gradient(135deg,var(--teal),var(--gold));color:#0a0e1a;font-weight:700;border-radius:8px;font-size:13px}
+@media (max-width:960px){.layout{grid-template-columns:1fr}.sidebar{position:fixed;top:0;left:0;height:100vh;width:280px;z-index:60;background:var(--bg-2);transform:translateX(-100%);transition:transform .3s ease;padding-top:80px}.sidebar.open{transform:translateX(0)}.hamb{display:inline-flex}.main{padding:30px 22px 60px}.brand-sub{display:none}.progress-wrap{max-width:140px}.topbar-inner{padding:12px 18px}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="hamb" id="hamb">☰</button>
+    <div class="brand">
+      <div class="brand-logo">TM</div>
+      <div>
+        <div class="brand-name">Trading Mastery 2026</div>
+        <div class="brand-sub">Section 8 of 8 · Final</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-row"><span>Section progress</span><span id="progressText">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <a class="back-link" href="trading-course.html">← Course Home</a>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sec-meta-block">
+      <div class="num">SECTION 08</div>
+      <div class="title">Practical Application</div>
+    </div>
+    <h4>Lessons in this section</h4>
+    <ul>
+      <li><a class="subnav" data-id="sub1" href="#sub1"><span class="dot"></span> 8.1 Applying to Real Charts</a></li>
+      <li><a class="subnav" data-id="sub2" href="#sub2"><span class="dot"></span> 8.2 Analyzing Live Markets</a></li>
+      <li><a class="subnav" data-id="sub3" href="#sub3"><span class="dot"></span> 8.3 Personal Strategy</a></li>
+    </ul>
+    <div class="section-jump">
+      <h4>Jump to section</h4>
+      <a href="section-7-chart-patterns.html">← Section 7 — Chart Patterns</a>
+      <a href="trading-course.html">Course Home →</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="section-intro">
+      <div class="eyebrow">Section 08 · Where theory becomes profit</div>
+      <h1>Practical <span>Application</span></h1>
+      <p class="lede">Every concept in this course is worthless until you can apply it to a live chart, in real time, under your own capital. This final section is the bridge from knowing to doing — and it's where most aspiring traders fail. Make it your strongest section.</p>
+    </div>
+
+    <!-- ============ SUBTOPIC 8.1 ============ -->
+    <article class="subtopic" id="sub1">
+      <div class="sub-badge">Lesson 8.1</div>
+      <h2 class="sub-title">Applying Concepts to Real Charts</h2>
+
+      <div class="lvl-tabs" data-target="sub1">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>You've now learned market structure, supply and demand, liquidity, risk management, psychology, mistakes, and chart patterns. Time to bring it all together on an actual chart. Here's a simple 5-step ritual you'll do <em>every single time</em> you open a chart, for the rest of your career.</p>
+
+        <div class="box framework">
+          <div class="box-title"><span class="icon">🧭</span> The Beginner's 5-Step Chart Read</div>
+          <ol>
+            <li><strong>Identify the trend.</strong> Higher highs &amp; higher lows = uptrend. Lower highs &amp; lower lows = downtrend. Neither = range. Do this on the higher timeframe first (4H or daily).</li>
+            <li><strong>Mark your zones.</strong> Draw the most obvious support and demand zones below current price, and resistance and supply zones above. Keep it to 3-5 lines total — don't crowd the chart.</li>
+            <li><strong>Check the location.</strong> Is price near a zone? If yes, a setup may be brewing. If price is in the middle of nowhere, there's no setup — just noise. Move on.</li>
+            <li><strong>Wait for confirmation.</strong> A clean candlestick pattern at a zone (hammer, engulfing, marubozu in the right direction) tells you the level is being respected. Without a confirmation candle, don't enter.</li>
+            <li><strong>Calculate risk.</strong> Where would your stop go? How far is it from entry? How many shares/lots/coins at 1% risk? If the answer doesn't fit your account, the trade is too big — skip it.</li>
+          </ol>
+        </div>
+
+        <p>That's the entire process. It feels mechanical because it is. The reason it works is that it forces you to make all the important decisions <em>before</em> emotion arrives. By the time you click buy or sell, the analysis is done and you're just executing what you already decided.</p>
+
+        <div class="chart-mock">
+          <h5>Example Chart Read — EUR/USD 4H</h5>
+          <svg viewBox="0 0 600 280">
+            <defs>
+              <linearGradient id="z1" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#00d4aa" stop-opacity=".2"/><stop offset="100%" stop-color="#00d4aa" stop-opacity=".05"/></linearGradient>
+              <linearGradient id="z2" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#ff4757" stop-opacity=".15"/><stop offset="100%" stop-color="#ff4757" stop-opacity=".05"/></linearGradient>
+            </defs>
+            <!-- Demand zone -->
+            <rect x="0" y="200" width="600" height="30" fill="url(#z1)"/>
+            <text x="10" y="220" font-size="10" fill="#00d4aa" font-weight="700">DEMAND ZONE</text>
+            <!-- Supply zone -->
+            <rect x="0" y="50" width="600" height="30" fill="url(#z2)"/>
+            <text x="10" y="70" font-size="10" fill="#ff4757" font-weight="700">SUPPLY ZONE</text>
+            <!-- Grid -->
+            <g stroke="rgba(255,255,255,.04)" stroke-width="1">
+              <line x1="0" y1="120" x2="600" y2="120"/>
+              <line x1="0" y1="170" x2="600" y2="170"/>
+            </g>
+            <!-- Candles - uptrend -->
+            <g>
+              <g><line x1="40" y1="180" x2="40" y2="225" stroke="#00d4aa" stroke-width="1.5"/><rect x="34" y="190" width="12" height="25" fill="#00d4aa"/></g>
+              <g><line x1="70" y1="165" x2="70" y2="215" stroke="#00d4aa" stroke-width="1.5"/><rect x="64" y="175" width="12" height="30" fill="#00d4aa"/></g>
+              <g><line x1="100" y1="155" x2="100" y2="195" stroke="#ff4757" stroke-width="1.5"/><rect x="94" y="165" width="12" height="20" fill="#ff4757"/></g>
+              <g><line x1="130" y1="170" x2="130" y2="210" stroke="#00d4aa" stroke-width="1.5"/><rect x="124" y="180" width="12" height="25" fill="#00d4aa"/></g>
+              <g><line x1="160" y1="145" x2="160" y2="195" stroke="#00d4aa" stroke-width="1.5"/><rect x="154" y="155" width="12" height="30" fill="#00d4aa"/></g>
+              <g><line x1="190" y1="130" x2="190" y2="180" stroke="#00d4aa" stroke-width="1.5"/><rect x="184" y="140" width="12" height="30" fill="#00d4aa"/></g>
+              <g><line x1="220" y1="115" x2="220" y2="160" stroke="#00d4aa" stroke-width="1.5"/><rect x="214" y="125" width="12" height="25" fill="#00d4aa"/></g>
+              <g><line x1="250" y1="100" x2="250" y2="140" stroke="#00d4aa" stroke-width="1.5"/><rect x="244" y="110" width="12" height="20" fill="#00d4aa"/></g>
+              <!-- approaching supply -->
+              <g><line x1="280" y1="85" x2="280" y2="130" stroke="#00d4aa" stroke-width="1.5"/><rect x="274" y="95" width="12" height="25" fill="#00d4aa"/></g>
+              <!-- shooting star in supply -->
+              <g><line x1="310" y1="40" x2="310" y2="90" stroke="#ff4757" stroke-width="1.5"/><rect x="304" y="70" width="12" height="10" fill="#ff4757"/></g>
+              <!-- reversal -->
+              <g><line x1="340" y1="80" x2="340" y2="130" stroke="#ff4757" stroke-width="1.5"/><rect x="334" y="85" width="12" height="40" fill="#ff4757"/></g>
+              <g><line x1="370" y1="100" x2="370" y2="160" stroke="#ff4757" stroke-width="1.5"/><rect x="364" y="110" width="12" height="40" fill="#ff4757"/></g>
+              <g><line x1="400" y1="130" x2="400" y2="190" stroke="#ff4757" stroke-width="1.5"/><rect x="394" y="140" width="12" height="40" fill="#ff4757"/></g>
+              <g><line x1="430" y1="160" x2="430" y2="210" stroke="#ff4757" stroke-width="1.5"/><rect x="424" y="170" width="12" height="30" fill="#ff4757"/></g>
+              <g><line x1="460" y1="180" x2="460" y2="225" stroke="#ff4757" stroke-width="1.5"/><rect x="454" y="190" width="12" height="25" fill="#ff4757"/></g>
+              <!-- bullish reversal in demand -->
+              <g><line x1="490" y1="200" x2="490" y2="245" stroke="#00d4aa" stroke-width="1.5"/><rect x="484" y="210" width="12" height="25" fill="#00d4aa"/></g>
+              <g><line x1="520" y1="170" x2="520" y2="220" stroke="#00d4aa" stroke-width="1.5"/><rect x="514" y="180" width="12" height="35" fill="#00d4aa"/></g>
+              <g><line x1="550" y1="140" x2="550" y2="190" stroke="#00d4aa" stroke-width="1.5"/><rect x="544" y="150" width="12" height="35" fill="#00d4aa"/></g>
+            </g>
+            <!-- annotations -->
+            <text x="310" y="35" font-size="10" fill="#ff4757">Shooting star rejection</text>
+            <line x1="310" y1="38" x2="310" y2="58" stroke="#ff4757" stroke-width="1" stroke-dasharray="2,2"/>
+            <text x="495" y="255" font-size="10" fill="#00d4aa">Demand bounce</text>
+          </svg>
+          <div class="legend">
+            <span><span class="dot" style="background:#00d4aa"></span>Demand zone</span>
+            <span><span class="dot" style="background:#ff4757"></span>Supply zone</span>
+            <span><span class="dot" style="background:#cdd5e2"></span>Reversal candles</span>
+          </div>
+        </div>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Pre-Trade Ritual</dt><dd>Repeatable analysis sequence before any trade decision.</dd>
+            <dt>Confirmation Candle</dt><dd>The candle that proves the zone is being respected.</dd>
+            <dt>Chart Hygiene</dt><dd>Keeping the chart clean and uncluttered.</dd>
+            <dt>Setup Quality</dt><dd>The strength of the alignment between trend, zone, and confirmation.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Walkthrough</div>
+          <p>You open EUR/USD on a Monday. Step 1: 4H trend = uptrend (HH-HL). Step 2: mark the demand zone at 1.0830-1.0850 (recent bounce area) and supply at 1.0950-1.0970 (recent rejection). Step 3: price is at 1.0855 — right at the demand zone edge. Step 4: a 4H bullish engulfing prints. Confirmation. Step 5: entry 1.0858, stop 1.0825 (32 pips), target 1.0945 (87 pips). RR ≈ 2.7. 1% risk = $100 on a $10k account → 0.31 mini lots. Pull the trigger. Done. No emotion. No improvisation.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Follow the 5-step ritual on every chart. The repeatability is the entire system. The day you skip a step is the day you take a bad trade — every time.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>The intermediate process integrates multi-timeframe analysis (MTF), confluence stacking, and trade management planning. The framework expands from 5 steps to a more thorough 8-step routine, but each step is still mechanical and pre-defined.</p>
+
+        <div class="box framework">
+          <div class="box-title"><span class="icon">🧭</span> Intermediate Chart Read — 8 Steps</div>
+          <ol>
+            <li><strong>Establish HTF bias.</strong> Monthly + weekly trend direction; this is your only allowed trade direction this session.</li>
+            <li><strong>Mark HTF zones.</strong> On daily and 4H — supply, demand, OBs, prior session H/L.</li>
+            <li><strong>Identify ITF setup zone.</strong> Where on the 1H or 4H is price currently approaching that matches your bias and a zone?</li>
+            <li><strong>Map liquidity.</strong> Equal highs / equal lows / trendline touches / session H/L — where do retail stops sit?</li>
+            <li><strong>Wait for LTF trigger.</strong> 15M or 5M CHoCH inside the ITF zone, ideally after a sweep of liquidity.</li>
+            <li><strong>Stack confluence.</strong> Setup needs 3+ aligned reasons (HTF trend, zone, sweep, CHoCH, RR ≥ 2). Less than 3 = pass.</li>
+            <li><strong>Pre-plan management.</strong> Where will BE move trigger? Where partial profit? Where final target? Write it down before entry.</li>
+            <li><strong>Calculate size.</strong> Risk %, stop distance, instrument-specific lot/share math. Single number output. Execute.</li>
+          </ol>
+        </div>
+
+        <p>The key intermediate skill is <strong>chart reading without preference</strong>. The ego wants the chart to set up <em>your favorite</em> direction — long if you're bullish, short if you're bearish. The disciplined trader has no preference until the chart says so. If you find yourself searching for reasons to enter a particular direction, that's an emotional bias contaminating analysis. The cure: do the steps in order without skipping ahead to "is this a long or short?" until step 7.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>HTF / ITF / LTF</dt><dd>Higher / Intermediate / Lower Timeframe; three-tiered analysis framework.</dd>
+            <dt>Confluence Stack</dt><dd>Multiple independent technical factors aligning at the same trade location.</dd>
+            <dt>Trigger Timeframe</dt><dd>The smallest timeframe used for entry confirmation.</dd>
+            <dt>Bias Discipline</dt><dd>Refusing directional preference until analysis steps complete.</dd>
+            <dt>Pre-Trade Plan</dt><dd>Documented entry, stop, targets, and management before the click.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Walkthrough</div>
+          <p>NQ futures on a Tuesday morning. HTF (weekly): uptrend. Daily: pulling back to demand zone at 17,750-17,810. 4H: in the zone. Liquidity: equal lows at 17,720 sitting just below the zone — likely sweep target. Wait for 5M CHoCH after sweep. At 9:42 NY, price sweeps to 17,712, reclaims 17,750 by 9:48, prints 5M bullish CHoCH at 17,765. Confluence: weekly uptrend ✓ | daily demand zone ✓ | liquidity sweep ✓ | 5M CHoCH ✓ | RR to prior high 17,930 = 4.6 ✓. Five confluences, fully stacked. Long 17,768, stop 17,705 (-63 pts), target 17,930 (+162 pts). Manage BE at 17,840, partial at 17,890, trail remainder. Outcome: 2.4R realized. Mechanical, repeatable, ego-free.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Use a physical or digital checklist that requires you to type a single answer to each step before moving on. The friction of writing "uptrend" or "demand at X" forces conscious processing instead of pattern-matching auto-pilot. Slowing down the inputs improves the outputs dramatically.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>The intermediate 8-step routine integrates MTF analysis and confluence stacking. Apply it without directional preference, document each step before moving on, and only act when all confluences align. This is the bridge from "I see a setup" to "I have a defined edge."</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>The expert chart read collapses the multi-step routine into rapid pattern recognition — but only after years of disciplined manual application have wired the steps into habit. Pros can glance at a chart and "know" the read in 10 seconds because they've done the full sequence 10,000 times before. Don't fake this state. The ten-second read is the eventual reward; the 8-step process is the path to it.</p>
+        <p>What the expert sees first: <strong>narrative</strong>. Not patterns, not indicators — the story of where institutions are positioned, what liquidity they're hunting next, and where the next algorithmic delivery is most likely to send price. Charts are read as institutional dialogues rather than retail signals. A clean uptrend with no swept liquidity above = institutions still positioned long, expect more up. A clean uptrend that just swept all visible liquidity = institutions exiting, expect distribution.</p>
+        <p>The most evolved framework: <strong>scenario-based trading</strong>. The expert maps 2-3 likely scenarios for the day (e.g., "if price holds the 4H demand, expect a run to weekly highs"; "if it breaks, expect a sweep to the next demand 2% lower"). Pre-defining responses to each scenario eliminates real-time decision-making — when the chart confirms scenario A, you execute the pre-written plan. This converts trading from reactive analysis into proactive execution, which is the only mode that scales to consistent multi-year returns.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Narrative Reading</dt><dd>Interpreting the chart as an institutional story rather than retail signal sequence.</dd>
+            <dt>Scenario-Based Trading</dt><dd>Pre-mapping 2-3 likely outcomes with documented responses for each.</dd>
+            <dt>Algorithmic Delivery Path</dt><dd>The likely route price will travel based on liquidity hierarchy.</dd>
+            <dt>Discretionary Pattern Recognition</dt><dd>Compressed multi-step analysis enabled by deep practice.</dd>
+            <dt>Proactive Execution</dt><dd>Acting on pre-planned responses rather than reacting to live events.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>BTC sits at $66k Sunday evening. The expert maps three scenarios for the week: <em>A</em> — sweep of $64.5k liquidity, reclaim, run to $70k highs (long entry at sweep, target $70k); <em>B</em> — clean break of $66k, run to $63k weekly demand (short on retest of $66k, target $63k); <em>C</em> — range between $65k-$67k, no trade. Each scenario has predetermined entry, stop, size, and target. Monday morning, BTC sweeps $64.3k, reclaims $65k within 90 minutes — Scenario A confirmed. Pro executes immediately without re-analysis because the work was done Sunday. Result: 3.5R realized by Wednesday. The week was already won in the planning, not the trading.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Every weekend, write a scenario map for your watchlist for the coming week. 30 minutes Sunday = the calmest, most lucrative Monday-Friday you'll ever have. Pros put 80% of their analytical work into planning windows, not live windows.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Don't confuse expert speed with skipping steps. The 8-step routine is still occurring inside the expert's head in compressed form — they're just executing it faster because of practice. If you find yourself bypassing steps to "save time," you're not doing the expert read; you're doing reckless retail. The shortcut is only earned, never taken.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Read charts as institutional narratives. Plan scenarios in advance with documented responses. Convert real-time decisions into pre-planned executions. The expert chart read is faster only because it's been earned by thousands of slow, disciplined reads first. Plan the week; execute the day; review the trade.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub1">Mark Complete</button>
+        <a class="next-btn" href="#sub2">Next: Analyzing Live Markets →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 8.2 ============ -->
+    <article class="subtopic" id="sub2">
+      <div class="sub-badge">Lesson 8.2</div>
+      <h2 class="sub-title">Analyzing Live Market Conditions</h2>
+
+      <div class="lvl-tabs" data-target="sub2">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>Backtesting and chart review are great. Live markets are a different animal. In a backtest, you see the whole story — you know where price went. Live, you're seeing one candle at a time, with no idea what comes next. Your job is to apply the same calm, repeatable process even when the screen is moving and uncertainty is high.</p>
+        <p>Here are three habits that turn live analysis from chaotic into manageable. <strong>One:</strong> only analyze a chart at candle close — never mid-candle. A 4H candle isn't "the trade signal" until it actually closes. Mid-candle, the chart looks one way; the close can change everything. <strong>Two:</strong> use a watchlist of 2-4 instruments max. More than that and you'll miss setups on all of them. <strong>Three:</strong> set price alerts at your key zones so you can step away from the screen. Watching every tick is how you end up overtrading.</p>
+        <p>Live markets also bring news, economic releases, and earnings reports. As a beginner, the safest rule is to <strong>avoid trading 30 minutes before and after major scheduled news</strong> (FOMC, NFP, CPI, big earnings). The volatility is extreme, spreads widen, and your stop can be hit on a single spike that wouldn't normally trigger.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Candle Close</dt><dd>The official end of a candle's time period; signals are only valid here.</dd>
+            <dt>Watchlist</dt><dd>The small set of instruments you actively monitor.</dd>
+            <dt>Price Alert</dt><dd>Automated notification when price reaches a specified level.</dd>
+            <dt>Tier-1 News</dt><dd>Major scheduled events that materially move markets.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>You're watching BTC and ETH. You set alerts at the demand zones below current price. You go for a walk. At 11am you get an alert — BTC hit $42,000 (your zone). You return, calmly, look at the 4H chart. You see a hammer forming. You wait until candle close at noon. The hammer confirms with volume. You enter long. The alert turned an 8-hour vigil into 5 minutes of focused action. That's how pros manage live conditions without burning out.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Live = candle closes + small watchlist + price alerts + avoid news windows. Don't watch every tick — that's the path to overtrading. Let alerts bring you to the chart at the right moments, then apply your routine calmly.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Live trading effectiveness requires understanding <strong>market regimes</strong>. Markets exist in distinct states: <em>trending</em> (clean directional move with healthy retracements), <em>ranging</em> (price oscillating between defined support and resistance), <em>volatile-choppy</em> (large erratic moves without direction), and <em>illiquid</em> (low participation, wide spreads). Each regime requires different tactics — and many strategies that work in one regime fail in another. Recognize the current regime before applying any setup.</p>
+        <p>Build a daily <strong>session map</strong>: identify what each session typically delivers for your instruments. For FX, Asian session = range-bound; London open = directional impulse + sweeps; NY open = the day's "true move" + reversals; NY afternoon = consolidation or continuation. For US equities, first 90 minutes and last 30 minutes = high volume / clean signals; midday = chop. Trading in alignment with session character dramatically improves edge.</p>
+        <p>Live analysis must integrate <strong>economic calendar awareness</strong>. Know what's coming today: FOMC minutes at 2pm? CPI tomorrow? Earnings from a correlated stock tonight? Pre-mark these events on your chart, plan to be flat or hedged before them, and re-enter only after the post-event clarity. Surprise volatility on a position you didn't hedge is one of the largest avoidable losses in trading.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Market Regime</dt><dd>The current state of the market (trending, ranging, volatile, illiquid).</dd>
+            <dt>Session Map</dt><dd>Expected behavior of each trading session by instrument.</dd>
+            <dt>Killzone</dt><dd>The window of highest institutional activity in a given session.</dd>
+            <dt>Economic Calendar</dt><dd>Schedule of macroeconomic releases that move markets.</dd>
+            <dt>Regime Filter</dt><dd>Rule that allows trading only when the market is in the regime your strategy was designed for.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>Tuesday morning. FX trader checks calendar: CPI release at 8:30am NY. Plan: no new trades 7am-10am NY. Asian session: GBP/USD ranged 1.2660-1.2700. London open: swept 1.2655 (range low + retail stops), reclaimed 1.2680. CPI prints hotter than expected at 8:30: USD rips, GBP/USD tanks to 1.2580. Post-CPI volatility settles by 10am. Trader re-evaluates: new range 1.2570-1.2620, daily bias now sideways. Skips longs (no setup), takes a short on a 15M CHoCH at 1.2618 with target 1.2575. Mechanical adaptation to regime change.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Maintain a <em>"regime log"</em>: at the end of each week, label each day's dominant regime per instrument. After 2-3 months, you'll see clear patterns — your strategy wins in certain regimes and loses in others. Use this data to add a regime filter to your plan, which often improves expectancy by 30%+ without changing the strategy itself.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Live analysis = regime awareness + session map + economic calendar discipline. Match tactic to regime, trade in killzones, sit out around news. Most "strategy failures" are actually regime mismatches; recognizing the difference saves your edge.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>At the institutional level, live market analysis integrates <strong>intermarket relationships, order flow microstructure, and sentiment data</strong> alongside chart reads. The pro doesn't just look at SPX — they monitor DXY (dollar strength), TLT/yields (rates), oil, gold, BTC, and volatility (VIX) simultaneously to read the macro context. A "bullish setup" on SPX while DXY is breaking out and yields are spiking has materially lower probability than the same setup with DXY weak and VIX falling.</p>
+        <p>Watch <strong>order flow tape</strong>: footprint charts, CVD, market depth. These reveal whether a move is driven by aggressive market orders or passive limit absorption, whether it's institutional or retail, whether it has staying power or is a flash event. Reading the tape elevates trading from "what does the candle look like?" to "what is actually being executed at this price?" — a meaningfully deeper layer of analysis.</p>
+        <p>Develop <strong>real-time event integration</strong>: when news breaks (Fed speak, earnings whisper, geopolitical event), assess whether it confirms your scenario or invalidates it. The pro doesn't react to news headlines; they react to <em>whether the news changes the underlying institutional positioning</em>. Often the news is noise that doesn't materially shift the algorithmic delivery model — and the pre-planned setup remains valid through what looks (to retail) like chaos.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Intermarket Analysis</dt><dd>Reading the relationships between correlated and inversely-related assets.</dd>
+            <dt>Order Flow Tape</dt><dd>Real-time visualization of executed buy/sell volume.</dd>
+            <dt>DXY / TLT / VIX</dt><dd>Dollar Index / Bond ETF / Volatility Index — key macro context indicators.</dd>
+            <dt>Sentiment Data</dt><dd>Quantitative measures of retail/institutional positioning (CFTC COT, retail broker data).</dd>
+            <dt>Event Filtering</dt><dd>Distinguishing news that shifts positioning from news that's noise.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>FOMC day. Pro has a pre-planned scenario: dovish Fed → SPX long at 4,520 (4H demand) target 4,580. Fed releases statement at 2pm — slightly more hawkish than expected. Initial reaction: SPX dumps to 4,510, DXY spikes, TLT drops, VIX up. Within 45 minutes: DXY peaks and reverses (algos faded the spike), TLT stabilizes, SPX prints a CHoCH at 4,515. The pro reads: market initially feared hawkishness, then digested it as not enough to change trajectory. Scenario A still alive. Long at 4,517, stop at 4,498, target 4,580. Result: 3.2R, all earned by trading the institutional digestion rather than the headline reaction.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Always know what asset is "leading" the day. Most days have one instrument whose moves precede the others' (often DXY or BTC in macro environments, yields in rate-sensitive regimes). Identifying the leader gives you a 5-30 minute heads-up on moves in your traded asset. This is the highest-leverage observation in live analysis.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Intermarket relationships break down during extreme events (war, central bank emergencies, COVID-style shocks). When normal correlations invert (DXY up + gold up, for example), the macro fabric is torn — sit out and wait for it to re-form. Trading through correlation breakdowns is one of the most dangerous activities in markets.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Live expert analysis integrates intermarket relationships, order flow tape, and event filtering. Read the macro fabric, not just the candle. Identify the day's leading asset. Distinguish news that shifts positioning from headlines that are noise. This depth is what separates institutional-grade live reads from retail reactive ones.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub2">Mark Complete</button>
+        <a class="next-btn" href="#sub3">Next: Personal Strategy →</a>
+      </div>
+    </article>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <svg width="40" height="24" viewBox="0 0 40 24"><line x1="6" y1="4" x2="6" y2="20" stroke="#00d4aa" stroke-width="1.5"/><rect x="2" y="8" width="8" height="10" fill="#00d4aa" opacity=".5"/><line x1="20" y1="2" x2="20" y2="22" stroke="#ff4757" stroke-width="1.5"/><rect x="16" y="6" width="8" height="14" fill="#ff4757" opacity=".5"/><line x1="34" y1="6" x2="34" y2="18" stroke="#00d4aa" stroke-width="1.5"/><rect x="30" y="9" width="8" height="7" fill="#00d4aa" opacity=".5"/></svg>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ============ SUBTOPIC 8.3 ============ -->
+    <article class="subtopic" id="sub3">
+      <div class="sub-badge">Lesson 8.3</div>
+      <h2 class="sub-title">Developing a Personal Trading Strategy</h2>
+
+      <div class="lvl-tabs" data-target="sub3">
+        <button class="lvl-tab active" data-lvl="beg"><span class="dot"></span> Beginner</button>
+        <button class="lvl-tab" data-lvl="int"><span class="dot"></span> Intermediate</button>
+        <button class="lvl-tab" data-lvl="exp"><span class="dot"></span> Expert</button>
+      </div>
+
+      <!-- BEGINNER -->
+      <div class="lvl-panel active" data-lvl="beg">
+        <span class="level-indicator beg">● Beginner</span>
+        <p>There is no "perfect strategy" — there's only the strategy that <em>fits you</em>. Your personality, schedule, capital, and risk tolerance all shape what will work for you long-term. A day-trading scalping strategy is wonderful if you can sit in front of a screen for 6 hours every morning. It's a nightmare if you have a full-time job. Match your strategy to your real life, not your fantasy life.</p>
+        <p>Answer five questions, honestly, before designing your strategy:</p>
+
+        <div class="box framework">
+          <div class="box-title"><span class="icon">🧭</span> Five Questions to Define Your Strategy</div>
+          <ol>
+            <li><strong>How much time can I realistically commit?</strong> 30 min/day, 2 hours/day, or 6 hours/day?</li>
+            <li><strong>What hours can I trade?</strong> Mornings, evenings, weekends only?</li>
+            <li><strong>What's my account size?</strong> $500, $5k, $50k? This affects which instruments make sense.</li>
+            <li><strong>What's my risk tolerance?</strong> Are 5% drawdowns devastating or normal to you?</li>
+            <li><strong>Why am I trading?</strong> Side income? Career ambition? Curiosity? Financial freedom?</li>
+          </ol>
+        </div>
+
+        <p>Based on these answers, choose a <strong>style</strong> — scalping (minutes per trade, dozens of trades per day), day trading (hours per trade, a few trades per day), swing trading (days to weeks per trade), or position trading (weeks to months). For most beginners with jobs, swing trading off the 4H or daily charts is the most realistic. It only requires 15-30 minutes of analysis per day, generates 1-5 trades per week, and aligns with most lifestyles.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Trading Style</dt><dd>The time horizon and pace of your typical trades (scalping → position).</dd>
+            <dt>Strategy Fit</dt><dd>How well a strategy aligns with your real-life constraints.</dd>
+            <dt>Style-Personality Match</dt><dd>Some traders thrive scalping; others need slow swing trades; know yourself.</dd>
+            <dt>Lifestyle Trading</dt><dd>Designing your trading around your life, not the other way around.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Real-World Example</div>
+          <p>A software engineer with a 9-to-5 job has 30 minutes in the morning and 1 hour in the evening to trade. Account: $8,000. Realistically, scalping is out — they can't watch screens during work hours. Swing trading off the daily chart with 2-4 trades per week, evening analysis, alerts during the day — perfect fit. They take 3-5 trades per week, risk 1% per trade, and over 12 months grow the account to $12,400 while keeping their job. Strategy fits life; both prosper.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>The best strategy is one you can actually execute consistently given your real-life constraints. Match style to schedule, capital, and personality. A strategy you can't follow is worse than a simpler one you can.</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="lvl-panel" data-lvl="int">
+        <span class="level-indicator int">● Intermediate</span>
+        <p>Building a strategy is not invention — it's <strong>codification</strong>. You take patterns that already work (yours or others'), define them in measurable terms, and apply them mechanically. The intermediate strategy-building process has five stages.</p>
+
+        <div class="box framework">
+          <div class="box-title"><span class="icon">🧭</span> Five-Stage Strategy Build</div>
+          <ol>
+            <li><strong>Hypothesize.</strong> Identify a recurring market behavior you believe has edge (e.g., "Liquidity sweeps below previous day's low followed by a 1H CHoCH up = high-probability long").</li>
+            <li><strong>Define mechanically.</strong> Write every condition as a yes/no test. No interpretation room.</li>
+            <li><strong>Backtest.</strong> Apply the rules to 100+ historical instances. Compute win rate, average R, expectancy, max drawdown.</li>
+            <li><strong>Forward test.</strong> Run the strategy on demo or with minimum size for 50-100 live trades. Verify the backtest holds up.</li>
+            <li><strong>Scale.</strong> If forward test confirms edge, gradually scale to full position size while continuing to monitor metrics.</li>
+          </ol>
+        </div>
+
+        <p>Most retail traders skip stages 2-4 entirely. They read about a strategy, deploy it live with real money, and conclude "it doesn't work" after 10 losing trades — well within statistical variance. The professional process is patient and quantitative. The patience is the entire edge.</p>
+
+        <p>Build only <strong>one strategy at a time</strong>. The temptation to run "a scalp strategy plus a swing strategy plus a breakout strategy" is overwhelming and almost universally fatal — you'll execute none of them well, and you won't know which one is working. Master one. Document its edge. Only then consider a second strategy that captures genuinely different market behavior.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Codification</dt><dd>Translating intuitive patterns into mechanical rules.</dd>
+            <dt>Backtesting</dt><dd>Applying rules to historical data to measure edge.</dd>
+            <dt>Forward Testing</dt><dd>Live application with small size to validate the backtest.</dd>
+            <dt>Edge Decay</dt><dd>Reduction in strategy profitability as more traders adopt it.</dd>
+            <dt>Strategy Lifecycle</dt><dd>Hypothesize → Define → Backtest → Forward Test → Scale → Monitor.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Practical Example</div>
+          <p>An intermediate trader hypothesizes: "London open sweep of Asian range high + 15M bearish CHoCH = high-probability short to Asian range low." They define it mechanically: Asian range = 1am-7am London time, London open = 8-10am London, sweep = high broken by ≥3 pips, CHoCH = lower low on 15M closing within 30 min of sweep. Backtest 18 months on GBP/USD: 142 instances, 81 wins, 61 losses (57%), avg R 1.6, max drawdown 7%. Forward test 50 trades over 4 months: 28 wins, 22 losses (56%), avg R 1.7. Edge confirmed. Scale from 0.3% to 0.7% per trade over the next quarter. This is how a strategy goes from idea to bankable income.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Document your strategy's expected metrics: win rate range, avg R range, expected drawdown distribution. When live performance falls inside these ranges, trust the system. When it falls outside (especially below), don't tweak — investigate whether you've drifted from rules or whether the regime has changed. Most "strategy failures" are actually rule-violations or regime shifts, not strategy failures.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Strategy = hypothesize → define → backtest → forward test → scale. One strategy at a time. Document expected metrics. Trust the system inside its expected range. This rigor is what turns a hobby into a trading career.</p>
+        </div>
+      </div>
+
+      <!-- EXPERT -->
+      <div class="lvl-panel" data-lvl="exp">
+        <span class="level-indicator exp">● Expert</span>
+        <p>The expert maintains a <strong>strategy portfolio</strong>: 2-4 independent strategies designed to capture different market conditions. Strategy A might be a trend-continuation play that thrives in expansionary regimes. Strategy B might be a range-reversal play optimized for low-vol consolidation. Strategy C might be a news-fade tactic deployed only around tier-1 economic events. Each is independently coded, backtested, forward-tested, and run with its own risk budget. Together they smooth the equity curve because they're uncorrelated.</p>
+        <p>Implement <strong>strategy attribution</strong>: at end of each month/quarter, allocate P/L to each strategy. Identify which strategies are contributing edge, which are flat, and which are decaying. Edge decay is inevitable — every strategy has a half-life. The pro continuously researches new edges to replace decaying ones, treating strategy generation as an ongoing R&amp;D function rather than a one-time event.</p>
+        <p>The highest-level practice is <strong>strategy retirement</strong>: when a strategy's rolling 6-month performance falls below the bottom 5% of its expected distribution, retire it. This is psychologically the hardest discipline because pros become attached to systems that "used to work." But preserving capital from decayed strategies is more valuable than the residual returns they might still produce. The willingness to retire strategies is the most underrated skill in long-tenure trading.</p>
+
+        <div class="box keyterms">
+          <div class="box-title"><span class="icon">📘</span> Key Terms</div>
+          <dl>
+            <dt>Strategy Portfolio</dt><dd>Multiple uncorrelated strategies run in parallel.</dd>
+            <dt>Strategy Attribution</dt><dd>Allocation of P/L to each strategy for performance evaluation.</dd>
+            <dt>Edge Decay</dt><dd>Inevitable reduction in edge as patterns become widely traded.</dd>
+            <dt>Strategy Retirement</dt><dd>Discontinuing a strategy that has decayed below expected performance.</dd>
+            <dt>R&amp;D Pipeline</dt><dd>Continuous research process to identify new edges to replace decaying ones.</dd>
+          </dl>
+        </div>
+
+        <div class="box example">
+          <div class="box-title"><span class="icon">📊</span> Institutional Scenario</div>
+          <p>A pro running 3 strategies — A (trend continuation, FX), B (range reversal, indices), C (event fade, crypto) — totals +21% YTD. Attribution: A = +14%, B = +9%, C = -2%. Strategy C is in its 8-month rolling-window bottom 5%. Decision: retire C, reduce its risk allocation to zero. Free up the 25% risk budget to scale A's sizing slightly and fund a new R&amp;D project on a fourth strategy targeting volatility expansion regimes. Result over the following 6 months: total +27%, strategy mix evolved, edge sustained. Strategy turnover is the discipline that compounds across decades.</p>
+        </div>
+
+        <div class="box protip">
+          <div class="box-title"><span class="icon">💡</span> Pro Tip</div>
+          <p>Maintain a "strategy idea backlog" — a document where every hypothesis you've considered (but not yet built) lives. Whenever a strategy retires, you have replacement candidates ready to enter R&amp;D. Pros are never strategy-poor because they treat idea generation as a continuous activity, not a panic reaction to drawdowns.</p>
+        </div>
+
+        <div class="box warning">
+          <div class="box-title"><span class="icon">⚠️</span> Edge Case</div>
+          <p>Resist the temptation to build too many strategies. 2-4 is optimal; 6+ becomes unmanageable, attribution gets noisy, and execution quality declines. Better to have three excellent strategies than ten mediocre ones. Quality of portfolio, not quantity.</p>
+        </div>
+
+        <div class="box takeaway">
+          <div class="box-title"><span class="icon">🎯</span> Key Takeaway</div>
+          <p>Run a portfolio of uncorrelated strategies, attribute P/L to each, retire decayed ones, and maintain a continuous R&amp;D pipeline. Strategy management at this level is what enables decade-long trading careers in markets that constantly evolve. The pro is never married to a system — they're married to the process of finding edge.</p>
+        </div>
+      </div>
+
+      <div class="sub-footer">
+        <button class="mark-btn" data-mark="sub3">Mark Complete</button>
+        <a class="next-btn" href="trading-course.html">Back to Course Home →</a>
+      </div>
+    </article>
+
+    <div class="cert-banner" id="certBanner">
+      <div class="badge">🏆</div>
+      <h3>Course Complete — Welcome to the 5%</h3>
+      <p>You've finished every section of Trading Mastery 2026. The real work begins now: open a chart, write your plan, journal every trade, and let the structure you've learned compound over years. The patient ones win — and you've earned the patience to be patient.</p>
+      <a href="trading-course.html">Return to Course Home</a>
+    </div>
+
+    <div class="section-nav">
+      <a href="section-7-chart-patterns.html">
+        <div class="label">← Previous</div>
+        <div class="name">07 · Chart Patterns</div>
+      </a>
+      <a href="trading-course.html" class="next">
+        <div class="label">Finish →</div>
+        <div class="name">Course Home</div>
+      </a>
+    </div>
+  </main>
+</div>
+
+<button class="totop" id="totop" title="Scroll to top">↑</button>
+
+<script>
+(function(){
+  const KEY='tm2026_progress';const SEC_ID='s8';const SUBS=['sub1','sub2','sub3'];
+  function loadAll(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+  function saveAll(d){localStorage.setItem(KEY,JSON.stringify(d))}
+  function getSec(){const d=loadAll();return d[SEC_ID]||{}}
+  function setSec(s){const d=loadAll();d[SEC_ID]=s;saveAll(d)}
+
+  function checkAllComplete(){
+    const data=loadAll();
+    const required=['s1','s2','s3','s4','s5','s6','s7','s8'];
+    return required.every(id=>{
+      const sec=data[id]||{};
+      return ['sub1','sub2','sub3'].every(k=>sec[k]);
+    });
+  }
+
+  document.querySelectorAll('.lvl-tabs').forEach(group=>{
+    const subId=group.dataset.target;const article=document.getElementById(subId);
+    group.querySelectorAll('.lvl-tab').forEach(tab=>{
+      tab.addEventListener('click',()=>{
+        group.querySelectorAll('.lvl-tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');const lvl=tab.dataset.lvl;
+        article.querySelectorAll('.lvl-panel').forEach(p=>{p.classList.toggle('active',p.dataset.lvl===lvl)});
+      });
+    });
+  });
+  function refreshMarks(){
+    const sec=getSec();let done=0;
+    SUBS.forEach(id=>{
+      const btn=document.querySelector(`.mark-btn[data-mark="${id}"]`);
+      const navItem=document.querySelector(`.subnav[data-id="${id}"]`);
+      if(sec[id]){if(btn){btn.classList.add('done');btn.textContent='Completed'}if(navItem){navItem.classList.add('done')}done++}
+      else{if(btn){btn.classList.remove('done');btn.textContent='Mark Complete'}if(navItem){navItem.classList.remove('done')}}
+    });
+    const pct=Math.round((done/SUBS.length)*100);
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.getElementById('progressText').textContent=pct+'%';
+    if(checkAllComplete()){document.getElementById('certBanner').classList.add('show')}
+  }
+  document.querySelectorAll('.mark-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{const id=btn.dataset.mark;const sec=getSec();sec[id]=!sec[id];setSec(sec);refreshMarks()});
+  });
+  const subs=SUBS.map(id=>document.getElementById(id));
+  function onScroll(){
+    const y=window.scrollY+150;let current=subs[0]?.id;
+    subs.forEach(s=>{if(s&&s.offsetTop<=y)current=s.id});
+    document.querySelectorAll('.subnav').forEach(a=>{a.classList.toggle('active',a.dataset.id===current)});
+    document.getElementById('totop').classList.toggle('show',window.scrollY>500);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{const tgt=document.querySelector(a.getAttribute('href'));if(tgt){e.preventDefault();tgt.scrollIntoView({behavior:'smooth',block:'start'})}});
+  });
+  document.getElementById('totop').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
+  document.getElementById('hamb').addEventListener('click',()=>{document.getElementById('sidebar').classList.toggle('open')});
+  refreshMarks();onScroll();
+})();
+</script>
+</body>
+</html>
