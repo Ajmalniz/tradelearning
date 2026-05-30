@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Building a Risk Checklist | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="5-6">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section open" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 5 · Risk Management &amp; Position Sizing</div>
+      <h1 class="lesson-title">Building a Risk Checklist</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>A pre-trade checklist is a written list of questions you answer before placing every single trade. It acts as a filter — trades that do not pass the checklist do not get placed. This is the primary way to prevent impulsive, emotional entries: the checklist forces a deliberate pause and a structured process before any money is at risk.</p>
+        <p>Think of it like a commercial pilot's pre-flight checklist. A pilot with 10,000 hours of experience still goes through the same checklist before every single takeoff — not because they forgot the steps, but because the checklist removes the possibility of a critical oversight caused by distraction, fatigue, or overconfidence. You should approach trading the same way.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Pre-Trade Checklist</strong><span> — A written list of criteria a trade must satisfy before you enter. Trades that fail any criterion do not get placed.</span></div>
+          <div class="term"><strong>Trading Journal</strong><span> — A record of every trade including entry, exit, reasoning, outcome, and emotional state notes.</span></div>
+          <div class="term"><strong>Session Rules</strong><span> — Rules governing when you trade: which market hours, which days of the week, and hard stop conditions.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Simple Beginner Checklist</div>
+          <p>☐ Is this pair on my approved watchlist?<br>☐ Is there a clear H4 or Daily trend bias?<br>☐ Is my entry aligned with that bias?<br>☐ Have I identified a specific entry trigger?<br>☐ Is my stop loss at a structural level?<br>☐ Is my R:R at least 1:2?<br>☐ Have I calculated my exact position size?<br>☐ Is there no major news event in the next 60 minutes?<br><br>If any answer is No — do not trade.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>A complete pre-trade checklist is organized into five categories, each covering a different dimension of trade quality:</p>
+        <p><strong>Category 1 — Market Bias (HTF Analysis)</strong><br>
+        ☐ Have I analyzed the Daily and H4 chart?<br>
+        ☐ Is the structure clearly bullish, bearish, or ranging?<br>
+        ☐ Am I trading with the higher-timeframe bias, not against it?</p>
+        <p><strong>Category 2 — Entry Criteria (LTF Trigger)</strong><br>
+        ☐ Is there a valid order block, demand/supply zone, or post-sweep reversal at my entry?<br>
+        ☐ Has the LTF shown a BOS or CHoCH in my intended direction?<br>
+        ☐ Did price come to my zone — or did I chase it?</p>
+        <p><strong>Category 3 — Risk Parameters</strong><br>
+        ☐ Is my SL placed at a structural invalidation point?<br>
+        ☐ Is my R:R at minimum 1:2?<br>
+        ☐ Have I calculated position size using the formula?<br>
+        ☐ Does adding this trade keep total portfolio risk under 4%?</p>
+        <p><strong>Category 4 — Timing</strong><br>
+        ☐ Am I in an active trading session (London or New York)?<br>
+        ☐ Is there a high-impact news event in the next 60 minutes? (Check ForexFactory)<br>
+        ☐ Is this time of day suitable for this specific instrument?</p>
+        <p><strong>Category 5 — Psychology Check</strong><br>
+        ☐ Have I already taken 2 or more losses today? (If yes — stop trading for the day)<br>
+        ☐ Am I entering from a valid analysis — or from FOMO?<br>
+        ☐ Can I lose this trade with complete emotional neutrality?</p>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Read your checklist out loud before placing the trade — not silently. The physical act of speaking each question engages different neural pathways than silent reading and significantly increases the probability of catching a missed criterion. Many professional traders keep a laminated checklist card next to their monitor for this exact purpose.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>Expert checklists incorporate market regime detection and macro-level context that fundamentally changes which setups are valid:</p>
+        <p><strong>Regime detection layer:</strong> Before any other checklist items, identify the current market regime. Trending: take BOS pullbacks and OB re-tests; avoid counter-trend reversal attempts. Ranging: trade reversals only at clear structural boundaries with liquidity sweeps; avoid breakout trades until range resolves. High-volatility (news, CPI, NFP): widen stops by 50%, halve position size, or stand aside entirely — wide spreads and erratic price action make SL placement unreliable.</p>
+        <div class="key-terms">
+          <h4>Advanced Checklist Template</h4>
+          <div class="term"><strong>MACRO CONTEXT</strong><span><br>☐ Weekly bias from weekly close and D1 structure?<br>☐ Has a key liquidity level been swept this week?<br>☐ What is DXY doing? (For USD-correlated instruments)</span></div>
+          <div class="term"><strong>ENTRY PRECISION</strong><span><br>☐ Top-down confluent: D1 → H4 → H1 all aligned?<br>☐ LTF trigger present on M15 or M5?<br>☐ Entry price, SL price, and TP price written down before placing?</span></div>
+          <div class="term"><strong>RISK ARCHITECTURE</strong><span><br>☐ Total portfolio risk after this trade?<br>☐ Correlation check: other positions moving with same macro driver?<br>☐ Plan if trade is 50% toward SL? (No adjustment — let it play)</span></div>
+          <div class="term"><strong>POST-TRADE DISCIPLINE</strong><span><br>☐ No immediate re-entry for 15 minutes win or lose.<br>☐ Journal entry completed before closing platform.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Correlation Check Example</div>
+          <p>You have XAUUSD long, EURUSD long, and AUDUSD long open simultaneously. All three are effectively betting on USD weakness. If the Fed issues an unexpected hawkish statement, all three hit their SLs at the same time — you have 3× risk concentrated on one macro event. Your checklist's correlation check would have flagged this: only one USD-correlated position at a time, or split the 1% risk budget across all of them so total exposure remains 1%.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Review your checklist compliance monthly. Were there trades where you skipped items? Trades where you overrode a "No" answer? Treat checklist violations with the same seriousness as trade losses — the violation is often the real source of the problem. A trader who follows their checklist 100% of the time and takes a loss is demonstrating discipline. A trader who skips the checklist and wins is building a dangerous habit.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>A pre-trade checklist is your system for making rational decisions in an environment designed to trigger irrational ones. Build it once from the five categories, use it for every trade without exception, and treat violations as seriously as losses. The checklist is not optional — it is the foundation of consistent execution.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="trading-psychology.html" class="btn-nav">← Previous</a>
+          <a href="../section-6/multi-confluence-trading-setup.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

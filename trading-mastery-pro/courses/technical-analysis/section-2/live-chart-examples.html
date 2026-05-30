@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Live Chart Examples | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="2-6">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s1-lessons">
+        <li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li>
+        <li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li>
+        <li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li>
+        <li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s2-lessons">
+        <li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li>
+        <li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li>
+        <li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li>
+        <li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li>
+        <li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li>
+        <li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s3-lessons">
+        <li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li>
+        <li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li>
+        <li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li>
+        <li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li>
+        <li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li>
+        <li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s4-lessons">
+        <li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li>
+        <li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li>
+        <li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li>
+        <li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li>
+        <li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s5-lessons">
+        <li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li>
+        <li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li>
+        <li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li>
+        <li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li>
+        <li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li>
+        <li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s6-lessons">
+        <li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li>
+        <li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li>
+        <li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li>
+        <li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li>
+        <li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li>
+        <li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 2 · Market Structure</div>
+      <h1 class="lesson-title">Live Chart Examples</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <h2>Reading Structure in Action — XAUUSD H4</h2>
+        <p>In this lesson, we take everything you have learned about market structure — HH, HL, LH, LL, BOS, and CHoCH — and apply it to real chart scenarios. Reading these examples is not enough. After studying each one, open TradingView or your platform and find the same patterns on current or historical charts. Practice is what converts knowledge into skill.</p>
+        <p>We'll work through two complete scenarios on XAUUSD (Gold) H4. Follow each step carefully and visualize the price action as you read.</p>
+
+        <h3>Scenario A — Identifying and Trading a Clean Uptrend</h3>
+        <p>The following sequence unfolds on the XAUUSD H4 chart over approximately 3 weeks:</p>
+
+        <div class="example-box">
+          <div class="ex-header">📊 Scenario A — XAUUSD H4 Uptrend Structure</div>
+          <p><strong>Starting Point:</strong> Gold has been ranging between $2,240 and $2,290. We're watching for a directional break.</p>
+          <p><strong>Step 1 — First swing low:</strong> Price sells off to $2,244 and reverses. We note this as a potential swing low — not yet confirmed, just watching.</p>
+          <p><strong>Step 2 — First swing high:</strong> Price rallies to $2,295, then pulls back. This is our first significant swing high (SH1 = $2,295).</p>
+          <p><strong>Step 3 — HL1 forms:</strong> The pullback from $2,295 stops at $2,262 — higher than our initial $2,244 low. Our first Higher Low (HL1) is forming at $2,262. The uptrend is developing.</p>
+          <p><strong>Step 4 — BOS #1:</strong> Price rallies from HL1 at $2,262 and closes a H4 candle at <strong>$2,312 — above SH1 at $2,295.</strong> This is BOS #1. The first Higher High (HH1) is confirmed at $2,312. Uptrend now officially confirmed. Bias: <strong>LONG ONLY.</strong></p>
+          <p><strong>Step 5 — HL2 forms:</strong> Gold retraces from HH1 ($2,312) down to $2,285. This is above HL1 at $2,262 — it's a Higher Low (HL2 = $2,285). A long-minded trader is now looking to buy near this level.</p>
+          <p><strong>Entry opportunity:</strong> You enter long at $2,287, just above HL2. Your stop loss goes below $2,275 (below the HL2 with a buffer). Target is $2,350 — the next projected higher high area. Risk = 12 points. Reward = 63 points. R:R = 1:5.25.</p>
+          <p><strong>Step 6 — BOS #2:</strong> Gold rallies from HL2 and closes above HH1 at $2,312, printing a candle at $2,356. BOS #2 confirmed. HH2 = $2,356. Your long is well in profit. The uptrend is strong and intact.</p>
+          <p><strong>Step 7 — HL3 forms:</strong> Gold pulls back to $2,320 from HH2. Above HL2 at $2,285 — confirmed HL3 = $2,320. The sequence HH1/HL2/HH2/HL3 is clean bullish structure. Everything is working.</p>
+        </div>
+
+        <h3>Scenario B — The CHoCH Alert</h3>
+
+        <div class="example-box">
+          <div class="ex-header">📊 Scenario B — XAUUSD H4 CHoCH Alert</div>
+          <p>Continuing from Scenario A. Gold is now at HH2 = $2,356, HL3 = $2,320. The uptrend has been running for 3 weeks.</p>
+          <p><strong>Observation:</strong> After HH2 at $2,356, gold begins a pullback. This is normal — you're watching for the next HL to form above $2,320.</p>
+          <p><strong>CHoCH Event:</strong> Instead of holding above $2,320, gold breaks below it. A H4 candle closes at <strong>$2,308 — below HL3 at $2,320.</strong> This is a CHoCH. The previous HL did not hold.</p>
+          <p><strong>Immediate response:</strong> Cancel any pending long orders placed near $2,320. Do NOT enter a short yet — the CHoCH is a warning, not a signal. The uptrend could still recover. You need to see what structure forms next.</p>
+          <p><strong>Watching for reversal confirmation:</strong> From the CHoCH low at $2,308, price bounces to $2,337. This is a rally, but is it a new HH? No — it's below HH2 at $2,356. This looks like a potential Lower High (LH).</p>
+          <p><strong>If LH is confirmed and price breaks below $2,308:</strong> You now have LH at $2,337 + LL below $2,308 = confirmed bearish structure. The uptrend is over. Bias flips to <strong>SHORT ONLY.</strong> You begin looking for short entries near the LH area.</p>
+          <p><strong>Key lesson:</strong> Two separate things happened: (1) the CHoCH at $2,320 was the warning. (2) The LH + LL confirmation is the signal. Never trade the warning alone — wait for the confirmation.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <h2>Multi-Timeframe Structure — EURUSD D1 + H4</h2>
+        <p>In this intermediate example, we work through a scenario where the Daily and H4 charts show different structures — a common real-world situation that trips up many traders. Learning to reconcile multi-timeframe structure is essential for consistent trading.</p>
+
+        <h3>The Setup — Contradicting Timeframes</h3>
+        <p>You open EURUSD and observe the following on different timeframes:</p>
+
+        <div class="example-box">
+          <div class="ex-header">📊 EURUSD — D1 Bearish, H4 Correcting Upward</div>
+          <p><strong>D1 Structure (External — Your Bias):</strong> EURUSD Daily chart shows a clear LH/LL pattern for the past 6 weeks. The D1 structure reads:</p>
+          <ul>
+            <li>LH1 at 1.0950 (3 weeks ago)</li>
+            <li>LL1 at 1.0640 (2 weeks ago)</li>
+            <li>LH2 at 1.0810 (1 week ago — current high of the correction)</li>
+          </ul>
+          <p>The D1 external structure is clearly <strong>bearish (LH/LL)</strong>. Your directional bias for the week is SHORT EURUSD.</p>
+          <p><strong>H4 Structure (Internal — A Corrective Uptrend):</strong> On H4, you see that since LL1 at 1.0640, price has been moving up. The H4 shows:</p>
+          <ul>
+            <li>HL1 (H4) at 1.0660 → HH1 (H4) at 1.0745</li>
+            <li>HL2 (H4) at 1.0695 → HH2 (H4) at 1.0810</li>
+          </ul>
+          <p>The H4 shows a bullish HH/HL structure. But remember: this is a <em>correction within the D1 downtrend</em>. The H4 uptrend is an internal structure move — not a change in the dominant D1 bias.</p>
+          <p><strong>How to reconcile:</strong> D1 is bearish. H4 is in a corrective uptrend. The trade you want is a SHORT, but only after the H4 correction ends. You do not fight the H4 by shorting into the H4 uptrend — that would be bad timing. Instead, you wait for the H4 correction to signal exhaustion.</p>
+          <p><strong>The signal you are waiting for:</strong> A H4 CHoCH — price on H4 breaks below the most recent H4 HL. When H4 breaks below HL2 at 1.0695, the H4 correction is ending. This is your entry signal for the D1 bearish continuation trade.</p>
+          <p><strong>Trade plan:</strong> H4 CHoCH occurs below 1.0695. You wait for price to bounce to the broken level (now resistance at 1.0695–1.0750). On the H4 retest of 1.0750, you see a bearish pin bar. You enter short at <strong>1.0745</strong>. Stop loss above the LH at 1.0815 (70 pips). Target: D1 LL extension at <strong>1.0580</strong> (165 pips below entry). R:R = 1:2.35.</p>
+          <p><strong>Why this is high probability:</strong> (1) D1 bearish bias is dominant. (2) H4 correction just ended (CHoCH). (3) Entry is at a logical resistance level (former H4 support turned resistance). (4) All three factors align: trend direction, structural signal, and entry level.</p>
+        </div>
+
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip — The D1 Correction CHoCH is a Prime Short Setup</div>
+          <p>Whenever the Daily is bearish and H4 has been running a corrective uptrend, the moment H4 forms a CHoCH (breaks its most recent HL), you are in a prime short setup. The H4 correction is ending, D1 sellers are about to reassert control, and retail traders who bought the H4 uptrend are now on the wrong side. This is one of the highest-probability, best-timed short setups in Forex trading. Watch for it weekly on EURUSD, GBPUSD, and XAUUSD during bearish market phases.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <h2>Advanced Trade Plans — Full Multi-Confluence Setups</h2>
+        <p>At the expert level, we build complete trade plans that combine multiple timeframes, structural events, and entry precision. These are the types of setups that professional traders plan days in advance and execute with patience.</p>
+
+        <h3>Setup 1 — XAUUSD Swing Long: D1 + H4 + H1 + M15 Confluence</h3>
+
+        <div class="example-box">
+          <div class="ex-header">📊 Advanced Setup 1 — XAUUSD Multi-Timeframe Long</div>
+          <p><strong>Step 1 — D1 Context:</strong> Gold Daily chart shows established bullish structure: HH/HL for 5 weeks. The last D1 HH was at $2,400. The D1 HL formed at $2,290 three weeks ago. Dominant bias: <strong>BULLISH.</strong></p>
+          <p><strong>Step 2 — H4 BOS:</strong> On H4, gold recently broke above a significant swing high at $2,300 — creating a H4 BOS (bullish continuation). H4 HH confirmed at $2,318. The H4 structure is aligned with D1 — both bullish. This is dual-timeframe alignment.</p>
+          <p><strong>Step 3 — H4 Pullback to Order Block:</strong> After the BOS, Gold retraces from $2,318 back toward $2,280. On H4, the last bullish candle before the BOS breakout was a large bullish candle with a body from $2,282 to $2,300. This is a <strong>bullish Order Block</strong> (to be covered in Section 3) — the zone between $2,282 and $2,295. Price is pulling back into this zone.</p>
+          <p><strong>Step 4 — H1 CHoCH Signals End of Correction:</strong> On H1, during the pullback from $2,318 to $2,285, the H1 structure was briefly bearish (LH/LL within the H4 correction). Now, on H1, price breaks above the most recent H1 LH — an H1 CHoCH, signaling the H4 correction is ending and the D1/H4 bullish trend is resuming.</p>
+          <p><strong>Step 5 — M15 Precision Entry:</strong> On M15, you watch for a micro-BOS — M15 price breaks above the most recent M15 swing high after the H1 CHoCH. This gives you the most precise possible entry: the first M15 candle body close above the M15 swing high.</p>
+          <p><strong>Trade parameters:</strong> Entry at <strong>$2,288</strong> (M15 BOS confirmation). Stop loss below the H4 Order Block low at <strong>$2,273</strong> (15 points below entry). Target: D1 next projected HH at <strong>$2,380</strong> (92 points above entry). <strong>R:R = 1:6.1.</strong></p>
+          <p><strong>Why each element matters:</strong> D1 bullish = macro bias confirmed. H4 BOS = medium-term continuation. H4 OB = institutional demand zone where buyers are expected. H1 CHoCH = micro-level reversal signal, confirming correction end. M15 BOS = precise execution with minimum stop distance. Five layers of confluence on a single trade.</p>
+        </div>
+
+        <h3>Setup 2 — EURUSD Short: D1 Bearish + H4 LH + Bearish Rejection</h3>
+
+        <div class="example-box">
+          <div class="ex-header">📊 Advanced Setup 2 — EURUSD Multi-Timeframe Short</div>
+          <p><strong>Step 1 — D1 Context:</strong> EURUSD Daily chart: LH/LL bearish structure confirmed. The most recent D1 LL was at 1.0680 two weeks ago. The subsequent D1 LH formed at 1.0820 last week. Dominant bias: <strong>BEARISH.</strong></p>
+          <p><strong>Step 2 — H4 Bounce to Prior Structure:</strong> From 1.0680, H4 has been correcting upward. The H4 correction has pushed price to 1.0820 — which aligns precisely with the D1 LH. This D1 LH at 1.0820 is also the level of a prior structure break (this was the last D1 support before it broke to the downside). It is now acting as resistance. Two reasons to be short: (1) D1 LH resistance, (2) prior D1 structure break level = resistance.</p>
+          <p><strong>Step 3 — H4 Bearish Rejection:</strong> At 1.0820, a H4 candle forms a bearish pin bar — a large upper wick rejecting the level, with the candle body closing near 1.0800. This is an H4 rejection candle at a major resistance confluence zone. The rejection candle confirms that sellers are present at this level.</p>
+          <p><strong>Step 4 — Trade Execution:</strong> Entry: short at <strong>1.0815</strong> (entry on the next candle open after the pin bar close). Stop loss: above the pin bar high at <strong>1.0862</strong> (47 pips above entry). Target 1 (partial): prior LL at <strong>1.0680</strong> (135 pips — take 50% off here, move stop to breakeven). Target 2 (runner): D1 projected LL extension at <strong>1.0580</strong> (235 pips from entry). <strong>R:R to T1 = 1:2.9. R:R to T2 = 1:5.0.</strong></p>
+          <p><strong>Reasoning at each step:</strong> D1 LH resistance is the macro reason to short — institutional sellers will defend this level because it is where the prior structure break occurred. H4 bearish pin bar is the tactical confirmation — it shows real-time selling pressure at the level. Entry is at the top of the pin bar body (not the top of the wick) to ensure price has already shown the rejection. Stop is beyond the wick to avoid being stopped by normal spread and volatility at the level. The two-target structure allows you to bank profit at the next structural low while leaving a runner for the larger move.</p>
+        </div>
+
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip — Journal Every Structural Setup You Plan</div>
+          <p>Every time you plan a trade like the ones above — even if you don't take it — write it in your trading journal. Record: timeframes analyzed, structure state on each timeframe, the specific event you're waiting for, the entry level, stop, and target. Then check back after 5 trading days. Did the setup trigger? Did it work? This exercise builds your structural pattern recognition faster than anything else. Within 3 months of journaling setups daily, you will be able to read market structure at a glance — a skill that typically takes retail traders years to develop. The journal is the shortcut.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Market structure analysis is not about memorizing patterns — it's about reading the story price is telling. Every chart is a sequence of HH, HL, LH, LL events. Your job is to identify where you are in that sequence and position yourself accordingly.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="change-of-character.html" class="btn-nav">← Previous</a>
+          <a href="../section-3/supply-zones.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay">
+  <div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div>
+  <div id="confettiContainer"></div>
+</div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

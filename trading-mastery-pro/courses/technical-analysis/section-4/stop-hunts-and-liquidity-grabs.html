@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Stop Hunts and Liquidity Grabs | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="4-4">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 4 · Mastering Liquidity</div>
+      <h1 class="lesson-title">Stop Hunts and Liquidity Grabs</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>A <strong>stop hunt</strong> (also called a liquidity grab) is when price temporarily moves past a key level to trigger retail stop losses, then quickly reverses back in the original direction. You have almost certainly experienced this: price drops just below support, stops you out, then immediately shoots back up. That was not bad luck — it was engineered.</p>
+        <p>The visual signature of a stop hunt is unmistakable: a long wick that pierces through a key level, with the candle body closing back inside the prior range. That wick IS the stop hunt. Everything after the close of that candle is the reversal opportunity.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Stop Hunt</strong><span> — A deliberate engineered move past a key level to trigger retail stop loss orders before reversing.</span></div>
+          <div class="term"><strong>Liquidity Grab</strong><span> — Another term for a stop hunt; the act of "grabbing" the liquidity pool of resting stops.</span></div>
+          <div class="term"><strong>Fake Out</strong><span> — A price move that appears to break a level decisively but fails to sustain the break.</span></div>
+          <div class="term"><strong>Wick Rejection</strong><span> — The long candle wick that extends through a level while the body closes on the other side; the visual sign of a stop hunt.</span></div>
+          <div class="term"><strong>Sweep</strong><span> — The act of price running through a liquidity level to collect the stop orders resting there.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>GBPUSD is in an uptrend. The previous swing low is at 1.2650. Retail long traders place their stop losses at 1.2640. Price dips to 1.2635 — wicking through 1.2640 and triggering all those stops — then immediately closes back above 1.2650 with a strong bullish body. That dip to 1.2635 was a pure stop hunt. The correct trade was to go long on the close of that reversal candle with a stop below the 1.2635 wick, targeting the next structure high.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>Stop hunts are not just things to recognize after the fact — they are tradeable setups. Here is the complete entry framework:</p>
+        <ol>
+          <li><strong>Identify the liquidity pool:</strong> Mark swing lows (SSL), equal lows (EQL), and demand zones — any level where long traders' stop losses are resting.</li>
+          <li><strong>Wait for the sweep:</strong> Price pushes below the level. Do NOT panic-sell with the herd.</li>
+          <li><strong>Wait for the candle to close back above the swept level:</strong> This is the confirmation. A candle that closes back above the swept level with a strong bullish body signals institutional buying has absorbed all the sell stop liquidity.</li>
+          <li><strong>Enter long at the close of that candle.</strong> Place SL below the wick low. Set TP at the next structure high or BSL level above.</li>
+        </ol>
+        <p>Why this works so reliably: the stop hunt simultaneously cleared retail sell stops (providing sell-side liquidity for institutions to buy against) AND stopped out retail long traders (removing opposing buyers). Institutions now own the long position with no retail resistance. The path of least resistance is up.</p>
+        <p><strong>The most reliable stop hunt conditions:</strong> at session opens (London 3:00 am EST, New York 8:00 am EST), after extended sideways consolidation where stops have accumulated, and at confluent levels that align with OBs or demand zones.</p>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>The best stop hunts are fast. Price sweeps the level and returns within one or two candles. A slow, grinding break below support that holds for several candles is NOT a stop hunt — it is a genuine structural breakdown. If price spends more than two candles below your SSL level, exit the potential long setup and reassess the market structure.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>The full institutional mechanics of a stop hunt, step by step:</p>
+        <p><strong>Step 1 — Detection:</strong> Price approaches a well-known SSL level. Institutional algorithms identify the stop cluster from prior price action patterns. The level is "in play."</p>
+        <p><strong>Step 2 — Engineered push:</strong> Institutions sell (or allow selling pressure to accumulate) aggressively enough to push price through the stop level. All sell stop orders at the level fire — these are sell market orders that create sell-side liquidity for institutions to BUY against at that exact moment.</p>
+        <p><strong>Step 3 — Absorption:</strong> With all those sell orders now in the market, institutional buy orders absorb them. The institution's long position is filled at the swept low — the best possible price on the range.</p>
+        <p><strong>Step 4 — Rapid reversal:</strong> With sell orders absorbed and the institution positioned long, price reverses immediately. The institution does not want the swept level to appear attractive for further shorting, so the reversal is fast and strong.</p>
+        <p>This mechanism maps directly to ICT's "Smart Money Sweep" (SMS) concept, the classic "Turtle Soup" pattern, and the "liquidity raid" described in numerous institutional trading frameworks.</p>
+        <div class="example-box">
+          <div class="ex-header">📊 Low-Timeframe Precision Entry</div>
+          <p>After identifying a stop hunt on the H1 chart, drop to the M5 or M1 chart to time the entry with surgical precision. On the lower timeframe, you will often see a miniature CHoCH (Change of Character) immediately after the sweep — a small bullish displacement candle breaking the prior M5 swing high. This micro-CHoCH is the confirmation entry, giving you a stop loss of just 5–8 pips rather than the 15–20 pips visible on H1. Same setup, same R:R target, tighter stop, more efficient capital use.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>The strongest stop hunts occur during the low-liquidity window just before a major session open. In the 30 minutes before the London open (2:30–3:00 am EST) and the New York open (7:30–8:00 am EST), institutional algorithms can move price through a level with less opposing volume than at other times. These pre-session sweeps followed by explosive session-open moves are some of the highest-probability setups in the entire course.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Stop hunts are deliberate institutional engineering to collect retail stop losses and fill large orders at favorable prices. The tell is a long wick that pierces a key level but closes back inside it. Trade the rejection, not the breakout — when price sweeps a low and immediately recovers, go long. When it sweeps a high and immediately reverses, go short.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="equal-highs-lows-as-liquidity.html" class="btn-nav">← Previous</a>
+          <a href="how-institutions-use-liquidity.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

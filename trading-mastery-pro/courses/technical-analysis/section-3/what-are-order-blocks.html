@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>What are Order Blocks | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="3-4">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 3 · Supply &amp; Demand</div>
+      <h1 class="lesson-title">What are Order Blocks</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>An <strong>Order Block (OB)</strong> is the last candlestick in the <em>opposite direction</em> before a strong impulsive move. Think of it as the "launch pad" — the specific candle from which institutions pushed price hard in one direction.</p>
+        <p>Two types of order blocks:</p>
+        <ul>
+          <li><strong>Bullish Order Block</strong>: the last <em>bearish (red/down)</em> candle before a strong upward move. Used for long (buy) entries when price returns.</li>
+          <li><strong>Bearish Order Block</strong>: the last <em>bullish (green/up)</em> candle before a strong downward move. Used for short (sell) entries when price returns.</li>
+        </ul>
+        <p>Order blocks are more precise than supply and demand zones. Rather than a 10–20 pip range, an OB gives you a <strong>specific candle body</strong> to trade from. This precision allows tighter stops and better risk-to-reward ratios.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Order Block (OB)</strong><span> — The last opposite-direction candle before an impulsive move; where institutional orders were placed and remain active.</span></div>
+          <div class="term"><strong>Institutional Candle</strong><span> — A candle on which a large institution executed a significant position, often visible as an unusually large body.</span></div>
+          <div class="term"><strong>Launch Pad Candle</strong><span> — Informal name for the order block; the specific candle from which the impulsive move originated.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>On XAUUSD H4, price falls with several bearish candles. Then there is one <strong>large bearish candle</strong>, immediately followed by a massive 3-candle bullish move that breaks structure. That large bearish candle — the last bearish candle before the up-move — IS the bullish order block. When price later returns and dips into the body of that candle, buyers step in aggressively. Entry is on the retest of the OB body. Stop goes below the OB low.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>The simplest way to find an OB: locate a strong impulsive move, then scroll back one candle. That one candle going in the opposite direction is your order block. Mark its <strong>body high and body low</strong> — not the wicks. The body is where the OB entry zone is.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>Order blocks work because large institutions use <strong>market orders</strong> to initiate their position from a specific price level. Once they are in, they place remaining limit orders at the same level and actively defend it — because their average entry price depends on that zone holding. When price returns to an OB, the institution adds to their position at their original entry, creating a fresh wave of buying (or selling).</p>
+        <h4>Key OB Identification Rules</h4>
+        <ol>
+          <li>The OB must be followed by a <strong>strong impulsive move</strong> — at least 3:1 size ratio between the impulsive move and the OB candle itself</li>
+          <li>The OB must be the <strong>last opposite-direction candle</strong> before the move — not just any candle in the prior consolidation</li>
+          <li>The impulsive move away should <strong>create a structural break (BOS)</strong> — confirming that institutions broke through a prior swing high or low</li>
+          <li>OBs within a supply or demand zone have <strong>double confluence</strong> — highest-probability entries available</li>
+        </ol>
+        <h4>OB vs Supply/Demand Zone</h4>
+        <p>Think of the supply/demand zone as the neighbourhood and the order block as the specific address. The zone defines the area of interest; the OB defines the exact entry point within that area. Trading the zone gives you a wide entry; trading the OB gives you precision. Use zones to identify where to look; use OBs to determine exactly where to enter.</p>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>EURUSD H4: A demand zone spans 1.0740–1.0770. Within that zone, there is a specific bearish candle (body: 1.0752–1.0763) immediately before the impulsive rally that created the zone. This candle is the bullish OB. When price returns to the zone, the precise entry is 1.0752–1.0763 (the OB body), not the full 1.0740–1.0770 range. Stop: 1.0737 (below the OB low plus 3 pips buffer). Risk = 15–26 pips vs zone-level stop of 33 pips — a 40% improvement in stop size.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>The best order blocks are the ones that price approaches and <strong>reacts to aggressively</strong> — a sharp, impulsive rejection from the OB level confirms that institutional limit orders are still waiting there. A slow, grinding approach with a weak bounce is a low-conviction OB. Look for explosive reactions as confirmation of a strong OB.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>At the expert level, OB trading incorporates <strong>internal OB anatomy</strong>, <strong>OB mitigation mechanics</strong>, <strong>nested OBs</strong>, and <strong>stop placement refinement</strong> to achieve the tightest possible entries with the largest possible R:R ratios.</p>
+        <h4>Optimal Entry Within an OB: The 50% Level</h4>
+        <p>Statistical analysis of institutional order flow reveals that limit orders are most densely clustered at the <strong>50% level of the OB candle's body</strong> — the midpoint between the body open and the body close. Rather than entering at the body's edge when price first touches the OB, scaling in at the 50% level (the midpoint) typically produces stronger reactions and allows a tighter stop below the full OB body. This is the OB's "OTE" — the optimal entry within the order block itself.</p>
+        <h4>OB Mitigation</h4>
+        <p>Two outcomes when price returns to an OB:</p>
+        <ul>
+          <li><strong>Partial mitigation</strong>: price enters the OB, produces a strong reaction, and moves away. Remaining unfilled orders still exist. The OB retains value for a second visit.</li>
+          <li><strong>Full mitigation</strong>: price traverses the entire OB body from one end to the other. All institutional orders are filled. The OB is consumed — delete it and do not trade it again. A consumed OB may then become a breaker block (see Lesson 3.6).</li>
+        </ul>
+        <h4>Nested OBs: Maximum Confluence</h4>
+        <p>A <strong>nested OB</strong> occurs when a Daily OB contains an H4 OB at the same price level. Both timeframes have institutional footprints at identical price — this is the highest-confluence entry possible. The Daily OB attracts price to the area; the H4 OB within it provides the precise entry. Use the H4 OB for entry, the Daily OB body range for stop placement.</p>
+        <h4>Stop Placement: Body vs Wick</h4>
+        <p>There are two schools:</p>
+        <ul>
+          <li><strong>Stop below the OB body</strong>: tighter, better R:R, but more susceptible to wicks stopping you out</li>
+          <li><strong>Stop below the OB wick low</strong>: wider, lower R:R, but accommodates all price action including noise</li>
+        </ul>
+        <p>For high-conviction nested OBs with strong confluence, the body stop is justified. For standalone OBs with fewer confluent factors, the wick stop provides more protection. Rule of thumb: if the OB wick is less than 30% of the total candle range, use the wick low. If the wick is large (more than 50% of the range), the OB body is the refined entry and the body low is the stop.</p>
+        <div class="key-terms">
+          <h4>Advanced Concepts</h4>
+          <div class="term"><strong>OB 50% Level</strong><span> — The midpoint of the OB candle's body; where institutional limit orders are statistically most concentrated.</span></div>
+          <div class="term"><strong>Mitigation</strong><span> — The process of price returning to and filling institutional orders within an OB; partial vs full mitigation determines whether the OB retains future value.</span></div>
+          <div class="term"><strong>Nested OB</strong><span> — A Daily OB containing an H4 OB at the same price; the highest-confluence OB entry available.</span></div>
+          <div class="term"><strong>Refined OB</strong><span> — When an OB has a large wick, the entry is narrowed to just the body; the refined OB excludes the wick from the entry zone.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>XAUUSD: D1 bullish. D1 OB at $2,285–$2,298 (body range). Within this D1 OB, an H4 OB sits at $2,288–$2,294. The H4 OB's 50% level is $2,291. Price pulls back to $2,291. Entry: $2,291. Stop: $2,283 (below D1 OB body low, 8 pips). Target: next D1 supply zone at $2,360 (69 pips). R:R = 1:8.6. This is the nested OB setup — D1 OB + H4 OB + 50% entry level. The tight stop relative to the large target is only possible because of the OB's precision.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>On OB refinement: if the OB has a large wick, that wick represents noise — price briefly explored that range but was rejected quickly. The true institutional interest sits in the <strong>body only</strong>. Refine your entry to the body, ignore the wick for entry purposes, and only use the wick for stop placement if the candle's wick is small. Large-wick OBs with refined body entries consistently outperform wide-zone entries in backtesting.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>An Order Block is the last opposite-direction candle before a strong impulsive move. It's where institutional orders were placed and where they'll defend their position when price returns. The OB gives you precision: rather than a 20-pip zone, you get a specific candle body to trade from.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="integrating-sd-with-market-structure.html" class="btn-nav">← Previous</a>
+          <a href="bullish-and-bearish-order-blocks.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

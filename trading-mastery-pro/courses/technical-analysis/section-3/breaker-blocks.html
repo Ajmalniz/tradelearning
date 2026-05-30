@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Breaker Blocks | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="3-6">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 3 · Supply &amp; Demand</div>
+      <h1 class="lesson-title">Breaker Blocks</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>A <strong>Breaker Block</strong> is what an Order Block <em>becomes</em> after price breaks through it and fails to hold. When a bullish OB fails — meaning price breaks below it instead of bouncing — that same area <strong>flips</strong> and now acts as a bearish resistance level.</p>
+        <p>Think of it in three steps:</p>
+        <ol>
+          <li>A bullish OB forms (last bearish candle before an up-move)</li>
+          <li>Price returns to the OB but <strong>breaks through</strong> it instead of bouncing</li>
+          <li>That OB now becomes a <strong>Bearish Breaker Block</strong> — resistance instead of support</li>
+        </ol>
+        <p>Why does this work? The institutions that had buy orders at the bullish OB got <strong>stopped out</strong> when price broke through. They are now sitting on losing long positions. When price bounces back up to that level, they either add short positions to hedge or close their longs — pushing price back down. Their losses become your trading signal.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Breaker Block</strong><span> — A failed Order Block that has flipped its function; formerly support (bullish OB) now acts as resistance, and vice versa.</span></div>
+          <div class="term"><strong>OB Failure</strong><span> — When price fully breaks through an OB body with a closing candle rather than bouncing from it.</span></div>
+          <div class="term"><strong>Level Flip</strong><span> — When a support level becomes resistance (or vice versa) after being broken; breaker blocks are the OB version of this principle.</span></div>
+          <div class="term"><strong>Failed Support</strong><span> — A former demand/OB level that was broken and now resists upward price movement on the return.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>EURUSD has a bullish OB at 1.0750–1.0762. Price dips to the OB but instead of bouncing, it closes multiple candles below 1.0750, breaking down to 1.0700. That 1.0750–1.0762 area is now a <strong>bearish breaker block</strong> (resistance). When price later bounces back up toward 1.0750, traders look for short (sell) setups — the OB has flipped from support to resistance.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Every time you mark an OB on your chart, mentally note: <em>"If this OB fails, it becomes my breaker block."</em> This habit means you never waste a failed level — you simply re-label it and add it to your watch list as a future short (or long) entry point. Failed levels often produce stronger reactions as breakers than they did as original OBs.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>Breaker blocks are particularly powerful setups because they create a <strong>three-way confluence of selling pressure</strong> at a single level — creating high-probability entries with strong reactions.</p>
+        <h4>What Creates the Pressure at a Breaker</h4>
+        <ol>
+          <li><strong>Trapped OB buyers</strong>: Traders who bought at the original bullish OB are now holding losing positions. When price returns to their entry level, many close out (sell) to escape the loss — adding selling pressure.</li>
+          <li><strong>Institutional short additions</strong>: The institutions who drove the breakdown want to add more short positions at the breaker level — now a confirmed resistance zone in their models.</li>
+          <li><strong>New retail shorts</strong>: Breakout traders who see price failing to reclaim the former support will add fresh shorts at the flip level.</li>
+        </ol>
+        <p>All three groups sell at the same price simultaneously — this creates the sharp, reliable reversals that make breaker blocks so powerful.</p>
+        <h4>Identifying a Valid Breaker Block</h4>
+        <ol>
+          <li>Price must <strong>FULLY break through the OB</strong> — a candle close below the OB low (for a bullish OB), not just a wick. A wick through the OB is a liquidity sweep, not a break.</li>
+          <li>After breaking, price should make a <strong>new structural low (LL)</strong> to confirm the break is real and not a fake-out.</li>
+          <li>The <strong>former OB body range</strong> is now your breaker block zone. Mark the same high and low body values that you had as the OB.</li>
+        </ol>
+        <h4>Trading the Breaker Block</h4>
+        <ul>
+          <li>Wait for price to return (bounce back up) to the breaker block zone</li>
+          <li>Look for a <strong>bearish confirmation candle</strong> on H1 or M15 (bearish engulfing, pin bar, rejection wick)</li>
+          <li>Enter short at the retest of the breaker body</li>
+          <li>Stop Loss above the breaker body's HIGH (above the former OB high)</li>
+          <li>Target: the next structural low (where price is likely to continue after the breaker holds)</li>
+        </ul>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>XAUUSD: Bullish OB body at $2,310–$2,322. Price drops through on an H4 close at $2,307 (full break). Price then makes a new LL at $2,278. The $2,310–$2,322 area is now a bearish breaker block. Price bounces from $2,278 back up toward $2,314. H1 bearish pin bar forms at $2,313. Entry: $2,312. Stop: $2,325 (above former OB body high). Target: $2,278 (prior LL). R:R = 1:2.6. Clean breaker block short with LTF confirmation.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Combine breaker blocks with the liquidity concepts from Section 4. A breaker block sitting just above a pool of retail buy stops is an elite setup — price sweeps the stops (generating the bounce back to the breaker), then the breaker does its job and sends price lower. The stop sweep IS the trigger that brings price to your breaker entry. Learn to anticipate this sequence rather than react to it.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>At the expert level, breaker blocks are understood as part of a complete <strong>OB lifecycle</strong> — a predictable 6-phase cycle that advanced traders use to plan trades multiple moves ahead, rather than reacting to each candle individually.</p>
+        <h4>The Complete OB → Breaker → Mitigation Cycle</h4>
+        <ol>
+          <li><strong>Phase 1 — OB Formation</strong>: A bullish OB forms (last bearish candle before impulsive up-move). Mark the body. Institutions placed buy orders here.</li>
+          <li><strong>Phase 2 — OB Confirmation</strong>: Price rallies strongly from the OB, creating BOS. The OB is validated — institutional orders were present.</li>
+          <li><strong>Phase 3 — Partial Mitigation</strong>: Price retraces to the OB, bounces. OB holds. Some orders were filled; some remain. A partial mitigation trade is possible here.</li>
+          <li><strong>Phase 4 — OB Failure → Breaker Formation</strong>: Price retraces again, this time closing fully below the OB low. The OB fails and becomes a Bearish Breaker Block. Institutions who were long are now stopped out and repositioning short.</li>
+          <li><strong>Phase 5 — Breaker Retest</strong>: Price bounces from the new structural low, returns to the former OB (now Breaker). This is the <strong>prime short entry</strong> — enter at the top of the breaker body with a tight stop above the breaker high.</li>
+          <li><strong>Phase 6 — Breaker Mitigation</strong>: Price fully engulfs the breaker block (trades above the breaker body's high). The breaker is mitigated — the cycle completes. All institutional short orders at this level are filled.</li>
+        </ol>
+        <p>Understanding this 6-phase cycle allows you to pre-plan entries 2–3 phases ahead. When Phase 3 occurs (partial mitigation bounce), you already know Phase 4 (potential failure) is possible and have pre-placed your Phase 5 order in your watchlist. You are not reacting — you are executing a pre-planned scenario.</p>
+        <h4>Breaker Block Entry Precision</h4>
+        <p>For maximum precision and R:R, use the <strong>top of the breaker body</strong> as your entry level (the former OB's body high). This is where trapped longs are most likely to exit and where institutional shorts add most aggressively. A stop placed just above this level (1–3 pips above the wick high of the breaker candle) is as tight as possible while still being safe. With the next structural level typically 4–8x the distance of this tight stop, the R:R on a well-identified breaker block short is consistently 1:4 or better.</p>
+        <h4>Breakers as Liquidity Draws</h4>
+        <p>A breaker block sitting just above a cluster of retail buy stop-losses (traders who went long below current price) is not just a resistance level — it is a <strong>liquidity draw</strong>. Institutions need volume to fill their short orders. That volume comes from the retail buy stops above. The mechanism: institutions push price up through the buy stops (creating the bounce to the breaker), filling their short positions as retail longs execute at market. The breaker candle reaction then sends price sharply lower as the new institutional short position dominates. Recognising this sequence — breaker above liquidity pool → price sweeps the pool → enters the breaker → reverses — is the most repeatable pattern in institutional price action trading.</p>
+        <div class="key-terms">
+          <h4>Advanced Concepts</h4>
+          <div class="term"><strong>OB Lifecycle</strong><span> — The 6-phase sequence from OB formation through partial mitigation, failure, breaker retest, and full mitigation that repeats across all markets and timeframes.</span></div>
+          <div class="term"><strong>Breaker as Liquidity Draw</strong><span> — A breaker block positioned above a cluster of retail stops; price sweeps the stops to fill institutional shorts, then reverses from the breaker level.</span></div>
+          <div class="term"><strong>Phase Planning</strong><span> — Pre-identifying future trade scenarios at each phase of the OB lifecycle, allowing execution of pre-planned orders rather than reactive entries.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>GBPUSD full OB lifecycle: D1 bearish structure. Phase 1: H4 bullish OB forms at 1.2640–1.2655 (last bearish H4 candle before BOS up). Phase 2: Price rallies to 1.2730 (BOS confirmed). Phase 3: Price retraces to 1.2643, bounces to 1.2700 (partial mitigation — a long was possible here). Phase 4: Price drops again, H4 close at 1.2633 — OB fails, becomes Bearish Breaker Block. Price continues to 1.2590. Phase 5: Price bounces from 1.2590 back to 1.2651 (entering the breaker body). H1 bearish engulfing at 1.2650. Entry: 1.2650. Stop: 1.2660 (10 pips, above former OB body high). Target: 1.2560 (90 pips to next D1 swing low). R:R = 1:9. Phase 6: Price reaches 1.2560, then eventually reverses — if it returns and closes above 1.2655, the breaker is mitigated.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Adopt the habit of <strong>re-labelling every failed OB as a breaker immediately</strong> — the moment you see a confirmed close through the OB body, update the label on your chart from "Bullish OB" to "Bearish Breaker" (or "Bearish OB" to "Bullish Breaker" for flipped bearish OBs). Keep a breaker watchlist alongside your active OB watchlist. Over time, you will notice that some of your highest R:R trades come from breakers — not from fresh OBs — because the trapped-trader dynamics at breakers drive more explosive, directional moves than a simple OB retest.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>A Breaker Block is a failed Order Block that flips its function. A bullish OB that price breaks through becomes a bearish resistance level. These are powerful setups because trapped traders, institutional defenders, and new short-sellers all converge at the same price — creating strong, reliable reactions.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="bullish-and-bearish-order-blocks.html" class="btn-nav">← Previous</a>
+          <a href="../section-4/what-is-liquidity.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

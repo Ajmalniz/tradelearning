@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Live Chart Walkthroughs | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="6-3">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section open" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 6 · Putting It All Together</div>
+      <h1 class="lesson-title">Live Chart Walkthroughs</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>The best way to understand how all the concepts in this course work together is to walk through real trade examples from start to finish. This lesson covers two complete trades in detail — a long on XAUUSD (Gold) and a short on EURUSD — described exactly as they would be analyzed and executed in a real session.</p>
+        <div class="key-terms">
+          <h4>Key Terms Reminder</h4>
+          <div class="term"><strong>Long</strong><span> — A trade that profits when price goes up (buying the instrument).</span></div>
+          <div class="term"><strong>Short</strong><span> — A trade that profits when price goes down (selling the instrument).</span></div>
+          <div class="term"><strong>HTF Analysis</strong><span> — Reading the higher timeframe (Daily/H4) for structure and zone location.</span></div>
+          <div class="term"><strong>LTF Trigger</strong><span> — The lower timeframe (H1/M15) confirmation signal that begins the entry process.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Trade 1 — XAUUSD Long (Summary)</div>
+          <p>Daily Gold was in a clear uptrend. Price pulled back to a demand zone near $1,918. On H1, a bullish candle closed above the previous short-term swing high after a dip into the zone confirmed a stop hunt below $1,912.<br><br>
+          <strong>Entry:</strong> $1,921 · <strong>SL:</strong> $1,909 · <strong>TP:</strong> $1,951<br>
+          <strong>R:R:</strong> 1:2.5 · <strong>Result:</strong> TP hit in 3 sessions. ✓</p>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Trade 2 — EURUSD Short (Summary)</div>
+          <p>Daily EURUSD was in a downtrend. Price rallied into a supply zone at 1.0900–1.0930. H1 showed a bearish engulfing candle right inside the zone after a spike to 1.0935 swept the equal highs (buy-stop hunt).<br><br>
+          <strong>Entry:</strong> 1.0910 · <strong>SL:</strong> 1.0945 · <strong>TP:</strong> 1.0765<br>
+          <strong>R:R:</strong> 1:4.1 · <strong>Result:</strong> Price fell 145 pips over 4 sessions. ✓</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p><strong>FULL WALKTHROUGH — Trade 1: XAUUSD Long</strong></p>
+        <p><strong>Step 1 — Daily Chart:</strong> XAUUSD Daily clearly bullish. The most recent Break of Structure occurred at $1,950 — price closed above a previous swing high, confirming the uptrend continuation. The current price action is a pullback, forming the expected "higher low" of the trend.</p>
+        <p><strong>Step 2 — H4 Zone:</strong> On H4, the pullback draws price into a bullish order block — the last bearish H4 candle before a large impulsive bullish move. The OB spans $1,915–$1,922. Below the OB, between $1,910–$1,912, equal lows have formed — a visible sell-side liquidity pool (stop hunt target).</p>
+        <p><strong>Step 3 — Price enters the zone:</strong> Price trades into the OB at $1,920. Two small H1 bearish candles form inside — typical corrective price action within a zone. Then price dips sharply to $1,912, sweeping the equal lows below. A large bullish H1 candle immediately closes back above $1,915.</p>
+        <p><strong>Step 4 — LTF trigger:</strong> On M15, price forms a bullish Change of Character — the first higher high against the short-term downtrend of the pullback. This is the entry trigger.</p>
+        <p><strong>Step 5 — Execution:</strong> Entry $1,921 (M15 CHoCH candle close). SL $1,908 (below the sweep wick at $1,912 minus 4-pip buffer). TP $1,951 (just below the H4 swing resistance at $1,955). On a $10,000 account with 1% risk ($100): Position size = $100 ÷ ($13 per oz × lot multiplier) ≈ 0.08 lots. R:R = $30 reward ÷ $13 risk = 1:2.3.</p>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Notice how the sweep of the equal lows at $1,912 was the final confirmation before entry — not just price being "in the zone." Without the sweep, this would be a lower-quality setup. The sweep tells you institutional buyers just entered: they triggered all the stop losses below those equal lows, absorbed the sell orders, and now have enough volume to push price significantly higher.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p><strong>FULL WALKTHROUGH — Trade 2: EURUSD Short</strong></p>
+        <p><strong>Step 1 — Daily + Weekly bias:</strong> EURUSD Weekly: bearish. Daily: series of lower highs and lower lows confirmed. Current price has rallied during the London session to retrace toward a previous support zone that broke — now acting as resistance. Daily supply zone: 1.0890–1.0930.</p>
+        <p><strong>Step 2 — H4 zone:</strong> The H4 bearish order block sits at 1.0910–1.0925 — the last H4 bullish candle before the major impulsive move down that broke the previous Daily swing low. This zone is in the "premium" area (above the equilibrium of the recent Daily range). Selling premium zones in a bearish structure is the textbook institutional setup.</p>
+        <p><strong>Step 3 — Liquidity above the zone:</strong> During the Asian session, price consolidates below the OB. Equal highs form at 1.0920 during the range — a buy-side liquidity pool (retail buy stops resting just above the highs).</p>
+        <p><strong>Step 4 — New York open trigger:</strong> 8:07am EST. Price spikes up to 1.0935, sweeping the equal highs and triggering all the retail buy stops. A large bearish candle closes back below 1.0920 — the sweep has completed. On M15, a bearish Change of Character forms: price makes a lower low, confirming the reversal from the zone.</p>
+        <p><strong>Step 5 — Execution:</strong> Entry 1.0910 (limit order placed inside the OB — filled as price retested the zone during M15 CHoCH development). SL 1.0945 (above the sweep wick at 1.0935, 10-pip buffer). TP 1.0765 (next H4 swing low support). R:R = (1.0910 − 1.0765) / (1.0945 − 1.0910) = 145 pips ÷ 35 pips = 1:4.14. Position size ($10,000, 1% risk = $100): $100 ÷ (35 pips × $10/pip) = 0.29 lots → 0.28 lots (rounded down for margin safety).</p>
+        <div class="key-terms">
+          <h4>Inter-Market Confirmation</h4>
+          <div class="term"><strong>DXY alignment</strong><span> — At the time of this EURUSD short, the DXY (US Dollar Index) was at an H4 demand zone, poised to strengthen. A strengthening dollar creates additional tailwind for a falling EURUSD — this inter-market factor added one more confluence point to an already strong setup.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Post-Trade Review — What Made These Setups Work</div>
+          <p><strong>Common factors in both winning trades:</strong><br>
+          1. HTF structure was unambiguous (Daily trend clear in both cases).<br>
+          2. Price came to a specific pre-marked zone — not chased.<br>
+          3. A liquidity sweep occurred at or near the zone (equal lows sweep on XAUUSD, equal highs sweep on EURUSD).<br>
+          4. An LTF trigger (CHoCH) confirmed institutional direction before entry.<br>
+          5. SL was placed beyond the sweep wick — the most logical invalidation point.<br>
+          6. Both setups had R:R exceeding 1:2 with structural TP levels.<br><br>
+          This is the repeatable framework. Not every trade will win, but every trade that follows this structure gives you a genuine statistical edge over hundreds of executions.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>After studying these walkthroughs, open TradingView and find three historical examples of each on your preferred instruments. Walk through each one in the same six-step format. The repetition of applying the framework manually to historical data is what builds the pattern recognition that makes live trading execution feel automatic rather than anxious.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Both walkthroughs share the same architecture: HTF bias → key zone → liquidity sweep → LTF trigger → structured entry with pre-planned SL and TP. This repeatable sequence is your edge. Study it until recognizing it on a live chart feels as natural as reading text.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="step-by-step-trade-planning.html" class="btn-nav">← Previous</a>
+          <a href="building-your-trading-plan.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

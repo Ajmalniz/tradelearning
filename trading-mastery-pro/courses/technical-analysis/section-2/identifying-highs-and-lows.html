@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Identifying Highs and Lows | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="2-2">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s1-lessons">
+        <li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li>
+        <li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li>
+        <li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li>
+        <li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s2-lessons">
+        <li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li>
+        <li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li>
+        <li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li>
+        <li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li>
+        <li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li>
+        <li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s3-lessons">
+        <li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li>
+        <li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li>
+        <li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li>
+        <li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li>
+        <li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li>
+        <li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s4-lessons">
+        <li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li>
+        <li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li>
+        <li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li>
+        <li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li>
+        <li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s5-lessons">
+        <li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li>
+        <li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li>
+        <li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li>
+        <li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li>
+        <li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li>
+        <li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s6-lessons">
+        <li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li>
+        <li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li>
+        <li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li>
+        <li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li>
+        <li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li>
+        <li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 2 · Market Structure</div>
+      <h1 class="lesson-title">Identifying Highs and Lows</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <h2>What Are Swing Highs and Swing Lows?</h2>
+        <p>Before you can analyze market structure, you need to correctly identify the highs and lows that make it up. This sounds simple, but many traders make it more complicated than it needs to be — or worse, they mark every tiny wiggle on the chart instead of focusing on the significant turning points.</p>
+        <p>The rules are straightforward: a <strong>swing high</strong> is any candle (or bar) that has lower highs on both its left side and its right side. A <strong>swing low</strong> is any candle that has higher lows on both sides. Think of a swing high as a "mountain peak" and a swing low as a "valley floor."</p>
+
+        <h3>The 2-Candle Rule</h3>
+        <p>As a reliable rule of thumb, you need at least <strong>2 confirming candles on each side</strong> of a swing point to consider it valid. This means:</p>
+        <ul>
+          <li><strong>Swing High:</strong> The peak candle must have at least 2 candles to its left with lower highs, AND at least 2 candles to its right with lower highs. Total confirmation: 5 candles minimum (2 left + peak + 2 right).</li>
+          <li><strong>Swing Low:</strong> The trough candle must have at least 2 candles to its left with higher lows, AND at least 2 candles to its right with higher lows.</li>
+        </ul>
+        <p>Why does this matter? Using 1 candle on each side can produce many false swing points that are just minor fluctuations. Using 2 candles filters out much of the noise and leaves you with genuinely significant turning points.</p>
+
+        <h3>Major vs Minor Swings</h3>
+        <p>Not all swing points are created equal. A <strong>major swing</strong> is a turning point that produced a large, significant move — the kind of high or low that is immediately obvious when you zoom out and look at the chart. A <strong>minor swing</strong> is a smaller fluctuation within a larger move. For structure analysis, you primarily want to track the major swings, as these represent meaningful shifts in supply/demand balance.</p>
+        <p>A practical way to identify major swings: major swing highs and lows are the ones that had a significant price move originating from them. If price moved 50 pips from a low before pulling back, that's minor. If price moved 300 pips from a low, that low is structurally significant.</p>
+
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Swing High</strong><span> — A candle with at least 2 lower-high candles on both sides. Represents a local peak where price reversed from up to down.</span></div>
+          <div class="term"><strong>Swing Low</strong><span> — A candle with at least 2 higher-low candles on both sides. Represents a local trough where price reversed from down to up.</span></div>
+          <div class="term"><strong>Pivot</strong><span> — Another word for a swing point (swing high or swing low). A pivot is simply a place where price changed direction.</span></div>
+          <div class="term"><strong>Significance</strong><span> — The relative importance of a swing point, determined by the size of the move that originated from it and how many times price has reacted to that level.</span></div>
+        </div>
+
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example — EURUSD Swing Identification</div>
+          <p>Imagine looking at a EURUSD Daily chart over 6 weeks. Here is how you would mark the swing points:</p>
+          <p><strong>Swing High 1 (SH1):</strong> Price peaks at 1.0950. The 2 candles before it have lower highs, and the 2 candles after it also have lower highs. This qualifies as a valid swing high.</p>
+          <p><strong>Swing Low 1 (SL1):</strong> Price falls to 1.0780. The surrounding candles on both sides are higher. Valid swing low. Note this move was 170 pips — significant.</p>
+          <p><strong>Swing High 2 (SH2):</strong> Price recovers to 1.0910. Valid swing high, but notice it's <em>lower</em> than SH1 at 1.0950. This is a Lower High — your first sign of potential bearish structure.</p>
+          <p><strong>Swing Low 2 (SL2):</strong> Price drops to 1.0730 — lower than SL1 at 1.0780. This is a Lower Low. Combined with the Lower High at SH2, you now have confirmed <strong>bearish structure</strong>. The bias is short.</p>
+          <p><strong>Swing High 3 (SH3):</strong> Price bounces to 1.0870 — still a Lower High. Bearish structure continues. Your trade bias remains short.</p>
+          <p>Three swing highs and two swing lows clearly describe a market that is trending down. The correct trade bias on any new setup would be to look for shorts near the next swing high, not longs.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <h2>Significance and Structural vs Internal Swing Points</h2>
+        <p>At the intermediate level, the question is not just "is this a swing point?" but "does this swing point <em>matter</em>?" The ability to distinguish between significant structural swing points and insignificant internal noise is what separates traders who read structure cleanly from those whose charts look like a mess of marks.</p>
+
+        <h3>What Makes a Swing Point Significant?</h3>
+        <p>Three factors determine a swing point's significance:</p>
+        <p><strong>1. The Size of the Move It Produced:</strong> The most significant swing points are those that originated a large, impulsive price move. If price dropped 200 pips from a high, that high is important. If it dropped 15 pips and then reversed, it's probably noise. As a general rule, on the H4 chart, swings that produced moves of at least 50–100 pips (in Forex) deserve to be marked. On the Daily, look for moves of 100–200 pips or more.</p>
+        <p><strong>2. Multiple Tests:</strong> If price has visited a particular swing level multiple times — even if it didn't break it — that level becomes more significant with each test. Multiple tests mean there is genuine opposing pressure at that level, making it a meaningful structural point.</p>
+        <p><strong>3. Timeframe Context:</strong> A swing high on the Daily chart carries far more weight than a swing high on the 15-minute chart. Always consider which timeframe a swing point originates from when assessing its importance.</p>
+
+        <h3>Structural vs Internal Swing Points</h3>
+        <p><strong>Structural (External) swing points</strong> are the major highs and lows visible on your primary analysis timeframe (typically H4 or Daily). These define the trend and market bias. You track these for directional context.</p>
+        <p><strong>Internal swing points</strong> are the smaller peaks and troughs visible on lower timeframes (H1, M15). These form within the corrections and consolidations of the larger trend. You use these for precise entry timing — not for bias determination.</p>
+        <p>A common error is mixing these up: marking every internal swing on your H4 chart, which produces a cluttered mess. Keep your H4 chart clean with only the major structural swings. Open H1 separately when you need internal structure for entries.</p>
+
+        <h3>How to Draw Structure Correctly</h3>
+        <p>Connect your swing points with horizontal lines (not trend lines). Mark swing highs and swing lows as horizontal levels, because these are the price levels that matter — not the angles. When price returns to a prior swing high, it will interact with the <em>price level</em> of that high, regardless of how long ago it was formed.</p>
+        <p>Use a consistent visual system: for example, mark D1 swing points with thick solid lines, H4 swing points with thinner solid lines, and H1 swing points with dashed lines. This way, when you're at your chart, you instantly know the weight of each structural level without having to think about it.</p>
+
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example — Filtering by Significance</div>
+          <p>You're analyzing GBPUSD on H4. In the last 3 weeks, you count 14 "swing highs" using the 2-candle rule. But several of them are tiny: 20-pip reactions in the middle of a large impulsive move. These should be ignored.</p>
+          <p>After filtering for significance (moves of 60+ pips), you're left with 4 major swing highs and 4 major swing lows. Now your chart tells a clear, readable story instead of appearing as random noise. The 4 major swing points define the trend clearly — and they're also the levels where other traders are watching, meaning they carry real market significance.</p>
+        </div>
+
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip — D1 for Bias, H4 for Entries</div>
+          <p>Use Daily (D1) swing points for overall directional bias — these represent weeks or months of market positioning. Use H4 swing points for identifying your entry zones and setting stop losses. Never use M15 or H1 swings for determining market bias — they are too short-term and will change direction multiple times within a single Daily move. Match the tool to the purpose: higher timeframe for direction, lower timeframe for timing.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <h2>Liquidity at Swing Points</h2>
+        <p>At the expert level, swing highs and lows are not just chart features to label — they are <strong>liquidity pools</strong>. Understanding why swing points accumulate orders, and how institutions exploit that accumulation, is the key to reading price action the way professionals do.</p>
+
+        <h3>Stop Losses and the Liquidity Cluster Effect</h3>
+        <p>Consider what happens when a swing high forms and retail traders recognize it. Long traders who entered below the swing high will place their stop losses just above it (if the high breaks, their long thesis is invalidated). Meanwhile, breakout traders are placing buy-stop orders just above the swing high, waiting to enter long if price breaks out. Both groups of orders — the longs' stop losses and the breakout traders' entries — sit just above the swing high. This creates a dense cluster of pending orders: a liquidity pool.</p>
+        <p>The same logic applies in reverse at swing lows: short sellers place stops just above lows (taking profit if price breaks down), and breakdown traders place sell-stops just below. Retail textbook behavior creates predictable, exploitable patterns.</p>
+
+        <h3>Institutions and Liquidity Hunting</h3>
+        <p>Institutional traders need large order sizes filled, and to fill large orders, they need counterparties — the stops and pending orders sitting around swing points. An institution wanting to sell a large position needs buyers to sell to. Where are buyers? Above swing highs (stop loss triggers and breakout entries). So the institution drives price above the swing high, triggers all those buy orders, fills their massive sell position into that buying pressure, then reverses price sharply down.</p>
+        <p>This is why you so often see price "fake out" above a swing high before reversing — it's not random. It's deliberate liquidity collection. The "failed breakout" pattern retail traders bemoan is actually the institutional distribution of their position.</p>
+
+        <h3>Equal Highs as Double-Top Liquidity</h3>
+        <p>When price forms two (or more) swing highs at approximately the same level, this is called "equal highs" — and it is an especially high-value liquidity target. The double-top pattern is one of the most widely recognized patterns in retail trading. When retail traders see a double-top, they place stops just above both highs. This concentrates an enormous amount of liquidity at a single price level. Institutions are well aware of this, and they frequently engineer a sweep above equal highs before distributing and reversing sharply downward.</p>
+
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example — Swing Point Liquidity Sweep</div>
+          <p>EURUSD D1 has a clear swing high at 1.0920 from 3 weeks ago. Price has since pulled back, formed a new HL at 1.0750, and is now rallying back toward 1.0920. Most retail traders watching this level expect either a breakout (they'll buy the break) or a reversal (they'll sell the rejection). Their stops and entries cluster at 1.0920–1.0940.</p>
+          <p>Institutions drive price to 1.0935 — just above 1.0920 — triggering all the retail stops and breakout entries. Then, with that liquidity collected, they reverse price sharply. By the next Daily candle, price is back below 1.0920 and heading toward 1.0750. The "false breakout" was the setup.</p>
+          <p>Expert traders recognize this in real time: they see the spike above 1.0920, wait for the first bearish close back below it (confirming the sweep), and enter short. SL is above the spike high. TP is the next significant swing low. Risk:reward is typically 1:3 or better because the stop is tight (just above the spike) while the target is a full structural move away.</p>
+        </div>
+
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip — Institutional vs Retail Swing Points</div>
+          <p>When price makes a new swing high but the move leading to it was slow and grinding (not impulsive), be suspicious. Slow, grinding moves to swing highs often indicate institutional distribution — they're filling shorts into the rising retail buying. The swing high formed by a slow grind is less likely to be a genuine structural high and more likely to be a distribution zone. In contrast, a swing high formed by a fast, impulsive move is more likely to be genuine structural resistance. Use the speed and character of the move to judge the quality of the swing point, not just its location on the chart.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>A swing high requires at least 2 lower-high candles on each side. A swing low requires at least 2 higher-low candles. Mark only the significant ones — major structure points are where the largest and most impulsive moves originated.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="what-is-market-structure.html" class="btn-nav">← Previous</a>
+          <a href="bullish-vs-bearish-structure.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay">
+  <div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div>
+  <div id="confettiContainer"></div>
+</div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

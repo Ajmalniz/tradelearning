@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Bullish and Bearish Order Blocks | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="3-5">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 3 · Supply &amp; Demand</div>
+      <h1 class="lesson-title">Bullish and Bearish Order Blocks</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>There are two types of order blocks. Understanding both — and when to use each — is the foundation of order block trading.</p>
+        <h4>Bullish Order Block (Long Entry)</h4>
+        <ul>
+          <li>The last <strong>BEARISH (red/down)</strong> candle before a strong bullish (up) move</li>
+          <li>Used for <strong>LONG (buy)</strong> entries when price returns to that candle</li>
+          <li>Located below current price; price needs to pull back DOWN to reach it</li>
+        </ul>
+        <h4>Bearish Order Block (Short Entry)</h4>
+        <ul>
+          <li>The last <strong>BULLISH (green/up)</strong> candle before a strong bearish (down) move</li>
+          <li>Used for <strong>SHORT (sell)</strong> entries when price returns to that candle</li>
+          <li>Located above current price; price needs to rally UP to reach it</li>
+        </ul>
+        <h4>Identification Checklist (4 Steps)</h4>
+        <ol>
+          <li>Find a strong impulsive move — 3 or more large candles all moving in the same direction</li>
+          <li>Look at the candle immediately BEFORE that impulsive move that goes in the opposite direction</li>
+          <li>That candle IS the order block</li>
+          <li>Mark the HIGH and LOW of that candle's <strong>body</strong> (open to close) — not the wicks</li>
+        </ol>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Bullish OB</strong><span> — The last bearish candle before a strong up-move; provides long (buy) entries on retest.</span></div>
+          <div class="term"><strong>Bearish OB</strong><span> — The last bullish candle before a strong down-move; provides short (sell) entries on retest.</span></div>
+          <div class="term"><strong>OB Body</strong><span> — The open-to-close range of the OB candle; the precise entry zone for the trade.</span></div>
+          <div class="term"><strong>OB High / OB Low</strong><span> — The top and bottom of the OB candle body; used to define entry zone and stop placement.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>GBPUSD H4: Price falls 80 pips over 3 candles. The candle immediately <strong>before</strong> that 3-candle drop is a green (bullish) candle with a body from 1.2710 to 1.2724 — that is the <strong>bearish OB</strong>. Later, when price rallies back up to 1.2710–1.2724, short setups are triggered from that candle's body. Stop is placed above 1.2724 (OB body high) plus a small buffer.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>A memory aid: <strong>"OB colour is opposite to trade direction."</strong> A RED candle = BULLISH OB (long). A GREEN candle = BEARISH OB (short). The candle looks like the opposite trade because institutions were absorbing the last of the counter-trend orders before launching their intended direction.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>At the intermediate level, OB trading is refined through <strong>candle quality filters</strong>, <strong>BOS confirmation</strong>, and <strong>multi-timeframe layering</strong>.</p>
+        <h4>Refinement Techniques for Bullish OBs</h4>
+        <ol>
+          <li><strong>BOS confirmation</strong>: the OB must have been followed by a Break of Structure (break above the prior swing high). Without BOS, the move was not impulsive enough to confirm institutional participation.</li>
+          <li><strong>Body quality</strong>: the most reliable bullish OBs have large bearish bodies with small wicks. A large lower wick on the OB candle suggests indecision — narrow the entry zone to the body only (refined OB).</li>
+          <li><strong>Displacement candle</strong>: the first candle of the impulsive move after the OB should be extremely large relative to the surrounding candles. An unusually large displacement candle signals strong institutional presence.</li>
+          <li><strong>Refined OB entry</strong>: if the OB has a large lower wick, restrict the entry zone to the candle body (open to close), not the full candle range (open to low). This tightens the stop significantly.</li>
+        </ol>
+        <h4>Refinement Techniques for Bearish OBs</h4>
+        <p>All the same principles apply in reverse. The bearish OB must be followed by a BOS (break below prior swing low). The candle should have a large bullish body. The displacement candle down should be unusually large. Refine the entry to the body if a large upper wick is present.</p>
+        <h4>Multi-Timeframe OBs: Stacked Confluence</h4>
+        <p>When a bearish OB on D1 occurs at the same price level as a bearish OB on H4, both timeframes carry institutional orders at identical levels. This is a stacked or layered OB — the most reliable form of the pattern. The D1 OB attracts price to the area; the H4 OB provides the exact entry candle.</p>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>XAUUSD: D1 is bearish (LL/LH structure). D1 bearish OB at $2,348–$2,361 (the last bullish D1 candle before a strong drop, which also created a BOS on D1). Within the D1 OB, there is an H4 bearish OB at $2,352–$2,357. Price rallies into $2,352. H1 bearish engulfing confirms. Entry: $2,352. Stop: $2,362 (above D1 OB body high). Target: $2,290 (next D1 swing low). R:R = 1:6. Stacked D1 + H4 OBs with H1 trigger = maximum confidence.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Always confirm an OB entry with a <strong>lower timeframe candle signal</strong>. A bearish OB on H4 is confirmed by a bearish close or bearish engulfing candle on H1 when price touches the OB. This LTF confirmation filters out OBs that price merely passes through without reacting — saving you from entries on weak or consumed OBs.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>Expert-level OB trading combines <strong>OB hierarchy</strong>, the <strong>3-candle footprint pattern</strong>, <strong>session timing</strong>, and <strong>systematic backtesting</strong> to build a statistically validated edge.</p>
+        <h4>The OB Hierarchy</h4>
+        <p>Not all OBs are equal. Significance scales with timeframe:</p>
+        <ul>
+          <li><strong>D1 OBs</strong> — held for days to weeks; driven by macro institutional flow; highest significance</li>
+          <li><strong>H4 OBs</strong> — held for hours to days; ideal for swing trades; high significance</li>
+          <li><strong>H1 OBs</strong> — held for hours; ideal for intraday trades; moderate significance</li>
+          <li><strong>M15 OBs</strong> — held for 15 minutes to 2 hours; used for entry refinement only; low standalone significance</li>
+        </ul>
+        <p>For swing trading: focus exclusively on D1 and H4 OBs. For day trading: H1 and M15 OBs confirmed by H4 bias.</p>
+        <h4>The 3-Candle OB Footprint</h4>
+        <p>Advanced traders look for a specific 3-candle institutional fingerprint:</p>
+        <ol>
+          <li><strong>Candle 1</strong>: a momentum candle in the direction of the prior trend (the last push)</li>
+          <li><strong>Candle 2</strong>: a counter-trend candle (THE ORDER BLOCK) — this is where the institution positioned itself</li>
+          <li><strong>Candle 3</strong>: a massive displacement candle that breaks the prior structure — confirming institutional execution</li>
+        </ol>
+        <p>This 3-candle pattern is the clearest "footprint" of institutional order placement. The OB candle (Candle 2) must be visually distinct — notably different from surrounding candles in body size or position. When you see this 3-candle sequence, you are looking at a premium OB with verified institutional involvement.</p>
+        <h4>Session Timing for OB Entries</h4>
+        <p>The optimal entry timing for OB retests aligns with session opens:</p>
+        <ul>
+          <li>A <strong>bullish OB created during New York session</strong> is ideally entered when the London session opens and price dips into it — London's institutional flow adds fresh buying to the existing OB orders</li>
+          <li>A <strong>bearish OB created overnight</strong> is ideally entered when the New York session opens and price rallies into it — NY institutional selling adds to existing OB orders</li>
+          <li>OBs tested during illiquid hours (midnight to 6am London time) produce fewer reliable reactions due to lack of institutional participation</li>
+        </ul>
+        <h4>Backtesting OBs: Building Your Edge</h4>
+        <p>To validate your OB identification criteria, conduct a 100-trade backtest:</p>
+        <ol>
+          <li>Identify 100 OBs on historical charts using your current criteria</li>
+          <li>Mark the entry, stop, and first target for each</li>
+          <li>Record: did price react at the OB? Did it produce a profitable move to target?</li>
+          <li>Calculate win rate and average R achieved</li>
+        </ol>
+        <p>Target a reaction rate above 60%. If your rate is lower, refine one criterion at a time — add BOS requirement, add LTF confirmation, narrow to fresh OBs only — until the rate improves. This iterative process is how professional traders build a statistically validated OB edge rather than guessing.</p>
+        <div class="key-terms">
+          <h4>Advanced Concepts</h4>
+          <div class="term"><strong>3-Candle Footprint</strong><span> — The institutional fingerprint pattern: momentum candle → OB candle → displacement candle with BOS; the highest-quality OB identification pattern.</span></div>
+          <div class="term"><strong>OB Hierarchy</strong><span> — D1 OBs are most significant; M15 OBs least; timeframe determines how long an OB remains relevant and how strong its reactions are.</span></div>
+          <div class="term"><strong>Session Timing</strong><span> — OBs tested at major session opens (London, New York) produce the strongest reactions due to fresh institutional participation.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>GBPUSD: 3-candle footprint on H4. Candle 1: large bullish candle pushing to a new swing high (the last upward push). Candle 2: bearish candle that retraces partially (body 1.2680–1.2694) — the BEARISH OB. Candle 3: massive bearish displacement candle breaking the prior swing low, creating BOS. D1 is bearish — structural alignment confirmed. Price rallies back to 1.2680–1.2694 at the London open. H1 bearish engulfing at 1.2682. Entry: 1.2682. Stop: 1.2698 (above OB body high). Target: 1.2570. R:R = 1:7. London session timing + D1 bearish + 3-candle OB footprint + H1 trigger = elite setup.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>The best OB entries occur when price enters the OB during the <strong>opposing session</strong> to when the OB was created. If a bearish OB formed during the London session, the optimal short entry is when the New York session opens and price rallies into it — NY institutional order flow amplifies the reaction. Track this pattern in your journal: <em>session of OB creation vs session of OB retest</em>. You will find cross-session retests outperform same-session retests consistently.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Bullish OBs (last bearish candle before an up-move) give you long entries; bearish OBs (last bullish candle before a down-move) give you short entries. Refine the entry to the candle body, confirm on a lower timeframe, and always place your stop beyond the full OB (including wicks) for safety.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="what-are-order-blocks.html" class="btn-nav">← Previous</a>
+          <a href="breaker-blocks.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

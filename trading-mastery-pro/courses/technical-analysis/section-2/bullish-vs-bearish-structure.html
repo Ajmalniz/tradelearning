@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Bullish vs Bearish Structure | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="2-3">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s1-lessons">
+        <li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li>
+        <li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li>
+        <li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li>
+        <li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s2-lessons">
+        <li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li>
+        <li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li>
+        <li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li>
+        <li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li>
+        <li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li>
+        <li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s3-lessons">
+        <li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li>
+        <li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li>
+        <li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li>
+        <li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li>
+        <li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li>
+        <li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s4-lessons">
+        <li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li>
+        <li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li>
+        <li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li>
+        <li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li>
+        <li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s5-lessons">
+        <li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li>
+        <li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li>
+        <li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li>
+        <li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li>
+        <li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li>
+        <li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s6-lessons">
+        <li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li>
+        <li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li>
+        <li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li>
+        <li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li>
+        <li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li>
+        <li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 2 · Market Structure</div>
+      <h1 class="lesson-title">Bullish vs Bearish Structure</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <h2>Reading the Direction of the Market</h2>
+        <p>Every market at any given moment is doing one of three things: trending up, trending down, or moving sideways. Market structure is how you determine which one of those three states currently applies — and therefore, which trades you should be looking for.</p>
+        <p>Once you can identify the structure type, you know your <strong>market bias</strong>: the direction you should be trading. Having a clear bias eliminates a huge source of confusion and bad trades. It prevents you from fighting the trend, from buying at tops, and from selling at bottoms.</p>
+
+        <h3>Bullish Structure: Higher Highs and Higher Lows</h3>
+        <p>A market is in <strong>bullish structure</strong> when price is consistently making Higher Highs (HH) and Higher Lows (HL). This means:</p>
+        <ul>
+          <li>Each rally pushes price to a new peak — higher than all previous peaks (HH)</li>
+          <li>Each pullback finds support at a higher level than the previous pullback (HL)</li>
+        </ul>
+        <p>The HH confirms that buyers are still aggressive — they are pushing price to new highs. The HL confirms that even during the correction, buyers are stepping in sooner (at a higher price) than they did last time. Both together tell you buyers dominate the market.</p>
+        <p><strong>In bullish structure, you only take long (buy) trades.</strong> You wait for the market to pull back to a support area (typically near where the HL will form), and you buy in the direction of the dominant trend.</p>
+
+        <h3>Bearish Structure: Lower Highs and Lower Lows</h3>
+        <p>A market is in <strong>bearish structure</strong> when price is consistently making Lower Highs (LH) and Lower Lows (LL). This means:</p>
+        <ul>
+          <li>Each rally fails to reach the previous high — sellers step in earlier each time (LH)</li>
+          <li>Each selloff pushes price to a new low — below all previous lows (LL)</li>
+        </ul>
+        <p><strong>In bearish structure, you only take short (sell) trades.</strong> You wait for price to bounce to a resistance area (near where the LH will form) and sell in the direction of the dominant trend.</p>
+
+        <h3>Consolidation / Ranging Markets</h3>
+        <p>When price creates approximately equal highs and approximately equal lows — not making clear HH/HL or LH/LL — the market is <strong>consolidating</strong> (also called ranging or chopping). In a range, there is no dominant direction. Buyers and sellers are roughly equally matched, and price oscillates back and forth between a ceiling (resistance) and a floor (support).</p>
+        <p>Ranging markets are dangerous for trend-following strategies. Many trades that look good in a trending market will fail in a range. The honest and disciplined response to a ranging market is often to stand aside and wait for a clear break in one direction to establish new structure.</p>
+
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Uptrend</strong><span> — A market condition characterized by a sequence of HH and HL. Buyers are in control. Trade bias is long.</span></div>
+          <div class="term"><strong>Downtrend</strong><span> — A market condition characterized by a sequence of LH and LL. Sellers are in control. Trade bias is short.</span></div>
+          <div class="term"><strong>Consolidation</strong><span> — A sideways market condition with equal highs and equal lows. No dominant direction. Trend-following strategies have low probability in consolidation.</span></div>
+          <div class="term"><strong>Market Bias</strong><span> — The directional predisposition of a market based on its current structure. Bullish bias = look for longs. Bearish bias = look for shorts.</span></div>
+        </div>
+
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example — GBPUSD Daily Chart</div>
+          <p>Over a 3-month period on the GBPUSD Daily chart, you observe the following price action:</p>
+          <p><strong>Month 1:</strong> Price rallies from 1.2400 to 1.2700 (HH1). It then pulls back to 1.2520 (HL1) — higher than the starting point of 1.2400. Bullish structure established.</p>
+          <p><strong>Month 2:</strong> Price rallies from 1.2520 to 1.2850 (HH2 — higher than HH1 at 1.2700). It then pulls back to 1.2640 (HL2 — higher than HL1 at 1.2520). Bullish structure intact and strengthening.</p>
+          <p><strong>Month 3:</strong> Price rallies from 1.2640 to 1.3020 (HH3). It pulls back to 1.2790 (HL3). Each new HL is higher than the previous HL. Each new HH is higher than the previous HH.</p>
+          <p><strong>Trade Strategy:</strong> Throughout all 3 months, any trader recognizing this bullish structure should have been exclusively looking for long (buy) entries. The best entry points would be near each HL formation — HL1 at 1.2520, HL2 at 1.2640, HL3 at 1.2790. Each HL provided a risk-efficient long entry with a stop below the HL and a target at the next HH.</p>
+          <p>A trader who ignored the structure and kept trying to short the "resistance" levels would have lost repeatedly. Structure alignment is what separates profitable traders from losing ones.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <h2>Trending vs Ranging — How to Tell the Difference</h2>
+        <p>One of the most important skills in trading is knowing whether you are in a trending market or a ranging market. Many retail traders use trend-following strategies in ranging conditions (and get chopped up) or try to fade ranges in trending conditions (and get run over). Knowing which environment you're in is half the battle.</p>
+
+        <h3>Characteristics of a Trending Market</h3>
+        <p>In a genuine trend, you will observe:</p>
+        <ul>
+          <li>Clear impulsive moves in one direction (large, fast candles with momentum)</li>
+          <li>Shallow, overlapping corrective moves in the opposite direction</li>
+          <li>Each corrective move is smaller than the impulsive move that preceded it</li>
+          <li>Structure (HH/HL or LH/LL) is clean and easy to identify on the relevant timeframe</li>
+          <li>The ADX indicator (if used) reads above 25, typically above 30 in strong trends</li>
+        </ul>
+
+        <h3>Characteristics of a Ranging Market</h3>
+        <p>In a range (consolidation), you will observe:</p>
+        <ul>
+          <li>Choppy, overlapping candles with no clear directional bias</li>
+          <li>Price oscillating between a defined high (resistance) and a defined low (support)</li>
+          <li>Equal highs and equal lows — no clear progression in either direction</li>
+          <li>Moves in either direction look similar in size and character</li>
+          <li>Breakout attempts that quickly fail and reverse back into the range</li>
+        </ul>
+
+        <h3>Why You Should Reduce Size or Avoid Ranging Markets</h3>
+        <p>In ranging conditions, both the bullish and bearish cases are equally valid — the market has no dominant direction. Every "setup" has roughly 50% odds of working, which is not a trader's edge — it's a coin flip. To trade profitably, you need the structure to be on your side. Without a clear bias, you are essentially gambling.</p>
+        <p>The correct response to a range is: reduce position size significantly, trade only the extreme bounds of the range (buying near strong support, selling near strong resistance), or stand aside entirely and wait for a break of the range that establishes new directional structure.</p>
+
+        <h3>Multi-Timeframe Structure Conflicts</h3>
+        <p>Often, higher and lower timeframes will show different structures. The most common scenario: the Daily is in a bearish downtrend (LH/LL), but the H4 is currently in a bullish correction (HH/HL within the D1 correction). This is completely normal — all trends have counter-trend corrections that look like trends on lower timeframes.</p>
+        <p>The rule: <strong>always trade in the direction of the higher timeframe structure.</strong> In the example above, the D1 bearish structure is dominant. The H4 bullish correction is just a counter-trend move within the larger bearish structure. You should be looking for the H4 uptrend to end, then positioning short in the direction of the D1 bearish structure.</p>
+
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip — When D1 and H4 Agree</div>
+          <p>Your highest-probability setups occur when the D1 and H4 structure are pointing in the same direction simultaneously. When D1 shows bullish HH/HL <em>and</em> H4 also shows bullish HH/HL, you have dual-timeframe alignment — both timeframes are confirming the uptrend. In this condition, use H1 or M15 for your entry timing and take the trade with full confidence in the bias. This alignment eliminates the risk of fighting the higher timeframe, which is the most expensive mistake trend traders make.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <h2>Wyckoff Market Phases and Structural Analysis</h2>
+        <p>At the expert level, understanding bullish and bearish structure requires understanding <em>why</em> the market transitions between these states. The Wyckoff Method — developed in the early 20th century but entirely applicable to modern markets — provides the most comprehensive framework for understanding market phases and the institutional behavior that drives them.</p>
+
+        <h3>The Four Wyckoff Phases</h3>
+        <p><strong>Phase 1 — Accumulation:</strong> This phase occurs after a prolonged downtrend. The market is in "distribution" at the lows — but from the retail perspective, it just looks like consolidation at the bottom. Structure during accumulation is choppy and ambiguous: no clear LH/LL and no clear HH/HL. This is intentional. Large institutional buyers are absorbing the selling from retail traders who, exhausted by the downtrend, are selling into any bounce. The defining feature of accumulation is a "selling climax" — a large, panicked sell-off followed by an immediate strong reversal, showing that institutional buyers absorbed all the supply and demand now exceeds supply. Structure analysis during accumulation: you will see failed LLs (price tries to make a new low but fails to hold), which is the first structural sign that bears are losing control.</p>
+        <p><strong>Phase 2 — Markup (Bullish Structure):</strong> Once accumulation is complete and institutions have built their full long positions, they drive price higher. This is where the clean HH/HL structure appears that trend traders recognize and trade. Each HL during the markup is a point where institutions absorb remaining selling pressure and retail traders add to longs. The impulsive waves (HH formations) are larger and faster than the corrective waves (HL formations), confirming institutional buying dominance.</p>
+        <p><strong>Phase 3 — Distribution:</strong> After an extended markup, institutions begin exiting their longs. Like accumulation, distribution looks like a sideways consolidation to the uninitiated. The structure becomes ambiguous again — failed HHs (price tries to make a new high but fails to hold above it, creating what appear to be equal highs). This is the "bull trap" zone: retail traders, conditioned by the uptrend, keep buying the "consolidation at the highs." Institutions are selling into that buying.</p>
+        <p><strong>Phase 4 — Markdown (Bearish Structure):</strong> Once distribution is complete, the LH/LL bearish structure appears. Each LH is a point where selling pressure exceeds buying, and each LL is where the selling is still overwhelming demand. The markdown is often faster and more violent than the markup, as trapped longs capitulate and add fuel to the decline.</p>
+
+        <h3>Using Wyckoff to Time Structure Transitions</h3>
+        <p>The transition from accumulation to markup is signaled by a specific structural event: the "Spring" (a final shakeout below the accumulation range low, sweeping retail stops) followed by a decisive close back inside the range, then a strong break above the range high (a bullish BOS). This sequence — Spring → Close back in range → Break above range — is the Wyckoff sign that markup has begun and it's safe to go long.</p>
+        <p>Similarly, the transition from distribution to markdown is signaled by an "Upthrust After Distribution" (UTAD): a spike above the distribution range high (sweeping retail buy stops and breakout entries), followed by a decisive close back below the range, then a break below the range low. This is the Wyckoff signal that markdown has begun.</p>
+
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip — Volume Confirms Phase Transitions</div>
+          <p>Volume is the most reliable confirmation tool for Wyckoff phase transitions. During the Spring (end of accumulation), volume should be high on the downward spike but dry up quickly as price recovers — showing that selling pressure was absorbed. During the Break above the range (start of markup), volume should expand significantly, confirming institutional participation. During the UTAD (end of distribution), volume should be high on the spike above the range but collapse as price reverses — showing that the breakout had no follow-through. If volume doesn't confirm the phase transition, treat the signal with skepticism and wait for additional confirmation before committing to a position.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Always identify the dominant structure before entering a trade. In bullish structure (HH/HL), only take longs. In bearish structure (LH/LL), only take shorts. Trying to trade against structure is fighting the market — a battle you will consistently lose.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="identifying-highs-and-lows.html" class="btn-nav">← Previous</a>
+          <a href="break-of-structure.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay">
+  <div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div>
+  <div id="confettiContainer"></div>
+</div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

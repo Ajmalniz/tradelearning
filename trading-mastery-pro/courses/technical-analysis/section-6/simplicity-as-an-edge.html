@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Simplicity as an Edge | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="6-5">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section open" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 6 · Putting It All Together</div>
+      <h1 class="lesson-title">Simplicity as an Edge</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>One of the most common mistakes new traders make is adding more: more indicators, more strategies, more timeframes, more instruments. The assumption is that more complexity equals more information equals better trading. This assumption is wrong.</p>
+        <p>The most consistently profitable traders use extremely simple systems. Two or three clear rules. One or two instruments. A handful of setups they know deeply well. Simplicity works in trading because fewer rules means fewer decisions — and fewer decisions means fewer opportunities for emotion to interfere. The best trading feels almost boring: see the setup, check the boxes, enter, set the SL and TP, walk away.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Analysis Paralysis</strong><span> — Being so overwhelmed by conflicting information that you cannot make a decision and miss valid setups entirely.</span></div>
+          <div class="term"><strong>Indicator Overload</strong><span> — Using so many indicators that they contradict each other, providing no clear signal — or providing a false sense of certainty.</span></div>
+          <div class="term"><strong>Discretionary Trading</strong><span> — Making trading decisions based on judgment and experience, as opposed to mechanical rule-following.</span></div>
+          <div class="term"><strong>Decision Fatigue</strong><span> — The degradation of decision quality after making too many decisions, leading to impulsive choices later in a trading session.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Two Traders, Two Approaches</div>
+          <p><strong>Trader A:</strong> 12 indicators on the chart. Switches between 6 timeframes. Uses 4 different strategies depending on the day. Confused 40% of the time. Analysis paralysis causes missed entries. When they do enter, it is often late.<br><br>
+          <strong>Trader B:</strong> Clean chart with structure levels only. One strategy: structure + OB + sweep. Two instruments only. Makes a quick, clear decision on every setup. Better execution, less stress, similar market conditions. Better results. The difference is not intelligence — it is simplicity.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>Complex systems fail in trading for three specific reasons:</p>
+        <p><strong>1. Overfitting:</strong> A system with 15 parameters can be tuned to perform perfectly on historical data while having zero predictive power going forward. Simple systems with 2–3 rules generalize better to new market conditions because they capture a fundamental truth about market behavior (e.g., "institutions hunt liquidity before making major moves") rather than curve-fitting to past patterns.</p>
+        <p><strong>2. Decision fatigue:</strong> Every rule added to a system is a decision point. A system with 20 rules requires 20 assessments before each trade. After a full session of this, the quality of each assessment degrades. By the afternoon, rules get "interpreted generously" and discipline breaks down. A 3-rule system maintains consistent quality across the entire session.</p>
+        <p><strong>3. Conflicting signals:</strong> When you have 8 indicators, some will always disagree. You will unconsciously choose to believe whichever indicator supports the trade you already want to take — confirmation bias made systematic. A clean price action approach eliminates this by having no conflicting signals to choose between.</p>
+        <p><strong>The minimal viable trading system:</strong> Market bias (one timeframe). Key zone (marked in advance). Entry trigger (one signal type). That is it. Three elements, binary decisions at each step. If all three are present — enter. If any one is missing — wait.</p>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>For one week, remove every indicator from your chart except horizontal lines for your zones and structure levels. Trade only from the clean chart using the three-element framework. Most traders find their decision-making clarity improves immediately — because they can see what they are actually trading (price action and structure) rather than a wall of colored lines obscuring it.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>In decision science, the recognition that simpler models often outperform complex ones in predictive contexts is well-established. The "less is more" principle in machine learning — where models with fewer parameters often generalize better to out-of-sample data — applies directly to trading strategies. Markets are non-stationary and adversarial: a pattern that consistently worked in 2022 data may be arbitraged away by 2024. Complex systems are more vulnerable to this regime change than simple ones.</p>
+        <p><strong>Heuristics vs. algorithms in trading:</strong> A heuristic is a simple rule of thumb that works well across a wide range of conditions without requiring complete information. "Only buy in bullish structure at a demand zone after a sweep" is a heuristic. It is not always right — but it is reliably right often enough to produce positive expected value, and it can be executed instantly and consistently under stress. An algorithm — a complex multi-condition rule set — requires all conditions to be correctly evaluated simultaneously. Under stress, this breaks down.</p>
+        <p><strong>The paradox of expertise:</strong> Novice traders build complex systems because complexity feels like competence. Expert traders simplify to fundamentals because they understand that edge comes from correct execution of a sound principle, not from the number of conditions checked. The evolution is: complexity → confusion → clarity → simplicity. The goal is to reach simplicity faster.</p>
+        <div class="key-terms">
+          <h4>Advanced Concepts</h4>
+          <div class="term"><strong>Occam's Razor in trading</strong><span> — Among competing hypotheses that explain the same chart behavior, the simplest one is most likely correct — and most reliably actionable.</span></div>
+          <div class="term"><strong>Regime change</strong><span> — A shift in market behavior that invalidates strategies built on past patterns. Simple strategies adapt faster because they have fewer parameters to break.</span></div>
+          <div class="term"><strong>Execution quality</strong><span> — How precisely and consistently a strategy is applied. Simple strategies have higher execution quality because they require fewer real-time judgments.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 The Three-Rule System — If-Then-Then</div>
+          <p><strong>Rule 1 (Bias filter):</strong> IF Daily structure is bullish → only look for longs. IF bearish → only shorts. IF unclear → no trades.<br>
+          <strong>Rule 2 (Zone filter):</strong> IF price is at a pre-marked H4 demand zone → begin monitoring. IF price is not at a zone → do nothing.<br>
+          <strong>Rule 3 (Entry trigger):</strong> IF a liquidity sweep + H1 CHoCH occurs at the zone → enter. IF no sweep or CHoCH → wait.<br><br>
+          Three binary rules. Each one eliminates roughly 70% of potential "trades" that would otherwise be taken impulsively. Only 3–5 high-quality setups emerge per week per instrument — and those are the ones worth taking.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>If you cannot explain your complete trading strategy to a colleague in 60 seconds or less, it is too complex. The explanation test is a real indicator of executional clarity. A strategy you can describe in one minute, you can execute in 30 seconds. A strategy you cannot describe coherently, you cannot execute consistently under pressure.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Complexity is the enemy of consistent execution. A three-rule system applied flawlessly outperforms a twenty-rule system applied inconsistently. Strip your trading down to its essential structure — bias, zone, trigger — and execute those three elements with absolute precision. Simplicity is not a limitation; it is a competitive advantage.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="building-your-trading-plan.html" class="btn-nav">← Previous</a>
+          <a href="final-assessment.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

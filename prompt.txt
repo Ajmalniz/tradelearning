@@ -1,0 +1,248 @@
+---
+
+## PHASE 2: MAIN LANDING PAGE (index.html)
+
+Create `trading-mastery-pro/index.html` — a professional course landing/home page.
+
+### Hero Section:
+- Course title: **"Technical Analysis Mastery: Trade Forex, Crypto, Stocks & More Like a Pro"**
+- Subtitle: **"Turn Market Chaos into Profits – Become a Confident Trader"**
+- Description: "Master technical analysis for forex, crypto, stocks & more! Enroll now to predict market moves, manage risk, and trade profitably. 30-day money-back guarantee!"
+- Two CTA buttons: **"Start Learning Free →"** (links to `courses/technical-analysis/index.html`) and **"View Course Outline"** (smooth scrolls to course breakdown section)
+- Animated background: dark navy with subtle floating candlestick chart SVGs drifting upward (CSS keyframe animation)
+
+### Stats Bar (below hero):
+- 6 Sections | 30+ Lessons | Beginner to Expert | Forex · Crypto · Stocks | Self-Paced | Free Access
+
+### Course Breakdown Section (id="course-outline"):
+Display all 6 sections as interactive accordion cards. Each card shows:
+- Section number badge
+- Section title
+- Short description (use the descriptions below)
+- Subtopic list (bullet points)
+- "Go to Section →" link pointing to the correct anchor in `courses/technical-analysis/index.html`
+
+**Section data:**
+
+**Section 1: Course Introduction**
+Description: Begin your journey with an overview of what you'll learn throughout the course. This section sets the foundation, ensuring you're prepared for the advanced concepts ahead.
+Subtopics: What is Technical Analysis, Why TA Works Across All Markets, How to Use This Course, Tools and Platforms You'll Need
+
+**Section 2: Mastering Market Structure**
+Description: Dive into the core of trading. From understanding the basics to recognizing CHoCH and trend changes, you'll gain the ability to read market movements like a pro. Practical live examples solidify understanding.
+Subtopics: What is Market Structure, Identifying Highs and Lows, Bullish vs Bearish Structure, Break of Structure (BOS), Change of Character (CHoCH), Live Chart Examples
+
+**Section 3: Supply & Demand / Order Blocks**
+Description: Learn the critical concepts of supply and demand, levels and patterns integration with market structure, and the significance of order blocks and breakers.
+Subtopics: Supply Zones Explained, Demand Zones Explained, Integrating S&D with Market Structure, What are Order Blocks, Bullish and Bearish Order Blocks, Breaker Blocks
+
+**Section 4: Mastering Liquidity**
+Description: Liquidity is key in trading. Cover various types of liquidity and how they impact your trading strategy.
+Subtopics: What is Liquidity, Buy-Side vs Sell-Side Liquidity, Equal Highs/Lows as Liquidity, Stop Hunts and Liquidity Grabs, How Institutions Use Liquidity
+
+**Section 5: Risk Management & Position Sizing**
+Description: Risk management is the backbone of successful trading. Learn its importance, how to calculate position sizes, and manage trading psychology.
+Subtopics: Why Risk Management Comes First, The 1% Rule and Position Sizing Formula, Stop Loss Placement Strategies, Risk-to-Reward Ratios, Trading Psychology: Fear and Greed, Building a Risk Checklist
+
+**Section 6: Putting It All Together**
+Description: Synthesize all knowledge in practical scenarios. Apply learning directly on charts and understand how simplicity can be your ally.
+Subtopics: Multi-Confluence Trading Setup, Step-by-Step Trade Planning, Live Chart Walkthroughs, Building Your Trading Plan, Simplicity as an Edge, Final Assessment
+
+### Why This Course Section:
+4 feature cards: "Beginner to Expert", "All Markets", "Real Chart Examples", "Risk-First Approach"
+
+### Footer:
+- Copyright line
+- Link back to course
+
+### Styling (main.css):
+- Color palette: `#060b18` background, `#00c896` primary green, `#ffc107` gold accent, `#e84545` red
+- Fonts: Load 'Bebas Neue' (headings) + 'DM Sans' (body) from Google Fonts
+- Glassmorphism cards with `backdrop-filter: blur`
+- Hover lift effect on cards (transform: translateY(-4px))
+- Smooth scroll behavior
+- Fully responsive (mobile breakpoint at 768px)
+- Animated gradient border on CTA button
+
+---
+
+## PHASE 3: COURSE PAGE (courses/technical-analysis/index.html)
+
+Create the full tutorial page for the Technical Analysis course.
+
+### Layout:
+- Fixed left sidebar (280px wide) with all sections and subtopics listed, collapsible per section
+- Main content area (right side, scrollable)
+- Sticky top bar: course title + progress bar (% subtopics marked complete)
+- Mobile: sidebar hidden by default, hamburger toggle
+
+### Sidebar Features:
+- Section headers (clickable to expand/collapse subtopics list)
+- Each subtopic as a clickable link (smooth scroll to anchor)
+- Active subtopic highlighted with green left border
+- Checkmark icon (✓) next to subtopics marked complete
+- Search input at top to filter subtopics by keyword
+
+### Content — All 6 Sections, All Subtopics (fully written):
+
+For EVERY subtopic, include ALL of the following:
+
+**A. Section badge** — e.g. "Section 2 · Market Structure"
+
+**B. Subtopic title** (H2)
+
+**C. Level Tabs** — three clickable tabs: [🟢 Beginner] [🔵 Intermediate] [🟣 Expert]
+- Each tab shows a different depth of content
+- Default: Beginner tab active
+- Smooth fade transition between tabs
+
+**D. Content panel** for each level:
+- 2–4 paragraphs of real educational content written for that level
+- **Key Terms** box: 2–4 terms with definitions (styled distinctly)
+- **📊 Practical Example** callout (a real scenario, e.g., "On XAUUSD H1 chart...")
+- **💡 Pro Tip** (Intermediate and Expert only)
+- For Risk Management: include the formula `Position Size = (Account Balance × Risk%) ÷ (SL pips × Pip Value)` with a worked example
+
+**E. Key Takeaway box** (gold border, bottom of subtopic)
+
+**F. Buttons row**: [✓ Mark Complete] [← Previous] [Next →]
+
+---
+
+### Full Content Requirements Per Section:
+
+**SECTION 1 — COURSE INTRODUCTION**
+Write 4 subtopics:
+1. What is Technical Analysis — beginner: it's reading price action on charts; intermediate: price discounts all information; expert: TA as a probabilistic framework
+2. Why TA Works Across All Markets — beginner: human psychology repeats; intermediate: fractal nature of markets; expert: institutional order flow and self-fulfilling patterns
+3. How to Use This Course — learning path, how to progress from section to section
+4. Tools and Platforms — TradingView, MT5, charting basics
+
+**SECTION 2 — MARKET STRUCTURE**
+Write 6 subtopics:
+1. What is Market Structure — beginner: price moves in waves; intermediate: HH/HL/LH/LL; expert: internal vs external structure
+2. Identifying Highs and Lows — swing highs, swing lows, significance
+3. Bullish vs Bearish Structure — trending definitions, ranging markets
+4. Break of Structure (BOS) — continuation signal
+5. Change of Character (CHoCH) — reversal signal vs BOS distinction
+6. Live Chart Examples — XAUUSD and EURUSD examples with described chart setups
+
+**SECTION 3 — SUPPLY & DEMAND / ORDER BLOCKS**
+Write 6 subtopics:
+1. Supply Zones — origin of down moves
+2. Demand Zones — origin of up moves
+3. Integrating S&D with Market Structure — only trade demand in bullish structure
+4. What are Order Blocks — last candle before impulsive move
+5. Bullish and Bearish Order Blocks — identification rules
+6. Breaker Blocks — when OBs break and flip
+
+**SECTION 4 — MASTERING LIQUIDITY**
+Write 5 subtopics:
+1. What is Liquidity — resting orders, thin vs thick markets
+2. Buy-Side vs Sell-Side Liquidity — above highs vs below lows
+3. Equal Highs/Lows as Liquidity — double tops/bottoms as liquidity pools
+4. Stop Hunts and Liquidity Grabs — how price sweeps liquidity before reversing
+5. How Institutions Use Liquidity — accumulation/distribution, why retail loses
+
+**SECTION 5 — RISK MANAGEMENT & POSITION SIZING**
+Write 6 subtopics:
+1. Why Risk Management Comes First — survive to trade another day
+2. The 1% Rule and Position Sizing Formula — formula + worked XAUUSD example with $5000 account, 0.1 lot, 25-pip SL
+3. Stop Loss Placement Strategies — structure-based SL, not arbitrary pips
+4. Risk-to-Reward Ratios — minimum 1:2, asymmetric payoff math
+5. Trading Psychology: Fear and Greed — FOMO, revenge trading, moving SL
+6. Building a Risk Checklist — pre-trade checklist template
+
+**SECTION 6 — PUTTING IT ALL TOGETHER**
+Write 6 subtopics:
+1. Multi-Confluence Trading Setup — structure + OB + liquidity sweep = high-probability
+2. Step-by-Step Trade Planning — from HTF to entry on M1
+3. Live Chart Walkthroughs — two full trade examples described (XAUUSD long + EURUSD short)
+4. Building Your Trading Plan — template: market, session, risk, entry rules, journaling
+5. Simplicity as an Edge — fewer rules, better execution
+6. Final Assessment — 10-question self-quiz with answers (JavaScript-powered, show score on submit)
+
+---
+
+### Styling (course.css):
+- Same dark financial palette as main site: `#060b18`, `#00c896`, `#ffc107`, `#e84545`
+- Same fonts: Bebas Neue + DM Sans
+- Sidebar: `#0d1424` background, subtle right border
+- Content cards with `#111827` background, rounded corners, soft shadow
+- Level tab active state with glow effect (box-shadow matching tab color)
+- Key Terms box: `#0a1628` with left accent border in green
+- Practical Example box: dark teal tinted background with chart emoji
+- Pro Tip box: gold-tinted background with lightbulb icon
+- Key Takeaway: gold (#ffc107) dashed border, italic text
+- Mark Complete button turns solid green with checkmark when clicked
+- Progress bar at top animates smoothly
+- Fade-in animation for content sections on scroll (IntersectionObserver)
+
+### JavaScript (course.js):
+- Level tab switching with fade transition
+- Mark Complete toggle (saves to localStorage, persists on reload)
+- Progress bar calculation (completed / total subtopics × 100)
+- Sidebar active state tracking on scroll
+- Subtopic search/filter
+- Smooth scroll to anchors
+- Final quiz logic in Section 6 (show score, highlight correct/wrong answers)
+- Completion celebration: when all subtopics marked complete, show a full-screen congratulations overlay with confetti animation (CSS-only confetti using keyframes)
+- Scroll-to-top button (appears after 300px scroll)
+
+---
+
+## PHASE 4: README.md
+
+Write a proper README:
+
+```markdown
+# Trading Mastery Pro
+
+A free, self-paced technical analysis trading course covering Forex, Crypto, and Stocks.
+
+## Courses Available
+- **Technical Analysis Mastery** — 6 sections, 30+ lessons, Beginner to Expert
+
+## How to Run
+Just open `index.html` in any browser. No server required.
+
+## Live Demo
+[GitHub Pages URL — update after deployment]
+
+## Structure
+- `index.html` — Landing page
+- `courses/technical-analysis/` — Full course content
+- `css/`, `js/` — Shared styles and scripts
+
+## Topics Covered
+Market Structure, Supply & Demand, Order Blocks, Liquidity, Risk Management, Trading Psychology, Position Sizing, Multi-Confluence Setups
+```
+
+---
+
+## PHASE 5: GITHUB PUSH
+
+After all files are created and verified, run the following commands in order:
+
+```bash
+cd trading-mastery-pro
+git init
+git add .
+git commit -m "Initial commit: Trading Mastery Pro course website"
+```
+
+Then check if the GitHub CLI (`gh`) is available:
+```bash
+gh --version
+```
+
+If `gh` is available:
+```bash
+gh repo create trading-mastery-pro --public --source=. --remote=origin --push
+```
+
+If `gh` is NOT available, create the repo via the API:
+```bash
+curl -s -o /dev/null -w "%{http_code}" https://api.github.com/user
+```
+If that returns 401 (no auth), print this message clearly to the user:

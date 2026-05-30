@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Equal Highs/Lows as Liquidity | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="4-3">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 4 · Mastering Liquidity</div>
+      <h1 class="lesson-title">Equal Highs/Lows as Liquidity</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p><strong>Equal Highs (EQH)</strong> occur when price tests the same high level two or more times without closing above it. <strong>Equal Lows (EQL)</strong> occur when price tests the same low level two or more times without closing below it. Traditional traders call these "double tops" and "double bottoms" and treat them as reversal patterns.</p>
+        <p>In smart money theory, EQH and EQL are something different: they are <em>liquidity magnets</em>. Every trader watching a double top will place sell orders at resistance AND set a stop loss just above the high. This creates a massive cluster of buy stop orders just above the equal highs. Price will come to collect those stops before the real move occurs.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Equal Highs (EQH)</strong><span> — Two or more swing highs at approximately the same price level; dense buy-stop liquidity sits just above.</span></div>
+          <div class="term"><strong>Equal Lows (EQL)</strong><span> — Two or more swing lows at approximately the same price level; dense sell-stop liquidity sits just below.</span></div>
+          <div class="term"><strong>Double Top / Double Bottom</strong><span> — Traditional reversal patterns that smart money theory reframes as deliberate liquidity pools.</span></div>
+          <div class="term"><strong>Liquidity Pool</strong><span> — A concentration of resting stop orders at or near a specific price level.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>XAUUSD touches $2,350 on three separate occasions within two weeks, failing to close above each time. Retail traders call this a "triple top" and go short with stop losses just above $2,350. Those stops ARE the liquidity. Price will very likely spike above $2,350 — triggering all those stop orders — then reverse sharply lower. The traders who shorted the triple top are now stopped out, and the move they anticipated still happens, but without them.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>Once you recognize EQH and EQL as liquidity targets, you can build precise trade setups around the sweep-and-rejection pattern:</p>
+        <ol>
+          <li>Price creates EQH (resistance tested twice or more).</li>
+          <li>Price sweeps above EQH — the stop hunt occurs.</li>
+          <li>Price fails to hold above EQH and closes back below. The candle that spikes above but closes below is the "inducement" candle — the signal.</li>
+          <li>Short entry at the close of that bearish rejection candle, with SL placed above the wick high.</li>
+        </ol>
+        <p>For EQL (equal lows), the same logic applies in reverse: price sweeps below EQL, triggers sell stops, then reverses upward. Long entry at the close of the bullish reversal candle, SL below the wick low.</p>
+        <p><strong>Quality filters for EQH/EQL setups:</strong> For intraday trades, the sweep should occur within the same trading session. For swing setups, the sweep should occur within the same week. Volume should spike on the sweep candle. The reversal candle should have a large body relative to its wicks.</p>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>In TradingView, use the horizontal line tool and snap it precisely to the equal high or equal low level. If two or more candle wicks or bodies touch the same level (within a few pips), mark it as EQH or EQL and set a price alert just above (for EQH) or below (for EQL). When price reaches that alert, switch to a lower timeframe and watch for the rejection candle.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p><strong>Inducement and engineered liquidity.</strong> At the expert level, you recognize that some EQH and EQL formations are deliberately engineered by institutions — not simply products of retail stop placement. By allowing price to test a high twice, institutions create the visual "double top" that retail traders respond to by going short and placing stops above. The institution has not yet taken its short position; it takes it on the sweep above EQH when it absorbs all the buy stops from retail shorts, then drives price lower. This is inducement: getting retail to build the stop pool you intend to raid.</p>
+        <p><strong>Trading the fake break precisely:</strong> When price sweeps above EQH with a wick (the candle does not close above), that sweep candle is your short entry. Enter on the next candle's open, stop above the wick high (5 pips buffer), target the EQL below or the nearest structure low. This is the same mechanism as Wyckoff's "Spring" (for EQL sweeps) and "Upthrust" (for EQH sweeps) — centuries-old concepts with a modern institutional explanation.</p>
+        <p><strong>Confluence amplification:</strong> When EQH sits exactly at the 79% Fibonacci retracement of a prior bearish impulse leg AND aligns with a D1 supply zone, the probability of a sweep-and-rejection is at its highest. No single element is reliable alone; the confluence of EQH + OTE (Optimal Trade Entry) + supply zone makes the setup high quality.</p>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>The strongest short setups in this course combine EQH forming on the H4 chart with the D1 sitting at a supply zone. When both timeframes align — H4 equal highs providing local liquidity and D1 supply zone providing institutional interest — the sweep above EQH becomes a near-perfect short entry with minimal SL distance and high R:R potential.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Equal highs and equal lows are NOT support or resistance — they are liquidity pools. Price is drawn to them to collect the stop losses clustered there. Trade the sweep and rejection, not the level itself. When price sweeps an EQH and fails to hold above it, the rejection candle is your short entry signal.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="buy-side-vs-sell-side-liquidity.html" class="btn-nav">← Previous</a>
+          <a href="stop-hunts-and-liquidity-grabs.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

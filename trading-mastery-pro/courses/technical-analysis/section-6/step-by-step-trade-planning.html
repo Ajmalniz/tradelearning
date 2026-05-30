@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Step-by-Step Trade Planning | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="6-2">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section open" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 6 · Putting It All Together</div>
+      <h1 class="lesson-title">Step-by-Step Trade Planning</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>Trade planning means deciding everything about a trade before you place it — entry price, stop loss price, take profit price, and position size — all determined in advance, in a calm, analytical state. Not in the heat of the moment with a live position bleeding against you.</p>
+        <p>Think of a trade plan like directions for a road trip: you know your starting point, your destination, and what you will do if something unexpected happens along the way. You do not start driving and figure out the route as you go. Trading without a plan is exactly that — driving blind in the dark, hoping you end up somewhere profitable.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Trade Plan</strong><span> — A specific, written plan for a single trade: instrument, direction, entry, SL, TP, and position size — all decided before placing the order.</span></div>
+          <div class="term"><strong>HTF (Higher Timeframe)</strong><span> — The larger timeframe used for determining bias and locating key zones. Typically Daily or H4.</span></div>
+          <div class="term"><strong>LTF (Lower Timeframe)</strong><span> — The smaller timeframe used for precise entry triggers. Typically H1, M15, or M5.</span></div>
+          <div class="term"><strong>Top-Down Analysis</strong><span> — The process of starting with the highest timeframe and progressively zooming in to the entry timeframe.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Simple Trade Plan Template</div>
+          <p><strong>Instrument:</strong> EURUSD<br>
+          <strong>Bias:</strong> Bullish (Daily uptrend intact)<br>
+          <strong>Entry:</strong> 1.0850 (after H1 bullish confirmation candle at demand zone)<br>
+          <strong>Stop Loss:</strong> 1.0815 (below zone low + buffer)<br>
+          <strong>Take Profit:</strong> 1.0950 (next H4 resistance)<br>
+          <strong>Position Size:</strong> 0.3 lots ($10,000 account, 1% risk, 35-pip SL)<br>
+          <strong>R:R:</strong> 1:2.9<br><br>
+          Everything decided before clicking entry. No in-trade decisions required.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>The complete top-down analytical process — six steps from blank chart to filled trade plan:</p>
+        <p><strong>Step 1 — Weekly/Daily: Determine the macro trend.</strong><br>Is price making higher highs and higher lows (bullish)? Lower highs and lower lows (bearish)? Ranging between two horizontal levels? Write down the bias in one word: bullish, bearish, or ranging. If you cannot determine this clearly, wait — a clear bias will form.</p>
+        <p><strong>Step 2 — H4: Identify the key zone.</strong><br>Where is significant institutional buying or selling interest most likely? Mark demand zones, supply zones, and order blocks on H4. These are the targets. Set price alerts at the zone edges so you know when price arrives without having to watch the screen constantly.</p>
+        <p><strong>Step 3 — H4: Wait for price to reach the zone.</strong><br>Do not enter because price is "near" the zone. Price must trade into it. Walk away from the screen. The market will come to you — or it will not reach your zone and you skip the setup entirely. Both outcomes are acceptable.</p>
+        <p><strong>Step 4 — H1/M15: Look for the trigger.</strong><br>Once price enters the H4 zone: Did a nearby swing high or low get swept? Has a CHoCH formed on H1 or M15 in the direction of your HTF bias? Is there a strong rejection candle — a bullish engulfing or bearish pin bar — inside the zone? You need at least one of these LTF signals.</p>
+        <p><strong>Step 5 — Set SL, TP, and position size before entry.</strong><br>Calculate all three before clicking. SL below the zone structural low (for longs), TP at the next HTF resistance, position size using the formula. Write it down.</p>
+        <p><strong>Step 6 — Execute.</strong><br>Market order at the open of the confirmation candle, or a limit order at the midpoint of the trigger candle. Click. Set your SL and TP. Walk away — the trade will either hit your target or your stop, and either outcome was planned for.</p>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Keep a trade plan document open (a simple text file or spreadsheet) and fill in all six steps before reaching Step 6. If you cannot fill in the entry, SL, and TP with specific numbers, the setup is not clear enough yet. The inability to write a coherent plan is itself the signal to wait.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>Institutional-grade trade planning adds premium/discount analysis and multi-timeframe entry refinement:</p>
+        <p><strong>Premium/Discount Arrays:</strong> Before analyzing zones, determine whether price is currently in a "premium" (above the 50% midpoint of the current range — unfavorable for buys) or "discount" (below the midpoint — favorable for buys). This filter alone eliminates many low-probability entries. Buy only in discount zones; sell only in premium zones. The equilibrium point is the 50% Fibonacci retracement of the most recent swing.</p>
+        <p><strong>Session entry windows:</strong> Add a timing constraint to your plan: "Entry only during London (3:00–5:00am EST) or New York (8:00–10:00am EST) session open." Entries in the middle of the New York session or the dead Asian session carry significantly lower probability of a clean, impulsive move from the zone.</p>
+        <p><strong>Zone entry refinement:</strong> Instead of one market order, plan a scaled entry: primary limit order at the top of the demand zone, secondary limit at the midpoint. This improves average entry price and reduces the position size risk of any single fill. If neither fills because price reverses from the zone edge — you still participate at the top.</p>
+        <div class="key-terms">
+          <h4>Advanced Trade Plan Fields</h4>
+          <div class="term"><strong>Premium/Discount bias</strong><span> — Confirm price is in the discount zone (for longs) before proceeding.</span></div>
+          <div class="term"><strong>Entry window</strong><span> — Specific session hours when institutional volume supports the intended move.</span></div>
+          <div class="term"><strong>Invalidation level</strong><span> — The price at which the entire trade thesis is structurally wrong — distinct from the SL. Re-evaluate before re-entering if invalidation is hit.</span></div>
+          <div class="term"><strong>Correlation check</strong><span> — Confirm no other open positions share the same macro driver as this trade.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Full Expert Trade Plan — XAUUSD Long</div>
+          <p><strong>D1 bias:</strong> Bullish. BOS upward at $1,950. Current pullback forming higher low.<br>
+          <strong>Premium/Discount:</strong> Range low $1,880, high $1,960. Midpoint $1,920. Price at $1,917 = discount. ✓<br>
+          <strong>H4 zone:</strong> Bullish OB at $1,915–$1,920. Equal lows at $1,910 (buy-side liquidity below).<br>
+          <strong>Entry strategy:</strong> Limit at $1,918 (top of OB) + $1,915 (midpoint of OB).<br>
+          <strong>SL:</strong> $1,908 (below equal lows sweep target + 2-pip buffer).<br>
+          <strong>TP1:</strong> $1,940 (H4 resistance). TP2: $1,958 (D1 swing high).<br>
+          <strong>Position:</strong> $10,000 account, 1% = $100. SL = $12 from entry. $100 ÷ $12 = 8.3 oz → 0.08 lots.<br>
+          <strong>Session:</strong> London open only.<br>
+          <strong>Invalidation:</strong> Daily close below $1,900.<br>
+          <strong>Correlation:</strong> No other USD-correlated positions open. ✓</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Write your trade plan in a physical journal or a digital document — not in your head. The act of writing forces clarity, exposes logical gaps, and creates a record for post-trade review. A plan that cannot be written coherently cannot be executed consistently. "Plan the trade, trade the plan" is the most repeated phrase in professional trading because it solves the most common and expensive problem: in-trade emotional decision-making.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Every decision made before market execution is rational; every decision made during a live trade is emotional. Remove in-trade decisions by completing a full written trade plan — entry, SL, TP, position size, session window — before placing any order. Plan the trade, trade the plan.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="multi-confluence-trading-setup.html" class="btn-nav">← Previous</a>
+          <a href="live-chart-walkthroughs.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

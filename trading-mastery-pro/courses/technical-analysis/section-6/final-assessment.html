@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Final Assessment | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+<style>
+.quiz-wrap { max-width: 760px; }
+.quiz-question { background: #111827; border-radius: 12px; padding: 24px; margin-bottom: 20px; border: 1px solid #1e293b; }
+.quiz-question.correct { border-color: #00c896; background: #0a1f18; }
+.quiz-question.wrong { border-color: #e84545; background: #1f0a0a; }
+.q-num { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #00c896; margin-bottom: 8px; }
+.q-text { font-size: 16px; color: #e2e8f0; margin-bottom: 16px; line-height: 1.6; }
+.q-options { display: flex; flex-direction: column; gap: 10px; }
+.q-option { background: #0d1424; border: 1.5px solid #1e293b; border-radius: 8px; padding: 12px 16px; cursor: pointer; color: #94a3b8; font-size: 14px; transition: all 0.2s; text-align: left; }
+.q-option:hover:not(:disabled) { border-color: #00c896; color: #e2e8f0; }
+.q-option.selected { border-color: #ffc107; color: #ffc107; }
+.q-option.correct-ans { border-color: #00c896; color: #00c896; background: #0a1f18; }
+.q-option.wrong-ans { border-color: #e84545; color: #e84545; background: #1f0a0a; }
+.q-option:disabled { cursor: default; }
+.q-feedback { margin-top: 12px; font-size: 13px; line-height: 1.6; padding: 10px 14px; border-radius: 8px; display: none; }
+.q-feedback.show { display: block; }
+.q-feedback.correct { background: #0a1f18; color: #00c896; border-left: 3px solid #00c896; }
+.q-feedback.wrong { background: #1f0a0a; color: #ff6b6b; border-left: 3px solid #e84545; }
+.quiz-submit { background: linear-gradient(135deg, #00c896, #00a878); color: #060b18; border: none; padding: 16px 40px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; letter-spacing: 0.5px; transition: opacity 0.2s; }
+.quiz-submit:hover { opacity: 0.9; }
+.quiz-submit:disabled { opacity: 0.5; cursor: default; }
+.score-panel { display: none; background: #111827; border-radius: 16px; padding: 40px; text-align: center; border: 2px solid #00c896; margin-top: 24px; }
+.score-panel.show { display: block; }
+.score-big { font-size: 72px; font-weight: 900; color: #00c896; font-family: 'Bebas Neue', sans-serif; line-height: 1; }
+.score-label { color: #64748b; font-size: 14px; margin: 8px 0 20px; }
+.score-msg { font-size: 18px; color: #e2e8f0; margin-bottom: 24px; }
+.score-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-retry { background: transparent; border: 1.5px solid #00c896; color: #00c896; padding: 12px 28px; border-radius: 8px; font-size: 14px; cursor: pointer; }
+.btn-hub { background: #ffc107; color: #060b18; border: none; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
+</style>
+</head>
+<body data-lesson-id="6-6">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section open" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap quiz-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 6 · Putting It All Together</div>
+      <h1 class="lesson-title">Final Assessment</h1>
+      <p style="color:#64748b;margin-bottom:28px;">10 questions covering all 6 sections. Score 80% or higher to confirm course mastery. Select your answer for each question, then submit.</p>
+
+      <div id="quizForm">
+
+        <div class="quiz-question" id="q1">
+          <div class="q-num">Question 1 of 10</div>
+          <div class="q-text">What does a Break of Structure (BOS) signal in the context of market structure?</div>
+          <div class="q-options">
+            <button class="q-option" onclick="selectAnswer(1,'A')">A) A potential reversal of the current trend</button>
+            <button class="q-option" onclick="selectAnswer(1,'B')">B) Continuation of the existing trend direction</button>
+            <button class="q-option" onclick="selectAnswer(1,'C')">C) A period of market consolidation about to begin</button>
+            <button class="q-option" onclick="selectAnswer(1,'D')">D) The end of a liquidity sweep event</button>
+          </div>
+          <div class="q-feedback" id="f1"></div>
+        </div>
+
+        <div class="quiz-question" id="q2">
+          <div class="q-num">Question 2 of 10</div>
+          <div class="q-text">A bullish order block is best described as:</div>
+          <div class="q-options">
+            <button class="q-option" onclick="selectAnswer(2,'A')">A) The last bullish candle before an impulsive bearish move down</button>
+            <button class="q-option" onclick="selectAnswer(2,'B')">B) The last bearish candle before an impulsive bullish move up</button>
+            <button class="q-option" onclick="selectAnswer(2,'C')">C) Any candle with a long wick below its body</button>
+            <button class="q-option" onclick="selectAnswer(2,'D')">D) A candle that closes above a resistance level</button>
+          </div>
+          <div class="q-feedback" id="f2"></div>
+        </div>
+
+        <div class="quiz-question" id="q3">
+          <div class="q-num">Question 3 of 10</div>
+          <div class="q-text">Where does buy-side liquidity sit in the market?</div>
+          <div class="q-options">
+            <button class="q-option" onclick="selectAnswer(3,'A')">A) Below recent swing lows where retail stop losses cluster</button>
+            <button class="q-option" onclick="selectAnswer(3,'B')">B) Above recent swing highs where retail buy stops cluster</button>
+            <button class="q-option" onclick="selectAnswer(3,'C')">C) At the 50% retracement of the most recent move</button>
+            <button class="q-option" onclick="selectAnswer(3,'D')">D) Inside supply zones on the higher timeframe</button>
+          </div>
+          <div class="q-feedback" id="f3"></div>
+        </div>
+
+        <div class="quiz-question" id="q4">
+          <div class="q-num">Question 4 of 10</div>
+          <div class="q-text">Using the position sizing formula, if you have a $10,000 account, risk 1% per trade, and your stop loss is 20 pips on EURUSD (pip value = $10/pip per standard lot), what is your correct position size?</div>
+          <div class="q-options">
+            <button class="q-option" onclick="selectAnswer(4,'A')">A) 1.0 lot</button>
+            <button class="q-option" onclick="selectAnswer(4,'B')">B) 0.5 lots</button>
+            <button class="q-option" onclick="selectAnswer(4,'C')">C) 0.1 lots</button>
+            <button class="q-option" onclick="selectAnswer(4,'D')">D) 2.0 lots</button>
+          </div>
+          <div class="q-feedback" id="f4"></div>
+        </div>
+
+        <div class="quiz-question" id="q5">
+          <div class="q-num">Question 5 of 10</div>
+          <div class="q-text">At a 1:2 Risk-to-Reward ratio, what is the minimum win rate needed to break even over many trades?</div>
+          <div class="q-options">
+            <button class="q-option" onclick="selectAnswer(5,'A')">A) 50%</button>
+            <button class="q-option" onclick="selectAnswer(5,'B')">B) 40%</button>
+            <button class="q-option" onclick="selectAnswer(5,'C')">C) 34%</button>
+            <button class="q-option" onclick="selectAnswer(5,'D')">D) 25%</button>
+          </div>
+          <div class="q-feedback" id="f5"></div>
+        </div>
+
+        <div class="quiz-question" id="q6">
+          <div class="q-num">Question 6 of 10</div>
+          <div class="q-text">What distinguishes a Change of Character (CHoCH) from a Break of Structure (BOS)?</div>
+          <div class="q-options">
+            <button class="q-option" onclick="selectAnswer(6,'A')">A) CHoCH signals trend continuation; BOS signals a reversal</button>
+            <button class="q-option" onclick="selectAnswer(6,'B')">B) CHoCH signals a potential reversal; BOS signals trend continuation</button>
+            <button class="q-option" onclick="selectAnswer(6,'C')">C) They are the same concept with different names</button>
+            <button class="q-option" onclick="selectAnswer(6,'D')">D) BOS only occurs on the daily timeframe; CHoCH on intraday</button>
+          </div>
+          <div class="q-feedback" id="f6"></div>
+        </div>
+
+        <div class="quiz-question" id="q7">
+          <div class="q-num">Question 7 of 10</div>
+          <div class="q-text">In a high-confluence trade setup, which combination best represents all three primary factors aligned?</div>
+          <div class="q-options">
+            <button class="q-option" onclick="selectAnswer(7,'A')">A) RSI oversold + MACD crossover + price above the 200 EMA</button>
+            <button class="q-option" onclick="selectAnswer(7,'B')">B) Daily bullish structure + H4 demand zone reached + H1 CHoCH after a liquidity sweep</button>
+            <button class="q-option" onclick="selectAnswer(7,'C')">C) Price at a round number + high volume + bullish news sentiment</button>
+            <button class="q-option" onclick="selectAnswer(7,'D')">D) H1 bullish candle + M15 support bounce + M5 confirmation</button>
+          </div>
+          <div class="q-feedback" id="f7"></div>
+        </div>
+
+        <div class="quiz-question" id="q8">
+          <div class="q-num">Question 8 of 10</div>
+          <div class="q-text">Which of the following is the most dangerous psychological pattern in trading?</div>
+          <div class="q-options">
+            <button class="q-option" onclick="selectAnswer(8,'A')">A) Taking a break after three consecutive losing trades</button>
+            <button class="q-option" onclick="selectAnswer(8,'B')">B) Moving your stop loss further away as price approaches it</button>
+            <button class="q-option" onclick="selectAnswer(8,'C')">C) Reducing position size during a drawdown period</button>
+            <button class="q-option" onclick="selectAnswer(8,'D')">D) Exiting a losing trade before the stop loss is hit</button>
+          </div>
+          <div class="q-feedback" id="f8"></div>
+        </div>
+
+        <div class="quiz-question" id="q9">
+          <div class="q-num">Question 9 of 10</div>
+          <div class="q-text">Why do institutional traders target stop loss clusters below swing lows?</div>
+          <div class="q-options">
+            <button class="q-option" onclick="selectAnswer(9,'A')">A) To cause retail traders to lose money as a competitive strategy</button>
+            <button class="q-option" onclick="selectAnswer(9,'B')">B) To fill their own large buy orders using the triggered sell stop volume</button>
+            <button class="q-option" onclick="selectAnswer(9,'C')">C) Because swing lows always represent strong support that will hold</button>
+            <button class="q-option" onclick="selectAnswer(9,'D')">D) To test whether the market trend is still valid</button>
+          </div>
+          <div class="q-feedback" id="f9"></div>
+        </div>
+
+        <div class="quiz-question" id="q10">
+          <div class="q-num">Question 10 of 10</div>
+          <div class="q-text">According to this course, why does simplicity give traders a competitive edge?</div>
+          <div class="q-options">
+            <button class="q-option" onclick="selectAnswer(10,'A')">A) Simple strategies require less chart time and free up more hours for research</button>
+            <button class="q-option" onclick="selectAnswer(10,'B')">B) Fewer rules means fewer decisions, reducing emotional interference and improving consistent execution</button>
+            <button class="q-option" onclick="selectAnswer(10,'C')">C) Simple strategies always outperform complex ones mathematically</button>
+            <button class="q-option" onclick="selectAnswer(10,'D')">D) Regulators prefer simpler trading approaches for compliance purposes</button>
+          </div>
+          <div class="q-feedback" id="f10"></div>
+        </div>
+
+        <button class="quiz-submit" id="submitBtn" onclick="submitQuiz()" disabled>Submit Answers</button>
+      </div>
+
+      <div class="score-panel" id="scorePanel">
+        <div class="score-big" id="scorePct">0%</div>
+        <div class="score-label" id="scoreRaw"></div>
+        <div class="score-msg" id="scoreMsg"></div>
+        <div class="score-actions">
+          <button class="btn-retry" onclick="retryQuiz()">Retry Quiz</button>
+          <a href="../index.html" class="btn-hub">Back to Course Hub →</a>
+        </div>
+      </div>
+
+      <div class="lesson-actions" style="margin-top:32px;">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="simplicity-as-an-edge.html" class="btn-nav">← Previous</a>
+          <a href="../index.html" class="btn-nav next">Back to Hub →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+<script>
+const ANSWERS = {
+  1: { correct: 'B', explanation: 'A Break of Structure signals trend continuation — price breaks beyond a previous swing high (bullish BOS) or swing low (bearish BOS), confirming the trend is still intact. A Change of Character (CHoCH) signals a potential reversal.' },
+  2: { correct: 'B', explanation: 'A bullish order block is the last bearish candle before an impulsive bullish move upward. Institutions placed their buy orders in this candle before driving price higher, making it a high-probability support zone on retest.' },
+  3: { correct: 'B', explanation: 'Buy-side liquidity sits above recent swing highs, where retail traders have placed their buy stop orders (breakout entries) and institutional traders have placed stop losses on their short positions. This cluster of orders is what institutions target during a stop hunt.' },
+  4: { correct: 'B', explanation: 'Position Size = (Account × Risk%) ÷ (SL pips × Pip Value) = ($10,000 × 1%) ÷ (20 pips × $10/pip) = $100 ÷ $200 = 0.5 lots. This ensures a maximum loss of exactly $100 (1%) if the 20-pip stop is hit.' },
+  5: { correct: 'C', explanation: 'At 1:2 R:R, the break-even win rate is approximately 34%. The math: if you win 34% of trades at 2R each, and lose 66% at 1R each: (0.34 × 2) − (0.66 × 1) = 0.68 − 0.66 = +0.02 ≈ breakeven. Win more than 34% and you are profitable.' },
+  6: { correct: 'B', explanation: 'CHoCH (Change of Character) signals a potential trend reversal — it is the first sign that the existing trend may be ending. BOS (Break of Structure) signals trend continuation — price breaks a previous swing in the direction of the existing trend.' },
+  7: { correct: 'B', explanation: 'The three primary confluence factors in this course are: (1) HTF structural bias, (2) price reaching a key zone (demand/supply or OB), and (3) an LTF trigger after a liquidity sweep. RSI, MACD, and EMAs are not part of this framework.' },
+  8: { correct: 'B', explanation: 'Moving your stop loss further away as price approaches it converts a controlled, defined loss into a potentially unlimited one. This single behavior is responsible for the majority of catastrophic account losses — it is the trading equivalent of doubling down on a losing bet.' },
+  9: { correct: 'B', explanation: 'Institutions target stop clusters to generate the order flow they need to fill their own large positions. When stops below a swing low are triggered, they create a surge of sell orders — institutions use these sell orders as the counterpart to fill their buy orders at a favorable price before reversing price upward.' },
+  10: { correct: 'B', explanation: 'Simplicity reduces decision points, which reduces opportunities for emotional interference. A 3-rule system can be executed consistently under stress. A 20-rule system degrades in execution quality as cognitive load and decision fatigue mount throughout a trading session.' }
+};
+
+const userAnswers = {};
+let submitted = false;
+
+function selectAnswer(qNum, option) {
+  if (submitted) return;
+  userAnswers[qNum] = option;
+  const q = document.getElementById('q' + qNum);
+  q.querySelectorAll('.q-option').forEach((btn, i) => {
+    btn.classList.remove('selected');
+    if (['A','B','C','D'][i] === option) btn.classList.add('selected');
+  });
+  const submitBtn = document.getElementById('submitBtn');
+  if (Object.keys(userAnswers).length === 10) submitBtn.disabled = false;
+}
+
+function submitQuiz() {
+  if (submitted) return;
+  submitted = true;
+  document.getElementById('submitBtn').disabled = true;
+  let score = 0;
+  for (let i = 1; i <= 10; i++) {
+    const q = document.getElementById('q' + i);
+    const feedback = document.getElementById('f' + i);
+    const chosen = userAnswers[i];
+    const correct = ANSWERS[i].correct;
+    q.querySelectorAll('.q-option').forEach((btn, idx) => {
+      btn.disabled = true;
+      const letter = ['A','B','C','D'][idx];
+      if (letter === correct) btn.classList.add('correct-ans');
+      else if (letter === chosen && chosen !== correct) btn.classList.add('wrong-ans');
+    });
+    if (chosen === correct) {
+      score++;
+      q.classList.add('correct');
+      feedback.className = 'q-feedback show correct';
+      feedback.textContent = '✓ Correct! ' + ANSWERS[i].explanation;
+    } else {
+      q.classList.add('wrong');
+      feedback.className = 'q-feedback show wrong';
+      feedback.textContent = '✗ ' + (chosen ? 'Incorrect.' : 'No answer selected.') + ' ' + ANSWERS[i].explanation;
+    }
+  }
+  showScore(score);
+}
+
+function showScore(score) {
+  const pct = Math.round((score / 10) * 100);
+  const panel = document.getElementById('scorePanel');
+  document.getElementById('scorePct').textContent = pct + '%';
+  document.getElementById('scoreRaw').textContent = score + ' out of 10 correct';
+  let msg;
+  if (pct === 100) msg = 'Perfect score! You have truly mastered Technical Analysis.';
+  else if (pct >= 80) msg = 'Excellent work! You have demonstrated solid mastery of the course material. You are ready to trade.';
+  else if (pct >= 60) msg = 'Good effort! Review the questions you missed, then retake the quiz to confirm mastery.';
+  else msg = 'Keep studying! Revisit the sections covering your missed questions before trading real capital.';
+  document.getElementById('scoreMsg').textContent = msg;
+  panel.classList.add('show');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  if (pct >= 80) {
+    setTimeout(() => {
+      if (window.triggerConfetti) window.triggerConfetti();
+    }, 600);
+  }
+}
+
+function retryQuiz() {
+  submitted = false;
+  Object.keys(userAnswers).forEach(k => delete userAnswers[k]);
+  for (let i = 1; i <= 10; i++) {
+    const q = document.getElementById('q' + i);
+    q.className = 'quiz-question';
+    q.querySelectorAll('.q-option').forEach(btn => {
+      btn.className = 'q-option';
+      btn.disabled = false;
+    });
+    const f = document.getElementById('f' + i);
+    f.className = 'q-feedback';
+    f.textContent = '';
+  }
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('scorePanel').classList.remove('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

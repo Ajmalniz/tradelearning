@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Break of Structure (BOS) | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="2-4">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s1-lessons">
+        <li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li>
+        <li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li>
+        <li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li>
+        <li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s2-lessons">
+        <li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li>
+        <li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li>
+        <li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li>
+        <li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li>
+        <li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li>
+        <li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s3-lessons">
+        <li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li>
+        <li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li>
+        <li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li>
+        <li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li>
+        <li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li>
+        <li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s4-lessons">
+        <li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li>
+        <li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li>
+        <li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li>
+        <li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li>
+        <li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s5-lessons">
+        <li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li>
+        <li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li>
+        <li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li>
+        <li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li>
+        <li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li>
+        <li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li>
+      </ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons" id="nav-s6-lessons">
+        <li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li>
+        <li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li>
+        <li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li>
+        <li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li>
+        <li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li>
+        <li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 2 · Market Structure</div>
+      <h1 class="lesson-title">Break of Structure (BOS)</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <h2>What is a Break of Structure?</h2>
+        <p>A <strong>Break of Structure (BOS)</strong> is one of the most important events you will track on a price chart. It occurs when price breaks through a previous swing point in the <em>same direction as the current trend</em>. Put simply: a BOS is confirmation that the trend is <strong>continuing</strong>.</p>
+        <p>This is a critical distinction to understand right away: a BOS is a <em>continuation signal</em>, not a reversal signal. When you see a BOS, you do not reverse your trade direction — you use it as confirmation that your existing bias is correct.</p>
+
+        <h3>BOS in an Uptrend</h3>
+        <p>In an uptrend, the most recent sequence has been: some swing low (HL) → price rallied but didn't yet exceed the previous swing high. A BOS occurs the moment price closes above that most recent swing high, creating a confirmed Higher High (HH). The uptrend is officially continuing.</p>
+        <p>Sequence: HL forms → price rallies → <strong>price closes above the previous HH = BOS</strong> → new HH confirmed → uptrend intact → continue looking for longs.</p>
+
+        <h3>BOS in a Downtrend</h3>
+        <p>In a downtrend, a BOS occurs when price breaks below the most recent swing low (LL formation confirmed). The downtrend is continuing. Sequence: LH forms → price falls → <strong>price closes below the previous LL = BOS</strong> → new LL confirmed → downtrend intact → continue looking for shorts.</p>
+
+        <h3>BOS is NOT a Reversal</h3>
+        <p>Many beginners confuse BOS with a reversal signal. They are the opposite. A BOS means "the current trend just proved itself again." The only thing that changes after a BOS is that you now have a new swing high (in an uptrend) or swing low (in a downtrend) to measure against for the next potential BOS or CHoCH (which we'll cover in the next lesson).</p>
+
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Break of Structure (BOS)</strong><span> — Price breaking a previous swing point in the direction of the current trend. Signals trend continuation.</span></div>
+          <div class="term"><strong>Continuation</strong><span> — The trend remaining intact and moving further in its established direction after a correction ends.</span></div>
+          <div class="term"><strong>Confirmed Structure</strong><span> — When both the HH (or LL) and the HL (or LH) have formed, leaving no ambiguity about which direction the market is trending.</span></div>
+        </div>
+
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example — XAUUSD H4 BOS in Uptrend</div>
+          <p>Gold (XAUUSD) has been in a clear uptrend on the H4 chart. The recent price action plays out as follows:</p>
+          <p><strong>Prior HH:</strong> Gold rallied to <strong>$2,340</strong> — this is the swing high you need to watch for a BOS.</p>
+          <p><strong>Pullback (HL forming):</strong> Gold corrects from $2,340 down to <strong>$2,295</strong>. Price is forming what looks like an HL — it's above the previous pullback low of $2,260. The uptrend structure is intact so far, but unconfirmed.</p>
+          <p><strong>Rally begins:</strong> Gold starts moving up from $2,295. You watch the $2,340 level. Will it break above?</p>
+          <p><strong>BOS occurs:</strong> A 4-hour candle closes at <strong>$2,358</strong> — definitively above the previous swing high of $2,340. This is your BOS. A new HH has been confirmed. The uptrend is continuing.</p>
+          <p><strong>What it means:</strong> The HH at $2,358 is now the new level to watch. The HL at $2,295 is now confirmed. You are in a clear bullish structure. The next opportunity to buy is when price pulls back to form the next HL — somewhere above $2,295. You do NOT sell after a BOS in an uptrend.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <h2>Using BOS for Trade Entries</h2>
+        <p>At the intermediate level, the BOS is not just a confirmation signal you note passively — it is the setup for your next trade entry. Understanding the mechanics of a BOS and what typically happens after it is what allows you to plan trades in advance rather than reacting impulsively.</p>
+
+        <h3>The BOS Retest Setup</h3>
+        <p>After a BOS occurs — price breaks above a previous swing high in an uptrend — the broken level undergoes a role reversal. The prior swing high (resistance) becomes <strong>new support</strong>. This concept is called "resistance turned support" (or in a downtrend, "support turned resistance"), and it is one of the most reliable setups in all of technical analysis.</p>
+        <p>Here is the sequence to watch for:</p>
+        <ol>
+          <li>Price is in an uptrend. It has been forming HH and HL.</li>
+          <li>Price breaks above the last HH — <strong>BOS confirmed.</strong></li>
+          <li>After the BOS, price often retraces back toward the broken level (the former swing high).</li>
+          <li>At the former swing high (now support), price finds buyers and bounces upward.</li>
+          <li><strong>This retest of the former resistance as new support is your entry point.</strong> Enter long at the retest, with your stop loss below the retest low. Your target is the next projected swing high.</li>
+        </ol>
+        <p>Why does this work? Because the former swing high was a level that previously attracted selling. Once price broke above it, all those sellers are now holding losing positions (they're short below a price that has moved above them). When price comes back to test the level, those losing sellers add to their short pain — and new buyers, recognizing the level as former resistance now acting as support, add their longs. The combined effect creates buying pressure at the retest level.</p>
+
+        <h3>Genuine BOS vs Fake-Out</h3>
+        <p>Not every close above a swing high is a genuine BOS. Fake-outs happen — price briefly exceeds a swing high and then reverses. Here's how to filter them:</p>
+        <ul>
+          <li><strong>Require a full candle BODY close above the swing high</strong> — not just a wick. A wick above the swing high followed by a candle body that closes below it is likely a fake-out (and often a liquidity sweep, as discussed in Section 4).</li>
+          <li><strong>Look for follow-through:</strong> After the BOS candle closes, the next 1–2 candles should continue in the break direction. If the very next candle immediately reverses and closes back below the swing high, treat the BOS as unconfirmed.</li>
+          <li><strong>Check volume (if available):</strong> A genuine BOS should have above-average volume on the break candle, indicating real institutional participation in the move.</li>
+        </ul>
+
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example — BOS Retest Entry</div>
+          <p>Gold is at $2,400 with a prior swing high at $2,380. Price breaks above $2,380 on a strong H4 candle — full body close at $2,392. BOS confirmed.</p>
+          <p>Over the next 8 hours, Gold retraces from $2,400 back down to test $2,378–$2,382 (the former swing high zone). You observe a bullish H4 candle close near $2,385 — price has held above the former swing high.</p>
+          <p><strong>Entry:</strong> Long at $2,385. <strong>Stop:</strong> Below the retest candle low at $2,373 (12 pips below entry). <strong>Target:</strong> Next projected HH area at $2,440. <strong>R:R = 1:4.6.</strong></p>
+          <p>This is a vastly better entry than buying the BOS itself (at $2,392) because the retest gives you a tighter stop (12 pips vs. potentially 30+ pips if you buy the break) and therefore a larger reward-to-risk ratio on the same trade.</p>
+        </div>
+
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip — Wait for the Retest</div>
+          <p>Chasing the break is one of the most common and costly mistakes in trading. When you see a BOS, your instinct may scream "buy now before it runs away!" Resist it. In most cases, price will retest the broken level. Waiting for the retest gives you: (1) a lower-risk entry, (2) a tighter stop loss, (3) a higher R:R ratio, and (4) confirmation that the level is now acting as support. Traders who chase the break often buy near the top of the initial impulse — just before the retest — and then get stopped out on the dip, only to watch price resume higher after they exit. Patience is the distinguishing factor between amateur and professional execution.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <h2>BOS in the Context of Multi-Timeframe Structure</h2>
+        <p>At the expert level, understanding a BOS requires knowing exactly which structural level the break occurred on, what timeframe it belongs to, and whether it represents a genuine continuation of the dominant trend or merely a correction within a larger opposing trend. The same price event can mean completely different things depending on its timeframe context.</p>
+
+        <h3>Internal BOS vs External BOS</h3>
+        <p>An <strong>internal BOS</strong> is a break of a swing high or low on a lower timeframe (H1, M15) while a higher timeframe (D1, H4) is still in the opposite structure. For example: D1 is bearish (LH/LL), but H4 has been correcting upward. On H1, the corrective uptrend just made a new HH — this is an internal BOS on H1. It does not change the D1 bearish bias. It is a correction within the larger downtrend.</p>
+        <p>If you see an internal BOS while your external structure (D1) points the other way, you should NOT trade in the direction of the internal BOS. The internal BOS is a trap — it will appear to be a breakout, but the higher timeframe bias will eventually reassert itself and stop out anyone who bought the internal BOS as a long.</p>
+        <p>An <strong>external BOS</strong> is a break of the major structural swing high or low on your primary analysis timeframe (typically H4 or D1). This carries full weight as a trend continuation signal.</p>
+
+        <h3>Impulsive vs Gradual BOS</h3>
+        <p>Not all BOS events are equal in reliability. The character of the break matters enormously:</p>
+        <p><strong>Impulsive BOS:</strong> A fast, large-bodied candle breaks decisively above the swing high with strong momentum and above-average range. This is the ideal BOS — it shows genuine institutional conviction behind the move. Retests of impulsive BOS levels tend to hold, and the continuation tends to be large.</p>
+        <p><strong>Gradual/Grinding BOS:</strong> Price slowly grinds above the swing high over multiple candles, with overlapping ranges and no clear momentum. This type of BOS is less reliable and more prone to fake-outs. Be cautious about trading retests from gradual BOS events — they may not hold as cleanly.</p>
+
+        <h3>Order Flow Confirmation of BOS</h3>
+        <p>Volume is the most direct window into order flow during a BOS. A genuine institutional BOS will be accompanied by a significant volume expansion on the break candle — significantly above the average volume of recent candles. This volume spike tells you that large institutional orders were executed to create the break. Without the volume, the break was likely retail-driven momentum that may not sustain.</p>
+        <p>The second order flow signal is what happens immediately after the BOS candle closes. In a genuine institutional BOS, price often does not immediately retrace. Instead, it consolidates (moves sideways) just above the broken level for 1–3 candles, then continues higher. This "pause then continue" pattern shows that institutional buyers have stepped in at the new level, absorbing any selling and maintaining price above the broken structure. A fake BOS, by contrast, immediately reverses back below the broken level — often within the same candle or the next one.</p>
+
+        <h3>Wicks vs Bodies for BOS Confirmation</h3>
+        <p>The most rigorous approach to BOS confirmation: require a full candle <em>body</em> close beyond the swing point, not just a wick. A wick is a temporary excursion — price went there intracandle but buyers/sellers rejected it before the candle closed. A body close means price settled beyond the level — the session ended with price on the new side. This is a fundamentally different and stronger signal.</p>
+        <p>Some experienced traders use an even stricter rule: require the <em>next</em> candle after the break to also close on the new side of the swing point. If two consecutive candles close beyond the level, the BOS is very likely genuine.</p>
+
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip — Wicks vs Bodies in Practice</div>
+          <p>In fast markets (like news events), wicks can temporarily spike far beyond swing points. If you use wicks for BOS confirmation, you will enter trades on news spikes that immediately reverse. Use body closes exclusively. When backtesting your structure analysis, you will find that body-close BOS signals have significantly higher follow-through rates than wick-break BOS signals. The few extra pips of confirmation you give up by waiting for the body close are far less costly than the false entries you avoid.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>A Break of Structure is a continuation signal — it confirms the existing trend is still intact. Wait for price to retest the broken level before entering; the retest provides a lower-risk entry with better reward potential than chasing the break.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="bullish-vs-bearish-structure.html" class="btn-nav">← Previous</a>
+          <a href="change-of-character.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay">
+  <div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div>
+  <div id="confettiContainer"></div>
+</div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

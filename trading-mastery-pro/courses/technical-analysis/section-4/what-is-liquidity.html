@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>What is Liquidity | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="4-1">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 4 · Mastering Liquidity</div>
+      <h1 class="lesson-title">What is Liquidity</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>Liquidity refers to the presence of enough buy AND sell orders at a given price for trades to be executed quickly and at the expected price. High liquidity means many orders exist — price moves smoothly and your fills are precise. Low liquidity means few orders — price moves erratically and your fill may be far from your intended price.</p>
+        <p>For traders, "liquidity" often has a deeper meaning: clusters of pending orders — especially stop losses — that large institutions can target to fill their own massive positions.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Liquidity</strong><span> — The availability of buy and sell orders at a price level, allowing trades to be executed efficiently.</span></div>
+          <div class="term"><strong>Thin Market</strong><span> — A market with few orders; price can move sharply on small trades.</span></div>
+          <div class="term"><strong>Thick Market</strong><span> — A market with many orders; price is stable and fills are accurate.</span></div>
+          <div class="term"><strong>Stop Loss Pool</strong><span> — A cluster of stop loss orders resting at or near a key price level.</span></div>
+          <div class="term"><strong>Pending Orders</strong><span> — Buy or sell orders that have been placed but not yet triggered by price reaching their level.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>Major currency pairs like EURUSD and XAUUSD are extremely liquid — trillions of dollars are traded daily, so your orders fill instantly at or very near your expected price. Small-cap stocks or obscure crypto tokens are illiquid — you might place an order at $10.00 and get filled at $10.35 because there simply are not enough matching orders at $10.00.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>In smart money trading, liquidity has a very specific meaning: it is the resting orders that accumulate above swing highs and below swing lows. Retail traders are trained to place stop losses below support (creating sell stops — sell orders clustered below a swing low) and above resistance (creating buy stops — buy orders clustered above a swing high).</p>
+        <p>Institutions KNOW these stop clusters exist and systematically target them. By pushing price into a stop cluster, institutions trigger all those orders at once. This gives them the trading volume they need to fill their own large position at a favorable price — before reversing and moving in their intended direction. This is the fundamental mechanism behind "stop hunts," covered in detail in Lesson 4.4.</p>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>To identify liquidity pools visually, look for obvious double bottoms, triple tops, and equal highs or lows on the chart. These are the price levels where retail stop orders cluster most densely — and therefore the most likely targets for institutional sweeps before the real move begins.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>From a market microstructure perspective, liquidity is literally visible in the order book for futures and stock markets: bid orders (buy limit orders) stack below price, ask orders (sell limit orders) stack above. In the OTC forex market this order book is invisible, but institutional accumulation and distribution leave the same footprint in price action.</p>
+        <p>"Thin" areas on a chart — gaps, fair value gaps (FVGs) — are low-liquidity zones that price moves through quickly because few orders resist the move. "Thick" areas — consolidations, order blocks — are where orders are densely packed and price slows or reverses. Understanding liquidity as a <em>draw</em> — a destination price is being pulled toward — transforms your analysis from reactive to predictive.</p>
+        <div class="key-terms">
+          <h4>Advanced Concepts</h4>
+          <div class="term"><strong>Fair Value Gap (FVG)</strong><span> — A three-candle formation where the middle candle's body leaves an unfilled gap; a low-liquidity zone price often returns to fill.</span></div>
+          <div class="term"><strong>Liquidity Draw</strong><span> — The nearest significant pool of resting orders that price is gravitationally attracted toward before a reversal.</span></div>
+          <div class="term"><strong>Order Book</strong><span> — The real-time list of all pending buy and sell limit orders at each price level in centralized markets.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Session Timing for Liquidity Events</div>
+          <p>Liquidity is highest during the London–New York overlap (8:00 am – 12:00 pm EST). Stop hunts and major directional moves most commonly occur at session opens — London at 3:00 am EST and New York at 8:00 am EST — when institutional volume enters the market and begins targeting resting order pools.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>During low-liquidity windows (Asian session, overnight gaps), price often drifts toward a liquidity pool without triggering it. The actual sweep and reversal almost always occurs once institutional volume arrives at a session open. Set price alerts at your identified liquidity levels and wait for London or New York to do the work.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Liquidity is the pool of resting orders in the market. For institutional traders, these pools are the raw material they need to execute large trades. Understanding where liquidity sits — above swing highs, below swing lows, at equal price levels — tells you where price is likely to be drawn before reversing.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="../section-3/breaker-blocks.html" class="btn-nav">← Previous</a>
+          <a href="buy-side-vs-sell-side-liquidity.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

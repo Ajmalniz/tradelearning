@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Building Your Trading Plan | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="6-4">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section open" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 6 · Putting It All Together</div>
+      <h1 class="lesson-title">Building Your Trading Plan</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>A trading plan is your personal rulebook — a written document that governs every aspect of your trading activity. It covers what you trade, when you trade, how much you risk, what setups you take, and what you do when things go wrong. Without it, every trading session starts from scratch with no consistent framework guiding your decisions.</p>
+        <p>A trading plan does not guarantee profits. It does guarantee consistency — and consistency is what allows you to identify and fix problems, build real skill, and eventually achieve profitability. Traders without plans cannot learn from experience because every session is a different improvised experiment.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Trading Plan</strong><span> — A written personal document specifying: markets traded, timeframes, entry rules, risk parameters, session rules, and journaling requirements.</span></div>
+          <div class="term"><strong>Trading Journal</strong><span> — A systematic record of every trade: date, instrument, entry, exit, outcome, and notes on execution quality and emotional state.</span></div>
+          <div class="term"><strong>Edge</strong><span> — A statistical advantage that, when applied consistently over many trades, produces a positive expected return.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Minimal Beginner Trading Plan</div>
+          <p><strong>Markets:</strong> EURUSD and XAUUSD only.<br>
+          <strong>Timeframes:</strong> Daily (bias) → H4 (zones) → H1 (entry).<br>
+          <strong>Setup:</strong> HTF bullish/bearish structure + price at demand/supply zone + H1 confirmation candle.<br>
+          <strong>Risk:</strong> 1% per trade maximum. No more than 2 trades open at once.<br>
+          <strong>Sessions:</strong> London (3–6am EST) and New York (8–11am EST) only.<br>
+          <strong>Daily Stop:</strong> Stop trading after 2 losses in one day.<br>
+          <strong>Journaling:</strong> Log every trade before ending the session.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>A complete intermediate trading plan has six sections:</p>
+        <p><strong>Section 1 — Markets and Timeframes</strong><br>List the specific instruments you will trade. Start with 2–3 maximum. Specify your analysis timeframes: HTF for bias, MTF for zone identification, LTF for entry trigger. Consistency across instruments and timeframes is what builds pattern recognition.</p>
+        <p><strong>Section 2 — Setup Rules</strong><br>Define exactly what constitutes a valid setup. For example: "I only enter if: (a) Daily structure is bullish/bearish, (b) price is at a pre-marked H4 OB or S&amp;D zone, (c) a liquidity sweep has occurred at or near the zone, and (d) a H1 CHoCH or BOS confirms direction." Every criterion must be binary — yes or no — to prevent subjective interpretation.</p>
+        <p><strong>Section 3 — Risk Rules</strong><br>Risk per trade: 1%. Maximum daily loss: 2–3% (stop trading for the day). Maximum open positions: 2 (or 3 if non-correlated). Minimum R:R: 1:2 on every trade. These are hard limits — not guidelines.</p>
+        <p><strong>Section 4 — Session and Timing Rules</strong><br>Which hours you trade and which you do not. No trading during major news events (CPI, NFP, Fed rate decisions). No trading during the Asian session dead zone (10pm–2am EST) unless a specific setup triggers. These rules prevent low-probability entries driven by boredom rather than analysis.</p>
+        <p><strong>Section 5 — Trade Management Rules</strong><br>When (if ever) you move your SL to breakeven. Your partial close targets if using scale-out. Your maximum hold time. Your rules for exiting early — and the default should be "no early exits unless setup is fundamentally invalidated on the higher timeframe."</p>
+        <p><strong>Section 6 — Journaling Requirements</strong><br>Record for every trade: date, instrument, entry price, SL, TP, lot size, outcome (pips + dollars), whether setup met all criteria (yes/no), and your emotional state at entry. Review weekly. Calculate win rate, average R:R, and equity curve. Adjust the plan quarterly based on data, not emotions.</p>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Write your first trading plan today — even if it is rough. A bad written plan beats a perfect mental plan. The act of writing forces you to make decisions you have been avoiding: exactly which setups, exactly which markets, exactly which risk limits. You can refine it as you learn, but you cannot refine something that only exists in your head.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>An expert trading plan adds quantitative performance targets, adaptive rules, and quarterly review protocols:</p>
+        <p><strong>Performance Targets (realistic, not aspirational):</strong><br>
+        Monthly target: +3–5% on account balance.<br>
+        Weekly target: Not meaningful — focus on monthly.<br>
+        Maximum monthly drawdown: 5% (if hit, reduce to paper trading for one week).<br>
+        Minimum 50 trades before evaluating strategy performance statistically.</p>
+        <p><strong>Adaptive Risk Rules:</strong><br>
+        Win rate &gt;55% over last 20 trades: allowed to add one additional instrument to watchlist.<br>
+        Drawdown &gt;10%: reduce position size to 0.5% until equity recovers to -5%.<br>
+        Three consecutive losing weeks: take a 3-day break from live trading, review journal.</p>
+        <p><strong>Quarterly Review Protocol:</strong><br>
+        Calculate: total trades, win rate, average winner (R), average loser (R), max consecutive losses, max drawdown, monthly P&amp;L.<br>
+        Ask: Which setup type has the highest win rate? Which instrument performs best? Which session produces the most consistent results? Which emotional patterns appear before losing trades?<br>
+        Adjust: Remove underperforming setups. Increase weighting toward consistently profitable patterns.</p>
+        <div class="key-terms">
+          <h4>Journal Metrics to Track</h4>
+          <div class="term"><strong>Win Rate</strong><span> — Percentage of trades that were profitable. Target: not maximized, but above the break-even rate for your R:R.</span></div>
+          <div class="term"><strong>Average R per trade</strong><span> — (Total R gained − Total R lost) ÷ Total trades. Positive number = profitable strategy.</span></div>
+          <div class="term"><strong>Max Consecutive Losses</strong><span> — The longest losing streak in your sample. Plan your psychology for this — it will happen.</span></div>
+          <div class="term"><strong>Equity Curve</strong><span> — A line chart of your account balance over time. Smooth upward slope = consistent edge. Choppy or declining = review required.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Full Expert Plan Snapshot</div>
+          <p><strong>Markets:</strong> XAUUSD, EURUSD, GBPUSD.<br>
+          <strong>Setup:</strong> Smart Money Concept — HTF structure + OB/S&amp;D zone + liquidity sweep + LTF CHoCH.<br>
+          <strong>Risk:</strong> 1% per trade. Max 3 open, non-correlated. Daily stop: 2%.<br>
+          <strong>Session:</strong> London open (3–5am) and NY open (8–10am) only.<br>
+          <strong>Targets:</strong> Monthly +4%. Max monthly drawdown: 5%.<br>
+          <strong>Journal:</strong> Every trade logged. Weekly review Sundays. Quarterly strategy assessment.<br>
+          <strong>Scale-up gate:</strong> Three profitable months minimum before increasing position size.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Treat your trading plan as a living document, not a fixed contract. It should evolve as your data accumulates. But only change it based on your journal data — not based on a bad week's emotions. The rule: never make plan changes during a drawdown. Wait until you are at a neutral or positive equity position, then review calmly and make reasoned adjustments.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>A trading plan is your operating manual. Cover markets, setup rules, risk parameters, session rules, trade management, and journaling requirements. Write it, follow it, review it quarterly, and update it only based on data — not emotions. This document is the difference between a gambler and a trader.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="live-chart-walkthroughs.html" class="btn-nav">← Previous</a>
+          <a href="simplicity-as-an-edge.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

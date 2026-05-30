@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Integrating S&D with Market Structure | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="3-3">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 3 · Supply &amp; Demand</div>
+      <h1 class="lesson-title">Integrating S&amp;D with Market Structure</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>This is the most important rule in supply and demand trading:</p>
+        <ul>
+          <li>Only trade <strong>DEMAND zones</strong> when market structure is <strong>BULLISH</strong></li>
+          <li>Only trade <strong>SUPPLY zones</strong> when market structure is <strong>BEARISH</strong></li>
+        </ul>
+        <p>If you trade a demand zone inside a bearish market, you are fighting the trend. The probability is against you, even if the zone looks textbook-perfect. Structure is the filter — use it to eliminate low-probability setups before you even look at zones.</p>
+        <h4>The 3-Step Application</h4>
+        <ol>
+          <li><strong>Step 1</strong> — Identify structure on H4 or Daily: is the market making Higher Highs / Higher Lows (bullish) or Lower Highs / Lower Lows (bearish)?</li>
+          <li><strong>Step 2</strong> — Mark all relevant supply and demand zones on H4</li>
+          <li><strong>Step 3</strong> — Only trade zones that align with the structure identified in Step 1</li>
+        </ol>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Confluence</strong><span> — When multiple independent signals agree, increasing the probability of the expected outcome.</span></div>
+          <div class="term"><strong>Bias</strong><span> — Your directional expectation for the market based on structure; either bullish or bearish.</span></div>
+          <div class="term"><strong>With-the-Trend</strong><span> — Trading in the direction of the dominant structure; the highest-probability approach.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>Daily XAUUSD is in bullish structure (Higher Highs and Higher Lows clearly visible). On H4, price pulls back to a demand zone at $2,290. This is a <strong>valid long setup</strong> — structure and zone agree. Now imagine Daily XAUUSD was instead making Lower Lows and Lower Highs (bearish). That same $2,290 demand zone would be <strong>ignored</strong> — the bias is short, and demand zones in a bearish market are fighting the flow.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>When you first look at a chart, ask one question before anything else: <em>"Is this market bullish or bearish right now?"</em> Write it down. That single word — bullish or bearish — determines which half of all zones on your chart you are allowed to trade. This discipline alone will eliminate the majority of losing trades.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>The intermediate approach uses <strong>multi-timeframe confluence</strong> to layer evidence and filter for only the highest-probability setups.</p>
+        <h4>The Three-Timeframe Framework</h4>
+        <ul>
+          <li><strong>D1 (Daily)</strong> — Sets the bias: bullish or bearish. This is your non-negotiable filter.</li>
+          <li><strong>H4 (4-Hour)</strong> — Identifies the significant supply and demand zones. This is your trading zone.</li>
+          <li><strong>H1 (1-Hour)</strong> — Provides the entry trigger: a reversal candle, lower-timeframe BOS, or order block retest inside the H4 zone.</li>
+        </ul>
+        <p>When all three align — D1 bullish, H4 demand zone reached, H1 bullish confirmation — you have a <strong>high-probability setup</strong>. Do not take an H4 zone trade without the H1 confirmation. Do not take the H1 confirmation without the D1 bias.</p>
+        <h4>Confluent Zones</h4>
+        <p>A zone's strength multiplies when it appears on multiple timeframes simultaneously. A D1 demand zone that also contains an H4 demand zone within it is a <strong>confluent zone</strong> — institutional interest is layered at that level. These zones produce the most explosive reactions and are the highest-probability entries available.</p>
+        <h4>Zone Age and Significance</h4>
+        <p>Zones have a shelf life. If a demand zone on H4 has existed through more than 5 swing periods without being tested, institutional orders at that level may have been cancelled, filled at different prices, or re-positioned. Prioritise zones formed in the last 10–20 candles over zones from weeks ago. Fresh and near = relevant. Old and far = potentially expired.</p>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>GBPUSD: D1 bullish structure confirmed. On H4, a fresh demand zone sits at 1.2640–1.2655 — formed just 3 days ago after a BOS. H4 is now pulling back toward that zone. Price reaches 1.2645. On H1, a bullish engulfing candle forms. All three frames agree: D1 bullish + H4 fresh demand zone + H1 bullish trigger = execute the long. Stop below 1.2635. Target next H4 swing high at 1.2760. R:R = 1:11.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Always work <strong>top-down</strong> — start at Daily, move to H4, end at H1. Never start at H1 and work upward — you will cherry-pick entry signals that contradict the higher-timeframe reality. The higher timeframe always dominates the lower timeframe.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>The expert integration of S&amp;D with market structure is what advanced traders call <strong>layered analysis</strong> — a systematic framework that produces a binary decision: trade or no trade, with zero ambiguity.</p>
+        <h4>The Full Layered Analysis Framework</h4>
+        <ol>
+          <li><strong>HTF (Weekly/Daily)</strong> — Macro bias. Is price in a bullish or bearish macro environment? What is the nearest HTF supply or demand zone?</li>
+          <li><strong>MTF (H4)</strong> — Trading zone. What specific S&amp;D zone is price approaching? Is it fresh? Is it within HTF structure?</li>
+          <li><strong>LTF (H1/M15)</strong> — Entry trigger. What is the lowest-timeframe confirmation confirming institutional activity at the MTF zone? (H1 BOS, M15 order block retest, bullish/bearish engulfing candle)</li>
+        </ol>
+        <p>The classic 4-condition entry checklist:</p>
+        <ol>
+          <li>HTF is bullish (or bearish for shorts)</li>
+          <li>Price is in an HTF demand zone (or supply zone)</li>
+          <li>H4 shows internal bullish structure — H4 is now making HH/HL within the HTF zone</li>
+          <li>M15 shows the entry candle: engulfing, pin bar, or order block retest</li>
+        </ol>
+        <h4>When HTF and MTF Disagree</h4>
+        <p>The most common mistake: trading an H4 demand zone when the D1 is bearish. What happens? The H4 zone may produce a bounce, but it will be short-lived because the D1 sell orders are much larger than the H4 buy orders. The zone reacts, you get into profit, then price reverses hard against you.</p>
+        <p>The rule: if HTF and MTF disagree — <strong>reduce position size by 50–75% or skip entirely</strong>. Track countertrend setups separately in your journal. You will quickly see that the win rate and average R:R are both meaningfully lower than aligned setups.</p>
+        <h4>Structure-Zone Convergence Mapping</h4>
+        <p>Advanced traders maintain a "zone map" — a visual reference of the 3–5 most significant S&amp;D zones across D1 and H4, each labelled with: timeframe, freshness (first / second test), aligned or countertrend, and the required entry trigger. Price always moves between these zones. Instead of reacting to price, you wait at the zone with a pre-defined plan.</p>
+        <div class="key-terms">
+          <h4>Advanced Concepts</h4>
+          <div class="term"><strong>Layered Analysis</strong><span> — Systematically confirming a setup across HTF, MTF, and LTF before executing, ensuring all timeframes agree.</span></div>
+          <div class="term"><strong>Countertrend Setup</strong><span> — Trading a zone that opposes the HTF structure; lower probability, requires reduced size.</span></div>
+          <div class="term"><strong>Zone Map</strong><span> — A pre-planned reference of key S&amp;D zones with entry criteria defined in advance, eliminating in-the-moment decision errors.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>XAUUSD layered analysis: Weekly — bullish (HH/HL, price above all major swing lows). Daily — bullish, approaching D1 demand zone at $2,280–$2,300. H4 — internal structure has turned bullish within the D1 demand zone (H4 made a higher high after a CHoCH). M15 — bullish order block at $2,289 (last bearish M15 candle before the H4 CHoCH). All four layers agree. Entry: $2,289–$2,291. Stop: $2,278 (below D1 demand zone body low). Target: D1 supply zone at $2,360. R:R = 1:6.5. This is a textbook layered analysis trade.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Track your win rate separately for <strong>aligned setups</strong> (all timeframes agree) versus <strong>countertrend setups</strong> (HTF and MTF disagree). Most traders who do this discover that aligned setups have a 60–70% win rate while countertrend setups sit at 35–45%. The data will convince you, more powerfully than any rule, to wait for alignment. Build the habit of recording this in your trade journal from day one.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Supply and demand zones are only meaningful in the context of market structure. Trade demand in bullish structure, supply in bearish structure. When all three timeframes agree — macro bias, zone location, and entry trigger — you have a genuinely high-probability setup worth risking capital on.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="demand-zones.html" class="btn-nav">← Previous</a>
+          <a href="what-are-order-blocks.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

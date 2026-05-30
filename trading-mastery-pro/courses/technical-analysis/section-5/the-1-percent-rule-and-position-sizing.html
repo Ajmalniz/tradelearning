@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The 1% Rule &amp; Position Sizing | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="5-2">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section open" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 5 · Risk Management &amp; Position Sizing</div>
+      <h1 class="lesson-title">The 1% Rule &amp; Position Sizing</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>The 1% rule is simple: never risk more than 1% of your trading account on a single trade. On a $5,000 account, 1% = $50. That is the maximum amount you can lose before you cut your loss and move on to the next setup.</p>
+        <p>This feels tiny at first. It is designed to. Trading is a long game played over hundreds of trades. Your job is to stay in the game long enough for your statistical edge to play out — and risking 1% per trade ensures you can survive a 20-trade losing streak (which is rare but possible) and still have over 80% of your account intact to fight back.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Risk %</strong><span> — The percentage of account balance you are prepared to lose on a single trade. Standard: 1%.</span></div>
+          <div class="term"><strong>Dollar Risk</strong><span> — The actual dollar amount at risk: Account Balance × Risk%. On $5,000 at 1% = $50.</span></div>
+          <div class="term"><strong>Lot Size</strong><span> — The number of units of an instrument traded. Standard lot = 100,000 units (forex). Mini lot = 10,000. Micro lot = 1,000.</span></div>
+          <div class="term"><strong>Pip Value</strong><span> — The dollar value of a one-pip move for a given lot size. For EURUSD standard lot: $10 per pip.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>$5,000 account, 1% risk = $50 maximum loss. You have a EURUSD setup with a 25-pip stop loss. Pip value for a standard EURUSD lot = $10/pip. Position Size = $50 ÷ (25 pips × $10) = $50 ÷ $250 = 0.2 lots. Simple, exact, and enforced before you place the trade.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>The position sizing formula converts your risk tolerance into an exact lot size every time:</p>
+        <div class="key-terms">
+          <h4>The Formula</h4>
+          <div class="term"><strong>Position Size</strong><span> = (Account Balance × Risk%) ÷ (SL pips × Pip Value per lot)</span></div>
+        </div>
+        <p>Let's work through a XAUUSD (Gold) example with a $5,000 account:</p>
+        <ul style="margin: 12px 0 12px 20px; line-height: 2;">
+          <li>Account Balance: $5,000</li>
+          <li>Risk per trade: 1% → Dollar risk = $50</li>
+          <li>Stop loss: 25 pips (on XAUUSD, 1 pip = $0.01 price movement)</li>
+          <li>Pip value for XAUUSD: 1 standard lot = $10/pip</li>
+          <li><strong>Position Size = $50 ÷ (25 × $10) = $50 ÷ $250 = 0.2 lots</strong></li>
+        </ul>
+        <p>At 0.2 lots: if price moves 25 pips against you and hits your stop, you lose exactly $50 — precisely 1% of your account. The formula works for any instrument, any account size, any stop distance.</p>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Pip values differ by instrument and account currency. EURUSD standard lot = $10/pip. GBPJPY can be $7–8/pip due to the JPY conversion. For exotic pairs, always check your broker's contract specifications or use their built-in position size calculator before trading — never assume the pip value.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>The 1% rule is a baseline — professional risk management scales dynamically based on account performance, market regime, and correlation exposure:</p>
+        <p><strong>Drawdown scaling:</strong> When in a 10%+ drawdown, reduce to 0.5% per trade. The reduced size lowers the hurdle for recovery mathematically — fewer large losses mean the percentage gain needed to recover stays manageable. Many professionals use a step-down schedule: 10% drawdown → 0.75% risk; 15% drawdown → 0.5%; 20% drawdown → stop trading and review.</p>
+        <p><strong>Performance scaling:</strong> Only increase to 1.5–2% risk after demonstrating consistent profitability across 50+ trades with a positive expectancy. Never increase size during a winning streak — that is when overconfidence is most dangerous.</p>
+        <div class="key-terms">
+          <h4>Advanced Concepts</h4>
+          <div class="term"><strong>Dynamic Position Sizing</strong><span> — Adjusting risk% based on account performance, drawdown depth, and market volatility conditions.</span></div>
+          <div class="term"><strong>Portfolio Exposure</strong><span> — Total dollar risk across all open positions simultaneously. Should never exceed 3–5% of account balance.</span></div>
+          <div class="term"><strong>Correlation Adjustment</strong><span> — Treating correlated positions (e.g., EURUSD + GBPUSD longs) as a single trade for total exposure calculation.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Portfolio Exposure Example</div>
+          <p>$50,000 account, 1% risk = $500/trade. You have EURUSD long (SL 30 pips, $450 risk), GBPUSD long (SL 35 pips, $490 risk), and XAUUSD long (SL 40 pips, $480 risk). Total open risk = $1,420 = 2.84% — acceptable. But all three are effectively USD-short positions. A sudden USD-positive shock hits all three simultaneously. True effective risk = $1,420 on one macro event. This is why correlation checking is mandatory before adding any new position.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Build a simple spreadsheet with columns: Account Balance, Risk%, SL pips, Pip Value per lot, and Calculated Lot Size (auto-formula). Use it before every single trade. Also add a "Total Open Risk" cell that sums all current position dollar risks — never let this exceed 4% of your account regardless of how many trades you have open.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Position sizing is risk management made mathematical. The formula <em>Position Size = (Account Balance × Risk%) ÷ (SL pips × Pip Value)</em> converts your risk tolerance into a precise lot size. Calculate it for every trade, every time — no exceptions, no gut feelings.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="why-risk-management-comes-first.html" class="btn-nav">← Previous</a>
+          <a href="stop-loss-placement-strategies.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>

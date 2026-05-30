@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Buy-Side vs Sell-Side Liquidity | Technical Analysis Mastery</title>
+<link rel="stylesheet" href="../../../css/course.css">
+</head>
+<body data-lesson-id="4-2">
+<header class="top-bar">
+  <button class="hamburger" id="hamburger">☰</button>
+  <div class="course-title-bar">Technical Analysis Mastery</div>
+  <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><span class="progress-text" id="progressText">0%</span></div>
+</header>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><a href="../../../index.html" class="sidebar-logo">Trading Mastery Pro</a><button class="sidebar-close" id="sidebarClose">✕</button></div>
+  <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search lessons..."></div>
+  <nav class="sidebar-nav">
+    <div class="nav-section" id="nav-s1"><div class="nav-section-header" onclick="toggleSection('s1')"><span class="nav-num">01</span><span class="nav-title">Course Introduction</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-1/what-is-technical-analysis.html" data-id="1-1">What is Technical Analysis</a></li><li><a href="../section-1/why-ta-works-across-all-markets.html" data-id="1-2">Why TA Works Across All Markets</a></li><li><a href="../section-1/how-to-use-this-course.html" data-id="1-3">How to Use This Course</a></li><li><a href="../section-1/tools-and-platforms.html" data-id="1-4">Tools and Platforms</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s2"><div class="nav-section-header" onclick="toggleSection('s2')"><span class="nav-num">02</span><span class="nav-title">Market Structure</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-2/what-is-market-structure.html" data-id="2-1">What is Market Structure</a></li><li><a href="../section-2/identifying-highs-and-lows.html" data-id="2-2">Identifying Highs and Lows</a></li><li><a href="../section-2/bullish-vs-bearish-structure.html" data-id="2-3">Bullish vs Bearish Structure</a></li><li><a href="../section-2/break-of-structure.html" data-id="2-4">Break of Structure (BOS)</a></li><li><a href="../section-2/change-of-character.html" data-id="2-5">Change of Character (CHoCH)</a></li><li><a href="../section-2/live-chart-examples.html" data-id="2-6">Live Chart Examples</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s3"><div class="nav-section-header" onclick="toggleSection('s3')"><span class="nav-num">03</span><span class="nav-title">Supply &amp; Demand / Order Blocks</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-3/supply-zones.html" data-id="3-1">Supply Zones Explained</a></li><li><a href="../section-3/demand-zones.html" data-id="3-2">Demand Zones Explained</a></li><li><a href="../section-3/integrating-sd-with-market-structure.html" data-id="3-3">Integrating S&amp;D with Market Structure</a></li><li><a href="../section-3/what-are-order-blocks.html" data-id="3-4">What are Order Blocks</a></li><li><a href="../section-3/bullish-and-bearish-order-blocks.html" data-id="3-5">Bullish and Bearish Order Blocks</a></li><li><a href="../section-3/breaker-blocks.html" data-id="3-6">Breaker Blocks</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s4"><div class="nav-section-header" onclick="toggleSection('s4')"><span class="nav-num">04</span><span class="nav-title">Mastering Liquidity</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-4/what-is-liquidity.html" data-id="4-1">What is Liquidity</a></li><li><a href="../section-4/buy-side-vs-sell-side-liquidity.html" data-id="4-2">Buy-Side vs Sell-Side Liquidity</a></li><li><a href="../section-4/equal-highs-lows-as-liquidity.html" data-id="4-3">Equal Highs/Lows as Liquidity</a></li><li><a href="../section-4/stop-hunts-and-liquidity-grabs.html" data-id="4-4">Stop Hunts and Liquidity Grabs</a></li><li><a href="../section-4/how-institutions-use-liquidity.html" data-id="4-5">How Institutions Use Liquidity</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s5"><div class="nav-section-header" onclick="toggleSection('s5')"><span class="nav-num">05</span><span class="nav-title">Risk Management</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-5/why-risk-management-comes-first.html" data-id="5-1">Why Risk Management Comes First</a></li><li><a href="../section-5/the-1-percent-rule-and-position-sizing.html" data-id="5-2">The 1% Rule &amp; Position Sizing</a></li><li><a href="../section-5/stop-loss-placement-strategies.html" data-id="5-3">Stop Loss Placement Strategies</a></li><li><a href="../section-5/risk-to-reward-ratios.html" data-id="5-4">Risk-to-Reward Ratios</a></li><li><a href="../section-5/trading-psychology.html" data-id="5-5">Trading Psychology: Fear &amp; Greed</a></li><li><a href="../section-5/building-a-risk-checklist.html" data-id="5-6">Building a Risk Checklist</a></li></ul>
+    </div>
+    <div class="nav-section" id="nav-s6"><div class="nav-section-header" onclick="toggleSection('s6')"><span class="nav-num">06</span><span class="nav-title">Putting It All Together</span><span class="nav-chevron">▾</span></div>
+      <ul class="nav-lessons"><li><a href="../section-6/multi-confluence-trading-setup.html" data-id="6-1">Multi-Confluence Trading Setup</a></li><li><a href="../section-6/step-by-step-trade-planning.html" data-id="6-2">Step-by-Step Trade Planning</a></li><li><a href="../section-6/live-chart-walkthroughs.html" data-id="6-3">Live Chart Walkthroughs</a></li><li><a href="../section-6/building-your-trading-plan.html" data-id="6-4">Building Your Trading Plan</a></li><li><a href="../section-6/simplicity-as-an-edge.html" data-id="6-5">Simplicity as an Edge</a></li><li><a href="../section-6/final-assessment.html" data-id="6-6">Final Assessment</a></li></ul>
+    </div>
+  </nav>
+  <div class="sidebar-bottom"><a href="../index.html" class="back-btn">← Course Hub</a></div>
+</aside>
+<main class="main-content">
+  <div class="lesson-wrap">
+    <div class="lesson-card">
+      <div class="section-badge">Section 4 · Mastering Liquidity</div>
+      <h1 class="lesson-title">Buy-Side vs Sell-Side Liquidity</h1>
+      <div class="level-tabs">
+        <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">🟢 Beginner</button>
+        <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">🔵 Intermediate</button>
+        <button class="level-tab" data-level="expert" onclick="switchLevel('expert')">🟣 Expert</button>
+      </div>
+
+      <div class="level-content active" id="level-beginner">
+        <p>There are two types of liquidity, defined by <em>where</em> on the chart they sit:</p>
+        <p><strong>Buy-Side Liquidity (BSL)</strong> sits ABOVE swing highs. These are the stop losses of traders who are short — they placed buy stop orders just above resistance. When price sweeps above a high, it triggers all of these buy stops simultaneously.</p>
+        <p><strong>Sell-Side Liquidity (SSL)</strong> sits BELOW swing lows. These are the stop losses of traders who are long — they placed sell stop orders just below support. When price sweeps below a low, it triggers all of those sell stops.</p>
+        <p>The critical insight: to buy a large position, an institution needs SELL orders on the other side. Sell-side liquidity provides those sell orders. To sell a large position, it needs BUY orders — buy-side liquidity provides those.</p>
+        <div class="key-terms">
+          <h4>Key Terms</h4>
+          <div class="term"><strong>Buy-Side Liquidity (BSL)</strong><span> — Clusters of buy stop orders resting above swing highs; the stop losses of short traders.</span></div>
+          <div class="term"><strong>Sell-Side Liquidity (SSL)</strong><span> — Clusters of sell stop orders resting below swing lows; the stop losses of long traders.</span></div>
+          <div class="term"><strong>Buy Stop</strong><span> — An order to buy that triggers when price rises to a specified level above the current price.</span></div>
+          <div class="term"><strong>Sell Stop</strong><span> — An order to sell that triggers when price falls to a specified level below the current price.</span></div>
+        </div>
+        <div class="example-box">
+          <div class="ex-header">📊 Practical Example</div>
+          <p>EURUSD has a clear resistance high at 1.0850. Just above that level, retail short-sellers have placed their stop losses (buy stops). An institution wanting to go long engineers a rally above 1.0850, triggering all those buy stops. The flood of buy orders from triggered stops fills the institution's buy orders at an excellent price. With retail shorts now stopped out and the institution positioned long, price launches higher with no opposing pressure.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-intermediate">
+        <p>Once you understand BSL and SSL, you can use them to predict price targets rather than just understand what already happened.</p>
+        <p>In a <strong>bullish trend</strong>, price is ultimately drawn upward toward BSL — the established highs above. However, before making that major move higher, price will frequently dip into SSL (below recent swing lows) to collect sell-side liquidity. This gives institutions the sell orders they need to fill large buy positions at discounted prices. The result is the classic "stop hunt before the rally" pattern that frustrates retail traders endlessly.</p>
+        <p>The framework in three steps:</p>
+        <ol>
+          <li>SSL is collected (price sweeps below a swing low, triggering long traders' stops)</li>
+          <li>Institutions absorb the sell orders and are now loaded long</li>
+          <li>Price rallies toward BSL above</li>
+        </ol>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>When you see price take out SSL — a sweep below a swing low followed immediately by a strong bullish reversal candle — this is the institutional long entry signal. The stop hunt candle is not the moment to panic and go short; it is the moment to watch for the long entry. Join the institutions, not the retail traders who just got stopped out.</p>
+        </div>
+      </div>
+
+      <div class="level-content" id="level-expert">
+        <p>The complete BSL/SSL framework for professional trade execution follows four stages:</p>
+        <p><strong>Stage 1 — Map the landscape:</strong> Identify all BSL pools (above significant swing highs) and SSL pools (below significant swing lows) on the H4 chart. Draw horizontal lines at each level.</p>
+        <p><strong>Stage 2 — Determine the draw:</strong> Based on the higher timeframe structure (D1/H4), decide which liquidity pool price is currently being drawn toward. In a bullish structure above a key D1 demand zone, price is likely drawn toward BSL. In a bearish structure below a D1 supply zone, it is drawn toward SSL.</p>
+        <p><strong>Stage 3 — Wait for the sweep and reversal:</strong> When price reaches the target liquidity pool, watch for the reversal signal — a CHoCH on the lower timeframe, mitigation of an opposing order block, or a strong displacement candle.</p>
+        <p><strong>Stage 4 — Enter toward the opposite pool:</strong> Once the reversal is confirmed, enter in the direction of the move, targeting the opposite liquidity pool.</p>
+        <div class="example-box">
+          <div class="ex-header">📊 Full-Cycle Trade Example</div>
+          <p>"Price took SSL at 1.0720 (swept below last swing low with a wick rejection). H1 bullish order block sits at 1.0735. Enter long at 1.0738, SL at 1.0715, targeting BSL at 1.0850 (above last swing high)." The R:R from SSL to BSL on this trade is approximately 1:5. These SSL-to-BSL trades, when correctly timed, often deliver the strongest R:R setups in this entire course.</p>
+        </div>
+        <div class="pro-tip">
+          <div class="tip-header">💡 Pro Tip</div>
+          <p>Mark every significant swing high and low on your H4 chart with horizontal lines labelled BSL or SSL. Refresh these weekly as new swing points form. Price will visit these levels systematically — your job is not to predict which one is next, but to be ready with a trade plan for each one and execute when the reversal confirms.</p>
+        </div>
+      </div>
+
+      <div class="key-takeaway">
+        <div class="kt-label">Key Takeaway</div>
+        <p>Buy-side liquidity (BSL) rests above swing highs; sell-side liquidity (SSL) rests below swing lows. Institutions must collect one to fuel a move in the opposite direction. Identify both pools before entering a trade — the sweep of one often signals the start of a move toward the other.</p>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn-complete" id="completeBtn" onclick="toggleComplete()">✓ Mark Complete</button>
+        <div class="nav-btns">
+          <a href="what-is-liquidity.html" class="btn-nav">← Previous</a>
+          <a href="equal-highs-lows-as-liquidity.html" class="btn-nav next">Next →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<button class="scroll-top" id="scrollTop">↑</button>
+<div class="confetti-overlay" id="confettiOverlay"><div class="confetti-msg"><h2>🎉 Course Complete!</h2><p>You've mastered Technical Analysis. Now go trade!</p><button onclick="closeConfetti()">Continue →</button></div><div id="confettiContainer"></div></div>
+<script src="../../../js/course.js"></script>
+</body>
+</html>
