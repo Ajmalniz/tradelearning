@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trading Masterclass Hub — Choose Your Path</title>
 <style>
-:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--teal:#00bcd4;--purple:#9333ea;--pink:#ec4899;--gold:#f0a500;--mastery-teal:#00d4aa;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
+:root{--bg:#060b14;--card:#0d1421;--card2:#162030;--green:#00e676;--teal:#00bcd4;--purple:#9333ea;--pink:#ec4899;--gold:#f0a500;--mastery-teal:#00d4aa;--pro-green:#00c896;--pro-gold:#ffc107;--text:#ecf0f1;--dim:#8899aa;--border:#1e3050}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;min-height:100vh}
 a{color:inherit;text-decoration:none}
@@ -14,31 +14,43 @@ a{color:inherit;text-decoration:none}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(147,51,234,0.07) 0%,transparent 60%)}
 .hero-badge{display:inline-block;background:rgba(147,51,234,0.12);border:1px solid rgba(147,51,234,0.3);color:var(--purple);padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:22px}
 .hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;background:linear-gradient(135deg,#fff 0%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
-.hero p{font-size:1.1rem;color:var(--dim);max-width:620px;margin:0 auto}
+.hero p{font-size:1.1rem;color:var(--dim);max-width:680px;margin:0 auto}
 
 .container{max-width:1280px;margin:0 auto;padding:60px 20px}
 .section-label{text-align:center;font-size:13px;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:40px;font-weight:600}
 
-.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:60px}
-@media(max-width:1024px){.paths{grid-template-columns:1fr 1fr}}
+/* 2×2 grid for 4 courses */
+.paths{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:60px}
 @media(max-width:680px){.paths{grid-template-columns:1fr}}
 
 .path-card{border-radius:20px;padding:32px 28px;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .path-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+
+/* Fabio */
 .path-fabio{background:linear-gradient(135deg,rgba(13,20,33,0.9),rgba(22,32,48,0.9));border:1px solid rgba(0,188,212,0.25)}
 .path-fabio::before{background:linear-gradient(90deg,var(--teal),var(--green))}
 .path-fabio:hover{border-color:rgba(0,188,212,0.5);box-shadow:0 20px 60px rgba(0,188,212,0.1);transform:translateY(-4px)}
+
+/* Tori */
 .path-tori{background:linear-gradient(135deg,rgba(13,20,33,0.9),rgba(22,32,48,0.9));border:1px solid rgba(147,51,234,0.25)}
 .path-tori::before{background:linear-gradient(90deg,var(--purple),var(--pink))}
 .path-tori:hover{border-color:rgba(147,51,234,0.5);box-shadow:0 20px 60px rgba(147,51,234,0.1);transform:translateY(-4px)}
+
+/* Trading Mastery 2026 */
 .path-mastery{background:linear-gradient(135deg,rgba(13,20,33,0.9),rgba(22,32,48,0.9));border:1px solid rgba(0,212,170,0.25)}
 .path-mastery::before{background:linear-gradient(90deg,var(--mastery-teal),var(--gold))}
 .path-mastery:hover{border-color:rgba(0,212,170,0.5);box-shadow:0 20px 60px rgba(0,212,170,0.1);transform:translateY(-4px)}
+
+/* Trading Mastery Pro */
+.path-pro{background:linear-gradient(135deg,rgba(13,20,33,0.9),rgba(22,32,48,0.9));border:1px solid rgba(0,200,150,0.25)}
+.path-pro::before{background:linear-gradient(90deg,var(--pro-green),var(--pro-gold))}
+.path-pro:hover{border-color:rgba(0,200,150,0.5);box-shadow:0 20px 60px rgba(0,200,150,0.1);transform:translateY(-4px)}
 
 .instructor-tag{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:20px;width:fit-content}
 .tag-fabio{background:rgba(0,188,212,0.1);border:1px solid rgba(0,188,212,0.3);color:var(--teal)}
 .tag-tori{background:rgba(147,51,234,0.1);border:1px solid rgba(147,51,234,0.3);color:var(--purple)}
 .tag-mastery{background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);color:var(--mastery-teal)}
+.tag-pro{background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.3);color:var(--pro-green)}
 
 .path-card h2{font-size:1.45rem;font-weight:800;margin-bottom:10px;line-height:1.2}
 .path-card .subtitle{font-size:0.92rem;color:var(--dim);margin-bottom:22px;line-height:1.55}
@@ -50,6 +62,7 @@ a{color:inherit;text-decoration:none}
 .fabio-stat .path-stat-num{color:var(--teal)}
 .tori-stat .path-stat-num{color:var(--purple)}
 .mastery-stat .path-stat-num{color:var(--mastery-teal)}
+.pro-stat .path-stat-num{color:var(--pro-green)}
 
 .path-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
 .ptag{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:8px;padding:4px 9px;font-size:11px;color:var(--dim)}
@@ -61,6 +74,7 @@ a{color:inherit;text-decoration:none}
 .path-fabio .path-highlights li::before{content:'→';color:var(--teal)}
 .path-tori .path-highlights li::before{content:'→';color:var(--purple)}
 .path-mastery .path-highlights li::before{content:'→';color:var(--mastery-teal)}
+.path-pro .path-highlights li::before{content:'→';color:var(--pro-green)}
 
 .enter-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:10px;font-size:14px;font-weight:700;margin-top:auto;transition:all .2s}
 .btn-fabio{background:rgba(0,188,212,0.12);border:1px solid rgba(0,188,212,0.35);color:var(--teal)}
@@ -69,23 +83,28 @@ a{color:inherit;text-decoration:none}
 .btn-tori:hover{background:rgba(147,51,234,0.22)}
 .btn-mastery{background:rgba(0,212,170,0.12);border:1px solid rgba(0,212,170,0.35);color:var(--mastery-teal)}
 .btn-mastery:hover{background:rgba(0,212,170,0.22)}
+.btn-pro{background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.35);color:var(--pro-green)}
+.btn-pro:hover{background:rgba(0,200,150,0.22)}
 
-.new-badge{display:inline-block;background:linear-gradient(90deg,var(--mastery-teal),var(--gold));color:#0a0e1a;font-size:10px;font-weight:800;letter-spacing:.8px;padding:3px 10px;border-radius:99px;margin-left:8px;vertical-align:middle}
+.new-badge{display:inline-block;background:linear-gradient(90deg,var(--pro-green),var(--pro-gold));color:#060b14;font-size:10px;font-weight:800;letter-spacing:.8px;padding:3px 10px;border-radius:99px;margin-left:8px;vertical-align:middle}
 
+/* Compare section — 2×2 grid */
 .compare-section{margin-top:10px}
 .compare-title{text-align:center;font-size:1.1rem;font-weight:700;margin-bottom:20px;color:var(--dim)}
-.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden}
-@media(max-width:880px){.compare-grid{grid-template-columns:1fr}}
-.compare-col{padding:0}
-.compare-head{padding:14px 18px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.compare-head.fabio-head{background:rgba(0,188,212,0.08);color:var(--teal);border-bottom:1px solid var(--border)}
-.compare-head.tori-head{background:rgba(147,51,234,0.08);color:var(--purple);border-bottom:1px solid var(--border)}
-.compare-head.mastery-head{background:rgba(0,212,170,0.08);color:var(--mastery-teal);border-bottom:1px solid var(--border)}
+.compare-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+@media(max-width:540px){.compare-grid{grid-template-columns:1fr}}
+.compare-col{padding:0;border-bottom:1px solid var(--border)}
+.compare-col:nth-child(n+3){border-bottom:none}
+.compare-col{border-right:1px solid var(--border)}
+.compare-col:nth-child(even){border-right:none}
+@media(max-width:540px){.compare-col,.compare-col:nth-child(even){border-right:none;border-bottom:1px solid var(--border)}.compare-col:last-child{border-bottom:none}}
+.compare-head{padding:14px 18px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border)}
+.compare-head.fabio-head{background:rgba(0,188,212,0.08);color:var(--teal)}
+.compare-head.tori-head{background:rgba(147,51,234,0.08);color:var(--purple)}
+.compare-head.mastery-head{background:rgba(0,212,170,0.08);color:var(--mastery-teal)}
+.compare-head.pro-head{background:rgba(0,200,150,0.08);color:var(--pro-green)}
 .compare-row{padding:10px 18px;font-size:12.5px;border-bottom:1px solid rgba(30,48,80,0.5)}
 .compare-row:last-child{border-bottom:none}
-@media(min-width:881px){
-  .compare-col + .compare-col{border-left:1px solid var(--border)}
-}
 
 .quote-strip{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:50px 0 0;text-align:center}
 .quote-strip p{font-size:1rem;font-style:italic;color:var(--dim);margin-bottom:6px}
@@ -99,7 +118,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;co
 <div class="hero">
   <div class="hero-badge">Choose Your Path</div>
   <h1>Trading Masterclass Hub</h1>
-  <p>Three complete, self-contained trading courses. Pick the methodology that resonates with you — or study all three to build a complete trader's mindset.</p>
+  <p>Four complete, self-contained trading courses. Pick the methodology that resonates — or study all four to build a fully rounded trader's mindset.</p>
 </div>
 
 <div class="container">
@@ -170,7 +189,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;co
 
     <!-- TRADING MASTERY 2026 PATH -->
     <div class="path-card path-mastery">
-      <div class="instructor-tag tag-mastery">🏆 Trading Mastery 2026<span class="new-badge">NEW</span></div>
+      <div class="instructor-tag tag-mastery">🏆 Trading Mastery 2026</div>
       <h2>Stock · Crypto · Forex</h2>
       <p class="subtitle">A complete dual-path curriculum that takes you from absolute beginner to expert. Every lesson has 3 difficulty tiers — read what fits you today, return to deeper levels as you grow.</p>
 
@@ -198,47 +217,91 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;co
       <a class="enter-btn btn-mastery" href="trading-course.html">Enter Trading Mastery 2026 →</a>
     </div>
 
+    <!-- TRADING MASTERY PRO PATH -->
+    <div class="path-card path-pro">
+      <div class="instructor-tag tag-pro">🎓 Technical Analysis Pro<span class="new-badge">NEW</span></div>
+      <h2>TA Mastery — Forex · Crypto · Stocks</h2>
+      <p class="subtitle">A structured deep-dive into technical analysis: market structure, order blocks, liquidity sweeps, risk management, and trading psychology. 30+ lessons, 3 difficulty levels each.</p>
+
+      <div class="path-stats">
+        <div class="path-stat pro-stat"><div class="path-stat-num">30+</div><div class="path-stat-lbl">Lessons</div></div>
+        <div class="path-stat pro-stat"><div class="path-stat-num">6</div><div class="path-stat-lbl">Sections</div></div>
+        <div class="path-stat pro-stat"><div class="path-stat-num">3 Tier</div><div class="path-stat-lbl">Levels</div></div>
+      </div>
+
+      <div class="path-tags">
+        <span class="ptag">📦 Order Blocks</span>
+        <span class="ptag">💧 Liquidity</span>
+        <span class="ptag">🛡️ Risk Mgmt</span>
+        <span class="ptag">📋 Final Quiz</span>
+      </div>
+
+      <ul class="path-highlights">
+        <li>BOS, CHoCH, supply &amp; demand zones — full framework</li>
+        <li>Order blocks, breaker blocks, liquidity sweeps</li>
+        <li>Position sizing formula with worked XAUUSD examples</li>
+        <li>Pre-trade risk checklist + psychology protocols</li>
+        <li>Live XAUUSD &amp; EURUSD trade walkthroughs + final quiz</li>
+      </ul>
+
+      <a class="enter-btn btn-pro" href="trading-mastery-pro/index.html">Enter Technical Analysis Pro →</a>
+    </div>
+
   </div>
 
+  <!-- COMPARE SECTION -->
   <div class="compare-section">
     <p class="compare-title">Not sure which to pick? Here's a quick comparison</p>
     <div class="compare-grid">
+
       <div class="compare-col">
-        <div class="compare-head fabio-head">⚡ Fabio — Liquidity</div>
+        <div class="compare-head fabio-head">⚡ Fabio — Liquidity &amp; Order Flow</div>
         <div class="compare-row">Best for: Data-driven, tech-focused traders</div>
         <div class="compare-row">Tool: Heat Map + Order Book</div>
         <div class="compare-row">Style: NASDAQ scalping / fast markets</div>
         <div class="compare-row">Pace: Fast — multiple signals per session</div>
         <div class="compare-row">Strength: Seeing where orders actually sit</div>
       </div>
+
       <div class="compare-col">
-        <div class="compare-head tori-head">✨ Tori — Trend Lines</div>
+        <div class="compare-head tori-head">✨ Tori — Trend Line Trading</div>
         <div class="compare-row">Best for: Visual, rule-following traders</div>
         <div class="compare-row">Tool: Ray Tool on any chart</div>
         <div class="compare-row">Style: Stocks, crypto, futures — any market</div>
         <div class="compare-row">Pace: Patient — wait for the right break</div>
         <div class="compare-row">Strength: Simple system you can repeat daily</div>
       </div>
+
       <div class="compare-col">
-        <div class="compare-head mastery-head">🏆 Mastery 2026 — Full Curriculum</div>
+        <div class="compare-head mastery-head">🏆 Trading Mastery 2026</div>
         <div class="compare-row">Best for: New traders + ambitious learners</div>
         <div class="compare-row">Tool: Structured 3-tier knowledge base</div>
         <div class="compare-row">Style: All markets, all timeframes</div>
         <div class="compare-row">Pace: Self-paced — beginner to expert</div>
         <div class="compare-row">Strength: Complete journey in one place</div>
       </div>
+
+      <div class="compare-col">
+        <div class="compare-head pro-head">🎓 Technical Analysis Pro</div>
+        <div class="compare-row">Best for: Traders serious about smart money</div>
+        <div class="compare-row">Tool: Structure, OBs, liquidity, risk system</div>
+        <div class="compare-row">Style: Forex, crypto, stocks — HTF focus</div>
+        <div class="compare-row">Pace: Structured — 6 sections, 30+ lessons</div>
+        <div class="compare-row">Strength: Risk management + live walkthroughs</div>
+      </div>
+
     </div>
   </div>
 
   <div class="quote-strip">
-    <p>"The market rewards patience, discipline, and a repeatable process. All three paths lead there — the question is which system clicks for you."</p>
-    <cite>— Study all three. Apply one. Master it.</cite>
+    <p>"The market rewards patience, discipline, and a repeatable process. All four paths lead there — the question is which system clicks for you."</p>
+    <cite>— Study all four. Apply one. Master it.</cite>
   </div>
 
 </div>
 
 <footer>
-  <p>Trading Masterclass Hub · Fabio's Liquidity &amp; Order Flow · Tori's Trend Line Trading · Trading Mastery 2026</p>
+  <p>Trading Masterclass Hub · Fabio's Liquidity &amp; Order Flow · Tori's Trend Line Trading · Trading Mastery 2026 · Technical Analysis Pro</p>
 </footer>
 
 </body>
